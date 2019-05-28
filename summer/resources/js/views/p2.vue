@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>P@</h1>
+        <h1>Page  2 </h1>
     </div>
 
 </template>
