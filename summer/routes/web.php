@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/p2', function () {
+    return view('p2');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('ddprovinces','ProvinceDropdownController@index')->name('ddprovinces');
