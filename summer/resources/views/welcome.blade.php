@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -45,7 +46,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 80px;
+            }
+
+            .titles {
+                font-size: 30px;
             }
 
             .links > a {
@@ -65,33 +70,36 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+{{--            @if (Route::has('login'))--}}
+{{--                <div class="top-right links">--}}
+{{--                    @auth--}}
+{{--                        <a href="{{ url('/home') }}" class="" style="">Home</a>--}}
+{{--                    @else--}}
+{{--                        <a href="{{ route('login') }}">Login</a>--}}
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+{{--                        @if (Route::has('register'))--}}
+{{--                            <a href="{{ route('register') }}">Register</a>--}}
+{{--                        @endif--}}
+{{--                    @endauth--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Create Questionnaire & Survey<br>
+                    <div class="titles m-b-md">สร้างเเบบสอบ สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยสิ</div>
                 </div>
+                <div class="">
+                    @auth
+                        <a class="btn btn-primary" href="{{ url('/home') }}">Home</a>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary btn-lg">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Register</a>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>
