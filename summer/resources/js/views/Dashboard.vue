@@ -1,63 +1,67 @@
 <template>
     <div>
-        <h1>Dashboard</h1>
+        <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
         <hr>
+        <br/><br/><br/><br/><br/><br/>
 
-        <input v-model="name"/>
-        <select v-model="sex">
-            <option :value="sex.id" v-for="sex in sexes">{{sex.text}}</option>
-        </select>
-        <button class="btn btn-primary btn-lg" v-on:click="alertuser()">GO TO PAGE 2</button>
-        <button class="btn btn-primary btn-lg" v-on:click="loadSex()">Sex</button>
-        <button @click="getUser()">Submit</button>
-    <ul v-if="listUser.length > 0">
-        <li v-for="user in listUser">{{user.name}}-{{user.sex}}</li>
-    </ul>
-    <h1 v-else>
-        No Data
-    </h1>
+        <div class="flex-center position-center">
+
+            <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>
+
+        </div>
+
     </div>
 </template>
-<script>
-    export default {
 
-        data: () => ({
-            name:"",
-            listUser:[
-                {name : "France",sex : "ชาย"}
-            ],
-            sex:"",
-            sexes : null
-        }),
-        created(){
-            this.loadSex();
-        },
-        methods : {
-            getUser() {
-                let name = this.name;
-                let sex = this.sexes[this.sex-1].text;
-
-                this.listUser.push({"name":name,"sex":sex})
-                console.log(this.listUser)
-            },
-
-            alertuser() {
-                this.$router.push({name:"page2"})
-            },
-            async loadSex (){
-                let data =await axios.get('/api/sexes')
-                    .then(function (response) {
-                        console.log(response.data);
-                        return response.data;
-                    })
-                    .catch(function (error) {
-                        console.log(error.data);
-                        return null;
-                    })
-                this.sexes=data;
-            }
-
-
-        }
+<style scoped>
+    html, body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
     }
-</script>
+
+    .full-height {
+        height: 100vh;
+    }
+
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .position-ref {
+        position: relative;
+    }
+
+    .top-right {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 84px;
+    }
+
+    .links > a {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .m-b-md {
+        margin-bottom: 30px;
+    }
+</style>
