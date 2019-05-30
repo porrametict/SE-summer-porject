@@ -18,3 +18,4 @@ Route::middleware('auth:Api')->get('/user', function (Request $request) {
 });
 
 Route::resource('provinces','Api\ProvinceController');
+Route::resource('sexes','Api\SexController');
