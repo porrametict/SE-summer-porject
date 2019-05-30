@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('user_edit') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -85,6 +85,13 @@
                                 <div class="col-md-6">
                                     <select class="form-control sex" name="sex" id="sex">
                                         <option value="">เลือกเพศ</option>
+                                        @foreach($sexes as $sex)
+                                            @if($user->sex->id ==  $sex->id)
+                                            <option value="{{$sex->id}}" selected>{{$sex->text}}</option>
+                                            @else
+                                            <option value="{{$sex->id}}" >{{$sex->text}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -101,6 +108,15 @@
                                 <div class="col-md-6">
                                     <select class="form-control province" name="province" id="province">
                                         <option value="">เลือกจังหวัด</option>
+
+                                        @foreach($provinces as $p)
+                                            @if($user->province->id ==  $p->id)
+                                                <option value="{{$p->id}}" selected>{{$p->name_th}}</option>
+                                            @else
+                                                <option value="{{$p->id}}" >{{$p->name_th}}</option>
+                                            @endif
+                                        @endforeach
+
                                     </select>
                                 </div>
 
@@ -115,7 +131,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Update') }}
                                     </button>
                                 </div>
                             </div>
@@ -137,32 +153,21 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        getDropdownProvince();
-        getDropdownSex();
 
 
     });
 
 
-    function getDropdownProvince() {
-        $.ajax({
-            url: "{{route('ddprovinces')}}",
-            methods: "GET",
-            success: function (result) {
-                $('.province').html(result)
-            }
-        })
-    }
+    {{--function getDropdownProvince() {--}}
+    {{--    $.ajax({--}}
+    {{--        url: "{{route('ddprovinces')}}",--}}
+    {{--        methods: "GET",--}}
+    {{--        success: function (result) {--}}
+    {{--            $('.province').html(result)--}}
+    {{--        }--}}
+    {{--    })--}}
+    {{--}--}}
 
-    function getDropdownSex() {
-        $.ajax({
-            url: "{{route('ddsex')}}",
-            methods: "GET",
-            success: function (result) {
-                $('.sex').html(result)
-            }
-        })
-    }
 
 
 </script>
