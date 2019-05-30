@@ -22,4 +22,7 @@ Route::get('/p2', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user_edit', 'HomeController@edit')->name('user_edit');
+Route::post('/user_edit', 'HomeController@update')->name('user_edit');
 Route::get('ddprovinces','ProvinceDropdownController@index')->name('ddprovinces');
+Route::get('ddsex','SexDropdownController@index')->name('ddsex');

@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('user_edit') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -17,7 +17,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                           value="{{$user->name}}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
+                                           value="{{$user->email}}" required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -44,32 +44,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="b_date"
@@ -78,7 +52,7 @@
                                 <div class="col-md-6">
                                     <input id="b_date" type="date"
                                            class="form-control @error('b_date') is-invalid @enderror" name="b_date"
-                                           value="{{ old('b_date') }}" required autocomplete="b_date" autofocus>
+                                           value="{{ $user->b_date }}" required autocomplete="b_date" autofocus>
 
                                     @error('b_date')
                                     <span class="invalid-feedback" role="alert">
@@ -95,7 +69,7 @@
                                 <div class="col-md-6">
                                     <input id="career" type="text"
                                            class="form-control @error('career') is-invalid @enderror" name="career"
-                                           value="{{ old('career') }}" required autocomplete="career" autofocus>
+                                           value="{{ $user->career }}" required autocomplete="career" autofocus>
 
                                     @error('career')
                                     <span class="invalid-feedback" role="alert">
@@ -111,6 +85,13 @@
                                 <div class="col-md-6">
                                     <select class="form-control sex" name="sex" id="sex">
                                         <option value="">เลือกเพศ</option>
+                                        @foreach($sexes as $sex)
+                                            @if($user->sex->id ==  $sex->id)
+                                            <option value="{{$sex->id}}" selected>{{$sex->text}}</option>
+                                            @else
+                                            <option value="{{$sex->id}}" >{{$sex->text}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -121,12 +102,21 @@
                                 @endif
                             </div>
 
-                            
+
                             <div class=" row form-group{{ $errors->has('province') ? ' has-error' : '' }}">
                                 <label class="col-md-4 col-form-label text-md-right" for="province">Province</label>
                                 <div class="col-md-6">
                                     <select class="form-control province" name="province" id="province">
                                         <option value="">เลือกจังหวัด</option>
+
+                                        @foreach($provinces as $p)
+                                            @if($user->province->id ==  $p->id)
+                                                <option value="{{$p->id}}" selected>{{$p->name_th}}</option>
+                                            @else
+                                                <option value="{{$p->id}}" >{{$p->name_th}}</option>
+                                            @endif
+                                        @endforeach
+
                                     </select>
                                 </div>
 
@@ -141,7 +131,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Update') }}
                                     </button>
                                 </div>
                             </div>
@@ -163,32 +153,21 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        getDropdownProvince();
-        getDropdownSex();
 
 
     });
 
 
-    function getDropdownProvince() {
-        $.ajax({
-            url: "{{route('ddprovinces')}}",
-            methods: "GET",
-            success: function (result) {
-                $('.province').html(result)
-            }
-        })
-    }
+    {{--function getDropdownProvince() {--}}
+    {{--    $.ajax({--}}
+    {{--        url: "{{route('ddprovinces')}}",--}}
+    {{--        methods: "GET",--}}
+    {{--        success: function (result) {--}}
+    {{--            $('.province').html(result)--}}
+    {{--        }--}}
+    {{--    })--}}
+    {{--}--}}
 
-    function getDropdownSex() {
-        $.ajax({
-            url: "{{route('ddsex')}}",
-            methods: "GET",
-            success: function (result) {
-                $('.sex').html(result)
-            }
-        })
-    }
 
 
 </script>
