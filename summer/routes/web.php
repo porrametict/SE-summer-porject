@@ -23,3 +23,4 @@ Route::get('/p2', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('ddprovinces','ProvinceDropdownController@index')->name('ddprovinces');
+Route::get('ddsex','SexDropdownController@index')->name('ddsex');
