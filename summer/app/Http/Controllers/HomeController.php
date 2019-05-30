@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function edit()
+    {
+        return view('auth.edituser')->with('user',auth()->user());
+    }
 }
