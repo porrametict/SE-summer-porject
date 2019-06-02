@@ -1,17 +1,63 @@
+<html>
+
 <template>
-    <div>
-        <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
+    <div class="row">
+        ]
+        <div class="col"><h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง555</h3></div>
+
         <hr>
+<!--        <div class="col">-->
+<!--            <div class="flex-center position-center">-->
+<!--                <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>-->
+<!--            </div>-->
+
+<!--        </div>-->
         <br/><br/><br/><br/><br/><br/>
 
-        <div class="flex-center position-center">
+<!--        <div class="flex-center position-center">-->
+<!--            <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>-->
+<!--        </div>-->
 
-            <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>
-
-        </div>
 
     </div>
 </template>
+
+<!--<body>-->
+<!--<div class="flex-center position-ref full-height">-->
+<!--    @if (Route::has('login'))-->
+<!--    <div class="top-right links">-->
+<!--        @auth-->
+<!--        <a href="{{ url('/home') }}" class="" style="">Home</a>-->
+<!--        @else-->
+<!--        <a href="{{ route('login') }}">Login</a>-->
+
+<!--        @if (Route::has('register'))-->
+<!--        <a href="{{ route('register') }}">Register</a>-->
+<!--        @endif-->
+<!--        @endauth-->
+<!--    </div>-->
+<!--    @endif-->
+
+<!--    <div class="content">-->
+<!--        <div class="title m-b-md">-->
+<!--            Create Questionnaire & Survey<br>-->
+<!--            <div class="titles m-b-md">สร้างเเบบสอบ สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยสิ</div>-->
+<!--        </div>-->
+<!--        <div class="">-->
+<!--            @auth-->
+<!--            <a class="btn btn-primary" href="{{ url('/home') }}">Home</a>-->
+<!--            @else-->
+<!--            <a href="{{ route('login') }}" class="btn btn-outline-primary btn-xls">Login</a>-->
+<!--            &emsp;-->
+<!--            @if (Route::has('register'))-->
+<!--            <a href="{{ route('register') }}" class="btn btn-primary btn-xls">Register</a>-->
+<!--            @endif-->
+<!--            @endauth-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+
 
 <style scoped>
     html, body {
@@ -65,3 +111,4 @@
         margin-bottom: 30px;
     }
 </style>
+</html>
