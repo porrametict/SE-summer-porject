@@ -37819,21 +37819,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "col-md-10" }, [
           _c("h3", [_vm._v("สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "flex-right position-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { type: "button" }
-              },
-              [_vm._v("สร้างแบบสอบถาม")]
-            )
-          ])
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary",
+              attrs: { type: "button" }
+            },
+            [_vm._v("สร้างแบบสอบถาม")]
+          )
         ])
       ]),
       _vm._v(" "),

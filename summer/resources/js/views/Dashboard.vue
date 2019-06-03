@@ -1,17 +1,14 @@
 <template>
     <div>
         <div class="row">
-            <div class="col"><h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3></div>
-            <div class="col">
-                <div class="flex-right position-right">
-
-                    <button type="button" class="btn btn-outline-primary">สร้างแบบสอบถาม</button>
-
-                </div>
+            <div class="col-md-10">
+                <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
             </div>
-
-
+            <div class="col-md-2">
+                <button type="button" class="btn btn-outline-primary">สร้างแบบสอบถาม</button>
+            </div>
         </div>
+
         <hr>
         <br/><br/><br/><br/><br/><br/>
 
@@ -21,8 +18,13 @@
 
         </div>
 
+
+
+
     </div>
 </template>
+
+
 
 <style scoped>
     html, body {
