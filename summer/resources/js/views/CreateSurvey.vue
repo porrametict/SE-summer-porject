@@ -1,10 +1,22 @@
 <template>
-    <div>123456789</div>
+    <div align="right">
+        <button class="btn btn-outline-info btn-lg">Create</button>
+    </div>
 </template>
-
 <script>
     export default {
-        name: "CreateSurvey"
+        name: "CreateSurvey",
+        data : () => ({
+            form : {
+                hSurvey : "",
+                questions : [],
+            },
+            questions: [],
+            question:{
+                no : 1,
+                text : ""
+            }
+        })
     }
 </script>
 

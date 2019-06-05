@@ -1887,8 +1887,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "CreateSurvey"
+  name: "CreateSurvey",
+  data: function data() {
+    return {
+      form: {
+        hSurvey: "",
+        questions: []
+      },
+      questions: [],
+      question: {
+        no: 1,
+        text: ""
+      }
+    };
+  }
 });
 
 /***/ }),
@@ -37865,9 +37879,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("123456789")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { align: "right" } }, [
+      _c("button", { staticClass: "btn btn-outline-info btn-lg" }, [
+        _vm._v("Create")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -53120,8 +53145,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
