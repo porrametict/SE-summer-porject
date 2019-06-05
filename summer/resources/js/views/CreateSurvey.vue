@@ -16,9 +16,10 @@
             </div>
         </div>
 
-        <div v-for="q in nm">
+        <div v-for="(q,index) in nm">
         <div class="row">
-            <div class="col-12">
+            <div class="col-1">{{index}}</div>
+            <div class="col-11">
                 <div class="d-flex mt-2">
                     <input type="text" class="form-control">
                     <button class="btn btn-danger mx-2">x</button>
@@ -27,7 +28,7 @@
         </div>
         </div>
             <div class="col-12 mt-3">
-                <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
+                {{index}}<button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
             </div>
 
 
