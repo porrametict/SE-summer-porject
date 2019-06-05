@@ -27,7 +27,7 @@
         </div>
         </div>
             <div class="col-12 mt-3">
-                <button class="btn btn-primary float-right">เพิ่มรายการ</button>
+                <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
             </div>
 
 
@@ -44,7 +44,7 @@
     export default {
         name: "CreateSurvey",
         data: () => ({
-            nm : 3 ,
+            nm : 1 ,
             form: {
                 hSurvey: "",
                 questions: [],
@@ -57,7 +57,7 @@
         }),
         methods: {
             addtext() {
-
+                this.nm = this.nm + 1
             }
         }
     }
