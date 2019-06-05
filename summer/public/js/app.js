@@ -1973,6 +1973,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     gotoCreateSurvey: function gotoCreateSurvey() {
@@ -38030,6 +38038,14 @@ var render = function() {
     _c("h4", [_vm._v("สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง")]),
     _vm._v(" "),
     _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("img", {
+        staticClass: "img-thumbnail",
+        attrs: { src: "plus.jpg", alt: "Loading" },
+        on: { click: _vm.gotoCreateSurvey }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "flex-center position-ref mt-5" }, [
       _c(

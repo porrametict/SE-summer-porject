@@ -2,6 +2,14 @@
     <div clss="col-md-12 mt-5">
         <h4>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h4>
         <hr>
+
+
+        <div class="col-md-12 mt-5">
+            <img src="plus.jpg" alt="Loading" @click="gotoCreateSurvey" class="img-thumbnail">
+
+        </div>
+
+
         <div class="flex-center position-ref mt-5">
             <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
         </div>
@@ -14,9 +22,9 @@
 
 <script>
     export default {
-        methods:{
-            gotoCreateSurvey(){
-                this.$router.push({name:"CreateSurvey"})
+        methods: {
+            gotoCreateSurvey() {
+                this.$router.push({name: "CreateSurvey"})
             }
         }
     }
