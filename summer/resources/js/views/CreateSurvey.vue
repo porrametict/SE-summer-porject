@@ -26,9 +26,10 @@
             </div>
         </div>
         </div>
-            <div class="col-12 mt-3">
+
+        <div class="col-12 mt-3">
                 <button class="btn btn-primary float-right">เพิ่มรายการ</button>
-            </div>
+        </div>
 
 
         <div class="mt-5">
