@@ -18,9 +18,9 @@
 
         <div v-for="(q,index) in nm">
         <div class="row">
-            <div class="col-1">{{index}}</div>
             <div class="col-11">
-                <div class="d-flex mt-2">
+                <div class="d-flex mt-2 col-11">
+                    <div class="col-1">{{index}}</div>
                     <input type="text" class="form-control">
                     <button class="btn btn-danger mx-2">x</button>
                 </div>
