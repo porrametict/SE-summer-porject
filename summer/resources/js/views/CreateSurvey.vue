@@ -5,10 +5,13 @@
                 <h3>หัวข้อแบบสอบถาม &nbsp; &nbsp;:</h3>
             </div>
             <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน">
+                <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg" placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน">
             </div>
         </div>
-
+        <br/><br/><br/>
+        <div>
+            <h3>รายงานแบบสอบถาม</h3>
+        </div>
 
     <hr>
 
