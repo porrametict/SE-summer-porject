@@ -16,19 +16,19 @@
             </div>
         </div>
 
-
+        <div v-for="q in nm">
         <div class="row">
             <div class="col-12">
-                <div class="d-flex">
+                <div class="d-flex mt-2">
                     <input type="text" class="form-control">
                     <button class="btn btn-danger mx-2">x</button>
                 </div>
             </div>
+        </div>
+        </div>
             <div class="col-12 mt-3">
                 <button class="btn btn-primary float-right">เพิ่มรายการ</button>
             </div>
-        </div>
-
 
 
         <div class="mt-5">
@@ -37,7 +37,6 @@
             </div>
         </div>
 
-
     </div>
 </template>
 
@@ -45,6 +44,7 @@
     export default {
         name: "CreateSurvey",
         data: () => ({
+            nm : 3 ,
             form: {
                 hSurvey: "",
                 questions: [],

@@ -1925,11 +1925,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateSurvey",
   data: function data() {
     return {
+      nm: 3,
       form: {
         hSurvey: "",
         questions: []
@@ -37920,61 +37920,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.nm, function(q) {
+        return _c("div", [_vm._m(1, true)])
+      }),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3)
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("h3", [_vm._v("หัวข้อแบบสอบถาม    :")])
-        ]),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("h3", [_vm._v("หัวข้อแบบสอบถาม    :")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("input", {
+          staticClass:
+            "form-control form-control-lg btn-outline-primary btn-lg",
+          attrs: {
+            type: "text",
+            placeholder: "กรุณากรอกหัวข้อแบบสอบถามของท่าน"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 mt-5" }, [
+        _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-9" }, [
-          _c("input", {
-            staticClass:
-              "form-control form-control-lg btn-outline-primary btn-lg",
-            attrs: {
-              type: "text",
-              placeholder: "กรุณากรอกหัวข้อแบบสอบถามของท่าน"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 mt-5" }, [
-          _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
+        _c("hr")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "d-flex mt-2" }, [
+          _c("input", { staticClass: "form-control", attrs: { type: "text" } }),
           _vm._v(" "),
-          _c("hr")
+          _c("button", { staticClass: "btn btn-danger mx-2" }, [_vm._v("x")])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", { staticClass: "d-flex" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            }),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-danger mx-2" }, [_vm._v("x")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 mt-3" }, [
-          _c("button", { staticClass: "btn btn-primary float-right" }, [
-            _vm._v("เพิ่มรายการ")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-5" }, [
-        _c("div", { attrs: { align: "right" } }, [
-          _c("button", { staticClass: "btn btn-outline-info btn-lg" }, [
-            _vm._v("Create")
-          ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mt-3" }, [
+      _c("button", { staticClass: "btn btn-primary float-right" }, [
+        _vm._v("เพิ่มรายการ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-5" }, [
+      _c("div", { attrs: { align: "right" } }, [
+        _c("button", { staticClass: "btn btn-outline-info btn-lg" }, [
+          _vm._v("Create")
         ])
       ])
     ])
