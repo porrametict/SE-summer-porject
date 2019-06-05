@@ -6,12 +6,24 @@
 
         <div class="flex-center position-center">
 
-            <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>
+            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
 
         </div>
 
     </div>
 </template>
+
+<script>
+    export default {
+        methods:{
+            gotoCreateSurvey(){
+                this.$router.push({name:"CreateSurvey"})
+            }
+        }
+    }
+
+</script>
+
 
 <style scoped>
     html, body {
