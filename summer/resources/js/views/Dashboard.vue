@@ -1,29 +1,28 @@
 <template>
     <div>
-        <div class="row">
-            <div class="col-md-10">
-                <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-outline-primary">สร้างแบบสอบถาม</button>
-            </div>
-        </div>
-
+        <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
         <hr>
         <br/><br/><br/><br/><br/><br/>
 
         <div class="flex-center position-center">
 
-            <button type="button" class="btn btn-primary btn-lg">สร้างแบบสอบถาม</button>
+            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
 
         </div>
-
-
-
 
     </div>
 </template>
 
+<script>
+    export default {
+        methods:{
+            gotoCreateSurvey(){
+                this.$router.push({name:"CreateSurvey"})
+            }
+        }
+    }
+
+</script>
 
 
 <style scoped>

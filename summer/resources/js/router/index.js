@@ -2,6 +2,7 @@ import Vue from 'vue'
 import  VueRouter from 'vue-router'
 
 import Dashboard from '../views/Dashboard'
+import CreateSurvey from '../views/CreateSurvey'
 
 
 
@@ -12,6 +13,11 @@ const  router = new VueRouter ({
             path : '/',
             name : "dashboard",
             component :Dashboard
+        },
+        {
+            path : '/Create-survey',
+            name : "CreateSurvey",
+            component :CreateSurvey
         },
 
     ]
