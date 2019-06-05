@@ -1929,7 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "CreateSurvey",
   data: function data() {
     return {
-      nm: 3,
+      nm: 1,
       form: {
         hSurvey: "",
         questions: []
@@ -1942,7 +1942,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    addtext: function addtext() {}
+    addtext: function addtext() {
+      this.nm = this.nm + 1;
+    }
   }
 });
 
@@ -37929,9 +37931,18 @@ var render = function() {
         return _c("div", [_vm._m(1, true)])
       }),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "col-12 mt-3" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary float-right",
+            on: { click: _vm.addtext }
+          },
+          [_vm._v("เพิ่มรายการ")]
+        )
+      ]),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(2)
     ],
     2
   )
@@ -37975,16 +37986,6 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("button", { staticClass: "btn btn-danger mx-2" }, [_vm._v("x")])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 mt-3" }, [
-      _c("button", { staticClass: "btn btn-primary float-right" }, [
-        _vm._v("เพิ่มรายการ")
       ])
     ])
   },
