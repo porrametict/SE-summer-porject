@@ -23,20 +23,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-3">
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
 
-        <div>
-            <ul>
-                <li v-for="q in questions ">{{q}}</li>
-            </ul>
-        </div>
-
-        {{form.hSurvey}}
-        <div class="col-12 mt-5">
+<!--        <div>-->
+<!--            <ul>-->
+<!--                <li v-for="q in questions ">{{q}}</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!---->
+<!--{{form.hSurvey}}-->
+        <div class="mt-5">
             <div align="right">
-                <button class="btn btn-outline-info btn-lg">Create</button>
+                <button class="btn btn-outline-info btn-lg" @click="save">Create</button>
             </div>
         </div>
 
@@ -61,8 +61,8 @@
                 this.questions.push({no: 0, text: ""})
             },
             save() {
-                let data = "cat"
-                console.log("DaTa" ,data)
+                this.form.questions = this.questions
+                console.log(this.form)
             }
         }
     }

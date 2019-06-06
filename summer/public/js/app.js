@@ -1950,8 +1950,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     save: function save() {
-      var data = "cat";
-      console.log("DaTa", data);
+      this.form.questions = this.questions;
+      console.log(this.form);
     }
   }
 });
@@ -38032,7 +38032,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-5" }, [
+      _c("div", { staticClass: "col-12 mt-3" }, [
         _c(
           "button",
           {
@@ -38043,17 +38043,18 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "ul",
-          _vm._l(_vm.questions, function(q) {
-            return _c("li", [_vm._v(_vm._s(q))])
-          }),
-          0
-        )
-      ]),
-      _vm._v("\n\n    " + _vm._s(_vm.form.hSurvey) + "\n    "),
-      _vm._m(2)
+      _c("div", { staticClass: "mt-5" }, [
+        _c("div", { attrs: { align: "right" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-info btn-lg",
+              on: { click: _vm.save }
+            },
+            [_vm._v("Create")]
+          )
+        ])
+      ])
     ],
     2
   )
@@ -38075,18 +38076,6 @@ var staticRenderFns = [
       _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
       _vm._v(" "),
       _c("hr")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 mt-5" }, [
-      _c("div", { attrs: { align: "right" } }, [
-        _c("button", { staticClass: "btn btn-outline-info btn-lg" }, [
-          _vm._v("Create")
-        ])
-      ])
     ])
   }
 ]
@@ -53465,8 +53454,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
