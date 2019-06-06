@@ -12,6 +12,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Styles -->
+
     <style>
         html, body {
             background-color: #fff;
@@ -101,7 +102,7 @@
     <div class="content">
         <div class="title m-b-md">
             Create Questionnaire & Survey<br>
-            <div class="titles m-b-md">สร้างเเบบสอบ สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยสิ</div>
+            <div class="titles m-b-md">สร้างเเบบสอบ สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยส7ิ</div>
         </div>
         <div class="">
             @auth
