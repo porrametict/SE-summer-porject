@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-3">
+        <div class="col-12 mt-5">
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
 
@@ -33,8 +33,8 @@
             </ul>
         </div>
 
-{{form.hSurvey}}
-        <div class="mt-5">
+        {{form.hSurvey}}
+        <div class="col-12 mt-5">
             <div align="right">
                 <button class="btn btn-outline-info btn-lg">Create</button>
             </div>
@@ -59,6 +59,10 @@
         methods: {
             addtext() {
                 this.questions.push({no: 0, text: ""})
+            },
+            save() {
+                let data = "cat"
+                console.log("DaTa" ,data)
             }
         }
     }

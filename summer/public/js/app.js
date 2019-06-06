@@ -1928,8 +1928,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateSurvey",
   data: function data() {
@@ -1950,6 +1948,10 @@ __webpack_require__.r(__webpack_exports__);
         no: 0,
         text: ""
       });
+    },
+    save: function save() {
+      var data = "cat";
+      console.log("DaTa", data);
     }
   }
 });
@@ -37998,47 +38000,39 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.questions, function(q, index) {
         return _c("div", [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-11" }, [
-              _c("div", { staticClass: "d-flex mt-2 col-11" }, [
-                _c("div", { staticClass: "col-1" }, [_vm._v(_vm._s(index))]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.questions[index].text,
-                      expression: "questions[index].text"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.questions[index].text },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.questions[index],
-                        "text",
-                        $event.target.value
-                      )
-                    }
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "d-flex mt-2 col-12" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.questions[index].text,
+                    expression: "questions[index].text"
                   }
-                }),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-danger mx-2" }, [
-                  _vm._v("x")
-                ])
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.questions[index].text },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.questions[index], "text", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger mx-2" }, [
+                _vm._v("x")
               ])
             ])
           ])
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-3" }, [
+      _c("div", { staticClass: "col-12 mt-5" }, [
         _c(
           "button",
           {
@@ -38058,7 +38052,7 @@ var render = function() {
           0
         )
       ]),
-      _vm._v("\n\n" + _vm._s(_vm.form.hSurvey) + "\n        "),
+      _vm._v("\n\n    " + _vm._s(_vm.form.hSurvey) + "\n    "),
       _vm._m(2)
     ],
     2
@@ -38087,7 +38081,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-5" }, [
+    return _c("div", { staticClass: "col-12 mt-5" }, [
       _c("div", { attrs: { align: "right" } }, [
         _c("button", { staticClass: "btn btn-outline-info btn-lg" }, [
           _vm._v("Create")
@@ -53471,8 +53465,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
