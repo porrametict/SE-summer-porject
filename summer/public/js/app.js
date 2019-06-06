@@ -1974,6 +1974,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     gotoCreateSurvey: function gotoCreateSurvey() {
@@ -6443,7 +6450,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 10px;\n    top: 18px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n", ""]);
+exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n", ""]);
 
 // exports
 
@@ -37907,10 +37914,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515& ***!
+  \**********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37927,11 +37934,29 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.nm, function(q) {
-        return _c("div", [_vm._m(1, true)])
+      _vm._l(_vm.nm, function(q, index) {
+        return _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-11" }, [
+              _c("div", { staticClass: "d-flex mt-2 col-11" }, [
+                _c("div", { staticClass: "col-1" }, [_vm._v(_vm._s(index))]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text" }
+                }),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger mx-2" }, [
+                  _vm._v("x")
+                ])
+              ])
+            ])
+          ])
+        ])
       }),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 mt-3" }, [
+        _vm._v("\n        " + _vm._s(_vm.index) + "\n        "),
         _c(
           "button",
           {
@@ -37942,7 +37967,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ],
     2
   )
@@ -37972,20 +37997,6 @@ var staticRenderFns = [
         _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
         _vm._v(" "),
         _c("hr")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "d-flex mt-2" }, [
-          _c("input", { staticClass: "form-control", attrs: { type: "text" } }),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-danger mx-2" }, [_vm._v("x")])
-        ])
       ])
     ])
   },
@@ -38023,19 +38034,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h3", [_vm._v("สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง")]),
+  return _c("div", { attrs: { clss: "col-md-12 mt-5" } }, [
+    _c("h4", [_vm._v("สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง")]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
+    _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("img", {
+        staticClass: "img-thumbnail",
+        attrs: { src: "plus.jpg", alt: "Loading" },
+        on: { click: _vm.gotoCreateSurvey }
+      })
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "flex-center position-center" }, [
+    _c("div", { staticClass: "flex-center position-ref mt-5" }, [
       _c(
         "button",
         {
@@ -38044,6 +38056,18 @@ var render = function() {
           on: { click: _vm.gotoCreateSurvey }
         },
         [_vm._v("สร้างแบบสอบถาม")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "top-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-primary",
+          attrs: { type: "button" },
+          on: { click: _vm.gotoCreateSurvey }
+        },
+        [_vm._v("Create Your Survey")]
       )
     ])
   ])
@@ -53089,7 +53113,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true& */ "./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true&");
+/* harmony import */ var _CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateSurvey.vue?vue&type=template&id=5019c515& */ "./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&");
 /* harmony import */ var _CreateSurvey_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateSurvey.vue?vue&type=script&lang=js& */ "./resources/js/views/CreateSurvey.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -53101,11 +53125,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _CreateSurvey_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "5019c515",
+  null,
   null
   
 )
@@ -53131,19 +53155,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515& ***!
+  \****************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateSurvey.vue?vue&type=template&id=5019c515& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/CreateSurvey.vue?vue&type=template&id=5019c515&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateSurvey_vue_vue_type_template_id_5019c515___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

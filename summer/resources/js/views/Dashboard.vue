@@ -1,23 +1,30 @@
 <template>
-    <div>
-        <h3>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h3>
+    <div clss="col-md-12 mt-5">
+        <h4>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h4>
         <hr>
-        <br/><br/><br/><br/><br/><br/>
 
-        <div class="flex-center position-center">
 
-            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
+        <div class="col-md-12 mt-5">
+            <img src="plus.jpg" alt="Loading" @click="gotoCreateSurvey" class="img-thumbnail">
 
         </div>
 
+
+        <div class="flex-center position-ref mt-5">
+            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
+        </div>
+
+        <div class="top-right">
+            <button type="button" class="btn btn-outline-primary" @click="gotoCreateSurvey">Create Your Survey</button>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        methods:{
-            gotoCreateSurvey(){
-                this.$router.push({name:"CreateSurvey"})
+        methods: {
+            gotoCreateSurvey() {
+                this.$router.push({name: "CreateSurvey"})
             }
         }
     }
@@ -51,8 +58,8 @@
 
     .top-right {
         position: absolute;
-        right: 10px;
-        top: 18px;
+        right: 400px;
+        top: 70px;
     }
 
     .content {
