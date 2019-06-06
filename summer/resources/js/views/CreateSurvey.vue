@@ -14,12 +14,12 @@
             </div>
         </div>
 
-        <div v-for="(q,index) in nm">
+        <div v-for="(q,index) in questions">
             <div class="row">
                 <div class="col-11">
                     <div class="d-flex mt-2 col-11">
                         <div class="col-1">{{index}}</div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" v-model="questions[index].text">
                         <button class="btn btn-danger mx-2">x</button>
                     </div>
                 </div>
@@ -28,6 +28,12 @@
         <div class="col-12 mt-3">
             {{index}}
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
+        </div>
+
+        <div>
+            <ul>
+                <li v-for="q in questions ">{{q}}</li>
+            </ul>
         </div>
 
 
@@ -44,20 +50,18 @@
     export default {
         name: "CreateSurvey",
         data: () => ({
-            nm: 1,
             form: {
                 hSurvey: "",
                 questions: [],
             },
-            questions: [],
-            question: {
-                no: 1,
-                text: ""
-            }
+            questions: [
+                 {no: 0, text: ""}
+            ],
+
         }),
         methods: {
             addtext() {
-                this.nm = this.nm + 1
+                this.questions.push({no: 0, text: ""})
             }
         }
     }
