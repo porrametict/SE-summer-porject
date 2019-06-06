@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-9">
                 <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg"
-                       placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน">
+                       placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน" v-model="form.hSurvey">
             </div>
             <div class="col-12 mt-5">
                 <h3>รายงานแบบสอบถาม</h3>
@@ -14,23 +14,26 @@
             </div>
         </div>
 
-        <div v-for="(q,index) in nm">
-            <div class="row">
-                <div class="col-11">
-                    <div class="d-flex mt-2 col-11">
-                        <div class="col-1">{{index}}</div>
-                        <input type="text" class="form-control">
-                        <button class="btn btn-danger mx-2">x</button>
-                    </div>
+        <div v-for="(q,index) in questions">
+            <div class="col-12">
+                <div class="d-flex mt-2 col-12">
+                    <!--<div class="col-1">{{index}}</div>-->
+                    <input type="text" class="form-control" v-model="questions[index].text">
+                    <button class="btn btn-danger mx-2">x</button>
                 </div>
             </div>
         </div>
         <div class="col-12 mt-3">
-            {{index}}
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
 
+        <div>
+            <ul>
+                <li v-for="q in questions ">{{q}}</li>
+            </ul>
+        </div>
 
+{{form.hSurvey}}
         <div class="mt-5">
             <div align="right">
                 <button class="btn btn-outline-info btn-lg">Create</button>
@@ -44,20 +47,18 @@
     export default {
         name: "CreateSurvey",
         data: () => ({
-            nm: 1,
             form: {
                 hSurvey: "",
                 questions: [],
             },
-            questions: [],
-            question: {
-                no: 1,
-                text: ""
-            }
+            questions: [
+                {no: 0, text: ""}
+            ],
+
         }),
         methods: {
             addtext() {
-                this.nm = this.nm + 1
+                this.questions.push({no: 0, text: ""})
             }
         }
     }
