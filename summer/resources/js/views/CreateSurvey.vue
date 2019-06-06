@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-9">
                 <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg"
-                       placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน">
+                       placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน" v-model="form.hSurvey">
             </div>
             <div class="col-12 mt-5">
                 <h3>รายงานแบบสอบถาม</h3>
@@ -24,7 +24,6 @@
             </div>
         </div>
         <div class="col-12 mt-3">
-            {{index}}
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
 
@@ -34,7 +33,7 @@
             </ul>
         </div>
 
-
+{{form.hSurvey}}
         <div class="mt-5">
             <div align="right">
                 <button class="btn btn-outline-info btn-lg">Create</button>

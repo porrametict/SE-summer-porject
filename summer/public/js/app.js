@@ -1929,6 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateSurvey",
   data: function data() {
@@ -37961,36 +37962,76 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-9" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.hSurvey,
+                expression: "form.hSurvey"
+              }
+            ],
+            staticClass:
+              "form-control form-control-lg btn-outline-primary btn-lg",
+            attrs: {
+              type: "text",
+              placeholder: "กรุณากรอกหัวข้อแบบสอบถามของท่าน"
+            },
+            domProps: { value: _vm.form.hSurvey },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "hSurvey", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
       _vm._v(" "),
       _vm._l(_vm.questions, function(q, index) {
         return _c("div", [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "d-flex mt-2 col-12" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.questions[index].text,
-                    expression: "questions[index].text"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.questions[index].text },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-11" }, [
+              _c("div", { staticClass: "d-flex mt-2 col-11" }, [
+                _c("div", { staticClass: "col-1" }, [_vm._v(_vm._s(index))]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.questions[index].text,
+                      expression: "questions[index].text"
                     }
-                    _vm.$set(_vm.questions[index], "text", $event.target.value)
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.questions[index].text },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.questions[index],
+                        "text",
+                        $event.target.value
+                      )
+                    }
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-danger mx-2" }, [
-                _vm._v("x")
+                }),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger mx-2" }, [
+                  _vm._v("x")
+                ])
               ])
             ])
           ])
@@ -37998,7 +38039,6 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 mt-3" }, [
-        _vm._v("\n        " + _vm._s(_vm.index) + "\n        "),
         _c(
           "button",
           {
@@ -38018,8 +38058,8 @@ var render = function() {
           0
         )
       ]),
-      _vm._v(" "),
-      _vm._m(1)
+      _vm._v("\n\n" + _vm._s(_vm.form.hSurvey) + "\n        "),
+      _vm._m(2)
     ],
     2
   )
@@ -38029,27 +38069,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("h3", [_vm._v("หัวข้อแบบสอบถาม    :")])
-      ]),
+    return _c("div", { staticClass: "col-md-3" }, [
+      _c("h3", [_vm._v("หัวข้อแบบสอบถาม    :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mt-5" }, [
+      _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-9" }, [
-        _c("input", {
-          staticClass:
-            "form-control form-control-lg btn-outline-primary btn-lg",
-          attrs: {
-            type: "text",
-            placeholder: "กรุณากรอกหัวข้อแบบสอบถามของท่าน"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-5" }, [
-        _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
-        _vm._v(" "),
-        _c("hr")
-      ])
+      _c("hr")
     ])
   },
   function() {
