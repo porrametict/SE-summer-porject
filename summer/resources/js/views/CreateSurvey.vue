@@ -15,13 +15,11 @@
         </div>
 
         <div v-for="(q,index) in questions">
-            <div class="row">
-                <div class="col-11">
-                    <div class="d-flex mt-2 col-11">
-                        <div class="col-1">{{index}}</div>
-                        <input type="text" class="form-control" v-model="questions[index].text">
-                        <button class="btn btn-danger mx-2">x</button>
-                    </div>
+            <div class="col-12">
+                <div class="d-flex mt-2 col-12">
+                    <!--<div class="col-1">{{index}}</div>-->
+                    <input type="text" class="form-control" v-model="questions[index].text">
+                    <button class="btn btn-danger mx-2">x</button>
                 </div>
             </div>
         </div>
@@ -55,7 +53,7 @@
                 questions: [],
             },
             questions: [
-                 {no: 0, text: ""}
+                {no: 0, text: ""}
             ],
 
         }),
