@@ -1981,6 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -38096,11 +38097,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "col-12" },
     [
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-9" }, [
+        _c("div", { staticClass: "col-md-8 mt-2" }, [
           _c("input", {
             directives: [
               {
@@ -38114,7 +38116,7 @@ var render = function() {
               "form-control form-control-lg btn-outline-primary btn-lg",
             attrs: {
               type: "text",
-              placeholder: "กรุณากรอกหัวข้อแบบสอบถามของท่าน"
+              placeholder: "กรุณากรอกหัวข้อแบบสำรวจของท่าน"
             },
             domProps: { value: _vm.form.hSurvey },
             on: {
@@ -38126,15 +38128,17 @@ var render = function() {
               }
             }
           })
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
+        ])
       ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _vm._l(_vm.questions, function(q, index) {
         return _c("div", [
           _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "d-flex mt-2 col-12" }, [
+            _c("div", { staticClass: "d-flex mt-4 col-12" }, [
               _c("input", {
                 directives: [
                   {
@@ -38174,7 +38178,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-3" }, [
+      _c("div", { staticClass: "col-12 mt-5" }, [
         _c(
           "button",
           {
@@ -38185,7 +38189,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-5" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 mt-5" }, [
         _c("div", { attrs: { align: "right" } }, [
           _c(
             "button",
@@ -38225,8 +38231,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3" }, [
-      _c("h3", [_vm._v("หัวข้อแบบสอบถาม    :")])
+    return _c("div", { staticClass: "col-md-4 mt-3" }, [
+      _c("h3", [_vm._v("หัวข้อแบบสำรวจความพึงพอใจ   :")])
     ])
   },
   function() {
@@ -38234,9 +38240,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-5" }, [
-      _c("h3", [_vm._v("รายงานแบบสอบถาม")]),
-      _vm._v(" "),
-      _c("hr")
+      _c("h3", [_vm._v("แบบสำรวจความพึงพอใจ")])
     ])
   }
 ]
