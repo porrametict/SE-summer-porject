@@ -1,6 +1,6 @@
 <template>
     <div clss="col-md-12 mt-5">
-        <h4>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h4>
+        <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
         <hr>
 
 
@@ -11,7 +11,7 @@
 
 
         <div class="flex-center position-ref mt-5">
-            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
+            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจความพึงพอใจ</button>
         </div>
 
         <div class="top-right">

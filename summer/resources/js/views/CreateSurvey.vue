@@ -2,14 +2,14 @@
     <div>
         <div class="row">
             <div class="col-md-3">
-                <h3>หัวข้อแบบสอบถาม &nbsp; &nbsp;:</h3>
+                <h3>หัวข้อแบบสำรวจ &nbsp; &nbsp;:</h3>
             </div>
             <div class="col-md-9">
                 <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg"
-                       placeholder="กรุณากรอกหัวข้อแบบสอบถามของท่าน" v-model="form.hSurvey">
+                       placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" v-model="form.hSurvey">
             </div>
             <div class="col-12 mt-5">
-                <h3>รายงานแบบสอบถาม</h3>
+                <h3>รายการแบบสำรวจความพึงพอใจ</h3>
                 <hr>
             </div>
         </div>
