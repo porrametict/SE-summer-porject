@@ -2056,6 +2056,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     gotoCreateSurvey: function gotoCreateSurvey() {
@@ -38260,45 +38261,50 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { clss: "col-md-12 mt-5" } }, [
-    _c("h4", [_vm._v("สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง")]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-md-12 mt-5" }, [
-      _c("img", {
-        staticClass: "img-thumbnail",
-        attrs: { src: "plus.jpg", alt: "Loading" },
-        on: { click: _vm.gotoCreateSurvey }
-      })
+  return _c("div", [
+    _c("div", { attrs: { clss: "col-md-12" } }, [
+      _c("h4", [_vm._v("สร้างแบบสำรวจง่ายๆด้วยตัวคุณเอง")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex-center position-ref mt-5" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg",
+            attrs: { type: "button" },
+            on: { click: _vm.gotoCreateSurvey }
+          },
+          [_vm._v("สร้างแบบสำรวจ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "top-right" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-primary",
+            attrs: { type: "button" },
+            on: { click: _vm.gotoCreateSurvey }
+          },
+          [_vm._v("Create Your Survey\n            ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("hr")
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "flex-center position-ref mt-5" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-lg",
-          attrs: { type: "button" },
-          on: { click: _vm.gotoCreateSurvey }
-        },
-        [_vm._v("สร้างแบบสอบถาม")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "top-right" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-primary",
-          attrs: { type: "button" },
-          on: { click: _vm.gotoCreateSurvey }
-        },
-        [_vm._v("Create Your Survey")]
-      )
-    ])
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { clss: "col-md-12" } }, [
+      _c("h4", [_vm._v("แบบสำรวจล่าสุด")])
+    ])
+  }
+]
 render._withStripped = true
 
 
