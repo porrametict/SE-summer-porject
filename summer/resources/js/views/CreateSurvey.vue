@@ -21,7 +21,7 @@
                 <div class="d-flex mt-4 col-12">
                     <!--<div class="col-1">{{index}}</div>-->
                     <input type="text" class="form-control" v-model="questions[index].text">
-                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)">x</button>
+                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)" v-if="!(questions.length == 1) ">x</button>
                 </div>
             </div>
         </div>
@@ -38,11 +38,8 @@
             </div>
         </div>
 
-        <hr>
-        <div id="testComponent">
-            <select-sex @change="sexID = $event" v-bind:sexID="1"></select-sex>
-            {{sexID}}
-        </div>
+
+
 
 
     </div>
@@ -82,10 +79,12 @@
                 this.questions = this.arrayRemove(this.questions, this.questions[index])
                 console.log(this.questions)
 
+
             },
-            arrayRemove(arr, value) {
+            arrayRemove(arr, id) {
                 return arr.filter(function (ele) {
-                    return ele != value
+
+                    return ele != id
                 });
 
             }
