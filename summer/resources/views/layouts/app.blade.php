@@ -9,13 +9,15 @@
 
     <title>{{ config('app.name', 'BigSurvey') }}</title>
 
-    <meta name="user-id" content="{{ Auth::user()->id }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+    @guest
+    @else
+    <meta name="user-id" content="{{ Auth::user()->id }}">
+    @endguest
 
 
     <!-- Fonts -->

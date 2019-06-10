@@ -133,8 +133,8 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update') }}
                                     </button>
-                                    <button  class="btn btn-primary">
-                                        {{ __('Cancel') }}
+                                    <button type="reset" class="btn btn-warning">
+                                        {{ __('Reset') }}
                                     </button>
                                 </div>
                             </div>
