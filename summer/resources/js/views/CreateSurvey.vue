@@ -26,7 +26,6 @@
             </div>
         </div>
 
-
         <div class="col-12 mt-5">
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
@@ -64,6 +63,7 @@
                 {no: 0, text: ""}
             ],
 
+
         }),
         methods: {
 
@@ -78,7 +78,6 @@
             removeQuestion(index) {
                 this.questions = this.arrayRemove(this.questions, this.questions[index])
                 console.log(this.questions)
-
 
             },
             arrayRemove(arr, id) {

@@ -21,6 +21,7 @@ class CreateRepeatsTable extends Migration
             $table -> integer('s_id');
             $table -> integer('province');
             $table -> integer('q_id');
+            $table -> integer('rate');
             $table -> timestamps();
         });
     }
