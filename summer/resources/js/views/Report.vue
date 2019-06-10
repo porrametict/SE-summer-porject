@@ -43,19 +43,7 @@
 
                 this.form.questions = this.questions
                 console.log(this.form)
-            },
-            removeQuestion(index) {
-                this.questions = this.arrayRemove(this.questions, this.questions[index])
-                console.log(this.questions)
-
-            },
-            arrayRemove(arr, value) {
-                return arr.filter(function (ele) {
-                    return ele != value
-                });
-
             }
-
 
         }
     }
