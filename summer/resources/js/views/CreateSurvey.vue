@@ -79,8 +79,8 @@
                 console.log(this.form)
                 axios.post('/api/survey', this.form)
                     .then(function (response) {
-                        console.log(response);
-                        alert('Create Success')
+                        console.log(response.data.id);
+                        swal("Finished", "127.0.0.1/ans/"+response.data.id, "success");
                     })
                     .catch(function (error) {
                         console.log(error);
