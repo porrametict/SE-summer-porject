@@ -12,12 +12,19 @@
                 <button type="button" class="btn btn-outline-primary" @click="gotoCreateSurvey">Create Your Survey
                 </button>
             </div>
+            <br/>
+
+
             <hr>
         </div>
         <div clss="col-md-12">
 
             <h4>แบบสำรวจล่าสุด</h4>
-    </div>
+        </div>
+        <div class="col-12 mt-5">
+            <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
+            </button>
+        </div>
     </div>
 </template>
 
@@ -26,7 +33,10 @@
         methods: {
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
-            }
+            },
+            gotoReport() {
+                this.$router.push({name: "Report"})
+            },
         }
     }
 

@@ -21,11 +21,10 @@
                 <div class="d-flex mt-4 col-12">
                     <!--<div class="col-1">{{index}}</div>-->
                     <input type="text" class="form-control" v-model="questions[index].text">
-                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)">x</button>
+                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)" v-if="!(questions.length == 1) ">x</button>
                 </div>
             </div>
         </div>
-
 
         <div class="col-12 mt-5">
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
@@ -38,11 +37,8 @@
             </div>
         </div>
 
-        <hr>
-        <div id="testComponent">
-            <select-sex @change="sexID = $event" v-bind:sexID="1"></select-sex>
-            {{sexID}}
-        </div>
+
+
 
 
     </div>
@@ -67,6 +63,7 @@
                 {no: 0, text: ""}
             ],
 
+
         }),
         methods: {
 
@@ -83,9 +80,10 @@
                 console.log(this.questions)
 
             },
-            arrayRemove(arr, value) {
+            arrayRemove(arr, id) {
                 return arr.filter(function (ele) {
-                    return ele != value
+
+                    return ele != id
                 });
 
             }

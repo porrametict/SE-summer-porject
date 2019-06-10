@@ -121,7 +121,7 @@
                                 @endif
                             </div>
 
-                            
+
                             <div class=" row form-group{{ $errors->has('province') ? ' has-error' : '' }}">
                                 <label class="col-md-4 col-form-label text-md-right" for="province">Province</label>
                                 <div class="col-md-6">
@@ -142,6 +142,10 @@
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
+                                    </button>
+
+                                    <button type="reset" class="btn btn-warning">
+                                        {{ __('Clear') }}
                                     </button>
                                 </div>
                             </div>
