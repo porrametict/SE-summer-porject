@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'BigSurvey') }}</title>
 
+    <meta name="user-id" content="{{ Auth::user()->id }}">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

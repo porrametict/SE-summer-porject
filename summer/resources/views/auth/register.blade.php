@@ -144,7 +144,7 @@
                                         {{ __('Register') }}
                                     </button>
 
-                                    <button type="submit" class="btn btn-warning">
+                                    <button type="reset" class="btn btn-warning">
                                         {{ __('Clear') }}
                                     </button>
                                 </div>

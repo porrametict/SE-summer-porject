@@ -1975,9 +1975,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1989,6 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
       sexID: null,
       form: {
         hSurvey: "",
+        u_id: null,
         questions: []
       },
       questions: [{
@@ -1996,6 +1994,10 @@ __webpack_require__.r(__webpack_exports__);
         text: ""
       }]
     };
+  },
+  created: function created() {// axios.get('api/user').then(response => {
+    //     console.log(response.body);
+    // })
   },
   methods: {
     addtext: function addtext() {
@@ -2005,8 +2007,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     save: function save() {
+      this.form.u_id = this.$userId;
       this.form.questions = this.questions;
       console.log(this.form);
+      axios.post('/api/survey', this.form).then(function (response) {
+        console.log(response);
+        alert('Create Success');
+      })["catch"](function (error) {
+        console.log(error);
+      });
     },
     removeQuestion: function removeQuestion(index) {
       this.questions = this.arrayRemove(this.questions, this.questions[index]);
@@ -53369,6 +53378,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -53387,6 +53397,8 @@ Vue.component('app-vue', __webpack_require__(/*! ./App.vue */ "./resources/js/Ap
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+//import { FontAwesomeIcon } from 'fortawesome/vue-fontawesome'
+//Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 var app = new Vue({
   el: '#app',
