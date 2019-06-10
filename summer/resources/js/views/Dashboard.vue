@@ -1,21 +1,29 @@
 <template>
-    <div clss="col-md-12 mt-5">
-        <h4>สร้างแบบสอบถามง่ายๆด้วยตัวคุณเอง</h4>
-        <hr>
+    <div>
+
+        <div clss="col-md-12">
+
+            <h4>สร้างแบบสำรวจง่ายๆด้วยตัวคุณเอง</h4>
+            <div class="flex-center position-ref mt-5">
+                <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
+            </div>
+
+            <div class="top-right">
+                <button type="button" class="btn btn-outline-primary" @click="gotoCreateSurvey">Create Your Survey
+                </button>
+            </div>
+            <br/>
 
 
-        <div class="col-md-12 mt-5">
-            <img src="plus.jpg" alt="Loading" @click="gotoCreateSurvey" class="img-thumbnail">
-
+            <hr>
         </div>
+        <div clss="col-md-12">
 
-
-        <div class="flex-center position-ref mt-5">
-            <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสอบถาม</button>
+            <h4>แบบสำรวจล่าสุด</h4>
         </div>
-
-        <div class="top-right">
-            <button type="button" class="btn btn-outline-primary" @click="gotoCreateSurvey">Create Your Survey</button>
+        <div class="col-12 mt-5">
+            <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
+            </button>
         </div>
     </div>
 </template>
@@ -25,7 +33,10 @@
         methods: {
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
-            }
+            },
+            gotoReport() {
+                this.$router.push({name: "Report"})
+            },
         }
     }
 
