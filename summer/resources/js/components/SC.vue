@@ -16,7 +16,7 @@
         data: () => ({
             selector: 0,
             data: [
-                {text: "Please Select", value: 0},
+                {text: "Sex", value: 0},
                 {text: "Male", value: 1},
                 {text: "Female", value: 2},
             ]

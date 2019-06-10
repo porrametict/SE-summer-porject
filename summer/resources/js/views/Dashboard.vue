@@ -3,7 +3,7 @@
 
         <div clss="col-md-12">
 
-            <h4>สร้างแบบสำรวจง่ายๆด้วยตัวคุณเอง</h4>
+            <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
             <div class="flex-center position-ref mt-5">
                 <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
             </div>

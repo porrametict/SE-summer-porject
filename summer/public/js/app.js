@@ -1950,7 +1950,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       selector: 0,
       data: [{
-        text: "Please Select",
+        text: "Sex",
         value: 0
       }, {
         text: "Male",
@@ -38454,7 +38454,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { attrs: { clss: "col-md-12" } }, [
-      _c("h4", [_vm._v("สร้างแบบสำรวจง่ายๆด้วยตัวคุณเอง")]),
+      _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
       _vm._v(" "),
       _c("div", { staticClass: "flex-center position-ref mt-5" }, [
         _c(
