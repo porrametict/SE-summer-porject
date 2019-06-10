@@ -17,5 +17,10 @@ Route::middleware('auth:Api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 Route::resource('provinces','Api\ProvinceController');
 Route::resource('sexes','Api\SexController');
+Route::resource('survey','Api\SurveyController');
+Route::resource('questions','Api\QuestionsController');
+Route::resource('repeats','Api\RepeatsController');
