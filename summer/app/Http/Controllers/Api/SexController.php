@@ -40,7 +40,21 @@ class SexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        // $sex =  Sex::create([
+        //     'text' => $request->get('text')
+        // ]);
+
+        
+        // $qs = ($request->get('questions'));
+        // dd($qs[0]["text"]);
+        //  for(i = 0 ;i< $qs->count;i++){
+        //      Question::create ([
+        //          'text': $qs[i]["text"],
+        //          "s_id" : $sex->id
+        //      ])
+        //  }
+        //return Reseponse->json($sex)
     }
 
     /**

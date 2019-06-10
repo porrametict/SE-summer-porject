@@ -38,9 +38,6 @@
         </div>
 
 
-
-
-
     </div>
 </template>
 
@@ -57,6 +54,7 @@
             sexID: null,
             form: {
                 hSurvey: "",
+                u_id : null,
                 questions: [],
             },
             questions: [
@@ -65,15 +63,28 @@
 
 
         }),
+        created () {
+            // axios.get('api/user').then(response => {
+            //     console.log(response.body);
+            // })
+        },
         methods: {
 
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },
             save() {
-
+                this.form.u_id = this.$userId;
                 this.form.questions = this.questions
                 console.log(this.form)
+                axios.post('/api/survey', this.form)
+                    .then(function (response) {
+                        console.log(response);
+                        alert('Create Success')
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             removeQuestion(index) {
                 this.questions = this.arrayRemove(this.questions, this.questions[index])
