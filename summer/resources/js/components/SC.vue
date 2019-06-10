@@ -1,0 +1,30 @@
+<template>
+    <div>
+        <select v-model="selector" class="form-control" @change="sendData()">
+            <option v-for="d in data" v-bind:value="d.value">{{d.text}}</option>
+        </select>
+    </div>
+</template>
+<script>
+    export default {
+        props :
+            {sexID : Number}
+        ,
+        created () {
+            this.selector = this.$props.sexID
+        },
+        data: () => ({
+            selector: 0,
+            data: [
+                {text: "Please Select", value: 0},
+                {text: "Male", value: 1},
+                {text: "Female", value: 2},
+            ]
+        }),
+        methods: {
+            sendData() {
+                    this.$emit("change",this.selector)
+            }
+        }
+    }
+</script>

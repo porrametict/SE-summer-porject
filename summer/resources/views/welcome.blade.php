@@ -69,13 +69,6 @@
             margin-bottom: 30px;
         }
 
-        .btn-xl {
-            padding: 10px 20px;
-            font-size: 20px;
-            border-radius: 10px;
-            width: 50%;
-        }
-
         .btn-xls {
             font-size: 30px;
             width: 20%;
@@ -102,7 +95,7 @@
     <div class="content">
         <div class="title m-b-md">
             Create Questionnaire & Survey<br>
-            <div class="titles m-b-md">สร้างเเบบสอบ สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยส7ิ</div>
+            <div class="titles m-b-md">สร้างเเบบสอบถาม สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยสิ</div>
         </div>
         <div class="">
             @auth
