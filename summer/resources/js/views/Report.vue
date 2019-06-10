@@ -9,6 +9,13 @@
             {{sexID}}
         </div>
 
+        <div id="testComponent2" class="col-2">
+            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>
+            {{ageID}}
+        </div>
+
+
+
     </div>
 </template>
 
@@ -17,10 +24,12 @@
 
 <script>
     import selectSex from '../components/SC'
+    import selectAge from '../components/Age'
 
     export default {
         components: {
-            selectSex
+            selectSex,
+            selectAge
         },
         name: "CreateSurvey",
         data: () => ({
