@@ -1978,7 +1978,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2135,15 +2134,6 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       this.form.questions = this.questions;
       console.log(this.form);
-    },
-    removeQuestion: function removeQuestion(index) {
-      this.questions = this.arrayRemove(this.questions, this.questions[index]);
-      console.log(this.questions);
-    },
-    arrayRemove: function arrayRemove(arr, value) {
-      return arr.filter(function (ele) {
-        return ele != value;
-      });
     }
   }
 });
@@ -53886,8 +53876,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
