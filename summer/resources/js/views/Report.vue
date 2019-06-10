@@ -4,8 +4,8 @@
         <hr>
 
 
-        <div id="testComponent" class="col-3">
-            <select-sex @change="sexID = $event" v-bind:sexID="1"></select-sex>
+        <div id="testComponent" class="col-2">
+            <select-sex @change="sexID = $event" v-bind:sexID="0"></select-sex>
             {{sexID}}
         </div>
 

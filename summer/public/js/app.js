@@ -38414,10 +38414,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "col-3", attrs: { id: "testComponent" } },
+      { staticClass: "col-2", attrs: { id: "testComponent" } },
       [
         _c("select-sex", {
-          attrs: { sexID: 1 },
+          attrs: { sexID: 0 },
           on: {
             change: function($event) {
               _vm.sexID = $event
