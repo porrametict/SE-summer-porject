@@ -126,6 +126,63 @@
                                         </span>
                                 @endif
                             </div>
+                            <hr>
+                            <div class="change-pass">
+
+                                <div class="form-group row">
+                                    <label for="old_password"
+                                           class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="old_password" type="password"
+                                               class="form-control @error('old_password') is-invalid @enderror" name="old_password"
+                                                autocomplete="old_password">
+
+                                        @error('old_password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+
+                                        @if(\Session::has('error'))
+                                            <span class="text-danger" >
+                                            <strong>{{ \Session::get('error') }}</strong>
+                                                @endif
+
+                                    </span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group row">
+                                    <label for="password"
+                                           class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="password" type="password"
+                                               class="form-control @error('password') is-invalid @enderror" name="password"
+                                                autocomplete="password">
+
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password-confirm"
+                                           class="col-md-4 col-form-label text-md-right">{{ __('Confirm New Password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control"
+                                               name="password_confirmation"  autocomplete="password">
+                                    </div>
+                                </div>
+
+                            </div>
 
 
                             <div class="form-group row mb-0">

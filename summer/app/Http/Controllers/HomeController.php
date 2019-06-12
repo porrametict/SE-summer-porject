@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sex;
 use DB;
+use Hash;
+use mysql_xdevapi\Session;
+
+
 class HomeController extends Controller
 {
     /**
@@ -27,6 +31,9 @@ class HomeController extends Controller
         return view('home');
     }
 
+
+
+
     public function edit()
     {
         $user=auth()->user();
@@ -42,8 +49,34 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
-        //dd($request->all());
         $user=auth()->user();
+
+        //dd($request->all());
+        $old_pass= $request->old_password;
+        $new_pass=$request->password;
+        $current_pass = $user->password;
+
+        if($new_pass != ""){
+            $request->validate([
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'old_password' => ['required', 'string', 'min:8']
+            ]);
+        }
+
+
+        if (Hash::check($old_pass, $current_pass)) {
+           // dd("TURE");
+            $user->update([
+                    "password"=> Hash::make($new_pass)
+            ]);
+
+        }else{
+          Session()->flash('error','wrong password');
+          return redirect(route('user_edit'));
+        }
+
+
+
         $user->update([
             'name'=>$request->name,
             'email'=>$request->email,

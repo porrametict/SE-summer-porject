@@ -13,8 +13,7 @@ class SexDropdownController extends Controller
         $output='<option value="">เลือกเพศ</option>';
         foreach ($data as $row) {
 
-
-            $output.='<option value="'.$row->id.'" selected>'.$row->text.'</option>';
+            $output.='<option value="'.$row->id.'" >'.$row->text.'</option>';
         }
         echo $output;
 
