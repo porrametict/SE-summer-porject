@@ -24,4 +24,3 @@ Route::resource('sexes','Api\SexController');
 Route::resource('survey','Api\SurveyController');
 Route::resource('questions','Api\QuestionsController');
 Route::resource('repeats','Api\RepeatsController');
-Route::get('user_survey/{id}', 'Api\SurveyController@user_survey');
