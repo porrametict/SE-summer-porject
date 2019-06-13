@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Survey;
 use App\Questions;
+use DB;
 class SurveyController extends Controller
 {
     /**
@@ -65,8 +66,9 @@ class SurveyController extends Controller
      */
     public function show($id)
     {
+      $questions = Survey::find($id) -> questions;
         $survey = Survey::find($id);
-        return Response() -> json($survey);
+        return Response() -> json(['survey' => $survey, 'questions' => $questions]);
     }
 
     /**
