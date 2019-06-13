@@ -2,8 +2,9 @@
     <div>
 
         <h1>Header</h1>
-
-xxx
+        <select class="form-control col-2">
+            <option value="">fdfdfd</option>
+        </select>
     </div>
 </template>
 
