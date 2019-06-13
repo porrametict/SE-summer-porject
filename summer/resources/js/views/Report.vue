@@ -4,17 +4,18 @@
         <hr>
 
 
-<!--        <div id="testComponent" class="col-2">-->
-<!--            <select-sex @change="sexID = $event" v-bind:sexID="0"></select-sex>-->
-<!--            {{sexID}}-->
-<!--        </div>-->
+        <div id="testComponent" class="col-2">
+            <select-sex @change="sexID = $event" v-bind:sexID="0"></select-sex>
+            {{sexID}}
+        </div>
 
-<!--        <div id="testComponent2" class="col-2">-->
-<!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
-<!--            {{ageID}}-->
-<!--        </div>-->
-
-        <selectProvinces title="สมัย" :num_n="5" @change="pronvince_emit($event)"></selectProvinces>
+        <div id="testComponent2" class="col-2">
+            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>
+            {{ageID}}
+        </div>
+        <div>
+            <selectProvinces  @change="pronvince_emit($event)"></selectProvinces>
+        </div>
 
 
     </div>
