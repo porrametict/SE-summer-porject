@@ -2244,6 +2244,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SC__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SC */ "./resources/js/components/SC.vue");
+/* harmony import */ var _components_Age__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Age */ "./resources/js/components/Age.vue");
+/* harmony import */ var _components_Provinces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Provinces */ "./resources/js/components/Provinces.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2277,9 +2280,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    selectSex: _components_SC__WEBPACK_IMPORTED_MODULE_1__["default"],
+    selectAge: _components_Age__WEBPACK_IMPORTED_MODULE_2__["default"],
+    selectProvinces: _components_Provinces__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  created: function created() {
+    this.h_name();
+  },
   data: function data() {
     return {
+      provinceid: null,
+      sexID: null,
+      head: null,
       form: {
         age: null,
         sex: null,
@@ -2294,8 +2342,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    f_name: function () {
-      var _f_name = _asyncToGenerator(
+    pronvince_emit: function pronvince_emit(pronvincedata) {
+      console.log('provinces id', pronvincedata);
+      this.provinceid = pronvincedata;
+    },
+    sex_emit: function sex_emit(sexdata) {
+      console.log('sex value', sexdata);
+      this.sexID = sexdata;
+    },
+    h_name: function () {
+      var _h_name = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -2303,7 +2359,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/provinces/').then(function (response) {
+                return axios.get('api/survey/' + 6).then(function (response) {
                   console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
@@ -2312,7 +2368,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
-                this.provinces = _context.sent;
+                this.head = _context.sent;
 
               case 3:
               case "end":
@@ -2322,15 +2378,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, this);
       }));
 
-      function f_name() {
-        return _f_name.apply(this, arguments);
+      function h_name() {
+        return _h_name.apply(this, arguments);
       }
 
-      return f_name;
-    }(),
-    export_select: function export_select() {
-      this.$emit('change', this.something);
-    }
+      return h_name;
+    }()
   }
 });
 
@@ -39519,30 +39572,110 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _vm.head
+    ? _c("div", [
+        _c("div", { staticClass: "text-center" }, [
+          _c("h1", [_vm._v(_vm._s(_vm.head.survey.name))])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3", attrs: { id: "SexComponent" } },
+            [
+              _c("select-sex", {
+                on: {
+                  change: function($event) {
+                    return _vm.sex_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-4", attrs: { id: "testComponent2" } },
+            [
+              _c("select-age", {
+                attrs: { ageID: 2 },
+                on: {
+                  change: function($event) {
+                    _vm.ageID = $event
+                  }
+                }
+              }),
+              _vm._v("\n            " + _vm._s(_vm.ageID) + "\n        ")
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-4", attrs: { id: "ProvinceComponent" } },
+            [
+              _c("h5", [_vm._v("จังหวัด")]),
+              _vm._v(" "),
+              _c("selectProvinces", {
+                on: {
+                  change: function($event) {
+                    return _vm.pronvince_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _vm._m(1),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container mt-5" }),
+        _vm._v(" "),
+        _c("h1", [_vm._v("ข้อเสนอแนะอื่นๆ")]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-primary mt-5" }, [
+          _vm._v("\n        Submit\n    ")
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", [_vm._v("Header")]),
-      _vm._v(" "),
-      _c("select", { staticClass: "form-control col-2" }, [
-        _c("option", { attrs: { value: "" } }, [_vm._v("fdfdfd")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container mt-5" }),
-      _vm._v(" "),
-      _c("h1", [_vm._v("ข้อเสนอแนะอื่นๆ")]),
-      _vm._v(" "),
-      _c("div", {}, [_c("textarea", { staticClass: "form-control" })]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-primary mt-5" }, [
-        _vm._v("\n        Submit\n    ")
-      ])
+    return _c("div", { staticClass: "col-1" }, [_c("h5", [_vm._v("เพศ")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("select", { staticClass: "form-control col-4" }, [
+      _c("option", { attrs: { value: "" } }, [_vm._v("career")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", {}, [_c("textarea", { staticClass: "form-control" })])
   }
 ]
 render._withStripped = true
