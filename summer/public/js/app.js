@@ -2263,6 +2263,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39517,6 +39531,16 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("select", { staticClass: "form-control col-2" }, [
         _c("option", { attrs: { value: "" } }, [_vm._v("fdfdfd")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container mt-5" }),
+      _vm._v(" "),
+      _c("h1", [_vm._v("ข้อเสนอแนะอื่นๆ")]),
+      _vm._v(" "),
+      _c("div", {}, [_c("textarea", { staticClass: "form-control" })]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-primary mt-5" }, [
+        _vm._v("\n        Submit\n    ")
       ])
     ])
   }

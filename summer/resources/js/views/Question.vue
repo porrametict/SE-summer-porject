@@ -5,6 +5,20 @@
         <select class="form-control col-2">
             <option value="">fdfdfd</option>
         </select>
+
+        <div class="container mt-5">
+
+        </div>
+
+        <h1>ข้อเสนอแนะอื่นๆ</h1>
+        <div class="">
+        <textarea class="form-control"></textarea>
+        </div>
+
+
+        <button class="btn btn-primary mt-5">
+            Submit
+        </button>
     </div>
 </template>
 
