@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="something" v-if="provinces" @change="export_select" class="form-control">
+        <select v-model="something" v-if="provinces" @change="sendData" class="form-control">
             <option :value="i.id" v-for="i in provinces">{{i.name_th}}</option>
         </select>
     </div>
@@ -28,7 +28,7 @@
                         return null
                     });
             },
-            export_select() {
+            sendData() {
                 this.$emit('change', this.something)
             },
         }

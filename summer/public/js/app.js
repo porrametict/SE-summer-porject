@@ -2006,7 +2006,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return f_name;
     }(),
-    export_select: function export_select() {
+    sendData: function sendData() {
       this.$emit('change', this.something);
     }
   }
@@ -2054,7 +2054,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendData: function sendData() {
-      console.log(this.$emit("change", this.selector));
+      this.$emit("change", this.selector);
     }
   }
 });
@@ -2296,13 +2296,13 @@ __webpack_require__.r(__webpack_exports__);
       this.form.questions = this.questions;
       console.log(this.form);
     },
-    pronvince_emit: function pronvince_emit(data) {
-      console.log('provinces id', data);
-      this.provinceid = data;
+    pronvince_emit: function pronvince_emit(pronvincedata) {
+      console.log('provinces id', pronvincedata);
+      this.provinceid = pronvincedata;
     },
-    sex_emit: function sex_emit(data) {
-      console.log('sex id', data);
-      this.sexID = data;
+    sex_emit: function sex_emit(sexdata) {
+      console.log('sex id', sexdata);
+      this.sexID = sexdata;
     }
   }
 });
@@ -39101,7 +39101,7 @@ var render = function() {
                     ? $$selectedVal
                     : $$selectedVal[0]
                 },
-                _vm.export_select
+                _vm.sendData
               ]
             }
           },

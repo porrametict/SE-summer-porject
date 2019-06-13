@@ -57,13 +57,13 @@
                 this.form.questions = this.questions
                 console.log(this.form)
             },
-            pronvince_emit(data) {
-                console.log('provinces id',data)
-                this.provinceid = data
+            pronvince_emit(pronvincedata) {
+                console.log('provinces id',pronvincedata)
+                this.provinceid = pronvincedata
             },
-            sex_emit(data) {
-                console.log('sex id',data)
-                this.sexID = data
+            sex_emit(sexdata) {
+                console.log('sex id',sexdata)
+                this.sexID = sexdata
             },
 
         }
