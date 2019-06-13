@@ -82,6 +82,8 @@ class SurveyController extends Controller
         //
     }
 
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -92,6 +94,12 @@ class SurveyController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function user_survey($id)
+    {
+      $users = DB::table('surveys')->where('u_id', '=', $id)->get();
+      return Response() -> json($users);
     }
 
     /**
