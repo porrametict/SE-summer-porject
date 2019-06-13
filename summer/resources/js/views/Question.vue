@@ -7,9 +7,12 @@
             <option value="">fdfdfd</option>
         </select>
 
+
         <div class="container mt-5">
             รายการแบบสำรวจความพึงพอใจ
         </div>
+
+        <answer :sid="9"></answer>
 
         <h1>ข้อเสนอแนะอื่นๆ</h1>
         <div class="">
@@ -21,7 +24,6 @@
             Submit
         </button>
 
-        {{head.questions}}
     </div>
 
 </template>
@@ -30,9 +32,15 @@
 
 
 <script>
+    import answer from '../components/Answer'
+
     export default {
+        name: "gdssgdg",
+        components: {
+            answer
+        },
         created(){
-            this.h_name()
+            this.hh_name()
         },
         data: () => ({
             head : null,
@@ -49,7 +57,7 @@
             }
         }),
         methods: {
-            async h_name() {
+            async hh_name() {
                 this.head = await axios.get('api/survey/'+9)
                     .then(function (response) {
                         console.log("success", response.data);
