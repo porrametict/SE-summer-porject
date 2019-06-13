@@ -3,14 +3,7 @@
 
         <h1>Header</h1>
 
-
-        <div class="col-12">
-            <textarea class="form-control">กรอก
-
-            </textarea>
-        </div>
-
-
+xxx
     </div>
 </template>
 
