@@ -191,9 +191,9 @@
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="15" />
+    <option name="y" value="-12" />
     <option name="width" value="1845" />
     <option name="height" value="1100" />
   </component>
