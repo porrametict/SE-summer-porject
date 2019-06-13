@@ -6,7 +6,6 @@
 
         <div id="testComponent" class="col-2">
             <select-sex @change="sex_emit($event)"></select-sex>
-            {{sexID}}
         </div>
 
 <!--        <div id="testComponent2" class="col-2">-->
@@ -62,7 +61,7 @@
                 this.provinceid = pronvincedata
             },
             sex_emit(sexdata) {
-                console.log('sex id',sexdata)
+                console.log('sex value',sexdata)
                 this.sexID = sexdata
             },
 

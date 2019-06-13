@@ -2260,7 +2260,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2301,7 +2300,7 @@ __webpack_require__.r(__webpack_exports__);
       this.provinceid = pronvincedata;
     },
     sex_emit: function sex_emit(sexdata) {
-      console.log('sex id', sexdata);
+      console.log('sex value', sexdata);
       this.sexID = sexdata;
     }
   }
@@ -39439,8 +39438,7 @@ var render = function() {
                 return _vm.sex_emit($event)
               }
             }
-          }),
-          _vm._v("\n            " + _vm._s(_vm.sexID) + "\n        ")
+          })
         ],
         1
       ),
