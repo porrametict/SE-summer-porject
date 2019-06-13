@@ -4,6 +4,7 @@ import  VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard'
 import CreateSurvey from '../views/CreateSurvey'
 import Report from '../views/Report'
+import Question from '../views/Question'
 
 
 
@@ -24,6 +25,11 @@ const  router = new VueRouter ({
             path : '/Re-port',
             name : "Report",
             component :Report
+        },
+        {
+            path: '/Ques-tion',
+            name: "Question",
+            component: Question
         },
 
     ]
