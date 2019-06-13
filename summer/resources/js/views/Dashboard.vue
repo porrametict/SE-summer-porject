@@ -22,6 +22,10 @@
             <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
             </button>
         </div>
+        <div class="col-12 mt-5">
+            <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoQuestion">gotoQuestion
+            </button>
+        </div>
     </div>
 </template>
 
@@ -33,6 +37,9 @@
             },
             gotoReport() {
                 this.$router.push({name: "Report"})
+            },
+            gotoQuestion() {
+                this.$router.push({name: "Question"})
             },
         }
     }
