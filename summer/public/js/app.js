@@ -2258,8 +2258,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -39397,38 +39395,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("ReportPage")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-2", attrs: { id: "testComponent" } },
-        [
-          _c("select-sex", {
-            on: {
-              change: function($event) {
-                return _vm.sex_emit($event)
-              }
+  return _c("div", [
+    _c("h1", [_vm._v("ReportPage")]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-2", attrs: { id: "SexComponent" } },
+      [
+        _c("select-sex", {
+          on: {
+            change: function($event) {
+              return _vm.sex_emit($event)
             }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("selectProvinces", {
-        on: {
-          change: function($event) {
-            return _vm.pronvince_emit($event)
           }
-        }
-      })
-    ],
-    1
-  )
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "ProvinceComponent" } },
+      [
+        _c("selectProvinces", {
+          on: {
+            change: function($event) {
+              return _vm.pronvince_emit($event)
+            }
+          }
+        })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54921,8 +54922,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

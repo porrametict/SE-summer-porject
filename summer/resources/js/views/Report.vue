@@ -4,22 +4,20 @@
         <hr>
 
 
-        <div id="testComponent" class="col-2">
+        <div id="SexComponent" class="col-2">
             <select-sex @change="sex_emit($event)"></select-sex>
         </div>
 
-<!--        <div id="testComponent2" class="col-2">-->
-<!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
-<!--            {{ageID}}-->
-<!--        </div>-->
-
-        <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
-
+        <!--        <div id="testComponent2" class="col-2">-->
+        <!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
+        <!--            {{ageID}}-->
+        <!--        </div>-->
+        <div id="ProvinceComponent">
+            <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
+        </div>
 
     </div>
 </template>
-
-
 
 
 <script>
@@ -36,7 +34,7 @@
         },
         name: "CreateSurvey",
         data: () => ({
-            provinceid : null,
+            provinceid: null,
             sexID: null,
             form: {
                 hSurvey: "",
@@ -57,11 +55,11 @@
                 console.log(this.form)
             },
             pronvince_emit(pronvincedata) {
-                console.log('provinces id',pronvincedata)
+                console.log('provinces id', pronvincedata)
                 this.provinceid = pronvincedata
             },
             sex_emit(sexdata) {
-                console.log('sex value',sexdata)
+                console.log('sex value', sexdata)
                 this.sexID = sexdata
             },
 
