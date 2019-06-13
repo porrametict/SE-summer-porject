@@ -5,17 +5,15 @@
 
 
         <div id="testComponent" class="col-2">
-            <select-sex @change="sexID = $event" v-bind:sexID="0"></select-sex>
-            {{sexID}}
+            <select-sex @change="sex_emit($event)"></select-sex>
         </div>
 
-        <div id="testComponent2" class="col-2">
-            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>
-            {{ageID}}
-        </div>
-        <div>
-            <selectProvinces  @change="pronvince_emit($event)"></selectProvinces>
-        </div>
+<!--        <div id="testComponent2" class="col-2">-->
+<!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
+<!--            {{ageID}}-->
+<!--        </div>-->
+
+        <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
 
 
     </div>
@@ -55,13 +53,16 @@
                 this.questions.push({no: 0, text: ""})
             },
             save() {
-
                 this.form.questions = this.questions
                 console.log(this.form)
             },
-            pronvince_emit(data) {
-                console.log('provinces id',data)
-                this.provinceid = data
+            pronvince_emit(pronvincedata) {
+                console.log('provinces id',pronvincedata)
+                this.provinceid = pronvincedata
+            },
+            sex_emit(sexdata) {
+                console.log('sex value',sexdata)
+                this.sexID = sexdata
             },
 
         }
