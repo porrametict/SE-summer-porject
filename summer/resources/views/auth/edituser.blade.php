@@ -101,6 +101,7 @@
                                         </span>
                                 @endif
                             </div>
+{{--                            commeny--}}
 
 
                             <div class=" row form-group{{ $errors->has('province') ? ' has-error' : '' }}">
