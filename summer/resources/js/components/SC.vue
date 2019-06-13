@@ -23,7 +23,7 @@
         }),
         methods: {
             sendData() {
-                    this.$emit("change",this.selector)
+                this.$emit("change",this.selector)
             }
         }
     }

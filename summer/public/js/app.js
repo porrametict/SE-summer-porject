@@ -1963,8 +1963,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Provinces",
   created: function created() {
-    // this.name = this.title
-    // this.n_car = this.num_n
     this.f_name();
   },
   data: function data() {
@@ -2008,7 +2006,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return f_name;
     }(),
-    export_select: function export_select() {
+    sendData: function sendData() {
       this.$emit('change', this.something);
     }
   }
@@ -2209,9 +2207,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     gotoCreateSurvey: function gotoCreateSurvey() {
@@ -2301,9 +2296,13 @@ __webpack_require__.r(__webpack_exports__);
       this.form.questions = this.questions;
       console.log(this.form);
     },
-    pronvince_emit: function pronvince_emit(data) {
-      console.log('provinces id', data);
-      this.provinceid = data;
+    pronvince_emit: function pronvince_emit(pronvincedata) {
+      console.log('provinces id', pronvincedata);
+      this.provinceid = pronvincedata;
+    },
+    sex_emit: function sex_emit(sexdata) {
+      console.log('sex id', sexdata);
+      this.sexID = sexdata;
     }
   }
 });
@@ -39086,6 +39085,7 @@ var render = function() {
                 expression: "something"
               }
             ],
+            staticClass: "form-control",
             on: {
               change: [
                 function($event) {
@@ -39101,7 +39101,7 @@ var render = function() {
                     ? $$selectedVal
                     : $$selectedVal[0]
                 },
-                _vm.export_select
+                _vm.sendData
               ]
             }
           },
@@ -39371,18 +39371,6 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "top-right" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-primary",
-            attrs: { type: "button" },
-            on: { click: _vm.gotoCreateSurvey }
-          },
-          [_vm._v("Create Your Survey\n            ")]
-        )
-      ]),
-      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("hr")
@@ -39441,8 +39429,23 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-2", attrs: { id: "testComponent" } },
+        [
+          _c("select-sex", {
+            on: {
+              change: function($event) {
+                return _vm.sex_emit($event)
+              }
+            }
+          }),
+          _vm._v("\n            " + _vm._s(_vm.sexID) + "\n        ")
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c("selectProvinces", {
-        attrs: { title: "สมัย", num_n: 5 },
         on: {
           change: function($event) {
             return _vm.pronvince_emit($event)
