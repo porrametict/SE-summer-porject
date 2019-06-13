@@ -3,7 +3,6 @@ import  VueRouter from 'vue-router'
 
 import Dashboard from '../views/Dashboard'
 import CreateSurvey from '../views/CreateSurvey'
-import SurveyAnswers from '../views/SurveyAnswers'
 import Report from '../views/Report'
 
 
