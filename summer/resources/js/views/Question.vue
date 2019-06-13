@@ -1,6 +1,5 @@
 <template>
     <div v-if="head">
-    <div v-if="head">
 
         <div class="text-center">
             <h1>{{head.survey.name}}</h1>
@@ -16,8 +15,7 @@
             <br/>
 
             <div id="testComponent2" class="col-4">
-                <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>
-                {{ageID}}
+                <select-age @change="form.age = $event" v-bind:ageID="2"></select-age>
             </div>
         </div>
 
@@ -44,10 +42,11 @@
         </div>
 
         <div class="container mt-5">
-            รายการแบบสำรวจความพึงพอใจ
+            <h1>รายการแบบสำรวจความพึงพอใจ</h1>
+            <answer :sid="s_id"></answer>
+
         </div>
 
-        <answer :sid="9"></answer>
 
         <h1>ข้อเสนอแนะอื่นๆ</h1>
         <div class="">
@@ -62,52 +61,51 @@
 </template>
 
 
-
-
 <script>
     import answer from '../components/Answer'
-
     import selectSex from '../components/SC'
     import selectAge from '../components/Age'
     import selectProvinces from '../components/Provinces'
 
     export default {
         components: {
+            answer,
             selectSex,
             selectAge,
             selectProvinces
 
         },
         created() {
+            this.s_id = parseInt(this.$route.params.s_id)  ;
+            console.log(this.s_id , "s_Id");
             this.h_name()
         },
         data: () => ({
-            head : null,
-            form : {
-                head : null,
-                age : null,
-                sex : null,
-                province : null,
-                career : null,
-                comment : null,
-                repeats : [
-                    {q_id : 0,rate : 5}
+            s_id : null,
+            head: null,
+            form: {
+                head: null,
+                age: null,
+                sex: null,
+                province: null,
+                career: null,
+                comment: null,
+                repeats: [
+                    {q_id: 0, rate: 5}
                 ]
             }
         }),
         methods: {
-            async hh_name() {
-                this.head = await axios.get('api/survey/'+9)
             pronvince_emit(pronvincedata) {
                 console.log('provinces id', pronvincedata)
-                this.provinceid = pronvincedata
+                this.form.province = pronvincedata
             },
             sex_emit(sexdata) {
                 console.log('sex value', sexdata)
-                this.sexID = sexdata
+                this.form.sex = sexdata
             },
             async h_name() {
-                this.head = await axios.get('api/survey/' + 6)
+                this.head = await axios.get('api/survey/' + 7)
                     .then(function (response) {
                         console.log("success", response.data);
                         return response.data
@@ -117,9 +115,7 @@
                         return null
                     });
             },
-            export_select() {
-                this.$emit('change', this.something)
-            },
+
         },
 
     }
