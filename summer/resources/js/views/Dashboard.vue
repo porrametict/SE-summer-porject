@@ -8,10 +8,7 @@
                 <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
             </div>
 
-            <div class="top-right">
-                <button type="button" class="btn btn-outline-primary" @click="gotoCreateSurvey">Create Your Survey
-                </button>
-            </div>
+
             <br/>
 
 
