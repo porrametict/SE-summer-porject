@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="something" v-if="provinces" @change="export_select">
+        <select v-model="something" v-if="provinces" @change="export_select" class="form-control">
             <option :value="i.id" v-for="i in provinces">{{i.name_th}}</option>
         </select>
     </div>
@@ -10,8 +10,6 @@
     export default {
         name: "Provinces",
         created() {
-            // this.name = this.title
-            // this.n_car = this.num_n
             this.f_name()
         },
         data: () => ({
