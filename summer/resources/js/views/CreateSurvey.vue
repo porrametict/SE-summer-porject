@@ -21,7 +21,9 @@
                 <div class="d-flex mt-4 col-12">
                     <!--<div class="col-1">{{index}}</div>-->
                     <input type="text" class="form-control" v-model="questions[index].text">
-                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)" v-if="!(questions.length == 1) ">x</button>
+                    <button class="btn btn-danger mx-2" @click="removeQuestion(index)" v-if="!(questions.length == 1) ">
+                        x
+                    </button>
                 </div>
             </div>
         </div>
@@ -54,7 +56,7 @@
             sexID: null,
             form: {
                 hSurvey: "",
-                u_id : null,
+                u_id: null,
                 questions: [],
             },
             questions: [
@@ -63,7 +65,7 @@
 
 
         }),
-        created () {
+        created() {
             // axios.get('api/user').then(response => {
             //     console.log(response.body);
             // })
@@ -74,13 +76,15 @@
                 this.questions.push({no: 0, text: ""})
             },
             save() {
+                let vm = this
                 this.form.u_id = this.$userId;
                 this.form.questions = this.questions
                 console.log(this.form)
                 axios.post('/api/survey', this.form)
                     .then(function (response) {
                         console.log(response.data.id);
-                        swal("Finished", "127.0.0.1/ans/"+response.data.id, "success");
+                        //swal("Finished", , "success");
+                        vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -97,9 +101,49 @@
                     return ele != id
                 });
 
-            }
+            },
+            ShowSuccess (text) {
+                Swal.fire({
+                    type: 'success',
+                    title: 'Finished',
+                    html:
+                        '<div class="text-center mb-3">copy your link</div>'+
+                        '<div class="d-flex">' +
+                        '<input type="text" value="'+text+'" id="myInput" class="form-control mr-2" readonly>'+
+                        '<button onclick="CopyToCB" class="btn btn-secondary" id="cpTocb" >Copy</button>'+
+                        '</div>' ,
+                    focusConfirm: false,
+                })
+                $("#cpTocb").click( function () {
+                    /* Get the text field */
+                    let copyText = document.getElementById("myInput");
+                    /* Select the text field */
+                    copyText.select();
+
+                    /* Copy the text inside the text field */
+                    document.execCommand("copy");
+
+
+
+                    /* Alert the copied text */
+                    //swal("Copied the text: " + copyText.value);
+                    Swal.fire({
+                        type: 'success',
+                        title: "Copied the text: " + copyText.value,
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                });
+
+            },
+
 
 
         }
     }
+
+
 </script>
+

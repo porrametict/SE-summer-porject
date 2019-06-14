@@ -34,7 +34,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{$user->email}}" required autocomplete="email">
+                                           value="{{$user->email}}" readonly required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">

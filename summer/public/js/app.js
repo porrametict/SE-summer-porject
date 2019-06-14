@@ -2235,6 +2235,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2267,12 +2269,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     save: function save() {
+      var vm = this;
       this.form.u_id = this.$userId;
       this.form.questions = this.questions;
       console.log(this.form);
       axios.post('/api/survey', this.form).then(function (response) {
-        console.log(response.data.id);
-        swal("Finished", "127.0.0.1/ans/" + response.data.id, "success");
+        console.log(response.data.id); //swal("Finished", , "success");
+
+        vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2284,6 +2288,35 @@ __webpack_require__.r(__webpack_exports__);
     arrayRemove: function arrayRemove(arr, id) {
       return arr.filter(function (ele) {
         return ele != id;
+      });
+    },
+    ShowSuccess: function ShowSuccess(text) {
+      Swal.fire({
+        type: 'success',
+        title: 'Finished',
+        html: '<div class="text-center mb-3">copy your link</div>' + '<div class="d-flex">' + '<input type="text" value="' + text + '" id="myInput" class="form-control mr-2" readonly>' + '<button onclick="CopyToCB" class="btn btn-secondary" id="cpTocb" >Copy</button>' + '</div>',
+        focusConfirm: false
+      });
+      $("#cpTocb").click(function () {
+        /* Get the text field */
+        var copyText = document.getElementById("myInput");
+        /* Select the text field */
+
+        copyText.select();
+        /* Copy the text inside the text field */
+
+        document.execCommand("copy");
+        /* Alert the copied text */
+        //swal("Copied the text: " + copyText.value);
+
+        Swal.fire({
+          type: 'success',
+          title: "Copied the text: " + copyText.value,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
       });
     }
   }
@@ -39735,7 +39768,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("x")]
+                    [_vm._v("\n                    x\n                ")]
                   )
                 : _vm._e()
             ])
