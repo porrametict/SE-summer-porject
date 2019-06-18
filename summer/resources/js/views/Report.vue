@@ -2,24 +2,28 @@
     <div>
         <h1>ReportPage</h1>
         <hr>
-
-
-        <div id="SexComponent" class="col-2" >
+        <div class="row justify-content-center">
+            <div id="SexComponent" class="col-3 mt-5 " >
             <select-sex @change="sex_emit($event)"></select-sex>
-        </div>
+             </div>
 
-        <!--        <div id="testComponent2" class="col-2">-->
-        <!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
-        <!--            {{ageID}}-->
-        <!--        </div>-->
-        <div id="ProvinceComponent" class="col-3" >
-            <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
-        </div>
-        <div id="CareersComponent" class="col-2">
-            <select-careers @change="careers_emit($event)"></select-careers>
+            <div id="testComponent2" class="col-3 mt-5 ">
+            <select-age @change="form.age = $event" v-bind:ageID="2"></select-age>
+            </div>
+
+            <div id="ProvinceComponent" class="col-3 mt-5 " >
+                <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
+            </div>
+
+            <div id="CareersComponent" class="col-3 mt-5 ">
+                <select-careers @change="careers_emit($event)"></select-careers>
+            </div>
+
+
         </div>
 
     </div>
+
 </template>
 
 
