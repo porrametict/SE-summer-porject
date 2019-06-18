@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div class="justify-content-center">
         <h5>อายุ</h5>
             <select v-model="selector" class="form-control" @change="sendData()">
                 <option value="0" disabled>โปรดเลือกอายุ</option>
