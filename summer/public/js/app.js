@@ -2718,6 +2718,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -39448,7 +39452,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
-      _vm._v("\n    age"),
       _c(
         "select",
         {
@@ -40279,50 +40282,68 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-2", attrs: { id: "SexComponent" } },
-      [
-        _c("select-sex", {
-          on: {
-            change: function($event) {
-              return _vm.sex_emit($event)
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
+        [
+          _c("select-sex", {
+            on: {
+              change: function($event) {
+                return _vm.sex_emit($event)
+              }
             }
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-3", attrs: { id: "ProvinceComponent" } },
-      [
-        _c("selectProvinces", {
-          on: {
-            change: function($event) {
-              return _vm.pronvince_emit($event)
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
+        [
+          _c("select-age", {
+            attrs: { ageID: 2 },
+            on: {
+              change: function($event) {
+                _vm.form.age = $event
+              }
             }
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-2", attrs: { id: "CareersComponent" } },
-      [
-        _c("select-careers", {
-          on: {
-            change: function($event) {
-              return _vm.careers_emit($event)
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-3 mt-5 ", attrs: { id: "ProvinceComponent" } },
+        [
+          _c("selectProvinces", {
+            on: {
+              change: function($event) {
+                return _vm.pronvince_emit($event)
+              }
             }
-          }
-        })
-      ],
-      1
-    )
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
+        [
+          _c("select-careers", {
+            on: {
+              change: function($event) {
+                return _vm.careers_emit($event)
+              }
+            }
+          })
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []

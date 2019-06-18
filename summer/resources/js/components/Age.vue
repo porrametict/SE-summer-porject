@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-        age<select v-model="selector" class="form-control" @change="sendData()">
+        <select v-model="selector" class="form-control" @change="sendData()">
             <option v-for="d in data" v-bind:value="d">{{d}}</option>
         </select>
         </div>
