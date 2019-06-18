@@ -1904,6 +1904,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     ageID: Number
@@ -1914,10 +1916,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selector: 0,
-      data: [{
-        text: "Please Select",
-        value: 0
-      }]
+      data: [// {text: "Please Select", value: 0},
+      ]
     };
   },
   methods: {
@@ -2080,6 +2080,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Provinces",
   created: function created() {
@@ -2151,16 +2153,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     sexID: Number
   },
-  created: function created() {
-    this.selector = this.$props.sexID;
+  created: function created() {// this.selector = this.$props.sexID
   },
   data: function data() {
     return {
-      selector: 1,
+      selector: 0,
       data: [{
         text: "Male",
         value: 1
@@ -2195,12 +2197,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     CareersID: Number
   },
-  created: function created() {
-    this.selector = this.$props.CareersID;
+  created: function created() {// this.selector = this.$props.CareersID
   },
   data: function data() {
     return {
@@ -2527,6 +2531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SC__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SC */ "./resources/js/components/SC.vue");
 /* harmony import */ var _components_Age__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Age */ "./resources/js/components/Age.vue");
 /* harmony import */ var _components_Provinces__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Provinces */ "./resources/js/components/Provinces.vue");
+/* harmony import */ var _components_careers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/careers */ "./resources/js/components/careers.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2592,12 +2597,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
+    selectcareers: _components_careers__WEBPACK_IMPORTED_MODULE_5__["default"],
     answer: _components_Answer__WEBPACK_IMPORTED_MODULE_1__["default"],
     selectSex: _components_SC__WEBPACK_IMPORTED_MODULE_2__["default"],
     selectAge: _components_Age__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -2609,8 +2621,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.h_name();
     this.form.s_id = this.s_id;
   },
+  mounted: function mounted() {
+    Plotly.newPlot('eiei', this.chart);
+  },
   data: function data() {
     return {
+      chart: [{
+        x: ['giraffes', 'orangutans', 'monkeys'],
+        y: [20, 14, 23],
+        type: 'bar'
+      }],
       s_id: null,
       head: null,
       form: {
@@ -2618,7 +2638,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         age: null,
         sex: null,
         province: null,
-        career: 1,
+        career: null,
         comment: null,
         ans: [{
           q_id: 0,
@@ -2631,6 +2651,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     pronvince_emit: function pronvince_emit(pronvincedata) {
       console.log('provinces id', pronvincedata);
       this.form.province = pronvincedata;
+    },
+    careers_emit: function careers_emit(careersdata) {
+      console.log('careers id', careersdata);
+      this.form.career = careersdata;
     },
     answer_emit: function answer_emit(answerdata) {
       console.log('answer id', answerdata);
@@ -39456,7 +39480,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
-      _vm._v("\n    age"),
+      _c("h5", [_vm._v("อายุ")]),
+      _vm._v(" "),
       _c(
         "select",
         {
@@ -39490,10 +39515,16 @@ var render = function() {
             ]
           }
         },
-        _vm._l(_vm.data, function(d) {
-          return _c("option", { domProps: { value: d } }, [_vm._v(_vm._s(d))])
-        }),
-        0
+        [
+          _c("option", { attrs: { value: "0", disabled: "" } }, [
+            _vm._v("โปรดเลือกอายุ")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.data, function(d) {
+            return _c("option", { domProps: { value: d } }, [_vm._v(_vm._s(d))])
+          })
+        ],
+        2
       )
     ])
   ])
@@ -39709,6 +39740,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("h5", [_vm._v("จังหวัด")]),
+    _vm._v(" "),
     _vm.provinces
       ? _c(
           "select",
@@ -39741,12 +39774,18 @@ var render = function() {
               ]
             }
           },
-          _vm._l(_vm.provinces, function(i) {
-            return _c("option", { domProps: { value: i.id } }, [
-              _vm._v(_vm._s(i.name_th))
-            ])
-          }),
-          0
+          [
+            _c("option", { attrs: { value: "0", disabled: "" } }, [
+              _vm._v("โปรดเลือกจังหวัด")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.provinces, function(i) {
+              return _c("option", { domProps: { value: i.id } }, [
+                _vm._v(_vm._s(i.name_th))
+              ])
+            })
+          ],
+          2
         )
       : _vm._e()
   ])
@@ -39809,12 +39848,18 @@ var render = function() {
           ]
         }
       },
-      _vm._l(_vm.data, function(d) {
-        return _c("option", { domProps: { value: d.value } }, [
-          _vm._v(_vm._s(d.text))
-        ])
-      }),
-      0
+      [
+        _c("option", { attrs: { value: "0", disabled: "" } }, [
+          _vm._v("โปรดเลือกเพศ")
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.data, function(d) {
+          return _c("option", { domProps: { value: d.value } }, [
+            _vm._v(_vm._s(d.text))
+          ])
+        })
+      ],
+      2
     )
   ])
 }
@@ -39841,6 +39886,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("h5", [_vm._v("อาชีพ")]),
+    _vm._v(" "),
     _c(
       "select",
       {
@@ -39874,12 +39921,18 @@ var render = function() {
           ]
         }
       },
-      _vm._l(_vm.data, function(d) {
-        return _c("option", { domProps: { value: d.value } }, [
-          _vm._v(_vm._s(d.text))
-        ])
-      }),
-      0
+      [
+        _c("option", { attrs: { value: "0", disabled: "" } }, [
+          _vm._v("โปรดเลือกอาชีพ")
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.data, function(d) {
+          return _c("option", { domProps: { value: d.value } }, [
+            _vm._v(_vm._s(d.text))
+          ])
+        })
+      ],
+      2
     )
   ])
 }
@@ -40145,10 +40198,10 @@ var render = function() {
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
           _c(
             "div",
-            { staticClass: "col-4", attrs: { id: "SexComponent" } },
+            { staticClass: "col", attrs: { id: "SexComponent" } },
             [
               _c("select-sex", {
                 on: {
@@ -40165,7 +40218,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-4", attrs: { id: "testComponent2" } },
+            { staticClass: "col", attrs: { id: "testComponent2" } },
             [
               _c("select-age", {
                 attrs: { ageID: 2 },
@@ -40185,10 +40238,8 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col-4", attrs: { id: "ProvinceComponent" } },
+            { staticClass: "col-6", attrs: { id: "ProvinceComponent" } },
             [
-              _c("h5", [_vm._v("จังหวัด")]),
-              _vm._v(" "),
               _c("selectProvinces", {
                 on: {
                   change: function($event) {
@@ -40202,7 +40253,21 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "div",
+            { staticClass: "col-6", attrs: { id: "CareersComponent" } },
+            [
+              _c("selectcareers", {
+                on: {
+                  change: function($event) {
+                    return _vm.careers_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c("br")
         ]),
         _vm._v(" "),
@@ -40249,6 +40314,8 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _c("div", { attrs: { id: "eiei" } }),
+        _vm._v(" "),
         _c(
           "button",
           { staticClass: "btn btn-primary mt-5", on: { click: _vm.submit } },
@@ -40257,16 +40324,7 @@ var render = function() {
       ])
     : _vm._e()
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "form-control col-4" }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("career")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

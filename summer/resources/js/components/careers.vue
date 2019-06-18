@@ -1,6 +1,9 @@
 <template>
     <div>
+        <h5>อาชีพ</h5>
         <select v-model="selector" class="form-control" @change="sendData()">
+
+            <option value="0" disabled>โปรดเลือกอาชีพ</option>
             <option v-for="d in data" v-bind:value="d.value">{{d.text}}</option>
         </select>
     </div>
@@ -11,11 +14,12 @@
             {CareersID : Number}
         ,
         created () {
-            this.selector = this.$props.CareersID
+            // this.selector = this.$props.CareersID
         },
         data: () => ({
             selector: 0,
             data: [
+
                 {text: "กรรมกร", value: 1},
                 {text: "เกษตรกร", value: 2},
                 {text: "ข้าราชการ", value: 3},
