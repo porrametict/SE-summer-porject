@@ -2513,21 +2513,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.h_name();
   },
   methods: {
+    imformation: function imformation() {
+      this.$route;
+    },
     gotoCreateSurvey: function gotoCreateSurvey() {
       this.$router.push({
         name: "CreateSurvey"
       });
     },
-    gotoReport: function gotoReport() {
+    gotoReport: function gotoReport(headdata) {
       this.$router.push({
-        name: "Report"
+        name: "Report",
+        params: {
+          s_id: headdata
+        }
       });
     },
     gotoQuestion: function gotoQuestion() {
@@ -2545,9 +2549,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/survey/' + 7).then(function (response) {
+                return axios.get('api/user_survey/' + 3).then(function (response) {
                   console.log("success", response.data);
-                  return response.data;
+                  return response.data.reverse();
                 })["catch"](function (error) {
                   console.log("error", error);
                   return null;
@@ -2573,6 +2577,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      head: null,
       form: {
         s_id: null,
         age: null,
@@ -40190,59 +40195,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n\n    " + _vm._s(this.h_name) + "\n    "),
-    _c("div", { attrs: { clss: "col-md-12" } }, [
-      _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
+  return _c(
+    "div",
+    [
+      _c("div", { attrs: { clss: "col-md-12" } }, [
+        _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex-center position-ref mt-5" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-lg",
+              attrs: { type: "button" },
+              on: { click: _vm.gotoCreateSurvey }
+            },
+            [_vm._v("สร้างแบบสำรวจ")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("hr")
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex-center position-ref mt-5" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.head, function(i) {
+        return _c("div", { staticClass: "card text-center mt-2" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(i.name))]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    return _vm.gotoReport(i.id)
+                  }
+                }
+              },
+              [_vm._v("ดูข้อมูล")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer text-muted" }, [
+            _vm._v("\n            2 days ago\n        ")
+          ])
+        ])
+      }),
+      _c("br"),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 mt-5" }, [
         _c(
           "button",
           {
-            staticClass: "btn btn-primary btn-lg",
+            staticClass: "btn btn-outline-secondary btn-block",
             attrs: { type: "button" },
-            on: { click: _vm.gotoCreateSurvey }
+            on: { click: _vm.gotoReport }
           },
-          [_vm._v("สร้างแบบสำรวจ")]
+          [_vm._v("ReportPage\n        ")]
         )
       ]),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("hr")
-    ]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-12 mt-5" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-secondary btn-block",
-          attrs: { type: "button" },
-          on: { click: _vm.gotoReport }
-        },
-        [_vm._v("ReportPage\n        ")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-12 mt-5" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-secondary btn-block",
-          attrs: { type: "button" },
-          on: { click: _vm.gotoQuestion }
-        },
-        [_vm._v("gotoQuestion\n        ")]
-      )
-    ])
-  ])
+      _c("div", { staticClass: "col-12 mt-5" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary btn-block",
+            attrs: { type: "button" },
+            on: { click: _vm.gotoQuestion }
+          },
+          [_vm._v("gotoQuestion\n        ")]
+        )
+      ])
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -40251,30 +40282,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { clss: "col-md-12" } }, [
       _c("h4", [_vm._v("แบบสำรวจล่าสุด")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card text-center" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _vm._v("\n            Featured\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [
-          _vm._v("Special title treatment")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-          _vm._v("ดูข้อมูล")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-footer text-muted" }, [
-        _vm._v("\n            2 days ago\n        ")
-      ])
     ])
   }
 ]
@@ -55903,7 +55910,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "CreateSurvey",
     component: _views_CreateSurvey__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/Report',
+    path: '/Report/:s_id',
     name: "Report",
     component: _views_Report__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {

@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div >
 
-        {{this.h_name}}
+
         <div clss="col-md-12">
 
             <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
@@ -13,18 +13,16 @@
             <br/>
 
 
+
             <hr>
         </div>
         <div clss="col-md-12">
             <h4>แบบสำรวจล่าสุด</h4>
         </div>
-        <div class="card text-center" v-for="">
-            <div class="card-header">
-                Featured
-            </div>
+        <div class="card text-center mt-2" v-for="i in head">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary">ดูข้อมูล</a>
+                <h5 class="card-title">{{i.name}}</h5>
+                <button class="btn btn-primary" @click="gotoReport(i.id)">ดูข้อมูล</button>
             </div>
             <div class="card-footer text-muted">
                 2 days ago
@@ -48,11 +46,16 @@
             this.h_name()
         },
         methods: {
+            imformation() {
+                this.$route
+            },
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
             },
-            gotoReport() {
-                this.$router.push({name: "Report"})
+            gotoReport(headdata) {
+                this.$router.push({name: "Report" ,params : {s_id : headdata}})
+
+
             },
             gotoQuestion() {
                 this.$router.push({name: "Question"})
@@ -61,10 +64,10 @@
 
             },
             async h_name() {
-                this.head = await axios.get('api/survey/' + 7)
+                this.head = await axios.get('api/user_survey/'+3)
                     .then(function (response) {
                         console.log("success", response.data);
-                        return response.data
+                        return response.data.reverse()
                     })
                     .catch(function (error) {
                         console.log("error", error);
@@ -74,6 +77,7 @@
 
         },
         data: () => ({
+            head: null,
             form: {
                 s_id: null,
                 age: null,
