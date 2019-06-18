@@ -4,7 +4,7 @@
         <hr>
 
 
-        <div id="SexComponent" class="col-2">
+        <div id="SexComponent" class="col-2" >
             <select-sex @change="sex_emit($event)"></select-sex>
         </div>
 
@@ -12,8 +12,11 @@
         <!--            <select-age @change="ageID = $event" v-bind:ageID="2"></select-age>-->
         <!--            {{ageID}}-->
         <!--        </div>-->
-        <div id="ProvinceComponent">
+        <div id="ProvinceComponent" class="col-3" >
             <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
+        </div>
+        <div id="CareersComponent" class="col-2">
+            <select-careers @change="careers_emit($event)"></select-careers>
         </div>
 
     </div>
@@ -24,16 +27,19 @@
     import selectSex from '../components/SC'
     import selectAge from '../components/Age'
     import selectProvinces from '../components/Provinces'
+    import selectCareers from '../components/careers'
 
     export default {
         components: {
             selectSex,
             selectAge,
-            selectProvinces
+            selectProvinces,
+            selectCareers
 
         },
         name: "CreateSurvey",
         data: () => ({
+            careersIDS: null,
             provinceid: null,
             sexID: null,
             form: {
@@ -61,6 +67,10 @@
             sex_emit(sexdata) {
                 console.log('sex value', sexdata)
                 this.sexID = sexdata
+            },
+            careers_emit(careerdata) {
+                console.log('careers value', careerdata)
+                this.careersIDS = careerdata
             },
 
         }
