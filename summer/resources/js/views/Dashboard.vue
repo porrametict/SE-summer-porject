@@ -1,6 +1,7 @@
 <template>
     <div>
 
+        {{this.h_name}}
         <div clss="col-md-12">
 
             <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
@@ -15,9 +16,21 @@
             <hr>
         </div>
         <div clss="col-md-12">
-
             <h4>แบบสำรวจล่าสุด</h4>
         </div>
+        <div class="card text-center" v-for="">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <a href="#" class="btn btn-primary">ดูข้อมูล</a>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+        </div><br/><br/><br/>
+
         <div class="col-12 mt-5">
             <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
             </button>
@@ -31,6 +44,9 @@
 
 <script>
     export default {
+        created() {
+            this.h_name()
+        },
         methods: {
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
@@ -41,7 +57,35 @@
             gotoQuestion() {
                 this.$router.push({name: "Question"})
             },
-        }
+            GotoDetail() {
+
+            },
+            async h_name() {
+                this.head = await axios.get('api/survey/' + 7)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+            },
+
+        },
+        data: () => ({
+            form: {
+                s_id: null,
+                age: null,
+                sex: null,
+                province: null,
+                career: null,
+                comment: null,
+                ans: [
+                    {q_id: 0, rate: 5}
+                ]
+            },
+        })
     }
 
 </script>
