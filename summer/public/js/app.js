@@ -2516,9 +2516,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.h_name();
+  },
+  data: function data() {
+    return {
+      head: null,
+      form: {
+        s_id: null,
+        age: null,
+        sex: null,
+        province: null,
+        career: null,
+        comment: null,
+        ans: [{
+          q_id: 0,
+          rate: 5
+        }]
+      }
+    };
   },
   methods: {
     gotoCreateSurvey: function gotoCreateSurvey() {
@@ -2539,7 +2558,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         name: "Question"
       });
     },
-    GotoDetail: function GotoDetail() {},
     h_name: function () {
       var _h_name = _asyncToGenerator(
       /*#__PURE__*/
@@ -2549,7 +2567,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/user_survey/' + 3).then(function (response) {
+                return axios.get('api/user_survey/' + this.$userId).then(function (response) {
                   console.log("success", response.data);
                   return response.data.reverse();
                 })["catch"](function (error) {
@@ -2574,23 +2592,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return h_name;
     }()
-  },
-  data: function data() {
-    return {
-      head: null,
-      form: {
-        s_id: null,
-        age: null,
-        sex: null,
-        province: null,
-        career: null,
-        comment: null,
-        ans: [{
-          q_id: 0,
-          rate: 5
-        }]
-      }
-    };
   }
 });
 
@@ -40265,8 +40266,10 @@ var render = function() {
               )
             : _c(
                 "div",
-                { staticClass: "row justify-content-center text-muted" },
-                [_c("h1", [_vm._v("ยังไม่มีแบบสำรวจความพึงพอใจ")])]
+                {
+                  staticClass: "row justify-content-center text-secondary mt-5"
+                },
+                [_vm._m(1)]
               )
         ])
       : _vm._e()
@@ -40280,6 +40283,16 @@ var staticRenderFns = [
     return _c("div", { attrs: { clss: "col-md-12" } }, [
       _c("h4", [_vm._v("แบบสำรวจล่าสุด")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card text-center card-body card-title bg-light" },
+      [_c("h4", [_vm._v("ยังไม่มีแบบสำรวจความพึงพอใจ")])]
+    )
   }
 ]
 render._withStripped = true

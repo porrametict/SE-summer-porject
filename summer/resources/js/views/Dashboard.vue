@@ -34,8 +34,10 @@
             </div>
 
 
-        <div v-else class="row justify-content-center text-muted">
-            <h1>ยังไม่มีแบบสำรวจความพึงพอใจ</h1>
+        <div v-else class="row justify-content-center text-secondary mt-5">
+            <div class="card text-center card-body card-title bg-light">
+            <h4>ยังไม่มีแบบสำรวจความพึงพอใจ</h4>
+            </div>
         </div>
 
         </div>
@@ -47,32 +49,6 @@
     export default {
         created() {
             this.h_name()
-        },
-        methods: {
-
-            gotoCreateSurvey() {
-                this.$router.push({name: "CreateSurvey"})
-            },
-            gotoReport(headdata) {
-                this.$router.push({name: "Report" ,params : {s_id : headdata}})
-            },
-            gotoQuestion() {
-                this.$router.push({name: "Question"})
-            },
-            GotoDetail() {
-
-            },
-            async h_name() {
-                this.head = await axios.get('api/user_survey/'+3)
-                    .then(function (response) {
-                        console.log("success", response.data);
-                        return response.data.reverse()
-                    })
-                    .catch(function (error) {
-                        console.log("error", error);
-                        return null
-                    });
-            },
 
         },
         data: () => ({
@@ -88,7 +64,32 @@
                     {q_id: 0, rate: 5}
                 ]
             },
-        })
+        }),
+        methods: {
+
+            gotoCreateSurvey() {
+                this.$router.push({name: "CreateSurvey"})
+            },
+            gotoReport(headdata) {
+                this.$router.push({name: "Report" ,params : {s_id : headdata}})
+            },
+            gotoQuestion() {
+                this.$router.push({name: "Question"})
+            },
+
+            async h_name() {
+                this.head = await axios.get('api/user_survey/'+this.$userId)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data.reverse()
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+            },
+
+        },
     }
 
 </script>

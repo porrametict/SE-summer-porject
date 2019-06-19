@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Survey;
 use DB;
 
 class ReportController extends Controller
@@ -16,7 +16,7 @@ class ReportController extends Controller
      */
     public function index(Request $request)
     {
-
+        //
     }
 
     /**
@@ -37,12 +37,23 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id,Request $request)
+    {
         $age = $request -> get('age');
         $sex = $request -> get('sex');
         $province = $request -> get('province');
         $career = $request -> get('career');
 
-        $s_id = $request -> get('s_id');
+        $s_id =  $id; //$request -> get('s_id');
 
         $array = [];
 
@@ -85,21 +96,11 @@ class ReportController extends Controller
 //        ])->get();
 
         $users = DB::table('repeats')->where([$query])->get();
+        //dd($s_id);
+        $survey = Survey::find($s_id);
 
 
-
-        return response() -> json($users);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return response() -> json(['survey' => $survey, 'repeats' => $users]);
     }
 
     /**
