@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div >
+
 
         <div clss="col-md-12">
 
@@ -12,12 +13,22 @@
             <br/>
 
 
+
             <hr>
         </div>
         <div clss="col-md-12">
-
             <h4>แบบสำรวจล่าสุด</h4>
         </div>
+        <div class="card text-center mt-2" v-for="i in head">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <button class="btn btn-primary" @click="gotoReport(i.id)">ดูข้อมูล</button>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+        </div><br/><br/><br/>
+
         <div class="col-12 mt-5">
             <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
             </button>
@@ -31,17 +42,54 @@
 
 <script>
     export default {
+        created() {
+            this.h_name()
+        },
         methods: {
+            imformation() {
+                this.$route
+            },
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
             },
-            gotoReport() {
-                this.$router.push({name: "Report"})
+            gotoReport(headdata) {
+                this.$router.push({name: "Report" ,params : {s_id : headdata}})
+
+
             },
             gotoQuestion() {
                 this.$router.push({name: "Question"})
             },
-        }
+            GotoDetail() {
+
+            },
+            async h_name() {
+                this.head = await axios.get('api/user_survey/'+3)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data.reverse()
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+            },
+
+        },
+        data: () => ({
+            head: null,
+            form: {
+                s_id: null,
+                age: null,
+                sex: null,
+                province: null,
+                career: null,
+                comment: null,
+                ans: [
+                    {q_id: 0, rate: 5}
+                ]
+            },
+        })
     }
 
 </script>

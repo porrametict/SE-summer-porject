@@ -22,7 +22,7 @@ const  router = new VueRouter ({
             component :CreateSurvey
         },
         {
-            path : '/Report',
+            path : '/Report/:s_id',
             name : "Report",
             component :Report
         },
