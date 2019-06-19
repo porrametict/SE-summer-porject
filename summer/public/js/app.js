@@ -2875,6 +2875,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -40636,7 +40652,42 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("div", [_c("BarCharts")], 1)
+          _c("div")
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card mt-5" },
+          [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("\n                Questions\n            ")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.head.question, function(i) {
+              return _c("ul", { staticClass: "list-group list-group-flush" }, [
+                _c("li", { staticClass: "list-group-item" }, [
+                  _vm._v(_vm._s(i.text))
+                ])
+              ])
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card mt-5" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("\n                Comments\n            ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "ul",
+              _vm._l(_vm.head.comments, function(i) {
+                return _c("li", [_vm._v(_vm._s(i.text))])
+              }),
+              0
+            )
+          ])
         ])
       ])
     : _vm._e()

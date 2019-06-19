@@ -22,14 +22,30 @@
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
-            <div>
-                <BarCharts></BarCharts>
-            </div>
 
+            <div>
+<!--                <BarCharts></BarCharts>i in head.comments  i in head.question-->
+            </div>
+    </div>
+
+        <div class="card mt-5">
+            <div class="card-header">
+                Questions
+            </div>
+            <ul class="list-group list-group-flush" v-for="i in head.question">
+                <li class="list-group-item">{{i.text}}</li>
+            </ul>
         </div>
 
-
-    </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                Comments
+            </div>
+            <div class="card-body">
+                <ul><li v-for="i in head.comments">{{i.text}}</li></ul>
+            </div>
+        </div>
+</div>
 
 </template>
 
