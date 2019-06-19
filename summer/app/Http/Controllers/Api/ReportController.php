@@ -95,12 +95,16 @@ class ReportController extends Controller
 //            ['age', '=', $age],
 //        ])->get();
 
-        $users = DB::table('repeats')->where([$query])->get();
+        $users = DB::table('repeats')
+            ->select(DB::raw(' COUNT(id) count_n,rate,q_id'))
+            ->where([$query])->groupBy('rate','q_id')->get();
         //dd($s_id);
         $survey = Survey::find($s_id);
+        $question = DB::table('questions')->where('s_id',$s_id)->get();
+        $comments = DB::table('comments')->where('s_id',$s_id)->get();
 
 
-        return response() -> json(['survey' => $survey, 'repeats' => $users]);
+        return response() -> json(['survey' => $survey, 'question' => $question,'repeats' => $users , 'comments' => $comments ]);
     }
 
     /**

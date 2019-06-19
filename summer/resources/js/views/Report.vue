@@ -1,7 +1,10 @@
 <template>
-    <div>
+    <div v-if="head">
         <h1>ReportPage</h1>
         <hr>
+        <div class="text-center">
+        <h3>{{head.survey.name}}</h3>
+        </div>
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >
             <select-sex @change="sex_emit($event)"></select-sex>
@@ -19,10 +22,12 @@
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
-        </div>
-        <div id="myDiv">
+            <div>
+                <BarCharts></BarCharts>
+            </div>
 
         </div>
+
 
     </div>
 
@@ -34,24 +39,23 @@
     import selectAge from '../components/Age'
     import selectProvinces from '../components/Provinces'
     import selectCareers from '../components/careers'
+    import BarCharts from '../components/Barchart'
 
     export default {
         components: {
             selectSex,
             selectAge,
             selectProvinces,
-            selectCareers
+            selectCareers,
+            BarCharts
 
+        },
+        created() {
+            this.get_data()
         },
         name: "CreateSurvey",
         data: () => ({
-            ca : [
-                {
-                    x: ['giraffes', 'orangutans', 'monkeys'],
-                    y: [20, 14, 23],
-                    type: 'bar'
-                }
-            ],
+            head : null,
             careersIDS: null,
             provinceid: null,
             sexID: null,
@@ -64,9 +68,7 @@
             ],
 
         }),
-        mounted () {
-            Plotly.newPlot('myDiv', this.ca);
-        },
+
         methods: {
 
             addtext() {
@@ -88,6 +90,17 @@
                 console.log('careers value', careerdata)
                 this.careersIDS = careerdata
             },
+            async get_data(){
+                this.head = await axios.get('api/Report/'+this.$route.params.s_id)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+            }
 
         }
     }

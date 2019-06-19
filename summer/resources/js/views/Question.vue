@@ -50,9 +50,7 @@
             <textarea class="form-control" v-model="form.comment"></textarea>
         </div>
 
-        <div id="eiei">
 
-        </div>
 
 
         <button class="btn btn-primary mt-5" @click="submit">
@@ -86,17 +84,10 @@
             this.form.s_id = this.s_id
         },
         mounted() {
-            Plotly.newPlot('eiei', this.chart);
 
         },
         data: () => ({
-            chart: [
-                {
-                    x: ['giraffes', 'orangutans', 'monkeys'],
-                    y: [20, 14, 23],
-                    type: 'bar'
-                }
-            ],
+
             s_id: null,
             head: null,
             form: {
@@ -141,7 +132,7 @@
                     });
             },
             async h_name() {
-                this.head = await axios.get('api/survey/' + 7)
+                this.head = await axios.get('api/survey/' + this.$route.params.s_id)
                     .then(function (response) {
                         console.log("success", response.data);
                         return response.data

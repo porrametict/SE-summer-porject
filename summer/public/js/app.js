@@ -2003,9 +2003,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     create_repeated: function create_repeated(num_q) {
-      for (var i = 0; i < num_q; i++) {
+      for (var i = 0; i < num_q.length; i++) {
         this.form.repeats.push({
-          q_id: 0,
+          q_id: num_q[i].id,
           rate: 0
         });
       }
@@ -2023,7 +2023,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 3;
                 return axios.get('api/survey/' + this.sid).then(function (response) {
                   console.log("success", response.data);
-                  vm.create_repeated(response.data.questions.length);
+                  vm.create_repeated(response.data.questions);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
@@ -2050,6 +2050,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     export_select: function export_select() {
       this.$emit('change', this.form.repeats);
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Barchart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Barchart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Barchart",
+  data: function data() {
+    return {
+      ca: [{
+        x: ['giraffes', 'orangutans', 'monkeys'],
+        y: [20, 14, 23],
+        type: 'bar'
+      }]
+    };
+  },
+  mounted: function mounted() {
+    Plotly.newPlot('myDiv', this.ca);
   }
 });
 
@@ -2104,7 +2137,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return axios.get('api/provinces/').then(function (response) {
-                  console.log("success", response.data);
+                  //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
@@ -2681,8 +2714,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 
@@ -2702,16 +2733,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.h_name();
     this.form.s_id = this.s_id;
   },
-  mounted: function mounted() {
-    Plotly.newPlot('eiei', this.chart);
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
-      chart: [{
-        x: ['giraffes', 'orangutans', 'monkeys'],
-        y: [20, 14, 23],
-        type: 'bar'
-      }],
       s_id: null,
       head: null,
       form: {
@@ -2763,7 +2787,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/survey/' + 7).then(function (response) {
+                return axios.get('api/survey/' + this.$route.params.s_id).then(function (response) {
                   console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
@@ -2802,10 +2826,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_SC__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/SC */ "./resources/js/components/SC.vue");
-/* harmony import */ var _components_Age__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Age */ "./resources/js/components/Age.vue");
-/* harmony import */ var _components_Provinces__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Provinces */ "./resources/js/components/Provinces.vue");
-/* harmony import */ var _components_careers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/careers */ "./resources/js/components/careers.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SC__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SC */ "./resources/js/components/SC.vue");
+/* harmony import */ var _components_Age__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Age */ "./resources/js/components/Age.vue");
+/* harmony import */ var _components_Provinces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Provinces */ "./resources/js/components/Provinces.vue");
+/* harmony import */ var _components_careers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/careers */ "./resources/js/components/careers.vue");
+/* harmony import */ var _components_Barchart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Barchart */ "./resources/js/components/Barchart.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2837,25 +2870,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    selectSex: _components_SC__WEBPACK_IMPORTED_MODULE_0__["default"],
-    selectAge: _components_Age__WEBPACK_IMPORTED_MODULE_1__["default"],
-    selectProvinces: _components_Provinces__WEBPACK_IMPORTED_MODULE_2__["default"],
-    selectCareers: _components_careers__WEBPACK_IMPORTED_MODULE_3__["default"]
+    selectSex: _components_SC__WEBPACK_IMPORTED_MODULE_1__["default"],
+    selectAge: _components_Age__WEBPACK_IMPORTED_MODULE_2__["default"],
+    selectProvinces: _components_Provinces__WEBPACK_IMPORTED_MODULE_3__["default"],
+    selectCareers: _components_careers__WEBPACK_IMPORTED_MODULE_4__["default"],
+    BarCharts: _components_Barchart__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  created: function created() {
+    this.get_data();
   },
   name: "CreateSurvey",
   data: function data() {
     return {
-      ca: [{
-        x: ['giraffes', 'orangutans', 'monkeys'],
-        y: [20, 14, 23],
-        type: 'bar'
-      }],
+      head: null,
       careersIDS: null,
       provinceid: null,
       sexID: null,
@@ -2868,9 +2907,6 @@ __webpack_require__.r(__webpack_exports__);
         text: ""
       }]
     };
-  },
-  mounted: function mounted() {
-    Plotly.newPlot('myDiv', this.ca);
   },
   methods: {
     addtext: function addtext() {
@@ -2894,7 +2930,41 @@ __webpack_require__.r(__webpack_exports__);
     careers_emit: function careers_emit(careerdata) {
       console.log('careers value', careerdata);
       this.careersIDS = careerdata;
-    }
+    },
+    get_data: function () {
+      var _get_data = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('api/Report/' + this.$route.params.s_id).then(function (response) {
+                  console.log("success", response.data);
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log("error", error);
+                  return null;
+                });
+
+              case 2:
+                this.head = _context.sent;
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function get_data() {
+        return _get_data.apply(this, arguments);
+      }
+
+      return get_data;
+    }()
   }
 });
 
@@ -39819,6 +39889,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "myDiv" } })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Provinces.vue?vue&type=template&id=9042e830&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Provinces.vue?vue&type=template&id=9042e830&scoped=true& ***!
@@ -40440,8 +40534,6 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "eiei" } }),
-        _vm._v(" "),
         _c(
           "button",
           { staticClass: "btn btn-primary mt-5", on: { click: _vm.submit } },
@@ -40472,76 +40564,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("ReportPage")]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
-        [
-          _c("select-sex", {
-            on: {
-              change: function($event) {
-                return _vm.sex_emit($event)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
-        [
-          _c("select-age", {
-            attrs: { ageID: 2 },
-            on: {
-              change: function($event) {
-                _vm.form.age = $event
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-3 mt-5 ", attrs: { id: "ProvinceComponent" } },
-        [
-          _c("selectProvinces", {
-            on: {
-              change: function($event) {
-                return _vm.pronvince_emit($event)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
-        [
-          _c("select-careers", {
-            on: {
-              change: function($event) {
-                return _vm.careers_emit($event)
-              }
-            }
-          })
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "myDiv" } })
-  ])
+  return _vm.head
+    ? _c("div", [
+        _c("h1", [_vm._v("ReportPage")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.head.survey.name))])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
+            [
+              _c("select-sex", {
+                on: {
+                  change: function($event) {
+                    return _vm.sex_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
+            [
+              _c("select-age", {
+                attrs: { ageID: 2 },
+                on: {
+                  change: function($event) {
+                    _vm.form.age = $event
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "ProvinceComponent" } },
+            [
+              _c("selectProvinces", {
+                on: {
+                  change: function($event) {
+                    return _vm.pronvince_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
+            [
+              _c("select-careers", {
+                on: {
+                  change: function($event) {
+                    return _vm.careers_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", [_c("BarCharts")], 1)
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55677,6 +55775,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Answer_vue_vue_type_template_id_98a0422e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Answer_vue_vue_type_template_id_98a0422e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Barchart.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Barchart.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Barchart.vue?vue&type=template&id=c46590d4&scoped=true& */ "./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true&");
+/* harmony import */ var _Barchart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Barchart.vue?vue&type=script&lang=js& */ "./resources/js/components/Barchart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Barchart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c46590d4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Barchart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Barchart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/Barchart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Barchart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Barchart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Barchart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Barchart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Barchart.vue?vue&type=template&id=c46590d4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Barchart.vue?vue&type=template&id=c46590d4&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barchart_vue_vue_type_template_id_c46590d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
