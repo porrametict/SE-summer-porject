@@ -2754,6 +2754,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2768,6 +2770,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "CreateSurvey",
   data: function data() {
     return {
+      ca: [{
+        x: ['giraffes', 'orangutans', 'monkeys'],
+        y: [20, 14, 23],
+        type: 'bar'
+      }],
       careersIDS: null,
       provinceid: null,
       sexID: null,
@@ -2780,6 +2787,9 @@ __webpack_require__.r(__webpack_exports__);
         text: ""
       }]
     };
+  },
+  mounted: function mounted() {
+    Plotly.newPlot('myDiv', this.ca);
   },
   methods: {
     addtext: function addtext() {
@@ -40416,7 +40426,9 @@ var render = function() {
         ],
         1
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "myDiv" } })
   ])
 }
 var staticRenderFns = []

@@ -19,6 +19,8 @@
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
+        </div>
+        <div id="myDiv">
 
         </div>
 
@@ -43,6 +45,13 @@
         },
         name: "CreateSurvey",
         data: () => ({
+            ca : [
+                {
+                    x: ['giraffes', 'orangutans', 'monkeys'],
+                    y: [20, 14, 23],
+                    type: 'bar'
+                }
+            ],
             careersIDS: null,
             provinceid: null,
             sexID: null,
@@ -55,6 +64,9 @@
             ],
 
         }),
+        mounted () {
+            Plotly.newPlot('myDiv', this.ca);
+        },
         methods: {
 
             addtext() {
