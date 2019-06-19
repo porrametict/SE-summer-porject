@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repeats;
-
+use App\Comment;
 class RepeatsController extends Controller
 {
     /**
@@ -51,9 +51,13 @@ class RepeatsController extends Controller
           'q_id' => $request -> get('ans')[$n]['q_id'],
           'rate' => $request -> get('ans')[$n]['rate']
         ]);
-        //$questions[$n]['text'];
         $n++;
       }
+      Comment::create([
+          's_id' => $request -> get('s_id'),
+          'text' => $request -> get('comment')
+      ]);
+
       return 'success';
     }
 

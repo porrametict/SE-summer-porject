@@ -25,3 +25,4 @@ Route::resource('survey','Api\SurveyController');
 Route::resource('questions','Api\QuestionsController');
 Route::resource('repeats','Api\RepeatsController');
 Route::resource('Report','Api\ReportController');
+Route::get('user_survey/{id}', 'Api\SurveyController@user_survey');

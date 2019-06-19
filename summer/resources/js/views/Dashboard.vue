@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div >
+
 
         <div clss="col-md-12">
 
@@ -12,36 +13,83 @@
             <br/>
 
 
+
             <hr>
         </div>
         <div clss="col-md-12">
-
             <h4>แบบสำรวจล่าสุด</h4>
         </div>
-        <div class="col-12 mt-5">
-            <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoReport">ReportPage
-            </button>
+
+        <div v-if="head">
+            <div v-if="head.length > 0 ">
+                <div  class="card text-center mt-2" v-for="i in head">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <button class="btn btn-primary" @click="gotoReport(i.id)">ดูข้อมูล</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
+
+
+        <div v-else class="row justify-content-center text-secondary mt-5">
+            <div class="card text-center card-body card-title bg-light">
+            <h4>ยังไม่มีแบบสำรวจความพึงพอใจ</h4>
+            </div>
         </div>
-        <div class="col-12 mt-5">
-            <button type="button" class="btn btn-outline-secondary btn-block" @click="gotoQuestion">gotoQuestion
-            </button>
+
         </div>
+
     </div>
 </template>
 
 <script>
     export default {
+        created() {
+            this.h_name()
+
+        },
+        data: () => ({
+            head: null,
+            form: {
+                s_id: null,
+                age: null,
+                sex: null,
+                province: null,
+                career: null,
+                comment: null,
+                ans: [
+                    {q_id: 0, rate: 5}
+                ]
+            },
+        }),
         methods: {
+
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
             },
-            gotoReport() {
-                this.$router.push({name: "Report"})
+            gotoReport(headdata) {
+                this.$router.push({name: "Report" ,params : {s_id : headdata}})
             },
             gotoQuestion() {
                 this.$router.push({name: "Question"})
             },
-        }
+
+            async h_name() {
+                this.head = await axios.get('api/user_survey/'+this.$userId)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data.reverse()
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+            },
+
+        },
     }
 
 </script>
@@ -65,6 +113,7 @@
         align-items: center;
         display: flex;
         justify-content: center;
+        text-align: center;
     }
 
     .position-ref {
