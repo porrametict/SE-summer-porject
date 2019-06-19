@@ -2513,14 +2513,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.h_name();
   },
   methods: {
-    imformation: function imformation() {
-      this.$route;
-    },
     gotoCreateSurvey: function gotoCreateSurvey() {
       this.$router.push({
         name: "CreateSurvey"
@@ -7356,7 +7356,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n", ""]);
+exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n    text-align: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n", ""]);
 
 // exports
 
@@ -40205,85 +40205,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { attrs: { clss: "col-md-12" } }, [
-        _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex-center position-ref mt-5" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-lg",
-              attrs: { type: "button" },
-              on: { click: _vm.gotoCreateSurvey }
-            },
-            [_vm._v("สร้างแบบสำรวจ")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("hr")
+  return _c("div", [
+    _c("div", { attrs: { clss: "col-md-12" } }, [
+      _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex-center position-ref mt-5" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg",
+            attrs: { type: "button" },
+            on: { click: _vm.gotoCreateSurvey }
+          },
+          [_vm._v("สร้างแบบสำรวจ")]
+        )
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("br"),
       _vm._v(" "),
-      _vm._l(_vm.head, function(i) {
-        return _c("div", { staticClass: "card text-center mt-2" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(i.name))]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.gotoReport(i.id)
-                  }
-                }
-              },
-              [_vm._v("ดูข้อมูล")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-footer text-muted" }, [
-            _vm._v("\n            2 days ago\n        ")
-          ])
+      _c("hr")
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm.head
+      ? _c("div", [
+          _vm.head.length > 0
+            ? _c(
+                "div",
+                _vm._l(_vm.head, function(i) {
+                  return _c("div", { staticClass: "card text-center mt-2" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(i.name))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.gotoReport(i.id)
+                            }
+                          }
+                        },
+                        [_vm._v("ดูข้อมูล")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-footer text-muted" }, [
+                      _vm._v(
+                        "\n                    2 days ago\n                "
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            : _c(
+                "div",
+                { staticClass: "row justify-content-center text-muted" },
+                [_c("h1", [_vm._v("ยังไม่มีแบบสำรวจความพึงพอใจ")])]
+              )
         ])
-      }),
-      _c("br"),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-5" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary btn-block",
-            attrs: { type: "button" },
-            on: { click: _vm.gotoReport }
-          },
-          [_vm._v("ReportPage\n        ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-5" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary btn-block",
-            attrs: { type: "button" },
-            on: { click: _vm.gotoQuestion }
-          },
-          [_vm._v("gotoQuestion\n        ")]
-        )
-      ])
-    ],
-    2
-  )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
