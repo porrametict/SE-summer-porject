@@ -3,10 +3,7 @@
 
 
         <div clss="col-md-12">
-            <button>
-                <i class="fa fa-500px"></i>
-                back
-            </button>
+
             <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
             <div class="flex-center position-ref mt-5">
                 <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
@@ -32,7 +29,7 @@
                         <button class="btn btn-outline-info" @click="copylink(i.id)">copy link</button>
                     </div>
                     <div class="card-footer text-muted">
-                        2 days ago
+                        {{i.dateDiff}} days ago
                     </div>
                 </div>
             </div>
@@ -50,6 +47,9 @@
 </template>
 
 <script>
+    var moment = require('moment');
+    moment.locale('th');
+
     export default {
         created() {
             this.h_name()
@@ -70,7 +70,6 @@
         }),
         methods: {
             copylink(link_id) {
-
                 let copyText = "http://127.0.0.1:8000/home#/ans/"+link_id
                 var el = document.createElement('textarea');
                 // Set value (string to be copied)
@@ -112,13 +111,22 @@
             async h_name() {
                 this.head = await axios.get('api/user_survey/'+this.$userId)
                     .then(function (response) {
-                        console.log("success", response.data);
+                        //console.log("success", response.data);
                         return response.data.reverse()
+
                     })
                     .catch(function (error) {
                         console.log("error", error);
                         return null
                     });
+                this.calDateDiff();
+            },
+            calDateDiff () {
+                for (let i = 0 ;i < this.head.length;i++) {
+                    this.head[i].dateDiff = moment().diff(this.head[i].created_at , 'day')
+                }
+                //a.diff(b, 'days') // 1
+
             },
 
         },

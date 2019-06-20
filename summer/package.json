@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@fortawesome/vue-fontawesome": "^0.1.6",
+        "moment": "^2.24.0",
         "vue-router": "^3.0.6"
     }
 }
