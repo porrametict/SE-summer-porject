@@ -1,5 +1,5 @@
 <template>
-    <div id="myDiv">
+    <div :id="id">
 
     </div>
 </template>
@@ -7,17 +7,34 @@
 <script>
     export default {
         name: "Barchart",
+        props : {
+                id : String,
+                data : Array,
+        },
         data: () => ({
-            ca: [
+            chart_data: [
                 {
-                    x: ['giraffes', 'orangutans', 'monkeys'],
-                    y: [20, 14, 23],
+                    x: [],
+                    y: [],
                     type: 'bar'
                 }
             ],}),
         mounted () {
-            Plotly.newPlot('myDiv', this.ca);
+
+            this.generateChartData();
+
+            Plotly.newPlot(this.id, this.chart_data);
+
+
         },
+        methods : {
+            generateChartData () {
+                for(let i=0;i<this.data.length;i++) {
+                    this.chart_data[0].x.push(this.data[i].rate)
+                    this.chart_data[0].y.push(this.data[i].count_n)
+                }
+            }
+        }
     }
 
 </script>

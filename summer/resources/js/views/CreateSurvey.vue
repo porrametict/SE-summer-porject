@@ -84,7 +84,7 @@
                     .then(function (response) {
                         console.log(response.data.id);
                         //swal("Finished", , "success");
-                        vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
+                        vm.ShowSuccess("http://127.0.0.1:8000/home#/ans/" + response.data.id);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -103,6 +103,7 @@
 
             },
             ShowSuccess (text) {
+                let vm = this ;
                 Swal.fire({
                     type: 'success',
                     title: 'Finished',
@@ -113,7 +114,14 @@
                         '<button onclick="CopyToCB" class="btn btn-secondary" id="cpTocb" >Copy</button>'+
                         '</div>' ,
                     focusConfirm: false,
-                })
+                }).then(function() {
+                    // Redirect the user
+                    // window.location.href = "new_url.html";
+                    console.log('The Ok Button was clicked.');
+                    vm.$router.push({name: "dashboard"})
+                });
+
+
                 $("#cpTocb").click( function () {
                     /* Get the text field */
                     let copyText = document.getElementById("myInput");
@@ -134,8 +142,15 @@
                         position: 'top-end',
                         showConfirmButton: false,
                         timer: 3000
-                    })
+                    }).then(function() {
+                        // Redirect the user
+                        // window.location.href = "new_url.html";
+                        console.log('The Ok Button was clicked.');
+                        vm.$router.push({name: "dashboard"})
+                    });
                 });
+
+
 
             },
 

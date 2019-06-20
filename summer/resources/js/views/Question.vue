@@ -124,7 +124,13 @@
                 axios.post('/api/repeats', this.form)
                     .then(function (response) {
                         console.log(response.data.id);
-                        swal("Finished", "ขอบคุณสำหรับคำตอบ", "success");
+                        swal("Finished", "ขอบคุณสำหรับคำตอบ", "success")
+                            .then(function() {
+                                // Redirect the user
+                                // window.location.href = "new_url.html";
+                                console.log('The Ok Button was clicked.');
+                                window.location.href = "http://127.0.0.1:8000";
+                            });;
                         // vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
                     })
                     .catch(function (error) {

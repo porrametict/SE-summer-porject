@@ -25,10 +25,11 @@
                 <div  class="card text-center mt-2" v-for="i in head">
                     <div class="card-body">
                         <h5 class="card-title">{{i.name}}</h5>
-                        <button class="btn btn-primary" @click="gotoReport(i.id)">ดูข้อมูล</button>
+                        <button class="btn btn-primary" @click="gotoReport(i.id)">ดูรายงาน</button>
+                        <button class="btn btn-outline-info" @click="copylink(i.id)">copy link</button>
                     </div>
                     <div class="card-footer text-muted">
-                        2 days ago
+                        {{i.dateDiff}} days ago
                     </div>
                 </div>
             </div>
@@ -46,6 +47,9 @@
 </template>
 
 <script>
+    var moment = require('moment');
+    moment.locale('th');
+
     export default {
         created() {
             this.h_name()
@@ -56,7 +60,6 @@
             form: {
                 s_id: null,
                 age: null,
-                sex: null,
                 province: null,
                 career: null,
                 comment: null,
@@ -66,6 +69,34 @@
             },
         }),
         methods: {
+            copylink(link_id) {
+                let copyText = "http://127.0.0.1:8000/home#/ans/"+link_id
+                var el = document.createElement('textarea');
+                // Set value (string to be copied)
+                el.value = copyText;
+                // Set non-editable to avoid focus and move outside of view
+                el.setAttribute('readonly', '');
+                el.style = {position: 'absolute', left: '-9999px'};
+                document.body.appendChild(el);
+                // Select text inside element
+                el.select();
+                // Copy text to clipboard
+                document.execCommand('copy');
+                // Remove temporary element
+                document.body.removeChild(el);
+
+                /* Alert the copied text */
+                //swal("Copied the text: " + copyText.value);
+                Swal.fire({
+                    type: 'success',
+                    title: "Copied the text: " + copyText,
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            },
 
             gotoCreateSurvey() {
                 this.$router.push({name: "CreateSurvey"})
@@ -80,13 +111,22 @@
             async h_name() {
                 this.head = await axios.get('api/user_survey/'+this.$userId)
                     .then(function (response) {
-                        console.log("success", response.data);
+                        //console.log("success", response.data);
                         return response.data.reverse()
+
                     })
                     .catch(function (error) {
                         console.log("error", error);
                         return null
                     });
+                this.calDateDiff();
+            },
+            calDateDiff () {
+                for (let i = 0 ;i < this.head.length;i++) {
+                    this.head[i].dateDiff = moment().diff(this.head[i].created_at , 'day')
+                }
+                //a.diff(b, 'days') // 1
+
             },
 
         },
