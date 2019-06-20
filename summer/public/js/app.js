@@ -2580,6 +2580,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.h_name();
@@ -40444,6 +40447,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { attrs: { clss: "col-md-12" } }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
       _vm._v(" "),
       _c("div", { staticClass: "flex-center position-ref mt-5" }, [
@@ -40463,7 +40468,7 @@ var render = function() {
       _c("hr")
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _vm._m(1),
     _vm._v(" "),
     _vm.head
       ? _c("div", [
@@ -40518,13 +40523,22 @@ var render = function() {
                 {
                   staticClass: "row justify-content-center text-secondary mt-5"
                 },
-                [_vm._m(1)]
+                [_vm._m(2)]
               )
         ])
       : _vm._e()
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", [
+      _c("i", { staticClass: "fa fa-500px" }),
+      _vm._v("\n            back\n        ")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
