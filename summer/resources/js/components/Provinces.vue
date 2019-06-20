@@ -22,7 +22,7 @@
             async f_name() {
                 this.provinces = await axios.get('api/provinces/')
                     .then(function (response) {
-                        console.log("success", response.data);
+                        //console.log("success", response.data);
                         return response.data
                     })
                     .catch(function (error) {

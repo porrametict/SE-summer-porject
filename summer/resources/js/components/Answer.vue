@@ -50,8 +50,8 @@
         }),
         methods: {
             create_repeated(num_q) {
-                for (let i =0 ; i < num_q;i++) {
-                    this.form.repeats.push({q_id : 0,rate : 0})
+                for (let i =0 ; i < num_q.length;i++) {
+                    this.form.repeats.push({q_id : num_q[i].id,rate : 0})
                 }
             },
             async hh_name() {
@@ -59,7 +59,7 @@
                 this.head = await axios.get('api/survey/'+this.sid)
                     .then(function (response) {
                         console.log("success", response.data);
-                        vm.create_repeated(response.data.questions.length)
+                        vm.create_repeated(response.data.questions)
                         return response.data
 
                     })
