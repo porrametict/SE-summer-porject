@@ -30,13 +30,24 @@
             <div class="card-header">
                 Questions
             </div>
-            <ul class="list-group list-group-flush" v-for="i in head.question">
-                <li class="list-group-item">
-                    {{i.text}}
-                    <BarCharts></BarCharts>
-                    ca5
-                </li>
-            </ul>
+            <div v-if="QwithRate.length > 0">
+                <ul class="list-group list-group-flush"  :key="i.id" v-for="i in head.question" >
+                    <li class="list-group-item">
+                        {{i.text}}
+                        <div v-for="qr in QwithRate" :key="qr[0].q_id">
+
+                            <div v-if="qr[0].q_id == i.id">
+                                <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div v-else>
+                No data
+            </div>
         </div>
 
         <div class="card mt-5">
@@ -84,7 +95,6 @@
         }),
 
         methods: {
-
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },

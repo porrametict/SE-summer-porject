@@ -2072,17 +2072,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Barchart",
+  props: {
+    id: String,
+    data: Array
+  },
   data: function data() {
     return {
-      ca: [{
-        x: ['giraffes', 'orangutans', 'monkeys'],
-        y: [20, 14, 23],
+      chart_data: [{
+        x: [],
+        y: [],
         type: 'bar'
       }]
     };
   },
   mounted: function mounted() {
-    Plotly.newPlot('myDiv', this.ca);
+    this.generateChartData();
+    Plotly.newPlot(this.id, this.chart_data);
+  },
+  methods: {
+    generateChartData: function generateChartData() {
+      for (var i = 0; i < this.data.length; i++) {
+        this.chart_data[0].x.push(this.data[i].rate);
+        this.chart_data[0].y.push(this.data[i].count_n);
+      }
+    }
   }
 });
 
@@ -2890,6 +2903,17 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40022,7 +40046,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "myDiv" } })
+  return _c("div", { attrs: { id: _vm.id } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40768,35 +40792,53 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card mt-5" },
-          [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("\n                Questions\n            ")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.head.question, function(i) {
-              return _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c(
-                  "li",
-                  { staticClass: "list-group-item" },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(i.text) +
-                        "\n                    "
-                    ),
-                    _c("BarCharts"),
-                    _vm._v("\n                    ca5\n                ")
-                  ],
-                  1
-                )
-              ])
-            })
-          ],
-          2
-        ),
+        _c("div", { staticClass: "card mt-5" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("\n                Questions\n            ")
+          ]),
+          _vm._v(" "),
+          _vm.QwithRate.length > 0
+            ? _c(
+                "div",
+                _vm._l(_vm.head.question, function(i) {
+                  return _c(
+                    "ul",
+                    { key: i.id, staticClass: "list-group list-group-flush" },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "list-group-item" },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(i.text) +
+                              "\n                        "
+                          ),
+                          _vm._l(_vm.QwithRate, function(qr) {
+                            return _c("div", { key: qr[0].q_id }, [
+                              qr[0].q_id == i.id
+                                ? _c(
+                                    "div",
+                                    [
+                                      _c("BarCharts", {
+                                        attrs: { id: i.id.toString(), data: qr }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                : _vm._e()
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            : _c("div", [_vm._v("\n                No data\n            ")])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "card mt-5" }, [
           _c("div", { staticClass: "card-header" }, [
