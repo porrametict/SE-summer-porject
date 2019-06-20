@@ -2942,6 +2942,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -2965,14 +2967,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       careersIDS: null,
       provinceid: null,
       sexID: null,
-      form: {
-        hSurvey: "",
-        questions: []
-      },
-      questions: [{
-        no: 0,
-        text: ""
-      }]
+      QwithRate: []
     };
   },
   methods: {
@@ -2982,20 +2977,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: ""
       });
     },
-    save: function save() {
-      this.form.questions = this.questions;
-      console.log(this.form);
-    },
     pronvince_emit: function pronvince_emit(pronvincedata) {
-      console.log('provinces id', pronvincedata);
+      //sole.log('provinces id', pronvincedata)
       this.provinceid = pronvincedata;
     },
     sex_emit: function sex_emit(sexdata) {
-      console.log('sex value', sexdata);
+      //console.log('sex value', sexdata)
       this.sexID = sexdata;
     },
     careers_emit: function careers_emit(careerdata) {
-      console.log('careers value', careerdata);
+      //console.log('careers value', careerdata)
       this.careersIDS = careerdata;
     },
     get_data: function () {
@@ -3008,7 +2999,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return axios.get('api/Report/' + this.$route.params.s_id).then(function (response) {
-                  console.log("success", response.data);
+                  //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
@@ -3017,8 +3008,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 this.head = _context.sent;
+                this.Checkq_id();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -3031,7 +3023,66 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return get_data;
-    }()
+    }(),
+    Checkq_id: function Checkq_id() {
+      var Arr_Qid = [];
+
+      _.filter(this.head.repeats, function (o) {
+        if (!Arr_Qid.includes(o.q_id)) {
+          Arr_Qid.push(o.q_id);
+        }
+      }); // console.log(Arr_Qid)
+
+
+      for (var i = 0; i < Arr_Qid.length; i++) {
+        var q_id = Arr_Qid[i];
+        var data = [{
+          rate: 5,
+          count_n: 0,
+          q_id: q_id
+        }, {
+          rate: 4,
+          count_n: 0,
+          q_id: q_id
+        }, {
+          rate: 3,
+          count_n: 0,
+          q_id: q_id
+        }, {
+          rate: 2,
+          count_n: 0,
+          q_id: q_id
+        }, {
+          rate: 1,
+          count_n: 0,
+          q_id: q_id
+        }];
+        this.QwithRate.push(data);
+      } //console.log(this.QwithRate)
+
+
+      this.mapRate();
+    },
+    mapRate: function mapRate() {
+      var data = this.QwithRate;
+
+      for (var i = 0; i < data.length; i++) {
+        //console.log(data[i])
+        for (var j = 0; j < data[i].length; j++) {
+          //console.log(data[i][j])
+          var cur_pos = data[i][j];
+          var repeats = this.head.repeats;
+
+          for (var k = 0; k < repeats.length; k++) {
+            if (repeats[k].q_id == cur_pos.q_id && repeats[k].rate == cur_pos.rate) {
+              data[i][j].count_n = repeats[k].count_n;
+            }
+          }
+        }
+      }
+
+      this.QwithRate = data;
+    }
   }
 });
 
@@ -40714,9 +40765,7 @@ var render = function() {
               })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("div")
+          )
         ]),
         _vm._v(" "),
         _c(
@@ -40729,9 +40778,20 @@ var render = function() {
             _vm._v(" "),
             _vm._l(_vm.head.question, function(i) {
               return _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item" }, [
-                  _vm._v(_vm._s(i.text))
-                ])
+                _c(
+                  "li",
+                  { staticClass: "list-group-item" },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(i.text) +
+                        "\n                    "
+                    ),
+                    _c("BarCharts"),
+                    _vm._v("\n                    ca5\n                ")
+                  ],
+                  1
+                )
               ])
             })
           ],
