@@ -2439,7 +2439,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/survey', this.form).then(function (response) {
         console.log(response.data.id); //swal("Finished", , "success");
 
-        vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
+        vm.ShowSuccess("http://127.0.0.1:8000/home#/ans/" + response.data.id);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2454,11 +2454,19 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     ShowSuccess: function ShowSuccess(text) {
+      var vm = this;
       Swal.fire({
         type: 'success',
         title: 'Finished',
         html: '<div class="text-center mb-3">copy your link</div>' + '<div class="d-flex">' + '<input type="text" value="' + text + '" id="myInput" class="form-control mr-2" readonly>' + '<button onclick="CopyToCB" class="btn btn-secondary" id="cpTocb" >Copy</button>' + '</div>',
         focusConfirm: false
+      }).then(function () {
+        // Redirect the user
+        // window.location.href = "new_url.html";
+        console.log('The Ok Button was clicked.');
+        vm.$router.push({
+          name: "dashboard"
+        });
       });
       $("#cpTocb").click(function () {
         /* Get the text field */
@@ -2479,6 +2487,13 @@ __webpack_require__.r(__webpack_exports__);
           position: 'top-end',
           showConfirmButton: false,
           timer: 3000
+        }).then(function () {
+          // Redirect the user
+          // window.location.href = "new_url.html";
+          console.log('The Ok Button was clicked.');
+          vm.$router.push({
+            name: "dashboard"
+          });
         });
       });
     }
@@ -2551,6 +2566,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.h_name();
@@ -2561,7 +2577,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         s_id: null,
         age: null,
-        sex: null,
         province: null,
         career: null,
         comment: null,
@@ -2573,6 +2588,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    copylink: function copylink(link_id) {
+      var copyText = "http://127.0.0.1:8000/home#/ans/" + link_id;
+      var el = document.createElement('textarea'); // Set value (string to be copied)
+
+      el.value = copyText; // Set non-editable to avoid focus and move outside of view
+
+      el.setAttribute('readonly', '');
+      el.style = {
+        position: 'absolute',
+        left: '-9999px'
+      };
+      document.body.appendChild(el); // Select text inside element
+
+      el.select(); // Copy text to clipboard
+
+      document.execCommand('copy'); // Remove temporary element
+
+      document.body.removeChild(el);
+      /* Alert the copied text */
+      //swal("Copied the text: " + copyText.value);
+
+      Swal.fire({
+        type: 'success',
+        title: "Copied the text: " + copyText,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    },
     gotoCreateSurvey: function gotoCreateSurvey() {
       this.$router.push({
         name: "CreateSurvey"
@@ -2773,7 +2818,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       console.log(this.form);
       axios.post('/api/repeats', this.form).then(function (response) {
         console.log(response.data.id);
-        swal("Finished", "ขอบคุณสำหรับคำตอบ", "success"); // vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
+        swal("Finished", "ขอบคุณสำหรับคำตอบ", "success").then(function () {
+          // Redirect the user
+          // window.location.href = "new_url.html";
+          console.log('The Ok Button was clicked.');
+          window.location.href = "http://127.0.0.1:8000";
+        });
+        ; // vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -40361,7 +40412,20 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("ดูข้อมูล")]
+                        [_vm._v("ดูรายงาน")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-info",
+                          on: {
+                            click: function($event) {
+                              return _vm.copylink(i.id)
+                            }
+                          }
+                        },
+                        [_vm._v("copy link")]
                       )
                     ]),
                     _vm._v(" "),
@@ -56144,7 +56208,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "Report",
     component: _views_Report__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/Question/:s_id',
+    path: '/ans/:s_id',
     name: "Question",
     component: _views_Question__WEBPACK_IMPORTED_MODULE_5__["default"]
   }]
