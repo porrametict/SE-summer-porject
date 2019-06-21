@@ -2455,7 +2455,19 @@ __webpack_require__.r(__webpack_exports__);
         text: ""
       });
     },
+    checkData: function checkData() {
+      if (this.form.hSurvey == "") {
+        return false;
+      } else if (this.form.questions[0] == "") {
+        return false;
+      }
+    },
     save: function save() {
+      if (!this.checkData()) {
+        swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+        return;
+      }
+
       var vm = this;
       this.form.u_id = this.$userId;
       this.form.questions = this.questions;
@@ -3056,10 +3068,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "CreateSurvey",
   data: function data() {
     return {
+      fillter: {
+        age: '',
+        sex: '',
+        province: '',
+        career: ''
+      },
       head: null,
-      careersIDS: null,
-      provinceid: null,
-      sexID: null,
       QwithRate: []
     };
   },
@@ -3072,15 +3087,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     pronvince_emit: function pronvince_emit(pronvincedata) {
       //sole.log('provinces id', pronvincedata)
-      this.provinceid = pronvincedata;
+      this.fillter.province = pronvincedata;
+      this.get_data();
     },
     sex_emit: function sex_emit(sexdata) {
       //console.log('sex value', sexdata)
-      this.sexID = sexdata;
+      this.fillter.sex = sexdata;
+      this.get_data();
     },
     careers_emit: function careers_emit(careerdata) {
       //console.log('careers value', careerdata)
-      this.careersIDS = careerdata;
+      this.fillter.career = careerdata;
+      this.get_data();
+    },
+    age_emit: function age_emit(agedata) {
+      this.fillter.age = agedata;
+      this.get_data();
     },
     get_data: function () {
       var _get_data = _asyncToGenerator(
@@ -3091,7 +3113,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/Report/' + this.$route.params.s_id).then(function (response) {
+                return axios.get('api/Report/' + this.$route.params.s_id, this.fillter).then(function (response) {
                   //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
@@ -58521,10 +58543,9 @@ var render = function() {
             { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
             [
               _c("select-age", {
-                attrs: { ageID: 2 },
                 on: {
                   change: function($event) {
-                    _vm.form.age = $event
+                    return _vm.age_emit($event)
                   }
                 }
               })

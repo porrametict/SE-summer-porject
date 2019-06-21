@@ -75,7 +75,22 @@
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },
+            checkData () {
+                    if(this.form.hSurvey == "")
+                    {
+                        return false;
+                    }else if (this.form.questions[0] == "") {
+                        return false;
+                    }
+            },
             save() {
+                if (!this.checkData()){
+
+                        swal('Fail','กรุณากรอกข้อมูลให้ครบ','error' )
+                        return ;
+
+                }
+
                 let vm = this
                 this.form.u_id = this.$userId;
                 this.form.questions = this.questions

@@ -53,6 +53,7 @@ class ReportController extends Controller
         $province = $request -> get('province');
         $career = $request -> get('career');
 
+        dd($age);
         $s_id =  $id; //$request -> get('s_id');
 
         $array = [];
@@ -87,13 +88,6 @@ class ReportController extends Controller
             array_push($array, $p4);
         }
 
-//        $users = DB::table('repeats')
-//            ->where('s_id', $s_id)->get();
-
-//        $users = DB::table('repeats')->where([
-//            ['s_id', '=', $s_id],
-//            ['age', '=', $age],
-//        ])->get();
 
         $users = DB::table('repeats')
             ->select(DB::raw(' COUNT(id) count_n,rate,q_id'))

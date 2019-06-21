@@ -11,7 +11,7 @@
              </div>
 
             <div id="testComponent2" class="col-3 mt-5 ">
-            <select-age @change="form.age = $event" v-bind:ageID="2"></select-age>
+            <select-age @change="age_emit($event)"></select-age>
             </div>
 
             <div id="ProvinceComponent" class="col-3 mt-5 " >
@@ -82,10 +82,13 @@
         },
         name: "CreateSurvey",
         data: () => ({
+            fillter: {
+                age:'',
+                sex:'',
+                province:'',
+                career:''
+            },
             head : null,
-            careersIDS: null,
-            provinceid: null,
-            sexID: null,
             QwithRate : [
 
             ]
@@ -99,18 +102,25 @@
 
             pronvince_emit(pronvincedata) {
                 //sole.log('provinces id', pronvincedata)
-                this.provinceid = pronvincedata
+                this.fillter.province = pronvincedata
+                this.get_data()
             },
             sex_emit(sexdata) {
                //console.log('sex value', sexdata)
-                this.sexID = sexdata
+                this.fillter.sex = sexdata
+                this.get_data()
             },
             careers_emit(careerdata) {
                 //console.log('careers value', careerdata)
-                this.careersIDS = careerdata
+                this.fillter.career = careerdata
+                this.get_data()
+            },
+            age_emit(agedata) {
+                this.fillter.age = agedata
+                this.get_data()
             },
             async get_data(){
-                this.head = await axios.get('api/Report/'+this.$route.params.s_id)
+                this.head = await axios.get('api/Report/'+this.$route.params.s_id,this.fillter)
                     .then(function (response) {
                         //console.log("success", response.data);
                         return response.data
@@ -162,7 +172,6 @@
                                 data[i][j].count_n = repeats[k].count_n;
                             }
                         }
-
                     }
                 }
                 this.QwithRate = data;
