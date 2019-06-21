@@ -2916,7 +2916,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -2948,14 +2947,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         province: null,
         career: null,
         comment: null,
-        ans: [{
-          q_id: 0,
-          rate: 5
-        }]
+        ans: []
       }
     };
   },
   methods: {
+    checkData: function checkData() {
+      if (this.form.sex == null) {
+        return true;
+      } else if (this.form.age == null) {
+        return true;
+      } else if (this.form.province == null) {
+        return true;
+      } else if (this.form.career == null) {
+        return true;
+      }
+
+      if (this.form.ans.length == 0) {
+        return true;
+      }
+
+      for (var i = 0; i < this.form.ans.length; i++) {
+        if (this.form.ans[i].rate == 0) {
+          return true;
+        }
+      }
+    },
     pronvince_emit: function pronvince_emit(pronvincedata) {
       console.log('provinces id', pronvincedata);
       this.form.province = pronvincedata;
@@ -2973,6 +2990,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form.sex = sexdata;
     },
     submit: function submit() {
+      if (this.checkData()) {
+        swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+        return;
+      }
+
       console.log(this.form);
       axios.post('/api/repeats', this.form).then(function (response) {
         console.log(response.data.id);
@@ -58342,7 +58364,7 @@ var render = function() {
                   [
                     _c(
                       "ul",
-                      { staticClass: "pagination" },
+                      { staticClass: "pagination justify-content-center" },
                       [
                         _c("li", { staticClass: "page-item" }, [
                           _c(

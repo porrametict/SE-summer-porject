@@ -51,12 +51,11 @@
         </div>
 
 
-
-
         <button class="btn btn-primary mt-5" @click="submit">
             Submit
         </button>
     </div>
+
 </template>
 
 
@@ -98,11 +97,30 @@
                 career: null,
                 comment: null,
                 ans: [
-                    {q_id: 0, rate: 5}
                 ]
             }
         }),
         methods: {
+            checkData() {
+                if (this.form.sex == null) {
+                    return true;
+                } else if (this.form.age == null) {
+                    return true;
+                } else if (this.form.province == null) {
+                    return true;
+                } else if (this.form.career == null) {
+                    return true;
+                }
+                if (this.form.ans.length == 0){
+                    return true
+                }
+                for (let i = 0;i < this.form.ans.length;i++) {
+                    if (this.form.ans[i].rate == 0) {
+                        return true;
+                    }
+
+                }
+            },
             pronvince_emit(pronvincedata) {
                 console.log('provinces id', pronvincedata)
                 this.form.province = pronvincedata
@@ -120,17 +138,24 @@
                 this.form.sex = sexdata
             },
             submit() {
+                if (this.checkData()) {
+
+                    swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error')
+                    return;
+                }
+
                 console.log(this.form)
                 axios.post('/api/repeats', this.form)
                     .then(function (response) {
                         console.log(response.data.id);
                         swal("Finished", "ขอบคุณสำหรับคำตอบ", "success")
-                            .then(function() {
+                            .then(function () {
                                 // Redirect the user
                                 // window.location.href = "new_url.html";
                                 console.log('The Ok Button was clicked.');
                                 window.location.href = "http://127.0.0.1:8000";
-                            });;
+                            });
+                        ;
                         // vm.ShowSuccess("127.0.0.1/ans/" + response.data.id);
                     })
                     .catch(function (error) {
