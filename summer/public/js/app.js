@@ -2132,11 +2132,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log("barChart mounted");
+              //console.log("barChart mounted",this.data)
               this.generateChartData();
               Plotly.newPlot(this.id, this.chart_data, this.chart_layout);
 
-            case 3:
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -3110,6 +3110,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3123,12 +3126,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     selectCareers: _components_careers__WEBPACK_IMPORTED_MODULE_4__["default"],
     BarCharts: _components_Barchart__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  created: function created() {
-    this.get_data();
-  },
+  created: function () {
+    var _created = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return this.get_data();
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function created() {
+      return _created.apply(this, arguments);
+    }
+
+    return created;
+  }(),
   name: "CreateSurvey",
   data: function data() {
     return {
+      chartRender: true,
       fillter: {
         age: '',
         sex: '',
@@ -3179,33 +3205,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     get_data: function () {
       var _get_data = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                console.log('getDAta');
-                _context.next = 3;
+                this.QwithRate = [];
+                this.chartRender = false;
+                _context2.next = 4;
                 return axios.get('api/Report/' + this.$route.params.s_id, {
                   params: this.fillter
                 }).then(function (response) {
-                  //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
                   return null;
                 });
 
-              case 3:
-                this.head = _context.sent;
+              case 4:
+                this.head = _context2.sent;
+                console.log(this.QwithRate, "QWR 2 time");
                 this.Checkq_id();
+                this.chartRender = true;
 
-              case 5:
+              case 8:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function get_data() {
@@ -3215,14 +3243,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return get_data;
     }(),
     Checkq_id: function Checkq_id() {
+      console.log(this.head.repeats, "repeat");
       var Arr_Qid = [];
 
       _.filter(this.head.repeats, function (o) {
         if (!Arr_Qid.includes(o.q_id)) {
           Arr_Qid.push(o.q_id);
         }
-      }); // console.log(Arr_Qid)
-
+      });
 
       for (var i = 0; i < Arr_Qid.length; i++) {
         var q_id = Arr_Qid[i];
@@ -3248,13 +3276,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           q_id: q_id
         }];
         this.QwithRate.push(data);
-      } //console.log(this.QwithRate)
-
+      }
 
       this.mapRate();
     },
     mapRate: function mapRate() {
       var data = this.QwithRate;
+      console.log(data);
 
       for (var i = 0; i < data.length; i++) {
         //console.log(data[i])
@@ -58663,53 +58691,66 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "card mt-5" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("\n                Questions\n            ")
+            _vm._v("\n                กราฟเเสดงผล\n            ")
           ]),
           _vm._v(" "),
-          _vm.QwithRate.length > 0
-            ? _c(
-                "div",
-                _vm._l(_vm.head.question, function(i) {
-                  return _c(
-                    "ul",
-                    {
-                      key: i.chart_id,
-                      staticClass: "list-group list-group-flush"
-                    },
-                    [
+          _vm.chartRender
+            ? _c("div", [
+                _vm.QwithRate.length > 0
+                  ? _c(
+                      "div",
+                      _vm._l(_vm.head.question, function(i) {
+                        return _c(
+                          "ul",
+                          {
+                            key: i.chart_id,
+                            staticClass: "list-group list-group-flush"
+                          },
+                          [
+                            _c(
+                              "li",
+                              { staticClass: "list-group-item" },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(i.text) +
+                                    "\n                            "
+                                ),
+                                _vm._l(_vm.QwithRate, function(qr) {
+                                  return _c("div", { key: qr[0].chart_id }, [
+                                    qr[0].q_id == i.id
+                                      ? _c(
+                                          "div",
+                                          [
+                                            _c("BarCharts", {
+                                              attrs: {
+                                                id: i.id.toString(),
+                                                data: qr
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _vm._e()
+                                  ])
+                                })
+                              ],
+                              2
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _c("div", [
                       _c(
-                        "li",
-                        { staticClass: "list-group-item" },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(i.text) +
-                              "\n                        "
-                          ),
-                          _vm._l(_vm.QwithRate, function(qr) {
-                            return _c("div", { key: qr[0].chart_id }, [
-                              qr[0].q_id == i.id
-                                ? _c(
-                                    "div",
-                                    [
-                                      _c("BarCharts", {
-                                        attrs: { id: i.id.toString(), data: qr }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                : _vm._e()
-                            ])
-                          })
-                        ],
-                        2
+                        "h3",
+                        { staticClass: "text-secondary text-center my-2" },
+                        [_vm._v("ไม่มีข้อมูล")]
                       )
-                    ]
-                  )
-                }),
-                0
-              )
-            : _c("div", [_vm._v("\n                No data\n            ")])
+                    ])
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card mt-5" }, [

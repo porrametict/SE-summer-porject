@@ -53,7 +53,7 @@
             }
         }),
         async mounted () {
-            console.log("barChart mounted")
+            //console.log("barChart mounted",this.data)
             this.generateChartData();
             Plotly.newPlot(this.id, this.chart_data,this.chart_layout);
         },
