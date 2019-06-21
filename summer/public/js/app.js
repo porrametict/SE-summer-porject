@@ -2671,8 +2671,9 @@ moment.locale('th');
 
               case 2:
                 this.head = _context.sent;
+                this.calDateDiff();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2687,8 +2688,8 @@ moment.locale('th');
       return h_name;
     }(),
     calDateDiff: function calDateDiff() {
-      for (var i = 0; i < this.head.length; i++) {
-        this.head[i].dateDiff = moment().diff(this.head[i].created_at, 'day');
+      for (var i = 0; i < this.head.data.length; i++) {
+        this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day');
       } //a.diff(b, 'days') // 1
 
     }

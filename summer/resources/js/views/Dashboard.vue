@@ -119,11 +119,11 @@
                         console.log("error", error);
                         return null
                     });
-                // this.calDateDiff();
+                this.calDateDiff();
             },
             calDateDiff () {
-                for (let i = 0 ;i < this.head.length;i++) {
-                    this.head[i].dateDiff = moment().diff(this.head[i].created_at , 'day')
+                for (let i = 0 ;i < this.head.data.length;i++) {
+                    this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at , 'day')
                 }
                 //a.diff(b, 'days') // 1
 
