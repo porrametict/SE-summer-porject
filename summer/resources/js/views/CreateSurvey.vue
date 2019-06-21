@@ -78,17 +78,20 @@
             checkData () {
                     if(this.form.hSurvey == "")
                     {
+                        console.log("name")
                         return false;
                     }else if (this.form.questions[0] == "") {
+                        console.log("question")
                         return false;
+                    }else {
+                        return  true
                     }
             },
             save() {
                 if (!this.checkData()){
-
+                    console.log('error')
                         swal('Fail','กรุณากรอกข้อมูลให้ครบ','error' )
                         return ;
-
                 }
 
                 let vm = this

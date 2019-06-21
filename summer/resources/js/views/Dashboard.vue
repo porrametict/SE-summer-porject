@@ -29,6 +29,7 @@
                         <button class="btn btn-outline-info" @click="copylink(i.id)">copy link</button>
                     </div>
                     <div class="card-footer text-muted">
+
                         {{i.dateDiff}} days ago
                     </div>
                 </div>
@@ -55,8 +56,16 @@
                                 <span class="sr-only">Previous</span>
                             </button>
                         </li>
+
                        <div v-for="(i,index) in allPage">
-                        <li class="page-item"><button class="page-link" @click="getPage(i)">{{index+1}}</button></li>
+
+                           <li class="page-item active" v-if="head.current_page == index+1">
+                               <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                           </li>
+
+                            <li class="page-item" v-else>
+                                <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                            </li>
                        </div>
                         <li class="page-item">
                             <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)">
@@ -139,10 +148,7 @@
             async h_name() {
                 this.head = await axios.get('api/user_survey/' + this.$userId)
                     .then(function (response) {
-
                         return response.data
-
-
                     })
                     .catch(function (error) {
                         console.log("error", error);
@@ -153,25 +159,25 @@
                     this.calDateDiff();
                     this.generatePageLink(this.head.last_page,this.head.data[0].u_id)
                 }
-
             },
             calDateDiff() {
+                console.log('datediff')
                 for (let i = 0; i < this.head.data.length; i++) {
                     this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day')
+                    console.log(this.head.data[i].dateDiff)
                 }
-                //a.diff(b, 'days') // 1
-
             },
-            getPage(page) {
-                let vm = this
-                console.log(page)
-                 axios.get(page)
+            async getPage(page) {
+                 this.head = await axios.get(page)
                     .then(function (response) {
-                        vm.head = response.data;
+                        return response.data;
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
+
+                this.calDateDiff();
+
             },
             generatePageLink (last_page,u_id) {
                 let arr = []

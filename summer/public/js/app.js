@@ -2519,13 +2519,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkData: function checkData() {
       if (this.form.hSurvey == "") {
+        console.log("name");
         return false;
       } else if (this.form.questions[0] == "") {
+        console.log("question");
         return false;
+      } else {
+        return true;
       }
     },
     save: function save() {
       if (!this.checkData()) {
+        console.log('error');
         swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error');
         return;
       }
@@ -2617,6 +2622,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2804,20 +2818,46 @@ moment.locale('th');
       return h_name;
     }(),
     calDateDiff: function calDateDiff() {
+      console.log('datediff');
+
       for (var i = 0; i < this.head.data.length; i++) {
         this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day');
-      } //a.diff(b, 'days') // 1
+        console.log(this.head.data[i].dateDiff);
+      }
+    },
+    getPage: function () {
+      var _getPage = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(page) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(page).then(function (response) {
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log(error);
+                });
 
-    },
-    getPage: function getPage(page) {
-      var vm = this;
-      console.log(page);
-      axios.get(page).then(function (response) {
-        vm.head = response.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
+              case 2:
+                this.head = _context2.sent;
+                this.calDateDiff();
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function getPage(_x) {
+        return _getPage.apply(this, arguments);
+      }
+
+      return getPage;
+    }(),
     generatePageLink: function generatePageLink(last_page, u_id) {
       var arr = [];
 
@@ -3070,6 +3110,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -58329,7 +58374,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "card-footer text-muted" }, [
                       _vm._v(
-                        "\n                    " +
+                        "\n\n                    " +
                           _vm._s(i.dateDiff) +
                           " days ago\n                "
                       )
@@ -58392,20 +58437,35 @@ var render = function() {
                         _vm._v(" "),
                         _vm._l(_vm.allPage, function(i, index) {
                           return _c("div", [
-                            _c("li", { staticClass: "page-item" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "page-link",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.getPage(i)
-                                    }
-                                  }
-                                },
-                                [_vm._v(_vm._s(index + 1))]
-                              )
-                            ])
+                            _vm.head.current_page == index + 1
+                              ? _c("li", { staticClass: "page-item active" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "page-link",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.getPage(i)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(index + 1))]
+                                  )
+                                ])
+                              : _c("li", { staticClass: "page-item" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "page-link",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.getPage(i)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(index + 1))]
+                                  )
+                                ])
                           ])
                         }),
                         _vm._v(" "),
@@ -58781,13 +58841,19 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c(
-              "ul",
-              _vm._l(_vm.head.comments, function(i) {
-                return _c("li", [_vm._v(_vm._s(i.text))])
-              }),
-              0
-            )
+            _vm.head.comments.length > 0
+              ? _c(
+                  "ul",
+                  _vm._l(_vm.head.comments, function(i) {
+                    return _c("li", [_vm._v(_vm._s(i.text))])
+                  }),
+                  0
+                )
+              : _c("div", [
+                  _c("h3", { staticClass: "text-secondary text-center my-2" }, [
+                    _vm._v("ไม่มีข้อมูล")
+                  ])
+                ])
           ])
         ])
       ])

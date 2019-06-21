@@ -55,7 +55,12 @@
                 Comments
             </div>
             <div class="card-body">
-                <ul><li v-for="i in head.comments">{{i.text}}</li></ul>
+                <ul v-if="head.comments.length > 0">
+                    <li v-for="i in head.comments">{{i.text}}</li>
+                </ul>
+                <div v-else>
+                    <h3 class="text-secondary text-center my-2">ไม่มีข้อมูล</h3>
+                </div>
             </div>
         </div>
 </div>
