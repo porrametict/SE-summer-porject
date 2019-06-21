@@ -2663,7 +2663,7 @@ moment.locale('th');
                 _context.next = 2;
                 return axios.get('api/user_survey/' + this.$userId).then(function (response) {
                   //console.log("success", response.data);
-                  return response.data.reverse();
+                  return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
                   return null;
@@ -2671,9 +2671,8 @@ moment.locale('th');
 
               case 2:
                 this.head = _context.sent;
-                this.calDateDiff();
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -58082,10 +58081,10 @@ var render = function() {
     _vm._v(" "),
     _vm.head
       ? _c("div", [
-          _vm.head.length > 0
+          _vm.head.data.length > 0
             ? _c(
                 "div",
-                _vm._l(_vm.head, function(i) {
+                _vm._l(_vm.head.data, function(i) {
                   return _c("div", { staticClass: "card text-center mt-2" }, [
                     _c("div", { staticClass: "card-body" }, [
                       _c("h5", { staticClass: "card-title" }, [
@@ -58138,7 +58137,8 @@ var render = function() {
                 [_vm._m(1)]
               )
         ])
-      : _vm._e()
+      : _vm._e(),
+    _vm._v("\n    " + _vm._s(_vm.head) + "\n")
   ])
 }
 var staticRenderFns = [

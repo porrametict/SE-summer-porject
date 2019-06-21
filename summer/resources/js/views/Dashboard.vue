@@ -21,8 +21,8 @@
         </div>
 
         <div v-if="head">
-            <div v-if="head.length > 0 ">
-                <div  class="card text-center mt-2" v-for="i in head">
+            <div v-if="head.data.length > 0 ">
+                <div  class="card text-center mt-2" v-for="i in head.data">
                     <div class="card-body">
                         <h5 class="card-title">{{i.name}}</h5>
                         <button class="btn btn-primary" @click="gotoReport(i.id)">ดูรายงาน</button>
@@ -42,7 +42,7 @@
         </div>
 
         </div>
-
+        {{head}}
     </div>
 </template>
 
@@ -112,14 +112,14 @@
                 this.head = await axios.get('api/user_survey/'+this.$userId)
                     .then(function (response) {
                         //console.log("success", response.data);
-                        return response.data.reverse()
+                        return response.data
 
                     })
                     .catch(function (error) {
                         console.log("error", error);
                         return null
                     });
-                this.calDateDiff();
+                // this.calDateDiff();
             },
             calDateDiff () {
                 for (let i = 0 ;i < this.head.length;i++) {
