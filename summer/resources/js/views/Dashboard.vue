@@ -48,7 +48,7 @@
             <div class="card text-center">
             <div class="card-footer text-muted row-12 justify-content-center">
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination">
+                    <ul class="pagination justify-content-center">
                         <li class="page-item">
                             <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)">
                                 <span aria-hidden="true">&laquo;</span>
