@@ -53,10 +53,14 @@ class RepeatsController extends Controller
         ]);
         $n++;
       }
-      Comment::create([
-          's_id' => $request -> get('s_id'),
-          'text' => $request -> get('comment')
-      ]);
+      if($request->get('comment') != "")
+      {
+          Comment::create([
+              's_id' => $request -> get('s_id'),
+              'text' => $request -> get('comment')
+          ]);
+      }
+
 
       return 'success';
     }

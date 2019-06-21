@@ -29,11 +29,10 @@
                 Questions
             </div>
             <div v-if="QwithRate.length > 0">
-                <ul class="list-group list-group-flush"  :key="i.id" v-for="i in head.question" >
+                <ul class="list-group list-group-flush"  :key="i.chart_id" v-for="i in head.question" >
                     <li class="list-group-item">
                         {{i.text}}
-                        <div v-for="qr in QwithRate" :key="qr[0].q_id">
-
+                        <div v-for="qr in QwithRate" :key="qr[0].chart_id">
                             <div v-if="qr[0].q_id == i.id">
                                 <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
                             </div>
@@ -96,6 +95,15 @@
         }),
 
         methods: {
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            },
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },
@@ -120,7 +128,10 @@
                 this.get_data()
             },
             async get_data(){
-                this.head = await axios.get('api/Report/'+this.$route.params.s_id,this.fillter)
+                console.log('getDAta')
+                this.head = await axios.get('api/Report/'+this.$route.params.s_id,{
+                    params: this.fillter
+                })
                     .then(function (response) {
                         //console.log("success", response.data);
                         return response.data
@@ -161,7 +172,7 @@
                 for (let i = 0 ;i < data.length; i++) {
                         //console.log(data[i])
                     for(let j= 0 ; j < data[i].length;j++){
-                        //console.log(data[i][j])
+                       // console.log(data[i][j])
                         let cur_pos = data[i][j]
 
                         let repeats = this.head.repeats;
@@ -171,6 +182,8 @@
                             {
                                 data[i][j].count_n = repeats[k].count_n;
                             }
+                            data[i][j].chart_id = this.makeid(10) + '_' + repeats[k].q_id
+
                         }
                     }
                 }

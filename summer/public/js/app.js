@@ -2063,6 +2063,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2077,17 +2085,71 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      content_id: null,
       chart_data: [{
         x: [],
         y: [],
         type: 'bar'
-      }]
+      }],
+      chart_layout: {
+        title: {
+          text: '',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24
+          },
+          xref: 'paper',
+          x: 0.05
+        },
+        xaxis: {
+          title: {
+            text: "ระดับความพึงพอใจ",
+            font: {
+              family: 'Courier New, monospace',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'จำนวน(คน)',
+            font: {
+              family: 'Courier New, monospace',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          }
+        }
+      }
     };
   },
-  mounted: function mounted() {
-    this.generateChartData();
-    Plotly.newPlot(this.id, this.chart_data);
-  },
+  mounted: function () {
+    var _mounted = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              console.log("barChart mounted");
+              this.generateChartData();
+              Plotly.newPlot(this.id, this.chart_data, this.chart_layout);
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function mounted() {
+      return _mounted.apply(this, arguments);
+    }
+
+    return mounted;
+  }(),
   methods: {
     generateChartData: function generateChartData() {
       for (var i = 0; i < this.data.length; i++) {
@@ -3070,7 +3132,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -3101,6 +3162,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    makeid: function makeid(length) {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+
+      return result;
+    },
     addtext: function addtext() {
       this.questions.push({
         no: 0,
@@ -3134,8 +3206,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.get('api/Report/' + this.$route.params.s_id, this.fillter).then(function (response) {
+                console.log('getDAta');
+                _context.next = 3;
+                return axios.get('api/Report/' + this.$route.params.s_id, {
+                  params: this.fillter
+                }).then(function (response) {
                   //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
@@ -3143,11 +3218,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return null;
                 });
 
-              case 2:
+              case 3:
                 this.head = _context.sent;
                 this.Checkq_id();
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -3206,7 +3281,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       for (var i = 0; i < data.length; i++) {
         //console.log(data[i])
         for (var j = 0; j < data[i].length; j++) {
-          //console.log(data[i][j])
+          // console.log(data[i][j])
           var cur_pos = data[i][j];
           var repeats = this.head.repeats;
 
@@ -3214,6 +3289,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             if (repeats[k].q_id == cur_pos.q_id && repeats[k].rate == cur_pos.rate) {
               data[i][j].count_n = repeats[k].count_n;
             }
+
+            data[i][j].chart_id = this.makeid(10) + '_' + repeats[k].q_id;
           }
         }
       }
@@ -58617,7 +58694,10 @@ var render = function() {
                 _vm._l(_vm.head.question, function(i) {
                   return _c(
                     "ul",
-                    { key: i.id, staticClass: "list-group list-group-flush" },
+                    {
+                      key: i.chart_id,
+                      staticClass: "list-group list-group-flush"
+                    },
                     [
                       _c(
                         "li",
@@ -58629,7 +58709,7 @@ var render = function() {
                               "\n                        "
                           ),
                           _vm._l(_vm.QwithRate, function(qr) {
-                            return _c("div", { key: qr[0].q_id }, [
+                            return _c("div", { key: qr[0].chart_id }, [
                               qr[0].q_id == i.id
                                 ? _c(
                                     "div",
