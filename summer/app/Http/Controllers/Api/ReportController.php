@@ -53,16 +53,12 @@ class ReportController extends Controller
         $province = $request -> get('province');
         $career = $request -> get('career');
 
-        dd($age);
-        $s_id =  $id; //$request -> get('s_id');
-
-        $array = [];
+        $s_id =  $id;
 
         $a1 = ['s_id', '=', $s_id];
 
-        $query = array([$a1]);
+        $query = [$a1];
 
-        array_push($array, $query);
 
         $p1 = ['age', '=', $age];
 
@@ -73,26 +69,28 @@ class ReportController extends Controller
         $p4 = ['career', '=', $career];
 
         if ($age != ''){
-            array_push($array, $p1);
+            array_push($query, $p1);
         }
 
         if ($sex != ''){
-            array_push($array, $p2);
+            array_push($query, $p2);
         }
 
         if ($province != ''){
-            array_push($array, $p3);
+            array_push($query, $p3);
         }
 
         if ($career != ''){
-            array_push($array, $p4);
+            array_push($query, $p4);
         }
 
 
         $users = DB::table('repeats')
             ->select(DB::raw(' COUNT(id) count_n,rate,q_id'))
-            ->where([$query])->groupBy('rate','q_id')->get();
-        //dd($s_id);
+            ->where($query)->groupBy('rate','q_id')->get();
+
+
+
         $survey = Survey::find($s_id);
         $question = DB::table('questions')->where('s_id',$s_id)->get();
         $comments = DB::table('comments')->where('s_id',$s_id)->get();
