@@ -2591,6 +2591,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -2600,6 +2627,7 @@ moment.locale('th');
   },
   data: function data() {
     return {
+      allPage: null,
       head: null,
       form: {
         s_id: null,
@@ -2673,7 +2701,6 @@ moment.locale('th');
               case 0:
                 _context.next = 2;
                 return axios.get('api/user_survey/' + this.$userId).then(function (response) {
-                  //console.log("success", response.data);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
@@ -2682,7 +2709,11 @@ moment.locale('th');
 
               case 2:
                 this.head = _context.sent;
-                this.calDateDiff();
+
+                if (this.head.data[0]) {
+                  this.calDateDiff();
+                  this.generatePageLink(this.head.last_page, this.head.data[0].u_id);
+                }
 
               case 4:
               case "end":
@@ -2703,6 +2734,25 @@ moment.locale('th');
         this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day');
       } //a.diff(b, 'days') // 1
 
+    },
+    getPage: function getPage(page) {
+      var vm = this;
+      console.log(page);
+      axios.get(page).then(function (response) {
+        vm.head = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    generatePageLink: function generatePageLink(last_page, u_id) {
+      var arr = [];
+
+      for (var i = 1; i <= last_page; i++) {
+        var s = "http://127.0.0.1:8000/api/user_survey/" + u_id + "?page=" + i;
+        arr.push(s);
+      }
+
+      this.allPage = arr;
     }
   }
 });
@@ -2924,8 +2974,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -58043,7 +58091,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-5" }, [
-      _c("h3", [_vm._v("แบบสำรวจความพึงพอใจ")])
+      _c("h3", [_vm._v("คำถาม")])
     ])
   }
 ]
@@ -58069,7 +58117,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { attrs: { clss: "col-md-12" } }, [
+    _c("div", { staticClass: "col-md-12" }, [
       _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
       _vm._v(" "),
       _c("div", { staticClass: "flex-center position-ref mt-5" }, [
@@ -58149,6 +58197,101 @@ var render = function() {
                 [_vm._m(1)]
               )
         ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.head
+      ? _c("div", { staticClass: "row-12 mt-3" }, [
+          _c("div", { staticClass: "card text-center" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-footer text-muted row-12 justify-content-center"
+              },
+              [
+                _c(
+                  "nav",
+                  { attrs: { "aria-label": "Page navigation example" } },
+                  [
+                    _c(
+                      "ul",
+                      { staticClass: "pagination" },
+                      [
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "page-link",
+                              attrs: { "aria-label": "Previous" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.getPage(_vm.head.prev_page_url)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("«")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Previous")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.allPage, function(i, index) {
+                          return _c("div", [
+                            _c("li", { staticClass: "page-item" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "page-link",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.getPage(i)
+                                    }
+                                  }
+                                },
+                                [_vm._v(_vm._s(index + 1))]
+                              )
+                            ])
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "page-link",
+                              attrs: { "aria-label": "Next" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.getPage(_vm.head.next_page_url)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("»")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Next")
+                              ])
+                            ]
+                          )
+                        ])
+                      ],
+                      2
+                    )
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
       : _vm._e()
   ])
 }
@@ -58157,7 +58300,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { clss: "col-md-12" } }, [
+    return _c("div", { staticClass: "col-md-12" }, [
       _c("h4", [_vm._v("แบบสำรวจล่าสุด")])
     ])
   },

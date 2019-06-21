@@ -22,8 +22,6 @@
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
-
-
     </div>
 
         <div class="card mt-5">

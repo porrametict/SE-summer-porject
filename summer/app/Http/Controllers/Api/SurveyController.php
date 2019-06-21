@@ -100,7 +100,7 @@ class SurveyController extends Controller
     public function user_survey($id)
     {
 
-      $users = DB::table('surveys')->where('u_id', '=', $id)->orderBy('created_at','desc')->paginate(10);
+      $users = DB::table('surveys')->where('u_id', '=', $id)->orderBy('created_at','desc')->paginate(5);
       return Response() -> json($users);
     }
 
