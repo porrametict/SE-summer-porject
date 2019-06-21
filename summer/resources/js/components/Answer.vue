@@ -4,11 +4,11 @@
         <thead>
         <tr>
             <th scope="col">คำถาม</th>
-            <th scope="col">5</th>
-            <th scope="col">4</th>
-            <th scope="col">3</th>
-            <th scope="col">2</th>
-            <th scope="col">1</th>
+            <th scope="col">5(ดีมาก)</th>
+            <th scope="col">4(ดี)</th>
+            <th scope="col">3(ปานกลาง)</th>
+            <th scope="col">2(พอใช้)</th>
+            <th scope="col">1(ปรับปรุง)</th>
         </tr>
         </thead>
         <tbody>

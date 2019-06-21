@@ -1925,10 +1925,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit("change", this.selector);
     },
     createage: function createage() {
-      var N = 101;
-      this.data = Array.apply(null, {
-        length: N
-      }).map(Number.call, Number);
+      for (var i = 1; i < 101; i++) {
+        this.data.push(i);
+      }
     }
   }
 });
@@ -2092,6 +2091,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     generateChartData: function generateChartData() {
       for (var i = 0; i < this.data.length; i++) {
+        if (this.data[i].rate == 1) {
+          this.data[i].rate = "ปรับปรุง";
+        } else if (this.data[i].rate == 2) {
+          this.data[i].rate = "พอใช้";
+        } else if (this.data[i].rate == 3) {
+          this.data[i].rate = "ปานกลาง";
+        } else if (this.data[i].rate == 4) {
+          this.data[i].rate = "ดี";
+        } else if (this.data[i].rate == 5) {
+          this.data[i].rate = "ดีมาก";
+        }
+
         this.chart_data[0].x.push(this.data[i].rate);
         this.chart_data[0].y.push(this.data[i].count_n);
       }
@@ -57627,15 +57638,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("คำถาม")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("5")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("5(ดีมาก)")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("4")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("4(ดี)")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("3")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("3(ปานกลาง)")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("2")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("2(พอใช้)")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("1")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("1(ปรับปรุง)")])
       ])
     ])
   }
@@ -58138,8 +58149,7 @@ var render = function() {
                 [_vm._m(1)]
               )
         ])
-      : _vm._e(),
-    _vm._v("\n    " + _vm._s(_vm.head) + "\n")
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
