@@ -2283,10 +2283,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       selector: 0,
       data: [{
-        text: "Male",
+        text: "ชาย",
         value: 1
       }, {
-        text: "Female",
+        text: "หญิง",
         value: 2
       }]
     };

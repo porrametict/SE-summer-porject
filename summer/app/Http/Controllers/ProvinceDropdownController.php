@@ -10,7 +10,7 @@ class ProvinceDropdownController extends Controller
     function index () {
         $data=DB::table('provinces')->get();
         $result=array();
-        $output='<option value="">เลือกจังหวัด</option>';
+        $output='<option value="" disabled>เลือกจังหวัด</option>';
         foreach ($data as $row) {
             $output.='<option value="'.$row->id.'">'.$row->name_th.'</option>';
         }
