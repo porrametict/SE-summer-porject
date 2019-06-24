@@ -107,7 +107,7 @@
         }),
         methods: {
             copylink(link_id) {
-                let copyText = "http://127.0.0.1:8000/home#/ans/" + link_id
+                let copyText = "http://127.0.0.1:8000/ans#/ans/" + link_id
                 var el = document.createElement('textarea');
                 // Set value (string to be copied)
                 el.value = copyText;
@@ -161,7 +161,6 @@
                 }
             },
             calDateDiff() {
-                console.log('datediff')
                 for (let i = 0; i < this.head.data.length; i++) {
                     this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day')
                     console.log(this.head.data[i].dateDiff)

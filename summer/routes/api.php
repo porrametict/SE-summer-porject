@@ -13,11 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:Api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
+Route::resource('/user', 'Api\UserController');
 
 Route::resource('provinces','Api\ProvinceController');
 Route::resource('sexes','Api\SexController');

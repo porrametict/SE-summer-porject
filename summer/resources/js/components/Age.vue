@@ -15,6 +15,9 @@
             {ageID : Number}
         ,
         created () {
+            if(this.ageID){
+                this.selector = this.ageID
+            }
             this.createage()
         },
         data: () => ({

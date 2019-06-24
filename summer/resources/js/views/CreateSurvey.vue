@@ -102,7 +102,7 @@
                     .then(function (response) {
                         console.log(response.data.id);
                         //swal("Finished", , "success");
-                        vm.ShowSuccess("http://127.0.0.1:8000/home#/ans/" + response.data.id);
+                        vm.ShowSuccess("http://127.0.0.1:8000/ans#/ans/" + response.data.id);
                     })
                     .catch(function (error) {
                         console.log(error);

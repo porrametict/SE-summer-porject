@@ -1,24 +1,24 @@
 <template>
     <div v-if="head">
-    <table class="table table-bordered">
+    <table class="table table-hover table-bordered">
         <thead>
         <tr>
-            <th scope="col">คำถาม</th>
-            <th scope="col">5(ดีมาก)</th>
-            <th scope="col">4(ดี)</th>
-            <th scope="col">3(ปานกลาง)</th>
-            <th scope="col">2(พอใช้)</th>
-            <th scope="col">1(ปรับปรุง)</th>
+            <th scope="col" class="text-center">คำถาม</th>
+            <th scope="col" class="text-center">ดีมาก</th>
+            <th scope="col" class="text-center">ดี</th>
+            <th scope="col" class="text-center">ปานกลาง</th>
+            <th scope="col" class="text-center">พอใช้</th>
+            <th scope="col" class="text-center">ปรับปรุง</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="(i,index) in head.questions">
             <th scope="row">{{head.questions[index].text}}</th>
-            <td><input type="radio" value="5" v-model="form.repeats[index].rate" @change="export_select"></td>
-            <td><input type="radio" value="4" v-model="form.repeats[index].rate" @change="export_select"></td>
-            <td><input type="radio" value="3" v-model="form.repeats[index].rate" @change="export_select"></td>
-            <td><input type="radio" value="2" v-model="form.repeats[index].rate" @change="export_select"></td>
-            <td><input type="radio" value="1" v-model="form.repeats[index].rate" @change="export_select"></td>
+            <td class="text-center"><input type="radio" value="5" v-model="form.repeats[index].rate" @change="export_select"></td>
+            <td class="text-center"><input type="radio" value="4" v-model="form.repeats[index].rate" @change="export_select"></td>
+            <td class="text-center"><input type="radio" value="3" v-model="form.repeats[index].rate" @change="export_select"></td>
+            <td class="text-center"><input type="radio" value="2" v-model="form.repeats[index].rate" @change="export_select"></td>
+            <td class="text-center"><input type="radio" value="1" v-model="form.repeats[index].rate" @change="export_select"></td>
         </tr>
         </tbody>
     </table>

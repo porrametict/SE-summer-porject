@@ -11,10 +11,12 @@
 <script>
     export default {
         props :
-            {CareersID : Number}
+            {CareersID : String}
         ,
         created () {
-            // this.selector = this.$props.CareersID
+            if(this.CareersID){
+                this.selector = this.CareersID
+            }
         },
         data: () => ({
             selector: 0,

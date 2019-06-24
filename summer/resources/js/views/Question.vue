@@ -10,13 +10,13 @@
 
 
             <div id="SexComponent" class="col">
-                <select-sex @change="sex_emit($event)"></select-sex>
+                <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"></select-sex>
             </div>
 
             <br/>
 
             <div id="testComponent2" class="col">
-                <select-age @change="form.age = $event" v-bind:ageID="2"></select-age>
+                <select-age @change="form.age = $event" :ageID="form.age"></select-age>
             </div>
         </div>
 
@@ -26,13 +26,13 @@
         <div class="row">
 
             <div id="ProvinceComponent" class="col-6">
-                <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
+                <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"></selectProvinces>
             </div>
             <br/>
 
 
             <div id="CareersComponent" class="col-6">
-                <selectcareers @change="careers_emit($event)"></selectcareers>
+                <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"></selectcareers>
             </div>
             <br/>
 
@@ -60,11 +60,17 @@
 
 
 <script>
+
+
     import answer from '../components/Answer'
     import selectSex from '../components/SC'
     import selectAge from '../components/Age'
     import selectProvinces from '../components/Provinces'
     import selectcareers from '../components/careers'
+
+    var moment = require('moment');
+    moment.locale('th');
+
 
 
     export default {
@@ -77,16 +83,18 @@
 
         },
         created() {
+            if(this.$userId) {
+                console.log("user",this.$userId)
+                this.getUser();
+            }
             this.s_id = parseInt(this.$route.params.s_id);
             console.log(this.s_id, "s_Id");
             this.h_name()
             this.form.s_id = this.s_id
         },
-        mounted() {
 
-        },
         data: () => ({
-
+            user : null,
             s_id: null,
             head: null,
             form: {
@@ -101,6 +109,26 @@
             }
         }),
         methods: {
+            async getUser () {
+                this.user = await axios.get('api/user/' + this.$userId)
+                    .then(function (response) {
+                        console.log("success", response.data);
+                        return response.data
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+                this.fillable()
+            },
+             fillable ()
+            {
+                console.log( this.user.province_id, "gg")
+                this.form.age =  moment().diff(this.user.b_date, 'year')
+                this.form.sex =  this.user.sex_id
+                this.form.province =  this.user.province_id
+                this.form.career =  this.user.career
+            },
             checkData() {
                 if (this.form.sex == null) {
                     return true;

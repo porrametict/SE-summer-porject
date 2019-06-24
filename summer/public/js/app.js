@@ -1911,6 +1911,10 @@ __webpack_require__.r(__webpack_exports__);
     ageID: Number
   },
   created: function created() {
+    if (this.ageID) {
+      this.selector = this.ageID;
+    }
+
     this.createage();
   },
   data: function data() {
@@ -2203,7 +2207,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Provinces",
+  props: {
+    ProvinceID: Number
+  },
   created: function created() {
+    if (this.ProvinceID) {
+      this.something = this.ProvinceID;
+    }
+
     this.f_name();
   },
   data: function data() {
@@ -2277,7 +2288,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     sexID: Number
   },
-  created: function created() {// this.selector = this.$props.sexID
+  created: function created() {
+    if (this.sexID) {
+      this.selector = this.sexID;
+    }
   },
   data: function data() {
     return {
@@ -2321,9 +2335,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    CareersID: Number
+    CareersID: String
   },
-  created: function created() {// this.selector = this.$props.CareersID
+  created: function created() {
+    if (this.CareersID) {
+      this.selector = this.CareersID;
+    }
   },
   data: function data() {
     return {
@@ -2542,7 +2559,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/survey', this.form).then(function (response) {
         console.log(response.data.id); //swal("Finished", , "success");
 
-        vm.ShowSuccess("http://127.0.0.1:8000/home#/ans/" + response.data.id);
+        vm.ShowSuccess("http://127.0.0.1:8000/ans#/ans/" + response.data.id);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2732,7 +2749,7 @@ moment.locale('th');
   },
   methods: {
     copylink: function copylink(link_id) {
-      var copyText = "http://127.0.0.1:8000/home#/ans/" + link_id;
+      var copyText = "http://127.0.0.1:8000/ans#/ans/" + link_id;
       var el = document.createElement('textarea'); // Set value (string to be copied)
 
       el.value = copyText; // Set non-editable to avoid focus and move outside of view
@@ -2818,8 +2835,6 @@ moment.locale('th');
       return h_name;
     }(),
     calDateDiff: function calDateDiff() {
-      console.log('datediff');
-
       for (var i = 0; i < this.head.data.length; i++) {
         this.head.data[i].dateDiff = moment().diff(this.head.data[i].created_at, 'day');
         console.log(this.head.data[i].dateDiff);
@@ -2961,6 +2976,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
+var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+
+moment.locale('th');
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     selectcareers: _components_careers__WEBPACK_IMPORTED_MODULE_5__["default"],
@@ -2970,14 +2989,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     selectProvinces: _components_Provinces__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   created: function created() {
+    if (this.$userId) {
+      console.log("user", this.$userId);
+      this.getUser();
+    }
+
     this.s_id = parseInt(this.$route.params.s_id);
     console.log(this.s_id, "s_Id");
     this.h_name();
     this.form.s_id = this.s_id;
   },
-  mounted: function mounted() {},
   data: function data() {
     return {
+      user: null,
       s_id: null,
       head: null,
       form: {
@@ -2992,6 +3016,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    getUser: function () {
+      var _getUser = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('api/user/' + this.$userId).then(function (response) {
+                  console.log("success", response.data);
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log("error", error);
+                  return null;
+                });
+
+              case 2:
+                this.user = _context.sent;
+                this.fillable();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getUser() {
+        return _getUser.apply(this, arguments);
+      }
+
+      return getUser;
+    }(),
+    fillable: function fillable() {
+      console.log(this.user.province_id, "gg");
+      this.form.age = moment().diff(this.user.b_date, 'year');
+      this.form.sex = this.user.sex_id;
+      this.form.province = this.user.province_id;
+      this.form.career = this.user.career;
+    },
     checkData: function checkData() {
       if (this.form.sex == null) {
         return true;
@@ -3052,12 +3118,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     h_name: function () {
       var _h_name = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
+                _context2.next = 2;
                 return axios.get('api/survey/' + this.$route.params.s_id).then(function (response) {
                   console.log("success", response.data);
                   return response.data;
@@ -3067,14 +3133,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
-                this.head = _context.sent;
+                this.head = _context2.sent;
 
               case 3:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function h_name() {
@@ -57728,7 +57794,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.head
     ? _c("div", [
-        _c("table", { staticClass: "table table-bordered" }, [
+        _c("table", { staticClass: "table table-hover table-bordered" }, [
           _vm._m(0),
           _vm._v(" "),
           _c(
@@ -57739,7 +57805,7 @@ var render = function() {
                   _vm._v(_vm._s(_vm.head.questions[index].text))
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-center" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57764,7 +57830,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-center" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57789,7 +57855,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-center" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57814,7 +57880,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-center" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57839,7 +57905,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-center" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57878,17 +57944,29 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("คำถาม")]),
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("คำถาม")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("5(ดีมาก)")]),
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("ดีมาก")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("4(ดี)")]),
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("ดี")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("3(ปานกลาง)")]),
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("ปานกลาง")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("2(พอใช้)")]),
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("พอใช้")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("1(ปรับปรุง)")])
+        _c("th", { staticClass: "text-center", attrs: { scope: "col" } }, [
+          _vm._v("ปรับปรุง")
+        ])
       ])
     ])
   }
@@ -58559,6 +58637,7 @@ var render = function() {
             { staticClass: "col", attrs: { id: "SexComponent" } },
             [
               _c("select-sex", {
+                attrs: { "sex-i-d": _vm.form.sex },
                 on: {
                   change: function($event) {
                     return _vm.sex_emit($event)
@@ -58576,7 +58655,7 @@ var render = function() {
             { staticClass: "col", attrs: { id: "testComponent2" } },
             [
               _c("select-age", {
-                attrs: { ageID: 2 },
+                attrs: { ageID: _vm.form.age },
                 on: {
                   change: function($event) {
                     _vm.form.age = $event
@@ -58596,6 +58675,7 @@ var render = function() {
             { staticClass: "col-6", attrs: { id: "ProvinceComponent" } },
             [
               _c("selectProvinces", {
+                attrs: { "province-i-d": _vm.form.province },
                 on: {
                   change: function($event) {
                     return _vm.pronvince_emit($event)
@@ -58613,6 +58693,7 @@ var render = function() {
             { staticClass: "col-6", attrs: { id: "CareersComponent" } },
             [
               _c("selectcareers", {
+                attrs: { "careers-i-d": _vm.form.career },
                 on: {
                   change: function($event) {
                     return _vm.careers_emit($event)
@@ -73773,7 +73854,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+
+if (document.querySelector("meta[name='user-id']")) {
+  Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+}
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -73784,6 +73868,7 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 
 Vue.component('app-vue', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue")["default"]);
 
