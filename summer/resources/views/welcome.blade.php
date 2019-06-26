@@ -10,11 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
     <link href="{{ asset('css/slick-team-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <style>
         html, body {
@@ -81,14 +83,15 @@
 </head>
 <body>
 
-    <div class="main-navigation">
+<div class="main-navigation">
     <nav class="navbar navbar-default navbar-expand-md m-0 p-0">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/home') }}">
                 BigSurvey
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
+                    aria-controls="myNavbar" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -105,7 +108,8 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
@@ -127,46 +131,86 @@
                         </div>
 
 
-
                     </li>
                 @endguest
             </ul>
         </div>
     </nav>
 </div>
-
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}" class="" style="">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
-    <div class="content">
-        <div class="title m-b-md">
-            Create Questionnaire & Survey<br>
-            <div class="titles m-b-md">สร้างเเบบสอบถาม สำรวจความพึงพอใจได้ง่ายๆ สร้างบัญชีเลยสิ</div>
-        </div>
-        <div class="">
-            @auth
-                <a class="btn btn-primary" href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}" class="btn btn-outline-primary btn-xls">Login</a>
-                &emsp;
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-primary btn-xls">Register</a>
-                @endif
-            @endauth
+<!--BANNER START-->
+<div id="banner" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="small">Welcome To <span class="bold">BigSurvey</span></h1>
+                <p class="big">Create Questionnaire & Survey</p>
+                @auth
+                    <a class="btn btn-banner" href="{{ url('/home') }}">Home<i class=""></i></a>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-banner">Login<i class="fas fa-sign-in-alt"></i></a>
+                    &emsp;
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-banner">Register<i class=""></i></a>
+                    @endif
+                @endauth
+            </div>
         </div>
     </div>
+</div>
+<!--BANNER END-->
+
+<!--CTA1 START-->
+<div class="cta-1">
+    <div class="container">
+        <div class="text-center white">
+            <h1 class="cta-title ">The Best Survey</h1>
+        </div>
+    </div>
+</div>
+<!--CTA1 END-->
+
+<!--SERVICE START-->
+<div id="service" class="section-padding">
+    <div class="container">
+
+            <div class="page-title text-center">
+                <h1>Our Service</h1>
+                <p>น้ำทะเล แค้เธอและฉันที่ดูเหมือนใกล้กัน แต่ความจริงนั้นำกล เหลือเกิน อยากบอกเธอ เมื่อไหร่ที่เธอเหงา</p>
+                <hr class="pg-titl-bdr-btm">
+            </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa fa-picture-o"></i></div>
+                    <div class="service-text">
+                        <h3>Design</h3>
+                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa fa fa-code"></i></div>
+                    <div class="service-text">
+                        <h3>Development</h3>
+                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa fa-diamond"></i></div>
+                    <div class="service-text">
+                        <h3>Marketing</h3>
+                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--SERVICE END-->
 </div>
 </body>
 </html>
