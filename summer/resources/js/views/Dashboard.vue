@@ -45,7 +45,7 @@
         </div>
 
 
-        <div class="row-12 mt-3" v-if="head">
+        <div class="row-12 mt-3" v-if="(head.data.length > 0 )">
             <div class="card text-center">
             <div class="card-footer text-muted row-12 justify-content-center">
                 <nav aria-label="Page navigation example">
