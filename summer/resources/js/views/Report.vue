@@ -1,9 +1,9 @@
 <template>
     <div v-if="head">
-        <h1>ReportPage</h1>
+        <h5>ReportPage</h5>
         <hr>
         <div class="text-center">
-        <h3>{{head.survey.name}}</h3>
+        <h5>{{head.survey.name}}</h5>
         </div>
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >
