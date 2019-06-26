@@ -58474,7 +58474,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.head
+    _vm.head.data.length > 0
       ? _c("div", { staticClass: "row-12 mt-3" }, [
           _c("div", { staticClass: "card text-center" }, [
             _c(
