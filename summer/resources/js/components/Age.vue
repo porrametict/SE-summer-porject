@@ -15,6 +15,9 @@
             {ageID : Number}
         ,
         created () {
+            if(this.ageID){
+                this.selector = this.ageID
+            }
             this.createage()
         },
         data: () => ({
@@ -29,8 +32,11 @@
                 this.$emit("change",this.selector)
             },
             createage() {
-                var N = 101;
-                this.data=Array.apply(null, {length: N}).map(Number.call, Number)
+                for (let i = 1;i < 101;i++)
+                {
+
+                    this.data.push(i)
+                }
             }
         }
     }

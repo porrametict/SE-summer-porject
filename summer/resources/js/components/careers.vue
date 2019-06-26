@@ -11,15 +11,16 @@
 <script>
     export default {
         props :
-            {CareersID : Number}
+            {CareersID : String}
         ,
         created () {
-            // this.selector = this.$props.CareersID
+            if(this.CareersID){
+                this.selector = this.CareersID
+            }
         },
         data: () => ({
             selector: 0,
             data: [
-
                 {text: "กรรมกร", value: 1},
                 {text: "เกษตรกร", value: 2},
                 {text: "ข้าราชการ", value: 3},
@@ -50,8 +51,6 @@
                 {text: "สถาปนิก", value: 28},
                 {text: "หมอ", value: 29},
                 {text: "อาชีพในวงการบันเทิง", value: 30},
-
-
             ]
         }),
         methods: {

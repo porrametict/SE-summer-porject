@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Survey;
+use App\User;
 use App\Questions;
 use DB;
 class SurveyController extends Controller
@@ -98,7 +99,8 @@ class SurveyController extends Controller
 
     public function user_survey($id)
     {
-      $users = DB::table('surveys')->where('u_id', '=', $id)->get();
+
+      $users = DB::table('surveys')->where('u_id', '=', $id)->orderBy('created_at','desc')->paginate(5);
       return Response() -> json($users);
     }
 

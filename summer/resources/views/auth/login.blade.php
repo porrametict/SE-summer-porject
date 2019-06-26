@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card text-dark bg-white">
+                <div class="card-header bg-dark text-info">{{ __('BigSurvey') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -52,8 +52,8 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-12 text-right col-md-2 offset-md-9">
+                                <button type="submit" class="btn btn-primary btn-block ">
                                     {{ __('Login') }}
                                 </button>
 

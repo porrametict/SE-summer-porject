@@ -61,19 +61,23 @@ class HomeController extends Controller
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'old_password' => ['required', 'string', 'min:8']
             ]);
-        }
 
-
-        if (Hash::check($old_pass, $current_pass)) {
-           // dd("TURE");
-            $user->update([
+            if (Hash::check($old_pass, $current_pass)) {
+                // dd("TURE");
+                $user->update([
                     "password"=> Hash::make($new_pass)
-            ]);
+                ]);
 
-        }else{
-          Session()->flash('error','wrong password');
-          return redirect(route('user_edit'));
+            }else{
+                Session()->flash('error','wrong password');
+                return redirect(route('user_edit'));
+            }
+
+
         }
+
+
+
 
 
 

@@ -1,9 +1,9 @@
 <template>
     <div v-if="head">
-        <h1>ReportPage</h1>
+        <h5>ReportPage</h5>
         <hr>
         <div class="text-center">
-        <h3>{{head.survey.name}}</h3>
+        <h5>{{head.survey.name}}</h5>
         </div>
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >
@@ -11,7 +11,7 @@
              </div>
 
             <div id="testComponent2" class="col-3 mt-5 ">
-            <select-age @change="form.age = $event" v-bind:ageID="2"></select-age>
+            <select-age @change="age_emit($event)"></select-age>
             </div>
 
             <div id="ProvinceComponent" class="col-3 mt-5 " >
@@ -22,32 +22,32 @@
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
-
-
     </div>
 
         <div class="card mt-5">
             <div class="card-header">
-                Questions
+                กราฟเเสดงผล
             </div>
-            <div v-if="QwithRate.length > 0">
-                <ul class="list-group list-group-flush"  :key="i.id" v-for="i in head.question" >
-                    <li class="list-group-item">
-                        {{i.text}}
-                        <div v-for="qr in QwithRate" :key="qr[0].q_id">
-
-                            <div v-if="qr[0].q_id == i.id">
-                                <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
+            <div v-if="chartRender">
+                <div v-if="QwithRate.length > 0">
+                    <ul class="list-group list-group-flush"  :key="i.chart_id" v-for="i in head.question" >
+                        <li class="list-group-item">
+                            {{i.text}}
+                            <div v-for="qr in QwithRate" :key="qr[0].chart_id">
+                                <div v-if="qr[0].q_id == i.id">
+                                    <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
+                                </div>
                             </div>
-                        </div>
 
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div v-else>
+                    <h3 class="text-secondary text-center my-2">ไม่มีข้อมูล</h3>
+                </div>
             </div>
 
-            <div v-else>
-                No data
-            </div>
         </div>
 
         <div class="card mt-5">
@@ -55,7 +55,12 @@
                 Comments
             </div>
             <div class="card-body">
-                <ul><li v-for="i in head.comments">{{i.text}}</li></ul>
+                <ul v-if="head.comments.length > 0">
+                    <li v-for="i in head.comments">{{i.text}}</li>
+                </ul>
+                <div v-else>
+                    <h3 class="text-secondary text-center my-2">ไม่มีข้อมูล</h3>
+                </div>
             </div>
         </div>
 </div>
@@ -79,59 +84,85 @@
             BarCharts
 
         },
-        created() {
-            this.get_data()
+        async created() {
+           await this.get_data()
         },
         name: "CreateSurvey",
         data: () => ({
+            chartRender:true,
+            fillter: {
+                age:'',
+                sex:'',
+                province:'',
+                career:''
+            },
             head : null,
-            careersIDS: null,
-            provinceid: null,
-            sexID: null,
-            QwithRate : [
-
-            ]
+            QwithRate : []
 
         }),
 
         methods: {
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            },
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },
-
             pronvince_emit(pronvincedata) {
                 //sole.log('provinces id', pronvincedata)
-                this.provinceid = pronvincedata
+                this.fillter.province = pronvincedata
+                this.get_data()
             },
             sex_emit(sexdata) {
                //console.log('sex value', sexdata)
-                this.sexID = sexdata
+                this.fillter.sex = sexdata
+                this.get_data()
             },
             careers_emit(careerdata) {
                 //console.log('careers value', careerdata)
-                this.careersIDS = careerdata
+                this.fillter.career = careerdata
+                this.get_data()
+            },
+            age_emit(agedata) {
+                this.fillter.age = agedata
+                this.get_data()
             },
             async get_data(){
-                this.head = await axios.get('api/Report/'+this.$route.params.s_id)
+                this.QwithRate = []
+                this.chartRender = false ;
+                this.head = await axios.get('api/Report/'+this.$route.params.s_id,{
+                    params: this.fillter
+                })
                     .then(function (response) {
-                        //console.log("success", response.data);
                         return response.data
                     })
                     .catch(function (error) {
                         console.log("error", error);
                         return null
                     });
-                this.Checkq_id()
-            },
+                console.log(this.QwithRate,"QWR 2 time")
 
+
+                this.Checkq_id()
+                this.chartRender = true ;
+
+            },
             Checkq_id() {
+                console.log(this.head.repeats,"repeat")
                 let Arr_Qid = []
                   _.filter( this.head.repeats, function(o) {
-                                        if (!Arr_Qid.includes(o.q_id)){
-                                            Arr_Qid.push(o.q_id)
-                                        }
+                      if (!Arr_Qid.includes(o.q_id))
+                      {
+                          Arr_Qid.push(o.q_id)
+                      }
                 });
-               // console.log(Arr_Qid)
+
                 for (let i = 0 ; i < Arr_Qid.length; i++)
                 {
                     let q_id = Arr_Qid[i];
@@ -143,17 +174,16 @@
                         {rate : 1 , count_n: 0 , q_id : q_id}
                     ]
                     this.QwithRate.push(data)
-
                 }
-                //console.log(this.QwithRate)
                 this.mapRate();
             },
             mapRate () {
                 let data  = this.QwithRate;
+                console.log(data)
                 for (let i = 0 ;i < data.length; i++) {
                         //console.log(data[i])
                     for(let j= 0 ; j < data[i].length;j++){
-                        //console.log(data[i][j])
+                       // console.log(data[i][j])
                         let cur_pos = data[i][j]
 
                         let repeats = this.head.repeats;
@@ -163,8 +193,9 @@
                             {
                                 data[i][j].count_n = repeats[k].count_n;
                             }
-                        }
+                            data[i][j].chart_id = this.makeid(10) + '_' + repeats[k].q_id
 
+                        }
                     }
                 }
                 this.QwithRate = data;

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repeats;
-use App\Comment;
-class RepeatsController extends Controller
+use App\User;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class RepeatsController extends Controller
      */
     public function index()
     {
-      $repeats = Repeats::all();
-      return Response() -> json($repeats);
+        //
     }
 
     /**
@@ -37,32 +36,7 @@ class RepeatsController extends Controller
      */
     public function store(Request $request)
     {
-
-      $questions = ($request -> get('ans'));
-
-      $n = 0;
-      while ($n != count($questions)){
-        Repeats::create([
-          'age' => $request -> get('age'),
-          'sex' => $request -> get('sex'),
-          'career' => $request -> get('career'),
-          's_id' => $request -> get('s_id'),
-          'province' => $request -> get('province'),
-          'q_id' => $request -> get('ans')[$n]['q_id'],
-          'rate' => $request -> get('ans')[$n]['rate']
-        ]);
-        $n++;
-      }
-      if($request->get('comment') != "")
-      {
-          Comment::create([
-              's_id' => $request -> get('s_id'),
-              'text' => $request -> get('comment')
-          ]);
-      }
-
-
-      return 'success';
+        //
     }
 
     /**
@@ -73,8 +47,7 @@ class RepeatsController extends Controller
      */
     public function show($id)
     {
-      $repeats = Repeats::find($id);
-      return Response() -> json($repeats);
+        return User::find($id);
     }
 
     /**
@@ -108,7 +81,6 @@ class RepeatsController extends Controller
      */
     public function destroy($id)
     {
-      $repeats = Repeats::destroy($id);
-      return Response() -> json($repeats);
+        //
     }
 }

@@ -13,13 +13,15 @@
             {sexID: Number}
         ,
         created() {
-            // this.selector = this.$props.sexID
+            if(this.sexID){
+                this.selector = this.sexID
+            }
         },
         data: () => ({
             selector: 0,
             data: [
-                {text: "Male", value: 1},
-                {text: "Female", value: 2},
+                {text: "ชาย", value: 1},
+                {text: "หญิง", value: 2},
             ]
         }),
         methods: {

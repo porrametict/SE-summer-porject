@@ -11,7 +11,13 @@
 <script>
     export default {
         name: "Provinces",
+        props :
+            {ProvinceID : Number}
+        ,
         created() {
+            if(this.ProvinceID){
+                this.something = this.ProvinceID
+            }
             this.f_name()
         },
         data: () => ({
