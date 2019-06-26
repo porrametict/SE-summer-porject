@@ -175,7 +175,7 @@
 
             <div class="page-title text-center">
                 <h1>Our Service</h1>
-                <p>น้ำทะเล แค้เธอและฉันที่ดูเหมือนใกล้กัน แต่ความจริงนั้นำกล เหลือเกิน อยากบอกเธอ เมื่อไหร่ที่เธอเหงา</p>
+                <p>Answer all your real needs by BigSurvey.</p>
                 <hr class="pg-titl-bdr-btm">
             </div>
         <div class="row">
@@ -185,7 +185,7 @@
                     <div class="service-icon"><i class="fa fa-picture-o"></i></div>
                     <div class="service-text">
                         <h3>Design</h3>
-                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                        <p> Design and creative you Survey form easily.</p>
                     </div>
                 </div>
             </div>
@@ -193,8 +193,8 @@
                 <div class="service-box">
                     <div class="service-icon"><i class="fa fa fa-code"></i></div>
                     <div class="service-text">
-                        <h3>Development</h3>
-                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                        <h3>Unique</h3>
+                        <p> convenient, beautiful and uniqueness.</p>
                     </div>
                 </div>
             </div>
@@ -202,8 +202,8 @@
                 <div class="service-box">
                     <div class="service-icon"><i class="fa fa-diamond"></i></div>
                     <div class="service-text">
-                        <h3>Marketing</h3>
-                        <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                        <h3>Share</h3>
+                        <p> Share to the group of people you want to explore..</p>
                     </div>
                 </div>
             </div>
