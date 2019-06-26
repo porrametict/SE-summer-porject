@@ -2,17 +2,17 @@
     <div class="col-12">
 
         <div class="row">
-            <div class="col-md-4 mt-3">
-                <h3>หัวข้อแบบสำรวจความพึงพอใจ &nbsp;&nbsp;:</h3>
+            <div class="col-md-6 mt-3 ">
+                <h5>หัวข้อแบบสำรวจความพึงพอใจ&nbsp;&nbsp;:</h5>
             </div>
-            <div class="col-md-8 mt-2">
+            <div class="col-md-12 mt-2">
                 <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg"
                        placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" v-model="form.hSurvey">
             </div>
         </div>
 
         <div class="col-12 mt-5">
-            <h3>คำถาม</h3>
+            <h5>คำถาม&nbsp;&nbsp;:</h5>
         </div>
         <hr>
 
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-4 ">
             <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
         <br/>

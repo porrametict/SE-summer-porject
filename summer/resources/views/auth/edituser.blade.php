@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Profile') }}</div>
+                    <div class="card-header text-info bg-dark">{{ __('Profile') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('user_edit') }}">
@@ -239,14 +239,18 @@
 
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Update') }}
-                                    </button>
-                                    <button type="reset" class="btn btn-warning">
+
+                                    <div class="col-md-6 offset-md-4 ">
+                                        <div class="d-flex justify-content-between">
+                                            <button type="reset" class="btn btn-warning">
                                         {{ __('Reset') }}
-                                    </button>
-                                </div>
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">
+                                        {{ __('Update') }}
+                                            </button>
+                                        </div>
+                                    </div>
+
                             </div>
                         </form>
                     </div>
