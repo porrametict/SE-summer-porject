@@ -11,18 +11,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/slick-team-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Nunito', sans-serif;
             font-weight: 200;
             height: 100vh;
             margin: 0;
@@ -86,7 +85,7 @@
 <div class="main-navigation">
     <nav class="navbar navbar-default navbar-expand-md m-0 p-0">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 BigSurvey
             </a>
 
@@ -147,10 +146,10 @@
                 @auth
                     <a class="btn btn-banner" href="{{ url('/home') }}">Home<i class=""></i></a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-banner">Login<i class="fas fa-sign-in-alt"></i></a>
+                    <a href="{{ route('login') }}" class="btn btn-banner">Login<i class="mdi mdi-login"></i> </a>
                     &emsp;
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-banner">Register<i class=""></i></a>
+                        <a href="{{ route('register') }}" class="btn btn-banner">Register<i class="mdi mdi-account-plus"></i></a>
                     @endif
                 @endauth
             </div>
