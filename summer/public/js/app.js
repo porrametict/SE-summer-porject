@@ -2341,7 +2341,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SurveyStatusSelect",
   props: {
-    s_id: Number,
+    s_id: String,
     status: Number
   },
   mounted: function mounted() {
@@ -3277,6 +3277,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -59069,6 +59073,12 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "text-center" }, [
             _c("h5", [_vm._v(_vm._s(_vm.head.survey.name))])
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("h3", [
+              _vm._v(" คนตอบทั้งหมด " + _vm._s(_vm.head.all_repeats[0].num))
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row justify-content-center" }, [

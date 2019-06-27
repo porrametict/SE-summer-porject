@@ -90,13 +90,20 @@ class ReportController extends Controller
             ->where($query)->groupBy('rate','q_id')->get();
 
 
-
         $survey = Survey::find($s_id);
         $question = DB::table('questions')->where('s_id',$s_id)->get();
         $comments = DB::table('comments')->where('s_id',$s_id)->get();
 
+        $sum_all = DB::table('repeats')
+            ->select(DB::raw(' COUNT(id) num'))
+            ->where($query)->get();
 
-        return response() -> json(['survey' => $survey, 'question' => $question,'repeats' => $users , 'comments' => $comments ]);
+        $sum_sex = DB::table('repeats')
+            ->select(DB::raw(' sex,COUNT(id) num'))
+            ->where($query)->groupBy('sex')->get();
+
+
+        return response() -> json(['survey' => $survey, 'question' => $question,'repeats' => $users , 'comments' => $comments, 'all_repeats'=> $sum_all,'all_repeat_group_sex'=>$sum_sex ]);
     }
 
     /**

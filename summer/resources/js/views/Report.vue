@@ -7,6 +7,10 @@
         <div class="text-center">
         <h5>{{head.survey.name}}</h5>
         </div>
+        <div>
+             <h3> คนตอบทั้งหมด {{head.all_repeats[0].num}}</h3>
+
+        </div>
 
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >

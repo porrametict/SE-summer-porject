@@ -17,7 +17,7 @@
     export default {
         name: "SurveyStatusSelect",
         props :
-            {s_id : Number,
+            {s_id : String,
             status : Number}
         ,
         mounted () {
