@@ -1,62 +1,68 @@
 <template>
     <div v-if="head">
+        <div v-if="head.survey.status == 1">
+            <div class="text-center">
+                <h5>{{head.survey.name}}</h5>
+            </div>
+            <hr>
 
-        <div class="text-center">
-            <h5>{{head.survey.name}}</h5>
-        </div>
-        <hr>
-
-        <div class="row justify-content-center">
+            <div class="row justify-content-center">
 
 
-            <div id="SexComponent" class="col">
-                <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"></select-sex>
+                <div id="SexComponent" class="col">
+                    <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"></select-sex>
+                </div>
+
+                <br/>
+
+                <div id="testComponent2" class="col">
+                    <select-age @change="form.age = $event" :ageID="form.age"></select-age>
+                </div>
             </div>
 
             <br/>
 
-            <div id="testComponent2" class="col">
-                <select-age @change="form.age = $event" :ageID="form.age"></select-age>
-            </div>
-        </div>
 
-        <br/>
+            <div class="row">
 
-
-        <div class="row">
-
-            <div id="ProvinceComponent" class="col-6">
-                <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"></selectProvinces>
-            </div>
-            <br/>
+                <div id="ProvinceComponent" class="col-6">
+                    <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"></selectProvinces>
+                </div>
+                <br/>
 
 
-            <div id="CareersComponent" class="col-6">
-                <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"></selectcareers>
-            </div>
-            <br/>
+                <div id="CareersComponent" class="col-6">
+                    <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"></selectcareers>
+                </div>
+                <br/>
 
-        </div>
-
-        <div class="mt-5">
-            <h5>รายการแบบสำรวจความพึงพอใจ</h5>
-            <div class="mt-4">
-                <answer :sid="s_id" @change="answer_emit($event)"></answer>
             </div>
 
+            <div class="mt-5">
+                <h5>รายการแบบสำรวจความพึงพอใจ</h5>
+                <div class="mt-4">
+                    <answer :sid="s_id" @change="answer_emit($event)"></answer>
+                </div>
+
+            </div>
+
+            <div class="mt-5">
+                <h5>ข้อเสนอแนะอื่นๆ</h5>
+            </div>
+            <div class="">
+                <textarea class="form-control" v-model="form.comment"></textarea>
+            </div>
+
+
+            <button class="btn btn-primary mt-5 col-md-2 offset-md-10" @click="submit">
+                Submit
+            </button>
+        </div>
+        <div>
+            <h1>แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว</h1>
         </div>
 
-        <div class="mt-5">
-            <h5>ข้อเสนอแนะอื่นๆ</h5>
-        </div>
-        <div class="">
-            <textarea class="form-control" v-model="form.comment"></textarea>
-        </div>
 
-
-        <button class="btn btn-primary mt-5 col-md-2 offset-md-10" @click="submit">
-            Submit
-        </button>
     </div>
 
 </template>
@@ -97,6 +103,7 @@
         },
 
         data: () => ({
+
             user : null,
             s_id: null,
             head: null,
@@ -204,6 +211,7 @@
                         return null
                     });
             },
+
 
         },
 

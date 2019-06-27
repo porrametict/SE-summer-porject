@@ -102,7 +102,11 @@ class SurveyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $survey = Survey::find($id);
+        $survey->status =$request -> get('status') ;
+        $survey->save();
+        return Response() -> json($survey);
+
     }
 
     public function user_survey($id)

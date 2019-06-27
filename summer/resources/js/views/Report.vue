@@ -1,10 +1,13 @@
 <template>
     <div v-if="head">
         <h5>ReportPage</h5>
+        <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+
         <hr>
         <div class="text-center">
         <h5>{{head.survey.name}}</h5>
         </div>
+
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >
             <select-sex @change="sex_emit($event)"></select-sex>
@@ -74,6 +77,7 @@
     import selectProvinces from '../components/Provinces'
     import selectCareers from '../components/careers'
     import BarCharts from '../components/Barchart'
+    import SurveyStatusSelect from '../components/SurveyStatusSelect'
 
     export default {
         components: {
@@ -81,7 +85,8 @@
             selectAge,
             selectProvinces,
             selectCareers,
-            BarCharts
+            BarCharts,
+            SurveyStatusSelect
 
         },
         async created() {
