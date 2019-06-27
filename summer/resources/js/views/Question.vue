@@ -133,7 +133,7 @@
                 this.form.career =  this.user.career
             },
             checkData() {
-                if (this.phpform.sex == null) {
+                if (this.form.sex == null) {
                     return true;
                 } else if (this.form.age == null) {
                     return true;

@@ -6,7 +6,9 @@
 
             <h5>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h5>
             <div class="flex-center position-ref mt-5">
-                <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
+                <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">
+                    <i class="mdi mdi-plus mdi-26px"></i> สร้างแบบสำรวจ
+                </button>
             </div>
 
 
@@ -22,9 +24,16 @@
 
         <div v-if="head">
             <div v-if="head.data.length > 0 ">
-                <div class="card text-center mt-2" v-for="i in head.data">
+                <div class="card text-center mt-0" v-for="i in head.data">
                     <div class="card-body">
-                        <h5 class="card-title">{{i.name}}</h5>
+                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>
+
+
+
+                        <h5 class="card-title"> {{i.name}}</h5>
+
+
+
                         <button class="btn btn-primary" @click="gotoReport(i.id)">ดูรายงาน</button>
                         <button class="btn btn-outline-info" @click="copylink(i.id)">copy link</button>
                     </div>
@@ -47,36 +56,36 @@
 
         <div class="row-12 mt-3" v-if="(head.data.length > 0 )">
             <div class="card text-center">
-            <div class="card-footer text-muted row-12 justify-content-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </button>
-                        </li>
-
-                       <div v-for="(i,index) in allPage">
-
-                           <li class="page-item active" v-if="head.current_page == index+1">
-                               <button class="page-link" @click="getPage(i)">{{index+1}}</button>
-                           </li>
-
-                            <li class="page-item" v-else>
-                                <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                <div class="card-footer text-muted row-12 justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </button>
                             </li>
-                       </div>
-                        <li class="page-item">
-                            <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+
+                            <div v-for="(i,index) in allPage">
+
+                                <li class="page-item active" v-if="head.current_page == index+1">
+                                    <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                </li>
+
+                                <li class="page-item" v-else>
+                                    <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                </li>
+                            </div>
+                            <li class="page-item">
+                                <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
@@ -92,7 +101,7 @@
 
         },
         data: () => ({
-            allPage : null ,
+            allPage: null,
             head: null,
             form: {
                 s_id: null,
@@ -154,10 +163,9 @@
                         console.log("error", error);
                         return null
                     });
-                if(this.head.data[0])
-                {
+                if (this.head.data[0]) {
                     this.calDateDiff();
-                    this.generatePageLink(this.head.last_page,this.head.data[0].u_id)
+                    this.generatePageLink(this.head.last_page, this.head.data[0].u_id)
                 }
             },
             calDateDiff() {
@@ -167,7 +175,7 @@
                 }
             },
             async getPage(page) {
-                 this.head = await axios.get(page)
+                this.head = await axios.get(page)
                     .then(function (response) {
                         return response.data;
                     })
@@ -178,11 +186,10 @@
                 this.calDateDiff();
 
             },
-            generatePageLink (last_page,u_id) {
+            generatePageLink(last_page, u_id) {
                 let arr = []
-                for(let i =1 ;i<=last_page;i++)
-                {
-                    let s = "http://127.0.0.1:8000/api/user_survey/"+u_id+"?page="+i;
+                for (let i = 1; i <= last_page; i++) {
+                    let s = "http://127.0.0.1:8000/api/user_survey/" + u_id + "?page=" + i;
                     arr.push(s)
                 }
                 this.allPage = arr;
@@ -245,4 +252,15 @@
     .m-b-md {
         margin-bottom: 30px;
     }
+    .mdi-18px { font-size: 18px; }
+    .mdi-24px { font-size: 24px; }
+    .mdi-26px { font-size: 30px; }
+    .mdi-28px { font-size: 30px; }
+    .mdi-30px { font-size: 30px; }
+    .mdi-36px { font-size: 36px; }
+    .mdi-48px { font-size: 48px; }
+    .mdi-dark { color: rgba(0, 0, 0, 0.54); }
+    .mdi-dark.mdi-inactive { color: rgba(0, 0, 0, 0.26); }
+    .mdi-light { color: rgba(255, 255, 255, 1); }
+    .mdi-light.mdi-inactive { color: rgba(255, 255, 255, 0.3); }
 </style>

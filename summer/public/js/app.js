@@ -2735,6 +2735,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -3074,7 +3083,7 @@ moment.locale('th');
       this.form.career = this.user.career;
     },
     checkData: function checkData() {
-      if (this.phpform.sex == null) {
+      if (this.form.sex == null) {
         return true;
       } else if (this.form.age == null) {
         return true;
@@ -7913,7 +7922,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n    text-align: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n", ""]);
+exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n    text-align: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n.mdi-18px[data-v-1f79daf6] { font-size: 18px;\n}\n.mdi-24px[data-v-1f79daf6] { font-size: 24px;\n}\n.mdi-26px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-28px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-30px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-36px[data-v-1f79daf6] { font-size: 36px;\n}\n.mdi-48px[data-v-1f79daf6] { font-size: 48px;\n}\n.mdi-dark[data-v-1f79daf6] { color: rgba(0, 0, 0, 0.54);\n}\n.mdi-dark.mdi-inactive[data-v-1f79daf6] { color: rgba(0, 0, 0, 0.26);\n}\n.mdi-light[data-v-1f79daf6] { color: rgba(255, 255, 255, 1);\n}\n.mdi-light.mdi-inactive[data-v-1f79daf6] { color: rgba(255, 255, 255, 0.3);\n}\n", ""]);
 
 // exports
 
@@ -58415,7 +58424,10 @@ var render = function() {
             attrs: { type: "button" },
             on: { click: _vm.gotoCreateSurvey }
           },
-          [_vm._v("สร้างแบบสำรวจ")]
+          [
+            _c("i", { staticClass: "mdi mdi-plus mdi-26px" }),
+            _vm._v(" สร้างแบบสำรวจ\n            ")
+          ]
         )
       ]),
       _vm._v(" "),
@@ -58432,10 +58444,14 @@ var render = function() {
             ? _c(
                 "div",
                 _vm._l(_vm.head.data, function(i) {
-                  return _c("div", { staticClass: "card text-center mt-2" }, [
+                  return _c("div", { staticClass: "card text-center mt-0" }, [
                     _c("div", { staticClass: "card-body" }, [
+                      _c("i", {
+                        staticClass: "mdi mdi-file-powerpoint mdi-36px"
+                      }),
+                      _vm._v(" "),
                       _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(i.name))
+                        _vm._v(" " + _vm._s(i.name))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -74746,8 +74762,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
