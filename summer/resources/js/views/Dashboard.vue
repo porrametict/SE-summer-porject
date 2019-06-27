@@ -49,14 +49,18 @@
 
         </div>
 
-
-        <div class="row-12 mt-3" v-if="(head.data.length > 0 )">
+        <div class="row-12 mt-3" v-if="head && (head.data.length > 0 && head.last_page > 1 )">
             <div class="card text-center">
                 <div class="card-footer text-muted row-12 justify-content-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)">
+                                <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)" v-if="head.prev_page_url">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </button>
+
+                                <button class="page-link" aria-label="Previous" disabled v-else>
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
@@ -73,7 +77,11 @@
                                 </li>
                             </div>
                             <li class="page-item">
-                                <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)">
+                                <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)" v-if="head.next_page_url">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </button>
+                                <button class="page-link" aria-label="Next" disabled v-else>
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>
@@ -159,10 +167,13 @@
                         console.log("error", error);
                         return null
                     });
-                if (this.head.data[0]) {
-                    this.calDateDiff();
-                    this.generatePageLink(this.head.last_page, this.head.data[0].u_id)
+                if(this.head) {
+                    if (this.head.data[0]) {
+                        this.calDateDiff();
+                        this.generatePageLink(this.head.last_page, this.head.data[0].u_id)
+                    }
                 }
+
             },
             calDateDiff() {
                 for (let i = 0; i < this.head.data.length; i++) {

@@ -92,7 +92,7 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="career">Career</label>
                                 <div class="col-md-6">
                                     <select class="form-control career" name="career" id="career">
-                                        <option value="" disabled>เลือกอาชีพ</option>
+                                        <option value="" disabled selected>เลือกอาชีพ</option>
                                         <?php
                                         $someJSON = '[{"text": "กรรมกร", "value": 1} ,
                                                         {"text": "เกษตรกร", "value": 2},
@@ -149,7 +149,7 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="sex">Sex</label>
                                 <div class="col-md-6">
                                     <select class="form-control sex" name="sex" id="sex">
-                                        <option value="" disabled>เลือกเพศ</option>
+                                        <option value="" disabled selected>เลือกเพศ</option>
                                         <?php
 
                                         $someJSON = '[{"text":"ชาย","value":"1"},{"text":"หญิง","value":"2"}]';

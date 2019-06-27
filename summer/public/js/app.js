@@ -2744,6 +2744,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -2836,9 +2840,11 @@ moment.locale('th');
               case 2:
                 this.head = _context.sent;
 
-                if (this.head.data[0]) {
-                  this.calDateDiff();
-                  this.generatePageLink(this.head.last_page, this.head.data[0].u_id);
+                if (this.head) {
+                  if (this.head.data[0]) {
+                    this.calDateDiff();
+                    this.generatePageLink(this.head.last_page, this.head.data[0].u_id);
+                  }
                 }
 
               case 4:
@@ -58502,7 +58508,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.head.data.length > 0
+    _vm.head && (_vm.head.data.length > 0 && _vm.head.last_page > 1)
       ? _c("div", { staticClass: "row-12 mt-3" }, [
           _c("div", { staticClass: "card text-center" }, [
             _c(
@@ -58521,27 +58527,51 @@ var render = function() {
                       { staticClass: "pagination justify-content-center" },
                       [
                         _c("li", { staticClass: "page-item" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "page-link",
-                              attrs: { "aria-label": "Previous" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.getPage(_vm.head.prev_page_url)
-                                }
-                              }
-                            },
-                            [
-                              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                                _vm._v("«")
-                              ]),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("Previous")
-                              ])
-                            ]
-                          )
+                          _vm.head.prev_page_url
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { "aria-label": "Previous" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.getPage(_vm.head.prev_page_url)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("«")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Previous")
+                                  ])
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: {
+                                    "aria-label": "Previous",
+                                    disabled: ""
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("«")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Previous")
+                                  ])
+                                ]
+                              )
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.allPage, function(i, index) {
@@ -58579,27 +58609,48 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("li", { staticClass: "page-item" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "page-link",
-                              attrs: { "aria-label": "Next" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.getPage(_vm.head.next_page_url)
-                                }
-                              }
-                            },
-                            [
-                              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                                _vm._v("»")
-                              ]),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("Next")
-                              ])
-                            ]
-                          )
+                          _vm.head.next_page_url
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { "aria-label": "Next" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.getPage(_vm.head.next_page_url)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("»")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Next")
+                                  ])
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { "aria-label": "Next", disabled: "" }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("»")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Next")
+                                  ])
+                                ]
+                              )
                         ])
                       ],
                       2
@@ -74762,8 +74813,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\summer\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SE-summer-porject\summer\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

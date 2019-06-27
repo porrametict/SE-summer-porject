@@ -41,7 +41,7 @@ class SurveyController extends Controller
         $request->validate([
             'hSurvey' => 'required|max:255',
             'u_id' => 'required',
-            'question'=> 'required'
+            'questions'=> 'required'
         ]);
 
 
