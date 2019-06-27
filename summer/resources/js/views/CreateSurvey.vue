@@ -75,18 +75,31 @@
             addtext() {
                 this.questions.push({no: 0, text: ""})
             },
-            checkData () {
-                    if(this.form.hSurvey == "")
+            checkQuestion () {
+                let tf = false;
+                let qs= this.questions
+                for(let i = 0 ;i < qs.length;i++) {
+                    if(qs[i].text.trim() == "") {
+                        tf = true;
+                        return true;
+                    }
+                }
+                console.log("tf",tf)
+                return tf;
+            },
+             checkData () {
+                    if(this.form.hSurvey.trim() == "")
                     {
                         console.log("name")
                         return false;
-                    }else if (this.form.questions[0] == "") {
+                    }else if (this.checkQuestion()) {
                         console.log("question")
                         return false;
                     }else {
                         return  true
                     }
             },
+
             save() {
                 if (!this.checkData()){
                     console.log('error')
@@ -159,10 +172,8 @@
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 1200
                     }).then(function() {
-                        // Redirect the user
-                        // window.location.href = "new_url.html";
                         console.log('The Ok Button was clicked.');
                         vm.$router.push({name: "dashboard"})
                     });

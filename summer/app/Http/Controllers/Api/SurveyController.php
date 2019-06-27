@@ -37,6 +37,14 @@ class SurveyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+
+        $request->validate([
+            'hSurvey' => 'required|max:255',
+            'u_id' => 'required',
+            'question'=> 'required'
+        ]);
+
+
        $survey = Survey::create([
          'name' => $request -> get('hSurvey'),
          'u_id' => $request -> get('u_id'),

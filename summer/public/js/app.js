@@ -2534,11 +2534,25 @@ __webpack_require__.r(__webpack_exports__);
         text: ""
       });
     },
+    checkQuestion: function checkQuestion() {
+      var tf = false;
+      var qs = this.questions;
+
+      for (var i = 0; i < qs.length; i++) {
+        if (qs[i].text.trim() == "") {
+          tf = true;
+          return true;
+        }
+      }
+
+      console.log("tf", tf);
+      return tf;
+    },
     checkData: function checkData() {
-      if (this.form.hSurvey == "") {
+      if (this.form.hSurvey.trim() == "") {
         console.log("name");
         return false;
-      } else if (this.form.questions[0] == "") {
+      } else if (this.checkQuestion()) {
         console.log("question");
         return false;
       } else {
@@ -2606,10 +2620,8 @@ __webpack_require__.r(__webpack_exports__);
           toast: true,
           position: 'top-end',
           showConfirmButton: false,
-          timer: 3000
+          timer: 1200
         }).then(function () {
-          // Redirect the user
-          // window.location.href = "new_url.html";
           console.log('The Ok Button was clicked.');
           vm.$router.push({
             name: "dashboard"

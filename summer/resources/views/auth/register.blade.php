@@ -89,7 +89,7 @@
                             </div>
 
                             <div class=" row form-group{{ $errors->has('career') ? ' has-error' : '' }}">
-                                <label class="col-md-4 col-form-label text-md-right" for="career">career</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="career">Career</label>
                                 <div class="col-md-6">
                                     <select class="form-control career" name="career" id="career">
                                         <option value="" disabled>เลือกอาชีพ</option>
