@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3689f11b-626f-4b7e-b953-7f78e4e6b0f9" name="Default Changelist" comment="auto">
-      <change afterPath="$PROJECT_DIR$/public/03.jpg" afterDir="false" />
+    <list default="true" id="3689f11b-626f-4b7e-b953-7f78e4e6b0f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Question.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/views/Dashboard.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="312">
+              <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -766,11 +760,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561602409737</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="auto">
+      <created>1561628445493</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1561628445493</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183051000" />
+    <option name="totallyTimeSpent" value="183327000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -876,9 +877,9 @@
     <MESSAGE value="can paginate" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix career" />
-    <MESSAGE value="auto" />
     <MESSAGE value="add mdi icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mdi icon" />
+    <MESSAGE value="auto" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/js/views/Reportedit.vue" />
@@ -1266,8 +1267,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/views/Dashboard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="312">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
     </entry>
