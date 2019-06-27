@@ -2,7 +2,7 @@
     <div v-if="head">
 
         <div class="text-center">
-            <h1>{{head.survey.name}}</h1>
+            <h5>{{head.survey.name}}</h5>
         </div>
         <hr>
 
@@ -38,20 +38,23 @@
 
         </div>
 
-        <div class="container mt-5">
-            <h1>รายการแบบสำรวจความพึงพอใจ</h1>
-            <answer :sid="s_id" @change="answer_emit($event)"></answer>
+        <div class="mt-5">
+            <h5>รายการแบบสำรวจความพึงพอใจ</h5>
+            <div class="mt-4">
+                <answer :sid="s_id" @change="answer_emit($event)"></answer>
+            </div>
 
         </div>
 
-
-        <h1>ข้อเสนอแนะอื่นๆ</h1>
+        <div class="mt-5">
+            <h5>ข้อเสนอแนะอื่นๆ</h5>
+        </div>
         <div class="">
             <textarea class="form-control" v-model="form.comment"></textarea>
         </div>
 
 
-        <button class="btn btn-primary mt-5" @click="submit">
+        <button class="btn btn-primary mt-5 col-md-2 offset-md-10" @click="submit">
             Submit
         </button>
     </div>
@@ -130,7 +133,7 @@
                 this.form.career =  this.user.career
             },
             checkData() {
-                if (this.form.sex == null) {
+                if (this.phpform.sex == null) {
                     return true;
                 } else if (this.form.age == null) {
                     return true;

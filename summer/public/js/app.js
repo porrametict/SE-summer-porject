@@ -2983,6 +2983,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3071,7 +3074,7 @@ moment.locale('th');
       this.form.career = this.user.career;
     },
     checkData: function checkData() {
-      if (this.form.sex == null) {
+      if (this.phpform.sex == null) {
         return true;
       } else if (this.form.age == null) {
         return true;
@@ -58254,7 +58257,7 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-8 mt-2" }, [
+        _c("div", { staticClass: "col-md-12 mt-2" }, [
           _c("input", {
             directives: [
               {
@@ -58332,7 +58335,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 mt-5" }, [
+      _c("div", { staticClass: "col-12 mt-4 " }, [
         _c(
           "button",
           {
@@ -58366,8 +58369,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4 mt-3" }, [
-      _c("h3", [_vm._v("หัวข้อแบบสำรวจความพึงพอใจ   :")])
+    return _c("div", { staticClass: "col-md-6 mt-3 " }, [
+      _c("h5", [_vm._v("หัวข้อแบบสำรวจความพึงพอใจ  :")])
     ])
   },
   function() {
@@ -58375,7 +58378,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-5" }, [
-      _c("h3", [_vm._v("คำถาม")])
+      _c("h5", [_vm._v("คำถาม  :")])
     ])
   }
 ]
@@ -58402,7 +58405,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
+      _c("h5", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
       _vm._v(" "),
       _c("div", { staticClass: "flex-center position-ref mt-5" }, [
         _c(
@@ -58483,7 +58486,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.head
+    _vm.head.data.length > 0
       ? _c("div", { staticClass: "row-12 mt-3" }, [
           _c("div", { staticClass: "card text-center" }, [
             _c(
@@ -58600,7 +58603,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", [_vm._v("แบบสำรวจล่าสุด")])
+      _c("h5", [_vm._v("แบบสำรวจล่าสุด")])
     ])
   },
   function() {
@@ -58638,7 +58641,7 @@ var render = function() {
   return _vm.head
     ? _c("div", [
         _c("div", { staticClass: "text-center" }, [
-          _c("h1", [_vm._v(_vm._s(_vm.head.survey.name))])
+          _c("h5", [_vm._v(_vm._s(_vm.head.survey.name))])
         ]),
         _vm._v(" "),
         _c("hr"),
@@ -58719,25 +58722,27 @@ var render = function() {
           _c("br")
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "container mt-5" },
-          [
-            _c("h1", [_vm._v("รายการแบบสำรวจความพึงพอใจ")]),
-            _vm._v(" "),
-            _c("answer", {
-              attrs: { sid: _vm.s_id },
-              on: {
-                change: function($event) {
-                  return _vm.answer_emit($event)
+        _c("div", { staticClass: "mt-5" }, [
+          _c("h5", [_vm._v("รายการแบบสำรวจความพึงพอใจ")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mt-4" },
+            [
+              _c("answer", {
+                attrs: { sid: _vm.s_id },
+                on: {
+                  change: function($event) {
+                    return _vm.answer_emit($event)
+                  }
                 }
-              }
-            })
-          ],
-          1
-        ),
+              })
+            ],
+            1
+          )
+        ]),
         _vm._v(" "),
-        _c("h1", [_vm._v("ข้อเสนอแนะอื่นๆ")]),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", {}, [
           _c("textarea", {
@@ -58764,13 +58769,25 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-primary mt-5", on: { click: _vm.submit } },
+          {
+            staticClass: "btn btn-primary mt-5 col-md-2 offset-md-10",
+            on: { click: _vm.submit }
+          },
           [_vm._v("\n        Submit\n    ")]
         )
       ])
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-5" }, [
+      _c("h5", [_vm._v("ข้อเสนอแนะอื่นๆ")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -58794,12 +58811,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.head
     ? _c("div", [
-        _c("h1", [_vm._v("ReportPage")]),
+        _c("h5", [_vm._v("ReportPage")]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
         _c("div", { staticClass: "text-center" }, [
-          _c("h3", [_vm._v(_vm._s(_vm.head.survey.name))])
+          _c("h5", [_vm._v(_vm._s(_vm.head.survey.name))])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center" }, [

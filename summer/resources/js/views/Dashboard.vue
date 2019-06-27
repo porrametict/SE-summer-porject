@@ -4,7 +4,7 @@
 
         <div class="col-md-12">
 
-            <h4>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h4>
+            <h5>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h5>
             <div class="flex-center position-ref mt-5">
                 <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">สร้างแบบสำรวจ</button>
             </div>
@@ -16,7 +16,7 @@
             <hr>
         </div>
         <div class="col-md-12">
-            <h4>แบบสำรวจล่าสุด</h4>
+            <h5>แบบสำรวจล่าสุด</h5>
         </div>
 
 
@@ -45,7 +45,7 @@
         </div>
 
 
-        <div class="row-12 mt-3" v-if="head">
+        <div class="row-12 mt-3" v-if="(head.data.length > 0 )">
             <div class="card text-center">
             <div class="card-footer text-muted row-12 justify-content-center">
                 <nav aria-label="Page navigation example">
