@@ -58162,7 +58162,7 @@ var render = function() {
               _vm._l(_vm.head.data, function(i, index) {
                 return _c("tr", [
                   _c("th", { attrs: { scope: "row" } }, [
-                    _vm._v("{{head.data[index].text")
+                    _vm._v(_vm._s(_vm.head.data[index].text))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "text-center" }, [
@@ -58799,7 +58799,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "pretty p-default p-curve p-toggle" }, [
+    _c("div", { staticClass: "pretty p-switch  p-toggle" }, [
       _c("input", {
         directives: [
           {
