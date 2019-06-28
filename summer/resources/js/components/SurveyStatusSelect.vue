@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div class="pretty p-default p-curve p-toggle">
+        <div class="pretty p-switch  p-toggle">
             <input type="checkbox" v-model="s_status" @change="change_status"/>
             <div class="state p-success p-on">
                 <label>เปิดรับการตอบ</label>

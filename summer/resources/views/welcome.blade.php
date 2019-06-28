@@ -32,9 +32,10 @@
 <div class="main-navigation">
     <nav class="navbar navbar-default navbar-expand-md m-0 p-0">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <!---<a class="navbar-brand" href="{{ url('/') }}">
                 BigSurvey
-            </a>
+            </a> --->
+            <a href="{{ url('/') }}" style="border-radius: 50px; margin: 10px;" class="btn btn-pink"><span class="fa fa-pencil"></span>&nbsp;&nbsp;<b>BIG</b> &nbsp;SURVEY</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
                     aria-controls="myNavbar" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

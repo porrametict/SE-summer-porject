@@ -14,7 +14,7 @@
         <tbody>
         <tr v-for="(i,index) in head.data">
 
-            <th scope="row">{{head.data[index].text</th>
+            <th scope="row">{{head.data[index].text}}</th>
             <td class="text-center"><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" @change="export_select"></td>
             <td class="text-center"><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
             <td class="text-center"><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
