@@ -1,16 +1,17 @@
 <template>
     <div v-if="head">
-        <h5>ReportPage</h5>
-        <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+        <div class="justify-content-between d-flex">
+            <div class="text-left justify-content-between" >
+            <h5 class="texthead">{{head.survey.name}}</h5>
+        </div>
+        <div class="form-group row mb-0">
+            <div class="col-12 text-right">
+                <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+            </div>
+        </div>
 
+    </div>
         <hr>
-        <div class="text-center">
-        <h5>{{head.survey.name}}</h5>
-        </div>
-        <div>
-             <h3> คนตอบทั้งหมด {{head.all_repeats[0].num}}</h3>
-
-        </div>
 
         <div class="row justify-content-center">
             <div id="SexComponent" class="col-3 mt-5 " >
@@ -32,8 +33,9 @@
     </div>
 
         <div class="card mt-5">
-            <div class="card-header">
-                กราฟเเสดงผล
+            <div class="card-header d-flex justify-content-between">
+                <div>กราฟเเสดงผล</div>
+                    <div class="text-right"> คนตอบทั้งหมด {{head.all_repeats[0].num}}</div>
             </div>
             <div v-if="chartRender">
                 <div v-if="QwithRate.length > 0">

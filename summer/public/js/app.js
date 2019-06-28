@@ -2778,9 +2778,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SurveyStatusSelect",
   props: {
@@ -3010,6 +3007,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3046,8 +3053,11 @@ __webpack_require__.r(__webpack_exports__);
       var qs = this.questions;
 
       for (var i = 0; i < qs.length; i++) {
+        this.clearInvalid("validationQ_" + i);
+
         if (qs[i].text.trim() == "") {
           tf = true;
+          this.showInvalid("validationQ_" + i);
           return true;
         }
       }
@@ -3055,8 +3065,19 @@ __webpack_require__.r(__webpack_exports__);
       console.log("tf", tf);
       return tf;
     },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
     checkData: function checkData() {
+      this.clearInvalid("validationName");
+
       if (this.form.hSurvey.trim() == "") {
+        this.showInvalid("validationName");
         console.log("name");
         return false;
       } else if (this.checkQuestion()) {
@@ -3722,6 +3743,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -8565,6 +8588,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* The switch - the box around the slider */\n.switch[data-v-5cb41db3] {\n    position: relative;\n    display: inline-block;\n    width: 55px;\n    height: 30px;\n}\n\n/* Hide default HTML checkbox */\n.switch input[data-v-5cb41db3] {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n\n/* The slider */\n.slider[data-v-5cb41db3] {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    transition: .4s;\n}\n.slider[data-v-5cb41db3]:before {\n    position: absolute;\n    content: \"\";\n    height: 20px;\n    width: 20px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    transition: .4s;\n}\ninput:checked + .slider[data-v-5cb41db3] {\n    background-color: #2196F3;\n}\ninput:focus + .slider[data-v-5cb41db3] {\n    box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider[data-v-5cb41db3]:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round[data-v-5cb41db3] {\n    border-radius: 34px;\n}\n.slider.round[data-v-5cb41db3]:before {\n    border-radius: 50%;\n}\n\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -57749,6 +57791,36 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Dashboard.vue?vue&type=style&index=0&id=1f79daf6&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Dashboard.vue?vue&type=style&index=0&id=1f79daf6&scoped=true&lang=css& ***!
@@ -59409,7 +59481,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "pretty p-switch  p-toggle" }, [
+    _c("label", { staticClass: "switch" }, [
       _c("input", {
         directives: [
           {
@@ -59451,30 +59523,13 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
+      _c("span", { staticClass: "slider round" })
+    ]),
+    _vm._v(" "),
+    _c("label", { staticClass: "h5" }, [_vm._v("ปิดรับการตอบ")])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "state p-success p-on" }, [
-      _c("label", [_vm._v("เปิดรับการตอบ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "state p-danger p-off" }, [
-      _c("label", [_vm._v("ปิดรับการตอบ")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -59574,9 +59629,11 @@ var render = function() {
     { staticClass: "col-12" },
     [
       _c("div", { staticClass: "row" }, [
-        _vm._m(0),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-12 mt-2" }, [
+          _c("label", { attrs: { for: "validationName" } }, [
+            _vm._v("หัวข้อแบบสำรวจความพึงพอใจ")
+          ]),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -59586,11 +59643,12 @@ var render = function() {
                 expression: "form.hSurvey"
               }
             ],
-            staticClass:
-              "form-control form-control-lg btn-outline-primary btn-lg",
+            staticClass: "form-control ",
             attrs: {
               type: "text",
-              placeholder: "กรุณากรอกหัวข้อแบบสำรวจของท่าน"
+              id: "validationName",
+              placeholder: "กรุณากรอกหัวข้อแบบสำรวจของท่าน",
+              required: ""
             },
             domProps: { value: _vm.form.hSurvey },
             on: {
@@ -59601,11 +59659,17 @@ var render = function() {
                 _vm.$set(_vm.form, "hSurvey", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "invalid-feedback" }, [
+            _vm._v(
+              "\n                        กรุณากรอกช่องนี้.\n                    "
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -59622,8 +59686,13 @@ var render = function() {
                     expression: "questions[index].text"
                   }
                 ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
+                staticClass: "form-control ",
+                attrs: {
+                  type: "text",
+                  id: "validationQ_" + index,
+                  placeholder: "กรุณากรอกคำถาม",
+                  required: ""
+                },
                 domProps: { value: _vm.questions[index].text },
                 on: {
                   input: function($event) {
@@ -59646,7 +59715,11 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n                    x\n                ")]
+                    [
+                      _vm._v(
+                        "\n                        x\n                    "
+                      )
+                    ]
                   )
                 : _vm._e()
             ])
@@ -59658,7 +59731,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-pink float-right",
+            staticClass: "btn btn-outline-pink float-right",
             on: { click: _vm.addtext }
           },
           [_vm._v("เพิ่มรายการ")]
@@ -59666,15 +59739,15 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 mt-5" }, [
         _c("div", { attrs: { align: "right" } }, [
           _c(
             "button",
-            {
-              staticClass: "btn btn-outline-pink btn-lg",
-              on: { click: _vm.save }
-            },
+            { staticClass: "btn btn-pink btn-lg", on: { click: _vm.save } },
             [_vm._v("Create")]
           )
         ])
@@ -59684,14 +59757,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 mt-3 " }, [
-      _c("h5", [_vm._v("หัวข้อแบบสำรวจความพึงพอใจ  :")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -60021,7 +60086,9 @@ var render = function() {
         _vm.head.survey.status == 1
           ? _c("div", [
               _c("div", { staticClass: "text-center" }, [
-                _c("h5", [_vm._v(_vm._s(_vm.head.survey.name))])
+                _c("h5", { staticClass: "texthead" }, [
+                  _vm._v(_vm._s(_vm.head.survey.name))
+                ])
               ]),
               _vm._v(" "),
               _c("hr"),
@@ -60192,460 +60259,455 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.head
-    ? _c(
-        "div",
-        [
-          _c("h5", [_vm._v("ReportPage")]),
-          _vm._v(" "),
-          _c("survey-status-select", {
-            attrs: {
-              s_id: _vm.$route.params.s_id,
-              status: _vm.head.survey.status
-            }
-          }),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center" }, [
-            _c("h5", [_vm._v(_vm._s(_vm.head.survey.name))])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("h3", [
-              _vm._v(" คนตอบทั้งหมด " + _vm._s(_vm.head.all_repeats[0].num))
+    ? _c("div", [
+        _c("div", { staticClass: "justify-content-between d-flex" }, [
+          _c("div", { staticClass: "text-left justify-content-between" }, [
+            _c("h5", { staticClass: "texthead" }, [
+              _vm._v(_vm._s(_vm.head.survey.name))
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "form-group row mb-0" }, [
             _c(
               "div",
-              { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
+              { staticClass: "col-12 text-right" },
               [
-                _c("select-sex", {
-                  on: {
-                    change: function($event) {
-                      return _vm.sex_emit($event)
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
-              [
-                _c("select-age", {
-                  on: {
-                    change: function($event) {
-                      return _vm.age_emit($event)
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-3 mt-5 ",
-                attrs: { id: "ProvinceComponent" }
-              },
-              [
-                _c("selectProvinces", {
-                  on: {
-                    change: function($event) {
-                      return _vm.pronvince_emit($event)
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
-              [
-                _c("select-careers", {
-                  on: {
-                    change: function($event) {
-                      return _vm.careers_emit($event)
-                    }
+                _c("survey-status-select", {
+                  attrs: {
+                    s_id: _vm.$route.params.s_id,
+                    status: _vm.head.survey.status
                   }
                 })
               ],
               1
             )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
+            [
+              _c("select-sex", {
+                on: {
+                  change: function($event) {
+                    return _vm.sex_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
+            [
+              _c("select-age", {
+                on: {
+                  change: function($event) {
+                    return _vm.age_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "ProvinceComponent" } },
+            [
+              _c("selectProvinces", {
+                on: {
+                  change: function($event) {
+                    return _vm.pronvince_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
+            [
+              _c("select-careers", {
+                on: {
+                  change: function($event) {
+                    return _vm.careers_emit($event)
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card mt-5" }, [
+          _c(
+            "div",
+            { staticClass: "card-header d-flex justify-content-between" },
+            [
+              _c("div", [_vm._v("กราฟเเสดงผล")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-right" }, [
+                _vm._v(" คนตอบทั้งหมด " + _vm._s(_vm.head.all_repeats[0].num))
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm.chartRender
+            ? _c("div", [
+                _vm.QwithRate.length > 0
+                  ? _c(
+                      "div",
+                      _vm._l(_vm.head.question, function(i) {
+                        return _c(
+                          "ul",
+                          {
+                            key: i.chart_id,
+                            staticClass: "list-group list-group-flush"
+                          },
+                          [
+                            _c(
+                              "li",
+                              { staticClass: "list-group-item" },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(i.text) +
+                                    "\n                            "
+                                ),
+                                _vm._l(_vm.QwithRate, function(qr) {
+                                  return _c("div", { key: qr[0].chart_id }, [
+                                    qr[0].q_id == i.id
+                                      ? _c(
+                                          "div",
+                                          [
+                                            _c("BarCharts", {
+                                              attrs: {
+                                                id: i.id.toString(),
+                                                data: qr
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _vm._e()
+                                  ])
+                                })
+                              ],
+                              2
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _c("div", [
+                      _c(
+                        "h3",
+                        { staticClass: "text-secondary text-center my-2" },
+                        [_vm._v("ไม่มีข้อมูล")]
+                      )
+                    ])
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card mt-5" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("\n                Comments\n            ")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card mt-5" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("\n                กราฟเเสดงผล\n            ")
-            ]),
-            _vm._v(" "),
-            _vm.chartRender
-              ? _c("div", [
-                  _vm.QwithRate.length > 0
-                    ? _c(
-                        "div",
-                        _vm._l(_vm.head.question, function(i) {
-                          return _c(
-                            "ul",
-                            {
-                              key: i.chart_id,
-                              staticClass: "list-group list-group-flush"
-                            },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item" },
-                                [
-                                  _vm._v(
-                                    "\n                            " +
-                                      _vm._s(i.text) +
-                                      "\n                            "
-                                  ),
-                                  _vm._l(_vm.QwithRate, function(qr) {
-                                    return _c("div", { key: qr[0].chart_id }, [
-                                      qr[0].q_id == i.id
-                                        ? _c(
-                                            "div",
-                                            [
-                                              _c("BarCharts", {
-                                                attrs: {
-                                                  id: i.id.toString(),
-                                                  data: qr
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        : _vm._e()
-                                    ])
-                                  })
-                                ],
-                                2
-                              )
-                            ]
-                          )
+          _vm.head.comments.data
+            ? _c("div", { staticClass: "card-body" }, [
+                _vm.head.comments.data.length > 0
+                  ? _c("div", [
+                      _c(
+                        "ul",
+                        _vm._l(_vm.head.comments.data, function(i) {
+                          return _c("li", [_vm._v(_vm._s(i.text))])
                         }),
                         0
-                      )
-                    : _c("div", [
-                        _c(
-                          "h3",
-                          { staticClass: "text-secondary text-center my-2" },
-                          [_vm._v("ไม่มีข้อมูล")]
-                        )
-                      ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card mt-5" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("\n                Comments\n            ")
-            ]),
-            _vm._v(" "),
-            _vm.head.comments.data
-              ? _c("div", { staticClass: "card-body" }, [
-                  _vm.head.comments.data.length > 0
-                    ? _c("div", [
-                        _c(
-                          "ul",
-                          _vm._l(_vm.head.comments.data, function(i) {
-                            return _c("li", [_vm._v(_vm._s(i.text))])
-                          }),
-                          0
-                        ),
-                        _vm._v(" "),
-                        _vm.head.comments.data.length > 0 &&
-                        _vm.head.comments.last_page > 1
-                          ? _c("div", { staticClass: "row-12 mt-3" }, [
-                              _c("div", { staticClass: "card text-center" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "card-footer text-muted row-12 justify-content-center"
-                                  },
-                                  [
-                                    _c(
-                                      "nav",
-                                      {
-                                        attrs: {
-                                          "aria-label":
-                                            "Page navigation example"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "ul",
-                                          {
-                                            staticClass:
-                                              "pagination justify-content-center"
-                                          },
-                                          [
-                                            _c(
-                                              "li",
-                                              { staticClass: "page-item" },
-                                              [
-                                                _vm.head.comments.prev_page_url
-                                                  ? _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "page-link",
-                                                        attrs: {
-                                                          "aria-label":
-                                                            "Previous"
-                                                        },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.getPage(
-                                                              _vm.head.comments
-                                                                .prev_page_url
-                                                            )
+                      ),
+                      _vm._v(" "),
+                      _vm.head.comments.data.length > 0 &&
+                      _vm.head.comments.last_page > 1
+                        ? _c("div", { staticClass: "row-12 mt-3" }, [
+                            _c("div", { staticClass: "card text-center" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card-footer text-muted row-12 justify-content-center"
+                                },
+                                [
+                                  _c(
+                                    "nav",
+                                    {
+                                      attrs: {
+                                        "aria-label": "Page navigation example"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "ul",
+                                        {
+                                          staticClass:
+                                            "pagination justify-content-center"
+                                        },
+                                        [
+                                          _c(
+                                            "li",
+                                            { staticClass: "page-item" },
+                                            [
+                                              _vm.head.comments.prev_page_url
+                                                ? _c(
+                                                    "button",
+                                                    {
+                                                      staticClass: "page-link",
+                                                      attrs: {
+                                                        "aria-label": "Previous"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.getPage(
+                                                            _vm.head.comments
+                                                              .prev_page_url
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          attrs: {
+                                                            "aria-hidden":
+                                                              "true"
                                                           }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            attrs: {
-                                                              "aria-hidden":
-                                                                "true"
-                                                            }
-                                                          },
-                                                          [_vm._v("«")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "sr-only"
-                                                          },
-                                                          [_vm._v("Previous")]
-                                                        )
-                                                      ]
-                                                    )
-                                                  : _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "page-link",
-                                                        attrs: {
-                                                          "aria-label":
-                                                            "Previous",
-                                                          disabled: ""
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            attrs: {
-                                                              "aria-hidden":
-                                                                "true"
-                                                            }
-                                                          },
-                                                          [_vm._v("«")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "sr-only"
-                                                          },
-                                                          [_vm._v("Previous")]
-                                                        )
-                                                      ]
-                                                    )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(_vm.allPage, function(
-                                              i,
-                                              index
-                                            ) {
-                                              return _c("div", [
-                                                _vm.head.comments
-                                                  .current_page ==
-                                                index + 1
-                                                  ? _c(
-                                                      "li",
-                                                      {
-                                                        staticClass:
-                                                          "page-item active"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "page-link",
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.getPage(
-                                                                  i
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(index + 1)
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  : _c(
-                                                      "li",
-                                                      {
-                                                        staticClass: "page-item"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "page-link",
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.getPage(
-                                                                  i
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(index + 1)
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                              ])
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "li",
-                                              { staticClass: "page-item" },
-                                              [
-                                                _vm.head.comments.next_page_url
-                                                  ? _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "page-link",
-                                                        attrs: {
-                                                          "aria-label": "Next"
                                                         },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.getPage(
-                                                              _vm.head.comments
-                                                                .next_page_url
-                                                            )
+                                                        [_vm._v("«")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass: "sr-only"
+                                                        },
+                                                        [_vm._v("Previous")]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _c(
+                                                    "button",
+                                                    {
+                                                      staticClass: "page-link",
+                                                      attrs: {
+                                                        "aria-label":
+                                                          "Previous",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          attrs: {
+                                                            "aria-hidden":
+                                                              "true"
                                                           }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            attrs: {
-                                                              "aria-hidden":
-                                                                "true"
+                                                        },
+                                                        [_vm._v("«")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass: "sr-only"
+                                                        },
+                                                        [_vm._v("Previous")]
+                                                      )
+                                                    ]
+                                                  )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.allPage, function(
+                                            i,
+                                            index
+                                          ) {
+                                            return _c("div", [
+                                              _vm.head.comments.current_page ==
+                                              index + 1
+                                                ? _c(
+                                                    "li",
+                                                    {
+                                                      staticClass:
+                                                        "page-item active"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "page-link",
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              return _vm.getPage(
+                                                                i
+                                                              )
                                                             }
-                                                          },
-                                                          [_vm._v("»")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "sr-only"
-                                                          },
-                                                          [_vm._v("Next")]
-                                                        )
-                                                      ]
-                                                    )
-                                                  : _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "page-link",
-                                                        attrs: {
-                                                          "aria-label": "Next",
-                                                          disabled: ""
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            attrs: {
-                                                              "aria-hidden":
-                                                                "true"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(index + 1)
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _c(
+                                                    "li",
+                                                    {
+                                                      staticClass: "page-item"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "page-link",
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              return _vm.getPage(
+                                                                i
+                                                              )
                                                             }
-                                                          },
-                                                          [_vm._v("»")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "sr-only"
-                                                          },
-                                                          [_vm._v("Next")]
-                                                        )
-                                                      ]
-                                                    )
-                                              ]
-                                            )
-                                          ],
-                                          2
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(index + 1)
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                            ])
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "li",
+                                            { staticClass: "page-item" },
+                                            [
+                                              _vm.head.comments.next_page_url
+                                                ? _c(
+                                                    "button",
+                                                    {
+                                                      staticClass: "page-link",
+                                                      attrs: {
+                                                        "aria-label": "Next"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.getPage(
+                                                            _vm.head.comments
+                                                              .next_page_url
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          attrs: {
+                                                            "aria-hidden":
+                                                              "true"
+                                                          }
+                                                        },
+                                                        [_vm._v("»")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass: "sr-only"
+                                                        },
+                                                        [_vm._v("Next")]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _c(
+                                                    "button",
+                                                    {
+                                                      staticClass: "page-link",
+                                                      attrs: {
+                                                        "aria-label": "Next",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          attrs: {
+                                                            "aria-hidden":
+                                                              "true"
+                                                          }
+                                                        },
+                                                        [_vm._v("»")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass: "sr-only"
+                                                        },
+                                                        [_vm._v("Next")]
+                                                      )
+                                                    ]
+                                                  )
+                                            ]
+                                          )
+                                        ],
+                                        2
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
                             ])
-                          : _vm._e()
-                      ])
-                    : _c("div", [
-                        _c(
-                          "h3",
-                          { staticClass: "text-secondary text-center my-2" },
-                          [_vm._v("ไม่มีข้อมูล")]
-                        )
-                      ])
-                ])
-              : _vm._e()
-          ])
-        ],
-        1
-      )
+                          ])
+                        : _vm._e()
+                    ])
+                  : _c("div", [
+                      _c(
+                        "h3",
+                        { staticClass: "text-secondary text-center my-2" },
+                        [_vm._v("ไม่มีข้อมูล")]
+                      )
+                    ])
+              ])
+            : _vm._e()
+        ])
+      ])
     : _vm._e()
 }
 var staticRenderFns = []
@@ -76285,7 +76347,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SurveyStatusSelect_vue_vue_type_template_id_5cb41db3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SurveyStatusSelect.vue?vue&type=template&id=5cb41db3&scoped=true& */ "./resources/js/components/SurveyStatusSelect.vue?vue&type=template&id=5cb41db3&scoped=true&");
 /* harmony import */ var _SurveyStatusSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SurveyStatusSelect.vue?vue&type=script&lang=js& */ "./resources/js/components/SurveyStatusSelect.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& */ "./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -76293,7 +76357,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _SurveyStatusSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _SurveyStatusSelect_vue_vue_type_template_id_5cb41db3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _SurveyStatusSelect_vue_vue_type_template_id_5cb41db3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -76322,6 +76386,22 @@ component.options.__file = "resources/js/components/SurveyStatusSelect.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SurveyStatusSelect.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyStatusSelect.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyStatusSelect.vue?vue&type=style&index=0&id=5cb41db3&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SurveyStatusSelect_vue_vue_type_style_index_0_id_5cb41db3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

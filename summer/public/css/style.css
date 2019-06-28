@@ -667,6 +667,10 @@ p.cta-sub-title {
     border: 0px;
 }
 }
+.texthead {
+    font-size: 30px;
+    font-family: "Kanit",Kanit,sans-serif;
+}
 /**************************************
 form element
 **************************************/

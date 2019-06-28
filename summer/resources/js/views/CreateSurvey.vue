@@ -2,12 +2,15 @@
     <div class="col-12">
 
         <div class="row">
-            <div class="col-md-6 mt-3 ">
-                <h5>หัวข้อแบบสำรวจความพึงพอใจ&nbsp;&nbsp;:</h5>
-            </div>
+<!--            <div class="col-md-6 mt-3 ">-->
+<!--                <h5>หัวข้อแบบสำรวจความพึงพอใจ&nbsp;&nbsp;:</h5>-->
+<!--            </div>-->
             <div class="col-md-12 mt-2">
-                <input type="text" class="form-control form-control-lg btn-outline-primary btn-lg"
-                       placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" v-model="form.hSurvey">
+                    <label for="validationName">หัวข้อแบบสำรวจความพึงพอใจ</label>
+                    <input type="text" class="form-control " id="validationName" v-model="form.hSurvey" placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" required>
+                    <div class="invalid-feedback">
+                        กรุณากรอกช่องนี้.
+                    </div>
             </div>
         </div>
 
@@ -20,7 +23,11 @@
             <div class="col-12">
                 <div class="d-flex mt-4 col-12">
                     <!--<div class="col-1">{{index}}</div>-->
-                    <input type="text" class="form-control" v-model="questions[index].text">
+
+                    <input type="text" class="form-control " :id="'validationQ_'+index" v-model="questions[index].text" placeholder="กรุณากรอกคำถาม" required>
+
+
+
                     <button class="btn btn-danger mx-2" @click="removeQuestion(index)" v-if="!(questions.length == 1) ">
                         x
                     </button>
@@ -29,13 +36,16 @@
         </div>
 
         <div class="col-12 mt-4 ">
-            <button class="btn btn-pink float-right" @click="addtext">เพิ่มรายการ</button>
+            <button class="btn btn-outline-pink float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
-        <br/>
+        <br/><br>
+
+        <hr>
+
 
         <div class="col-12 mt-5">
             <div align="right">
-                <button class="btn btn-outline-pink btn-lg" @click="save">Create</button>
+                <button class="btn btn-pink btn-lg" @click="save">Create</button>
             </div>
         </div>
 
@@ -79,18 +89,33 @@
                 let tf = false;
                 let qs= this.questions
                 for(let i = 0 ;i < qs.length;i++) {
+                    this.clearInvalid("validationQ_"+i)
+
                     if(qs[i].text.trim() == "") {
                         tf = true;
+                        this.showInvalid("validationQ_"+i);
                         return true;
                     }
                 }
                 console.log("tf",tf)
                 return tf;
             },
+            showInvalid (id) {
+                let element = document.getElementById(id);
+                element.classList.add("is-invalid");
+            },
+            clearInvalid (id) {
+                let element = document.getElementById(id);
+                element.classList.remove("is-invalid");
+            },
              checkData () {
+                this.clearInvalid("validationName")
+
                     if(this.form.hSurvey.trim() == "")
                     {
+                        this.showInvalid("validationName");
                         console.log("name")
+
                         return false;
                     }else if (this.checkQuestion()) {
                         console.log("question")

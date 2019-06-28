@@ -2,7 +2,7 @@
     <div v-if="head">
         <div v-if="head.survey.status == 1">
             <div class="text-center">
-                <h5>{{head.survey.name}}</h5>
+                <h5 class="texthead">{{head.survey.name}}</h5>
             </div>
             <hr>
 
