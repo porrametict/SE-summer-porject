@@ -3624,8 +3624,22 @@ moment.locale('th');
       this.form.province = this.user.province_id;
       this.form.career = this.user.career;
     },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
     checkData: function checkData() {
+      this.clearInvalid("SexComponent");
+      this.clearInvalid("SexComponent");
+      this.clearInvalid("SexComponent");
+      this.clearInvalid("SexComponent");
+
       if (this.form.sex == null) {
+        this.showInvalid("SexComponent");
         return true;
       } else if (this.form.age == null) {
         return true;
