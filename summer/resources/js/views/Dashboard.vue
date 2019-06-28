@@ -35,7 +35,9 @@
                     </div>
                     <div class="card-footer text-muted">
 
-                        {{i.dateDiff}} days ago
+                        {{i.dateDiff}} days ago | &nbsp; สถานะ :
+                        <span v-if="i.status == 1" class="text-success">เปิดรับการตอบกลับ</span>
+                        <span v-else class="text-danger">ปิดรับการตอบกลับ</span>
                     </div>
                 </div>
             </div>

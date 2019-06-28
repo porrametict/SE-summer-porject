@@ -2931,6 +2931,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -59183,8 +59185,15 @@ var render = function() {
                       _vm._v(
                         "\n\n                    " +
                           _vm._s(i.dateDiff) +
-                          " days ago\n                "
-                      )
+                          " days ago |   สถานะ :\n                    "
+                      ),
+                      i.status == 1
+                        ? _c("span", { staticClass: "text-success" }, [
+                            _vm._v("เปิดรับการตอบกลับ")
+                          ])
+                        : _c("span", { staticClass: "text-danger" }, [
+                            _vm._v("ปิดรับการตอบกลับ")
+                          ])
                     ])
                   ])
                 }),
