@@ -124,10 +124,10 @@
 
 
 <script>
-    import selectSex from '../components/SC'
-    import selectAge from '../components/Age'
-    import selectProvinces from '../components/Provinces'
-    import selectCareers from '../components/careers'
+    import selectSex from '../components/NonDisSex'
+    import selectAge from '../components/NonDisAge'
+    import selectProvinces from '../components/NonDisProvince'
+    import selectCareers from '../components/NonDisCareer'
     import BarCharts from '../components/Barchart'
     import SurveyStatusSelect from '../components/SurveyStatusSelect'
 
