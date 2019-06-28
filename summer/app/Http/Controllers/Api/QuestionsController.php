@@ -13,9 +13,9 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $questions = Questions::all();
+        $questions = Questions::where('s_id', $request->get('s_id'))->paginate(5);
         return Response() -> json($questions);
     }
 

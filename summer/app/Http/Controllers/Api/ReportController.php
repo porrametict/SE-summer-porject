@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Survey;
 use DB;
+use App\Comment;
 
 class ReportController extends Controller
 {
@@ -38,6 +39,12 @@ class ReportController extends Controller
     public function store(Request $request)
     {
 
+    }
+
+
+    public function report_comment ($id) {
+        $comment = Comment::where('s_id', $id)->paginate(10);
+        return Response() -> json($comment);
     }
 
     /**

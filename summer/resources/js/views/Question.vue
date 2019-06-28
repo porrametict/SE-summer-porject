@@ -58,7 +58,7 @@
                 Submit
             </button>
         </div>
-        <div>
+        <div v-else>
             <h1>แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว</h1>
         </div>
 

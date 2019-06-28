@@ -61,10 +61,58 @@
             <div class="card-header">
                 Comments
             </div>
-            <div class="card-body">
-                <ul v-if="head.comments.length > 0">
-                    <li v-for="i in head.comments">{{i.text}}</li>
-                </ul>
+
+            <div class="card-body" v-if="head.comments.data">
+                <div v-if="head.comments.data.length > 0">
+                    <ul >
+                        <li v-for="i in head.comments.data">{{i.text}}</li>
+                    </ul>
+
+
+                    <div class="row-12 mt-3" v-if="(head.comments.data.length > 0 && head.comments.last_page > 1 )">
+                        <div class="card text-center">
+                            <div class="card-footer text-muted row-12 justify-content-center">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <button class="page-link" aria-label="Previous" @click="getPage(head.comments.prev_page_url)" v-if="head.comments.prev_page_url">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </button>
+
+                                            <button class="page-link" aria-label="Previous" disabled v-else>
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </button>
+                                        </li>
+
+                                        <div v-for="(i,index) in allPage">
+
+                                            <li class="page-item active" v-if="head.comments.current_page == index+1">
+                                                <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                            </li>
+
+                                            <li class="page-item" v-else>
+                                                <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                            </li>
+                                        </div>
+                                        <li class="page-item">
+                                            <button class="page-link" aria-label="Next" @click="getPage(head.comments.next_page_url)" v-if="head.comments.next_page_url">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </button>
+                                            <button class="page-link" aria-label="Next" disabled v-else>
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div v-else>
                     <h3 class="text-secondary text-center my-2">ไม่มีข้อมูล</h3>
                 </div>
@@ -98,6 +146,7 @@
         },
         name: "CreateSurvey",
         data: () => ({
+            allPage: null,
             chartRender:true,
             fillter: {
                 age:'',
@@ -160,7 +209,40 @@
 
                 this.Checkq_id()
                 this.chartRender = true ;
+                this.get_comment()
 
+
+            },
+            async get_comment () {
+                this.head.comments = await axios.get('api/report_comment/'+this.$route.params.s_id,{
+                    params: this.fillter
+                })
+                    .then(function (response) {
+                        return response.data
+                    })
+                    .catch(function (error) {
+                        console.log("error", error);
+                        return null
+                    });
+                this.generatePageLink(this.head.comments.last_page)
+
+            },
+            generatePageLink(last_page) {
+                let arr = []
+                for (let i = 1; i <= last_page; i++) {
+                    let s = "http://127.0.0.1:8000/api/report_comment/" + this.$route.params.s_id + "?page=" + i;
+                    arr.push(s)
+                }
+                this.allPage = arr;
+            },
+            async getPage(page) {
+                this.head.comments = await axios.get(page)
+                    .then(function (response) {
+                        return response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             Checkq_id() {
                 console.log(this.head.repeats,"repeat")

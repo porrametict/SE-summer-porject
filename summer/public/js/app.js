@@ -1982,6 +1982,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "gdgdgd",
   props: {
@@ -1992,6 +2038,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      allPage: null,
       head: null,
       form: {
         head: null,
@@ -2007,11 +2054,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     create_repeated: function create_repeated(num_q) {
       for (var i = 0; i < num_q.length; i++) {
-        this.form.repeats.push({
-          q_id: num_q[i].id,
-          rate: 0
-        });
+        if (this.form.repeats.length > 0) {
+          var itHave = false;
+
+          for (var j = 0; j < this.form.repeats.length; j++) {
+            if (num_q[i].id == this.form.repeats[j].q_id) {
+              itHave = true;
+            } else {}
+          }
+
+          if (!itHave) {
+            this.form.repeats.push({
+              q_id: num_q[i].id,
+              rate: 0
+            });
+          }
+        } else {
+          this.form.repeats.push({
+            q_id: num_q[i].id,
+            rate: 0
+          });
+        }
       }
+
+      console.log("repeat", this.form.repeats);
     },
     hh_name: function () {
       var _hh_name = _asyncToGenerator(
@@ -2024,9 +2090,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 vm = this;
                 _context.next = 3;
-                return axios.get('api/survey/' + this.sid).then(function (response) {
-                  console.log("success", response.data);
-                  vm.create_repeated(response.data.questions);
+                return axios.get('api/questions', {
+                  params: {
+                    "s_id": this.sid
+                  }
+                }).then(function (response) {
+                  console.log("success erer", response.data);
+                  vm.create_repeated(response.data.data);
                   return response.data;
                 })["catch"](function (error) {
                   console.log("error", error);
@@ -2035,8 +2105,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 this.head = _context.sent;
+                this.generatePageLink(this.head.last_page);
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2049,6 +2120,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return hh_name;
+    }(),
+    generatePageLink: function generatePageLink(last_page) {
+      var arr = [];
+
+      for (var i = 1; i <= last_page; i++) {
+        var s = i;
+        arr.push(s);
+      }
+
+      this.allPage = arr;
+    },
+    getPage: function () {
+      var _getPage = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(page) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get('api/questions', {
+                  params: {
+                    "s_id": this.sid,
+                    page: page
+                  }
+                }).then(function (response) {
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.head = _context2.sent;
+                this.create_repeated(this.head.data);
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function getPage(_x) {
+        return _getPage.apply(this, arguments);
+      }
+
+      return getPage;
     }(),
     export_select: function export_select() {
       this.$emit('change', this.form.repeats);
@@ -3354,6 +3473,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3397,6 +3564,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "CreateSurvey",
   data: function data() {
     return {
+      allPage: null,
       chartRender: true,
       fillter: {
         age: '',
@@ -3470,8 +3638,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log(this.QwithRate, "QWR 2 time");
                 this.Checkq_id();
                 this.chartRender = true;
+                this.get_comment();
 
-              case 8:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -3484,6 +3653,84 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return get_data;
+    }(),
+    get_comment: function () {
+      var _get_comment = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get('api/report_comment/' + this.$route.params.s_id, {
+                  params: this.fillter
+                }).then(function (response) {
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log("error", error);
+                  return null;
+                });
+
+              case 2:
+                this.head.comments = _context3.sent;
+                this.generatePageLink(this.head.comments.last_page);
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function get_comment() {
+        return _get_comment.apply(this, arguments);
+      }
+
+      return get_comment;
+    }(),
+    generatePageLink: function generatePageLink(last_page) {
+      var arr = [];
+
+      for (var i = 1; i <= last_page; i++) {
+        var s = "http://127.0.0.1:8000/api/report_comment/" + this.$route.params.s_id + "?page=" + i;
+        arr.push(s);
+      }
+
+      this.allPage = arr;
+    },
+    getPage: function () {
+      var _getPage = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(page) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios.get(page).then(function (response) {
+                  return response.data;
+                })["catch"](function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.head.comments = _context4.sent;
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function getPage(_x) {
+        return _getPage.apply(this, arguments);
+      }
+
+      return getPage;
     }(),
     Checkq_id: function Checkq_id() {
       console.log(this.head.repeats, "repeat");
@@ -57904,144 +58151,421 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.head
     ? _c("div", [
-        _c("table", { staticClass: "table table-hover table-bordered" }, [
+        _c("table", { staticClass: "table table-striped  table-bordered" }, [
           _vm._m(0),
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.head.questions, function(i, index) {
-              return _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(_vm.head.questions[index].text))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-center" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.repeats[index].rate,
-                        expression: "form.repeats[index].rate"
+            [
+              _vm._l(_vm.head.data, function(i, index) {
+                return _c("tr", [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v("{{head.data[index].text")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value:
+                            _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          expression:
+                            "form.repeats[index + (head.from - 1)].rate"
+                        }
+                      ],
+                      attrs: { type: "radio", value: "5" },
+                      domProps: {
+                        checked: _vm._q(
+                          _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          "5"
+                        )
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "5"
+                            )
+                          },
+                          _vm.export_select
+                        ]
                       }
-                    ],
-                    attrs: { type: "radio", value: "5" },
-                    domProps: {
-                      checked: _vm._q(_vm.form.repeats[index].rate, "5")
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          return _vm.$set(_vm.form.repeats[index], "rate", "5")
-                        },
-                        _vm.export_select
-                      ]
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-center" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.repeats[index].rate,
-                        expression: "form.repeats[index].rate"
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value:
+                            _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          expression:
+                            "form.repeats[index + (head.from - 1) ].rate"
+                        }
+                      ],
+                      attrs: { type: "radio", value: "4" },
+                      domProps: {
+                        checked: _vm._q(
+                          _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          "4"
+                        )
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "4"
+                            )
+                          },
+                          _vm.export_select
+                        ]
                       }
-                    ],
-                    attrs: { type: "radio", value: "4" },
-                    domProps: {
-                      checked: _vm._q(_vm.form.repeats[index].rate, "4")
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          return _vm.$set(_vm.form.repeats[index], "rate", "4")
-                        },
-                        _vm.export_select
-                      ]
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-center" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.repeats[index].rate,
-                        expression: "form.repeats[index].rate"
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value:
+                            _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          expression:
+                            "form.repeats[index + (head.from - 1) ].rate"
+                        }
+                      ],
+                      attrs: { type: "radio", value: "3" },
+                      domProps: {
+                        checked: _vm._q(
+                          _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          "3"
+                        )
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "3"
+                            )
+                          },
+                          _vm.export_select
+                        ]
                       }
-                    ],
-                    attrs: { type: "radio", value: "3" },
-                    domProps: {
-                      checked: _vm._q(_vm.form.repeats[index].rate, "3")
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          return _vm.$set(_vm.form.repeats[index], "rate", "3")
-                        },
-                        _vm.export_select
-                      ]
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-center" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.repeats[index].rate,
-                        expression: "form.repeats[index].rate"
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value:
+                            _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          expression:
+                            "form.repeats[index + (head.from - 1) ].rate"
+                        }
+                      ],
+                      attrs: { type: "radio", value: "2" },
+                      domProps: {
+                        checked: _vm._q(
+                          _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          "2"
+                        )
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "2"
+                            )
+                          },
+                          _vm.export_select
+                        ]
                       }
-                    ],
-                    attrs: { type: "radio", value: "2" },
-                    domProps: {
-                      checked: _vm._q(_vm.form.repeats[index].rate, "2")
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          return _vm.$set(_vm.form.repeats[index], "rate", "2")
-                        },
-                        _vm.export_select
-                      ]
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-center" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.repeats[index].rate,
-                        expression: "form.repeats[index].rate"
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value:
+                            _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          expression:
+                            "form.repeats[index + (head.from - 1) ].rate"
+                        }
+                      ],
+                      attrs: { type: "radio", value: "1" },
+                      domProps: {
+                        checked: _vm._q(
+                          _vm.form.repeats[index + (_vm.head.from - 1)].rate,
+                          "1"
+                        )
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "1"
+                            )
+                          },
+                          _vm.export_select
+                        ]
                       }
-                    ],
-                    attrs: { type: "radio", value: "1" },
-                    domProps: {
-                      checked: _vm._q(_vm.form.repeats[index].rate, "1")
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          return _vm.$set(_vm.form.repeats[index], "rate", "1")
-                        },
-                        _vm.export_select
-                      ]
-                    }
-                  })
+                    })
+                  ])
                 ])
-              ])
-            }),
-            0
+              }),
+              _vm._v(" "),
+              _vm.head.data
+                ? _c("tr", [
+                    _vm.head.data.length > 0 && _vm.head.last_page > 1
+                      ? _c("div", { staticClass: "row-12 mt-3" }, [
+                          _c("div", { staticClass: "card text-center" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "card-footer text-muted row-12 justify-content-center"
+                              },
+                              [
+                                _c(
+                                  "nav",
+                                  {
+                                    attrs: {
+                                      "aria-label": "Page navigation example"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "ul",
+                                      {
+                                        staticClass:
+                                          "pagination justify-content-center"
+                                      },
+                                      [
+                                        _c("li", { staticClass: "page-item" }, [
+                                          _vm.head.prev_page_url
+                                            ? _c(
+                                                "button",
+                                                {
+                                                  staticClass: "page-link",
+                                                  attrs: {
+                                                    "aria-label": "Previous"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.getPage(
+                                                        _vm.head.prev_page_url
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        "aria-hidden": "true"
+                                                      }
+                                                    },
+                                                    [_vm._v("«")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "sr-only" },
+                                                    [_vm._v("Previous")]
+                                                  )
+                                                ]
+                                              )
+                                            : _c(
+                                                "button",
+                                                {
+                                                  staticClass: "page-link",
+                                                  attrs: {
+                                                    "aria-label": "Previous",
+                                                    disabled: ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        "aria-hidden": "true"
+                                                      }
+                                                    },
+                                                    [_vm._v("«")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "sr-only" },
+                                                    [_vm._v("Previous")]
+                                                  )
+                                                ]
+                                              )
+                                        ]),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.allPage, function(i, index) {
+                                          return _c("div", [
+                                            _vm.head.current_page == index + 1
+                                              ? _c(
+                                                  "li",
+                                                  {
+                                                    staticClass:
+                                                      "page-item active"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.getPage(
+                                                              i
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(index + 1)
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              : _c(
+                                                  "li",
+                                                  { staticClass: "page-item" },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.getPage(
+                                                              i
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(index + 1)
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                          ])
+                                        }),
+                                        _vm._v(" "),
+                                        _c("li", { staticClass: "page-item" }, [
+                                          _vm.head.next_page_url
+                                            ? _c(
+                                                "button",
+                                                {
+                                                  staticClass: "page-link",
+                                                  attrs: {
+                                                    "aria-label": "Next"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.getPage(
+                                                        _vm.head.next_page_url
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        "aria-hidden": "true"
+                                                      }
+                                                    },
+                                                    [_vm._v("»")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "sr-only" },
+                                                    [_vm._v("Next")]
+                                                  )
+                                                ]
+                                              )
+                                            : _c(
+                                                "button",
+                                                {
+                                                  staticClass: "page-link",
+                                                  attrs: {
+                                                    "aria-label": "Next",
+                                                    disabled: ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        "aria-hidden": "true"
+                                                      }
+                                                    },
+                                                    [_vm._v("»")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "sr-only" },
+                                                    [_vm._v("Next")]
+                                                  )
+                                                ]
+                                              )
+                                        ])
+                                      ],
+                                      2
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e()
+            ],
+            2
           )
         ])
       ])
@@ -59013,9 +59537,7 @@ var render = function() {
                 [_vm._v("\n            Submit\n        ")]
               )
             ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(1)
+          : _c("div", [_c("h1", [_vm._v("แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว")])])
       ])
     : _vm._e()
 }
@@ -59027,12 +59549,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "mt-5" }, [
       _c("h5", [_vm._v("ข้อเสนอแนะอื่นๆ")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว")])])
   }
 ]
 render._withStripped = true
@@ -59215,23 +59731,298 @@ var render = function() {
               _vm._v("\n                Comments\n            ")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm.head.comments.length > 0
-                ? _c(
-                    "ul",
-                    _vm._l(_vm.head.comments, function(i) {
-                      return _c("li", [_vm._v(_vm._s(i.text))])
-                    }),
-                    0
-                  )
-                : _c("div", [
-                    _c(
-                      "h3",
-                      { staticClass: "text-secondary text-center my-2" },
-                      [_vm._v("ไม่มีข้อมูล")]
-                    )
-                  ])
-            ])
+            _vm.head.comments.data
+              ? _c("div", { staticClass: "card-body" }, [
+                  _vm.head.comments.data.length > 0
+                    ? _c("div", [
+                        _c(
+                          "ul",
+                          _vm._l(_vm.head.comments.data, function(i) {
+                            return _c("li", [_vm._v(_vm._s(i.text))])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _vm.head.comments.data.length > 0 &&
+                        _vm.head.comments.last_page > 1
+                          ? _c("div", { staticClass: "row-12 mt-3" }, [
+                              _c("div", { staticClass: "card text-center" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "card-footer text-muted row-12 justify-content-center"
+                                  },
+                                  [
+                                    _c(
+                                      "nav",
+                                      {
+                                        attrs: {
+                                          "aria-label":
+                                            "Page navigation example"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "ul",
+                                          {
+                                            staticClass:
+                                              "pagination justify-content-center"
+                                          },
+                                          [
+                                            _c(
+                                              "li",
+                                              { staticClass: "page-item" },
+                                              [
+                                                _vm.head.comments.prev_page_url
+                                                  ? _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        attrs: {
+                                                          "aria-label":
+                                                            "Previous"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.getPage(
+                                                              _vm.head.comments
+                                                                .prev_page_url
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            attrs: {
+                                                              "aria-hidden":
+                                                                "true"
+                                                            }
+                                                          },
+                                                          [_vm._v("«")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "sr-only"
+                                                          },
+                                                          [_vm._v("Previous")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        attrs: {
+                                                          "aria-label":
+                                                            "Previous",
+                                                          disabled: ""
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            attrs: {
+                                                              "aria-hidden":
+                                                                "true"
+                                                            }
+                                                          },
+                                                          [_vm._v("«")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "sr-only"
+                                                          },
+                                                          [_vm._v("Previous")]
+                                                        )
+                                                      ]
+                                                    )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(_vm.allPage, function(
+                                              i,
+                                              index
+                                            ) {
+                                              return _c("div", [
+                                                _vm.head.comments
+                                                  .current_page ==
+                                                index + 1
+                                                  ? _c(
+                                                      "li",
+                                                      {
+                                                        staticClass:
+                                                          "page-item active"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "page-link",
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.getPage(
+                                                                  i
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(index + 1)
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _c(
+                                                      "li",
+                                                      {
+                                                        staticClass: "page-item"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "page-link",
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.getPage(
+                                                                  i
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(index + 1)
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                              ])
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "li",
+                                              { staticClass: "page-item" },
+                                              [
+                                                _vm.head.comments.next_page_url
+                                                  ? _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        attrs: {
+                                                          "aria-label": "Next"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.getPage(
+                                                              _vm.head.comments
+                                                                .next_page_url
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            attrs: {
+                                                              "aria-hidden":
+                                                                "true"
+                                                            }
+                                                          },
+                                                          [_vm._v("»")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "sr-only"
+                                                          },
+                                                          [_vm._v("Next")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "page-link",
+                                                        attrs: {
+                                                          "aria-label": "Next",
+                                                          disabled: ""
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            attrs: {
+                                                              "aria-hidden":
+                                                                "true"
+                                                            }
+                                                          },
+                                                          [_vm._v("»")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "sr-only"
+                                                          },
+                                                          [_vm._v("Next")]
+                                                        )
+                                                      ]
+                                                    )
+                                              ]
+                                            )
+                                          ],
+                                          2
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          : _vm._e()
+                      ])
+                    : _c("div", [
+                        _c(
+                          "h3",
+                          { staticClass: "text-secondary text-center my-2" },
+                          [_vm._v("ไม่มีข้อมูล")]
+                        )
+                      ])
+                ])
+              : _vm._e()
           ])
         ],
         1
