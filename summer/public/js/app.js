@@ -59048,7 +59048,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-primary float-right",
+            staticClass: "btn btn-pink float-right",
             on: { click: _vm.addtext }
           },
           [_vm._v("เพิ่มรายการ")]
@@ -59062,7 +59062,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-outline-info btn-lg",
+              staticClass: "btn btn-outline-pink btn-lg",
               on: { click: _vm.save }
             },
             [_vm._v("Create")]
@@ -59120,7 +59120,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-primary btn-lg",
+            staticClass: "btn btn-pink btn-lg",
             attrs: { type: "button" },
             on: { click: _vm.gotoCreateSurvey }
           },
@@ -59157,7 +59157,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-primary",
+                          staticClass: "btn btn-pink",
                           on: {
                             click: function($event) {
                               return _vm.gotoReport(i.id)
@@ -59170,7 +59170,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-outline-info",
+                          staticClass: "btn btn-outline-pink",
                           on: {
                             click: function($event) {
                               return _vm.copylink(i.id)
@@ -59232,7 +59232,7 @@ var render = function() {
                             ? _c(
                                 "button",
                                 {
-                                  staticClass: "page-link",
+                                  staticClass: "page-link btn-pink",
                                   attrs: { "aria-label": "Previous" },
                                   on: {
                                     click: function($event) {
@@ -59255,7 +59255,7 @@ var render = function() {
                             : _c(
                                 "button",
                                 {
-                                  staticClass: "page-link",
+                                  staticClass: "page-link btn-pink",
                                   attrs: {
                                     "aria-label": "Previous",
                                     disabled: ""
@@ -59282,7 +59282,7 @@ var render = function() {
                                   _c(
                                     "button",
                                     {
-                                      staticClass: "page-link",
+                                      staticClass: "page-link btn-outline-pink",
                                       on: {
                                         click: function($event) {
                                           return _vm.getPage(i)
@@ -59296,7 +59296,7 @@ var render = function() {
                                   _c(
                                     "button",
                                     {
-                                      staticClass: "page-link",
+                                      staticClass: "page-link btn-outline-pink",
                                       on: {
                                         click: function($event) {
                                           return _vm.getPage(i)
@@ -59314,7 +59314,7 @@ var render = function() {
                             ? _c(
                                 "button",
                                 {
-                                  staticClass: "page-link",
+                                  staticClass: "page-link btn-pink",
                                   attrs: { "aria-label": "Next" },
                                   on: {
                                     click: function($event) {
@@ -59337,7 +59337,7 @@ var render = function() {
                             : _c(
                                 "button",
                                 {
-                                  staticClass: "page-link",
+                                  staticClass: "page-link btn-pink",
                                   attrs: { "aria-label": "Next", disabled: "" }
                                 },
                                 [
@@ -59540,7 +59540,7 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary mt-5 col-md-2 offset-md-10",
+                  staticClass: "btn btn-pink mt-5 col-md-2 offset-md-10",
                   on: { click: _vm.submit }
                 },
                 [_vm._v("\n            Submit\n        ")]

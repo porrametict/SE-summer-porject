@@ -29,13 +29,13 @@
         </div>
 
         <div class="col-12 mt-4 ">
-            <button class="btn btn-primary float-right" @click="addtext">เพิ่มรายการ</button>
+            <button class="btn btn-pink float-right" @click="addtext">เพิ่มรายการ</button>
         </div>
         <br/>
 
         <div class="col-12 mt-5">
             <div align="right">
-                <button class="btn btn-outline-info btn-lg" @click="save">Create</button>
+                <button class="btn btn-outline-pink btn-lg" @click="save">Create</button>
             </div>
         </div>
 

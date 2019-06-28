@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card text-dark bg-white">
-                <div class="card-header bg-dark text-info">{{ __('BigSurvey') }}</div>
+                <div class="card-header font-weight-bolder bg-pink text-white">{{ __('BigSurvey') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

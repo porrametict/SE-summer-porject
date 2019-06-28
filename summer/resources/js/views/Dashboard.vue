@@ -6,7 +6,7 @@
 
             <h5>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h5>
             <div class="flex-center position-ref mt-5">
-                <button type="button" class="btn btn-primary btn-lg" @click="gotoCreateSurvey">
+                <button type="button" class="btn btn-pink btn-lg" @click="gotoCreateSurvey">
                     <i class="mdi mdi-plus mdi-26px"></i> สร้างแบบสำรวจ
                 </button>
             </div>
@@ -30,8 +30,8 @@
 
 
 
-                        <button class="btn btn-primary" @click="gotoReport(i.id)">ดูรายงาน</button>
-                        <button class="btn btn-outline-info" @click="copylink(i.id)">copy link</button>
+                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>
+                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>
                     </div>
                     <div class="card-footer text-muted">
 
@@ -57,12 +57,12 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <button class="page-link" aria-label="Previous" @click="getPage(head.prev_page_url)" v-if="head.prev_page_url">
+                                <button class="page-link btn-pink" aria-label="Previous" @click="getPage(head.prev_page_url)" v-if="head.prev_page_url">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
 
-                                <button class="page-link" aria-label="Previous" disabled v-else>
+                                <button class="page-link btn-pink" aria-label="Previous" disabled v-else>
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
@@ -71,19 +71,19 @@
                             <div v-for="(i,index) in allPage">
 
                                 <li class="page-item active" v-if="head.current_page == index+1">
-                                    <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                    <button class="page-link btn-outline-pink" @click="getPage(i)">{{index+1}}</button>
                                 </li>
 
                                 <li class="page-item" v-else>
-                                    <button class="page-link" @click="getPage(i)">{{index+1}}</button>
+                                    <button class="page-link btn-outline-pink" @click="getPage(i)">{{index+1}}</button>
                                 </li>
                             </div>
                             <li class="page-item">
-                                <button class="page-link" aria-label="Next" @click="getPage(head.next_page_url)" v-if="head.next_page_url">
+                                <button class="page-link btn-pink" aria-label="Next" @click="getPage(head.next_page_url)" v-if="head.next_page_url">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>
-                                <button class="page-link" aria-label="Next" disabled v-else>
+                                <button class="page-link btn-pink" aria-label="Next" disabled v-else>
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>

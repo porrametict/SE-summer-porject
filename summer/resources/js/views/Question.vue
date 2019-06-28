@@ -54,7 +54,7 @@
             </div>
 
 
-            <button class="btn btn-primary mt-5 col-md-2 offset-md-10" @click="submit">
+            <button class="btn btn-pink mt-5 col-md-2 offset-md-10" @click="submit">
                 Submit
             </button>
         </div>
