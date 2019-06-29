@@ -20,18 +20,23 @@
 
         <div v-if="head">
             <div v-if="head.data.length > 0 ">
-                <div class="card text-center mt-0" v-for="i in head.data">
+                <div class="card mt-1" v-for="i in head.data">
                     <div class="card-body">
-                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>
-
-
-
-                        <h5 class="card-title"> {{i.name}}</h5>
-
-
-
-                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>
-                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>
+                        <div class="row">
+                            <div class="col-2 text-center"  @click="gotoReport(i.id)">
+                            <i class="mdi mdi-file-document mdi-24px"></i>
+                            </div>
+                            <div class="col-8"  @click="gotoReport(i.id)">
+                            <label class="card-title-active">{{i.name}}</label>
+                            </div>
+                            <div class="col-2">
+                            <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>
+                            </div>
+                        </div>
+<!--                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>-->
+<!--                        <h5 class="card-title"> {{i.name}}</h5>-->
+<!--                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>-->
+<!--                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
                     </div>
                     <div class="card-footer text-muted">
 
