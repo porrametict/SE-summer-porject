@@ -6,25 +6,25 @@
 <!--                <h5>หัวข้อแบบสำรวจความพึงพอใจ&nbsp;&nbsp;:</h5>-->
 <!--            </div>-->
             <div class="col-md-12 mt-2">
-                    <label for="validationName">หัวข้อแบบสำรวจความพึงพอใจ</label>
+                    <h6 for="validationName"><b>หัวข้อแบบสำรวจความพึงพอใจ</b></h6>
                     <input type="text" class="form-control " id="validationName" v-model="form.hSurvey" placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" required>
                     <div class="invalid-feedback">
-                        กรุณากรอกช่องนี้.
+                        กรุณากรอกหัวข้อแบบสำรวจ.
                     </div>
             </div>
         </div>
 
         <div class="col-12 mt-5">
-            <h5>คำถาม&nbsp;&nbsp;:</h5>
+            <h6><b>คำถามแบบสำรวจ:</b></h6>
         </div>
         <hr>
 
         <div v-for="(q,index) in questions">
-            <div class="col-12">
-                <div class="d-flex mt-4 col-12">
-                    <!--<div class="col-1">{{index}}</div>-->
+<!--            <div class="col-12">-->
+                <div class="d-flex mt-2 col-12">
+<!--                    <div class="col-1">{{index}}</div>-->
 
-                    <input type="text" class="form-control " :id="'validationQ_'+index" v-model="questions[index].text" placeholder="กรุณากรอกคำถาม" required>
+                    <input type="text" class="form-control" :id="'validationQ_'+index" v-model="questions[index].text" placeholder="กรุณากรอกคำถาม" required>
 
 
 
@@ -32,7 +32,7 @@
                         x
                     </button>
                 </div>
-            </div>
+<!--            </div>-->
         </div>
 
         <div class="col-12 mt-4 ">

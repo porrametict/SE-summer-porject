@@ -3278,6 +3278,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -59644,9 +59649,7 @@ var render = function() {
     [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12 mt-2" }, [
-          _c("label", { attrs: { for: "validationName" } }, [
-            _vm._v("หัวข้อแบบสำรวจความพึงพอใจ")
-          ]),
+          _vm._m(0),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -59677,66 +59680,60 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "invalid-feedback" }, [
             _vm._v(
-              "\n                        กรุณากรอกช่องนี้.\n                    "
+              "\n                        กรุณากรอกหัวข้อแบบสำรวจ.\n                    "
             )
           ])
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _vm._m(1),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
       _vm._l(_vm.questions, function(q, index) {
         return _c("div", [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "d-flex mt-4 col-12" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.questions[index].text,
-                    expression: "questions[index].text"
-                  }
-                ],
-                staticClass: "form-control ",
-                attrs: {
-                  type: "text",
-                  id: "validationQ_" + index,
-                  placeholder: "กรุณากรอกคำถาม",
-                  required: ""
-                },
-                domProps: { value: _vm.questions[index].text },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.questions[index], "text", $event.target.value)
-                  }
+          _c("div", { staticClass: "d-flex mt-2 col-12" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.questions[index].text,
+                  expression: "questions[index].text"
                 }
-              }),
-              _vm._v(" "),
-              !(_vm.questions.length == 1)
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger mx-2",
-                      on: {
-                        click: function($event) {
-                          return _vm.removeQuestion(index)
-                        }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "validationQ_" + index,
+                placeholder: "กรุณากรอกคำถาม",
+                required: ""
+              },
+              domProps: { value: _vm.questions[index].text },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.questions[index], "text", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !(_vm.questions.length == 1)
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger mx-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.removeQuestion(index)
                       }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        x\n                    "
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
+                    }
+                  },
+                  [_vm._v("\n                        x\n                    ")]
+                )
+              : _vm._e()
           ])
         ])
       }),
@@ -59775,8 +59772,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("h6", { attrs: { for: "validationName" } }, [
+      _c("b", [_vm._v("หัวข้อแบบสำรวจความพึงพอใจ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-5" }, [
-      _c("h5", [_vm._v("คำถาม  :")])
+      _c("h6", [_c("b", [_vm._v("คำถามแบบสำรวจ:")])])
     ])
   }
 ]
@@ -59815,7 +59820,7 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "mdi mdi-plus mdi-26px" }),
-            _vm._v(" สร้างแบบสำรวจ\n            ")
+            _vm._v(" สร้างแบบสำรวจ\n                ")
           ]
         )
       ]),
@@ -59833,48 +59838,65 @@ var render = function() {
             ? _c(
                 "div",
                 _vm._l(_vm.head.data, function(i) {
-                  return _c("div", { staticClass: "card text-center mt-0" }, [
+                  return _c("div", { staticClass: "card mt-1" }, [
                     _c("div", { staticClass: "card-body" }, [
-                      _c("i", {
-                        staticClass: "mdi mdi-file-powerpoint mdi-36px"
-                      }),
-                      _vm._v(" "),
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(" " + _vm._s(i.name))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-pink",
-                          on: {
-                            click: function($event) {
-                              return _vm.gotoReport(i.id)
+                      _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-2 text-center",
+                            on: {
+                              click: function($event) {
+                                return _vm.gotoReport(i.id)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("ดูรายงาน")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-pink",
-                          on: {
-                            click: function($event) {
-                              return _vm.copylink(i.id)
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-file-document mdi-24px"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-8",
+                            on: {
+                              click: function($event) {
+                                return _vm.gotoReport(i.id)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("copy link")]
-                      )
+                          },
+                          [
+                            _c("label", { staticClass: "card-title-active" }, [
+                              _vm._v(_vm._s(i.name))
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-outline-pink",
+                              on: {
+                                click: function($event) {
+                                  return _vm.copylink(i.id)
+                                }
+                              }
+                            },
+                            [_vm._v("copy link")]
+                          )
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-footer text-muted" }, [
                       _vm._v(
-                        "\n\n                    " +
+                        "\n\n                        " +
                           _vm._s(i.dateDiff) +
-                          " days ago |   สถานะ :\n                    "
+                          " days ago |   สถานะ :\n                        "
                       ),
                       i.status == 1
                         ? _c("span", { staticClass: "text-success" }, [
