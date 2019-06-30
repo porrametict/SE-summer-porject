@@ -49,6 +49,17 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
+
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'career' => ['required'],
+            'province'=> ['required'],
+            'sex' => ['required'],
+            'b_date'=>['required','date']
+        ]);
+
         $user=auth()->user();
 
         //dd($request->all());
@@ -58,7 +69,7 @@ class HomeController extends Controller
 
         if($new_pass != ""){
             $request->validate([
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'password' => ['required', 'string', 'min:8', 'confirmed','max:255'],
                 'old_password' => ['required', 'string', 'min:8']
             ]);
 

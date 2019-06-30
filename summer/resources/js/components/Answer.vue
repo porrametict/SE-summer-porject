@@ -1,30 +1,35 @@
 <template>
-    <div v-if="head">
-    <table class="table table-striped  table-bordered">
-        <thead>
-        <tr>
-            <th scope="col" class="text-center">คำถาม</th>
-            <th scope="col" class="text-center">ดีมาก</th>
-            <th scope="col" class="text-center">ดี</th>
-            <th scope="col" class="text-center">ปานกลาง</th>
-            <th scope="col" class="text-center">พอใช้</th>
-            <th scope="col" class="text-center">ปรับปรุง</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="(i,index) in head.data">
+    <div v-if="head ">
+        <div  class="overflow-auto">
+            <table class="table table-striped  table-bordered ">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center">คำถาม</th>
+                    <th scope="col" class="text-center">ดีมาก</th>
+                    <th scope="col" class="text-center">ดี</th>
+                    <th scope="col" class="text-center">ปานกลาง</th>
+                    <th scope="col" class="text-center">พอใช้</th>
+                    <th scope="col" class="text-center">ปรับปรุง</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(i,index) in head.data">
+                    <th scope="row">{{head.data[index].text}}</th>
+                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 5"><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" @change="export_select"></td>
+                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 4"><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
+                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 3"><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
+                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 2"><input type="radio" value="2" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
+                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 1"><input type="radio" value="1" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
+                </tr>
+                </tbody>
 
-            <th scope="row">{{head.data[index].text}}</th>
-            <td class="text-center"><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" @change="export_select"></td>
-            <td class="text-center"><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-            <td class="text-center"><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-            <td class="text-center"><input type="radio" value="2" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-            <td class="text-center"><input type="radio" value="1" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-        </tr>
-        <tr v-if="head.data">
-            <div class="row-12 mt-3" v-if="(head.data.length > 0 && head.last_page > 1 )">
-                <div class="card text-center">
-                    <div class="card-footer text-muted row-12 justify-content-center">
+            </table>
+        </div>
+
+        <div v-if="head.data">
+            <div class="row-12" v-if="(head.data.length > 0 && head.last_page > 1 )">
+                <div class=" text-center">
+                    <div class=" text-muted row-12 justify-content-center">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item">
@@ -64,9 +69,7 @@
                     </div>
                 </div>
             </div>
-        </tr>
-        </tbody>
-    </table>
+        </div>
 
     </div>
 </template>
