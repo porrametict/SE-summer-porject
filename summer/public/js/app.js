@@ -2031,6 +2031,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "gdgdgd",
   props: {
@@ -2138,27 +2151,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _getPage = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(page) {
+        var params;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                params = {
+                  "s_id": this.sid,
+                  page: page,
+                  page_all: false
+                };
+
+                if (page == 'all') {
+                  params.page = 1;
+                  params.page_all = true;
+                } else if (page == 'page') {
+                  params.page = 1;
+                  params.page_all = false;
+                }
+
+                _context2.next = 4;
                 return axios.get('api/questions', {
-                  params: {
-                    "s_id": this.sid,
-                    page: page
-                  }
+                  params: params
                 }).then(function (response) {
                   return response.data;
                 })["catch"](function (error) {
                   console.log(error);
                 });
 
-              case 2:
+              case 4:
                 this.head = _context2.sent;
                 this.create_repeated(this.head.data);
 
-              case 4:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -59000,6 +59025,25 @@ var render = function() {
                                             )
                                           ]
                                         )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "page-item mx-2" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-pink",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.getPage("all")
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                        ดูคำถามทั้งหมด\n                                "
+                                        )
+                                      ]
+                                    )
                                   ])
                                 ],
                                 2
@@ -59009,6 +59053,23 @@ var render = function() {
                         ]
                       )
                     ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.head.per_page == 10000
+                ? _c("div", { staticClass: "text-center" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-pink",
+                        on: {
+                          click: function($event) {
+                            return _vm.getPage("page")
+                          }
+                        }
+                      },
+                      [_vm._v("เเสดงเหมือนเดิม")]
+                    )
                   ])
                 : _vm._e()
             ])

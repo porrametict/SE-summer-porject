@@ -27,6 +27,7 @@
         </div>
 
         <div v-if="head.data">
+
             <div class="row-12" v-if="(head.data.length > 0 && head.last_page > 1 )">
                 <div class=" text-center">
                     <div class=" text-muted row-12 justify-content-center">
@@ -64,11 +65,23 @@
                                         <span class="sr-only">Next</span>
                                     </button>
                                 </li>
+
+                                <li class="page-item mx-2">
+                                    <button class="btn btn-pink"  @click="getPage('all')">
+                                            ดูคำถามทั้งหมด
+                                    </button>
+                                </li>
                             </ul>
                         </nav>
                     </div>
+
+
                 </div>
             </div>
+            <div v-if="head.per_page == 10000" class="text-center">
+                <button class="btn btn-pink" @click="getPage('page')">เเสดงเหมือนเดิม</button>
+            </div>
+
         </div>
 
     </div>
@@ -147,7 +160,16 @@
                 this.allPage = arr;
             },
             async getPage(page) {
-                this.head = await axios.get('api/questions',{params : {"s_id":this.sid,page:page}})
+                let params = {"s_id":this.sid,page:page,page_all:false}
+                if(page=='all')
+                {
+                    params.page = 1
+                    params.page_all = true
+                }else if (page == 'page') {
+                    params.page = 1
+                    params.page_all = false
+                }
+                this.head = await axios.get('api/questions',{params :params })
                     .then(function (response) {
                         return response.data;
                     })

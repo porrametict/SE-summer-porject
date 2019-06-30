@@ -15,7 +15,12 @@ class QuestionsController extends Controller
      */
     public function index(Request $request)
     {
-        $questions = Questions::where('s_id', $request->get('s_id'))->paginate(5);
+         $per_page = 5 ;
+        if($request->get('page_all')== 'true')
+        {
+            $per_page = 10000;
+        }
+        $questions = Questions::where('s_id', $request->get('s_id'))->paginate($per_page);
         return Response() -> json($questions);
     }
 
