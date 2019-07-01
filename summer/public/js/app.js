@@ -3313,6 +3313,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment.locale('th');
@@ -8662,7 +8696,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n    text-align: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n.mdi-18px[data-v-1f79daf6] { font-size: 18px;\n}\n.mdi-24px[data-v-1f79daf6] { font-size: 24px;\n}\n.mdi-26px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-28px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-30px[data-v-1f79daf6] { font-size: 30px;\n}\n.mdi-36px[data-v-1f79daf6] { font-size: 36px;\n}\n.mdi-48px[data-v-1f79daf6] { font-size: 48px;\n}\n.mdi-dark[data-v-1f79daf6] { color: rgba(0, 0, 0, 0.54);\n}\n.mdi-dark.mdi-inactive[data-v-1f79daf6] { color: rgba(0, 0, 0, 0.26);\n}\n.mdi-light[data-v-1f79daf6] { color: rgba(255, 255, 255, 1);\n}\n.mdi-light.mdi-inactive[data-v-1f79daf6] { color: rgba(255, 255, 255, 0.3);\n}\n", ""]);
+exports.push([module.i, "\nhtml[data-v-1f79daf6], body[data-v-1f79daf6] {\n    background-color: #fff;\n    color: #636b6f;\n    font-family: 'Nunito', sans-serif;\n    font-weight: 200;\n    height: 100vh;\n    margin: 0;\n}\n.full-height[data-v-1f79daf6] {\n    height: 100vh;\n}\n.flex-center[data-v-1f79daf6] {\n    align-items: center;\n    display: flex;\n    justify-content: center;\n    text-align: center;\n}\n.position-ref[data-v-1f79daf6] {\n    position: relative;\n}\n.top-right[data-v-1f79daf6] {\n    position: absolute;\n    right: 400px;\n    top: 70px;\n}\n.content[data-v-1f79daf6] {\n    text-align: center;\n}\n.title[data-v-1f79daf6] {\n    font-size: 84px;\n}\n.links > a[data-v-1f79daf6] {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n.m-b-md[data-v-1f79daf6] {\n    margin-bottom: 30px;\n}\n.mdi-16px[data-v-1f79daf6] {\n    font-size: 16px;\n}\n.mdi-18px[data-v-1f79daf6] {\n    font-size: 18px;\n}\n.mdi-19px[data-v-1f79daf6] {\n    font-size: 19px;\n}\n.mdi-20px[data-v-1f79daf6] {\n    font-size: 20px;\n}\n.mdi-24px[data-v-1f79daf6] {\n    font-size: 24px;\n}\n.mdi-26px[data-v-1f79daf6] {\n    font-size: 30px;\n}\n.mdi-28px[data-v-1f79daf6] {\n    font-size: 30px;\n}\n.mdi-30px[data-v-1f79daf6] {\n    font-size: 30px;\n}\n.mdi-36px[data-v-1f79daf6] {\n    font-size: 36px;\n}\n.mdi-48px[data-v-1f79daf6] {\n    font-size: 48px;\n}\n.mdi-dark[data-v-1f79daf6] {\n    color: rgba(0, 0, 0, 0.54);\n}\n.mdi-dark.mdi-inactive[data-v-1f79daf6] {\n    color: rgba(0, 0, 0, 0.26);\n}\n.mdi-light[data-v-1f79daf6] {\n    color: rgba(255, 255, 255, 1);\n}\n.mdi-light.mdi-inactive[data-v-1f79daf6] {\n    color: rgba(255, 255, 255, 0.3);\n}\n", ""]);
 
 // exports
 
@@ -59894,10 +59928,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "col-md-12" }, [
-      _c("h5", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")]),
+    _c("div", { staticClass: "row mt-3" }, [
+      _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "flex-center position-ref mt-5" }, [
+      _c("div", { staticClass: "col-3 text-center card-text" }, [
         _c(
           "button",
           {
@@ -59906,18 +59940,18 @@ var render = function() {
             on: { click: _vm.gotoCreateSurvey }
           },
           [
-            _c("i", { staticClass: "mdi mdi-plus mdi-26px" }),
-            _vm._v(" สร้างแบบสำรวจ\n                ")
+            _c("i", { staticClass: "mdi mdi-plus mdi-18px mx-0" }),
+            _vm._v("\n                    สร้างแบบสำรวจ\n                ")
           ]
         )
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("hr")
+      ])
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("br"),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _vm._m(1),
     _vm._v(" "),
     _vm.head
       ? _c("div", [
@@ -59925,73 +59959,69 @@ var render = function() {
             ? _c(
                 "div",
                 _vm._l(_vm.head.data, function(i) {
-                  return _c("div", { staticClass: "card mt-1" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "col-2 text-center",
-                            on: {
-                              click: function($event) {
-                                return _vm.gotoReport(i.id)
-                              }
+                  return _c("div", { staticClass: "card mt-2 card-text" }, [
+                    _c("div", { staticClass: "card-body card-text" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row card-text",
+                          on: {
+                            click: function($event) {
+                              return _vm.gotoReport(i.id)
                             }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "mdi mdi-file-document mdi-24px"
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "col-8",
-                            on: {
-                              click: function($event) {
-                                return _vm.gotoReport(i.id)
-                              }
-                            }
-                          },
-                          [
+                          }
+                        },
+                        [
+                          _vm._m(2, true),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-4 card-text" }, [
                             _c("label", { staticClass: "card-title-active" }, [
-                              _vm._v(_vm._s(i.name))
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(i.name) +
+                                  "\n                                "
+                              )
                             ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-2" }, [
+                          ]),
+                          _vm._v(" "),
                           _c(
-                            "button",
+                            "div",
+                            { staticClass: "col-2 text-center card-text" },
+                            [
+                              _vm._v(
+                                '\n                                "แสดงวันที่สร้างโง่ๆ"\n'
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-2 text-center card-text" },
+                            [
+                              i.status == 1
+                                ? _c("span", { staticClass: "text-success" }, [
+                                    _vm._v("เปิด")
+                                  ])
+                                : _c("span", { staticClass: "text-danger" }, [
+                                    _vm._v("ปิด")
+                                  ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
                             {
-                              staticClass: "btn btn-outline-pink",
+                              staticClass: "col-2 text-center",
                               on: {
                                 click: function($event) {
                                   return _vm.copylink(i.id)
                                 }
                               }
                             },
-                            [_vm._v("copy link")]
+                            [_vm._m(3, true)]
                           )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-footer text-muted" }, [
-                      _vm._v(
-                        "\n\n                        " +
-                          _vm._s(i.dateDiff) +
-                          " days ago |   สถานะ :\n                        "
-                      ),
-                      i.status == 1
-                        ? _c("span", { staticClass: "text-success" }, [
-                            _vm._v("เปิดรับการตอบกลับ")
-                          ])
-                        : _c("span", { staticClass: "text-danger" }, [
-                            _vm._v("ปิดรับการตอบกลับ")
-                          ])
+                        ]
+                      )
                     ])
                   ])
                 }),
@@ -60002,7 +60032,7 @@ var render = function() {
                 {
                   staticClass: "row justify-content-center text-secondary mt-5"
                 },
-                [_vm._m(1)]
+                [_vm._m(4)]
               )
         ])
       : _vm._e(),
@@ -60168,9 +60198,54 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("h5", [_vm._v("แบบสำรวจล่าสุด")])
+    return _c("div", { staticClass: "col-9 mt-2 card-text" }, [
+      _c("h5", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-1" }, [
+      _c("div", { staticClass: "col-6 text-center card-text" }, [
+        _c("b", [_vm._v("รายงานแบบสำรวจความพึงพอใจ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2 text-center card-text" }, [
+        _c("b", [_vm._v("สร้างเมื่อ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2 text-center" }, [
+        _c("p", { staticClass: "card-text" }, [
+          _c("b", [_vm._v("สถานะรับการตอบกลับ")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2 text-center card-text" }, [
+        _c("b", [_vm._v("Link for copy.")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-2 text-center card-text" }, [
+      _c("i", { staticClass: "mdi mdi-file-document mdi-16px" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "d-inline-block",
+        attrs: { tabindex: "0", "data-toggle": "tooltip", title: "Copy link" }
+      },
+      [_c("i", { staticClass: "mdi mdi-content-copy mdi-16px" })]
+    )
   },
   function() {
     var _vm = this

@@ -1,48 +1,80 @@
 <template>
     <div>
-
-
-        <div class="col-md-12">
-
-            <h5>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h5>
-            <div class="flex-center position-ref mt-5">
+        <div class="row mt-3">
+            <div class="col-9 mt-2 card-text">
+                <h5>สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง</h5>
+            </div>
+            <div class="col-3 text-center card-text">
                 <button type="button" class="btn btn-pink btn-lg" @click="gotoCreateSurvey">
-                    <i class="mdi mdi-plus mdi-26px"></i> สร้างแบบสำรวจ
+                    <i class="mdi mdi-plus mdi-18px mx-0"></i>
+                    สร้างแบบสำรวจ
                 </button>
             </div>
-            <br/>
-            <hr>
         </div>
-        <div class="col-md-12">
-            <h5>แบบสำรวจล่าสุด</h5>
-        </div>
+        <br/>
+        <hr>
 
 
+        <div class="row mt-1">
+            <div class="col-6 text-center card-text">
+                <b>รายงานแบบสำรวจความพึงพอใจ</b>
+            </div>
+
+            <div class="col-2 text-center card-text">
+                    <b>สร้างเมื่อ</b>
+            </div>
+            <div class="col-2 text-center">
+                <p class="card-text">
+                    <b>สถานะรับการตอบกลับ</b>
+                </p>
+            </div>
+
+            <div class="col-2 text-center card-text">
+                    <b>Link for copy.</b>
+            </div>
+
+        </div>
         <div v-if="head">
             <div v-if="head.data.length > 0 ">
-                <div class="card mt-1" v-for="i in head.data">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2 text-center"  @click="gotoReport(i.id)">
-                            <i class="mdi mdi-file-document mdi-24px"></i>
+                <div class="card mt-2 card-text" v-for="i in head.data">
+                    <div class="card-body card-text">
+                        <div class="row card-text" @click="gotoReport(i.id)">
+
+
+                            <div class="col-2 text-center card-text">
+                                <i class="mdi mdi-file-document mdi-16px"></i>
                             </div>
-                            <div class="col-8"  @click="gotoReport(i.id)">
-                            <label class="card-title-active">{{i.name}}</label>
+
+                            <div class="col-4 card-text">
+                                <label class="card-title-active">
+                                    {{i.name}}
+                                </label>
                             </div>
-                            <div class="col-2">
-                            <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>
+
+                            <div class="col-2 text-center card-text">
+                                "แสดงวันที่สร้างโง่ๆ"
+<!--                                {{i.dateDiff}} days ago-->
+                            </div>
+
+                            <div class="col-2 text-center card-text">
+                                <span v-if="i.status == 1" class="text-success">เปิด</span>
+                                <span v-else class="text-danger">ปิด</span>
+                            </div>
+
+
+
+                            <div class="col-2 text-center" @click="copylink(i.id)">
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Copy link">
+                                    <i class="mdi mdi-content-copy mdi-16px"></i>
+                                </span>
+
+                                <!--                            <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
                             </div>
                         </div>
-<!--                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>-->
-<!--                        <h5 class="card-title"> {{i.name}}</h5>-->
-<!--                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>-->
-<!--                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
-                    </div>
-                    <div class="card-footer text-muted">
-
-                        {{i.dateDiff}} days ago | &nbsp; สถานะ :
-                        <span v-if="i.status == 1" class="text-success">เปิดรับการตอบกลับ</span>
-                        <span v-else class="text-danger">ปิดรับการตอบกลับ</span>
+                        <!--                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>-->
+                        <!--                        <h5 class="card-title"> {{i.name}}</h5>-->
+                        <!--                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>-->
+                        <!--                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
                     </div>
                 </div>
             </div>
@@ -62,7 +94,8 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <button class="page-link btn-pink" aria-label="Previous" @click="getPage(head.prev_page_url)" v-if="head.prev_page_url">
+                                <button class="page-link btn-pink" aria-label="Previous"
+                                        @click="getPage(head.prev_page_url)" v-if="head.prev_page_url">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
@@ -84,7 +117,8 @@
                                 </li>
                             </div>
                             <li class="page-item">
-                                <button class="page-link btn-pink" aria-label="Next" @click="getPage(head.next_page_url)" v-if="head.next_page_url">
+                                <button class="page-link btn-pink" aria-label="Next"
+                                        @click="getPage(head.next_page_url)" v-if="head.next_page_url">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>
@@ -174,7 +208,7 @@
                         console.log("error", error);
                         return null
                     });
-                if(this.head) {
+                if (this.head) {
                     if (this.head.data[0]) {
                         this.calDateDiff();
                         this.generatePageLink(this.head.last_page, this.head.data[0].u_id)
@@ -266,15 +300,60 @@
     .m-b-md {
         margin-bottom: 30px;
     }
-    .mdi-18px { font-size: 18px; }
-    .mdi-24px { font-size: 24px; }
-    .mdi-26px { font-size: 30px; }
-    .mdi-28px { font-size: 30px; }
-    .mdi-30px { font-size: 30px; }
-    .mdi-36px { font-size: 36px; }
-    .mdi-48px { font-size: 48px; }
-    .mdi-dark { color: rgba(0, 0, 0, 0.54); }
-    .mdi-dark.mdi-inactive { color: rgba(0, 0, 0, 0.26); }
-    .mdi-light { color: rgba(255, 255, 255, 1); }
-    .mdi-light.mdi-inactive { color: rgba(255, 255, 255, 0.3); }
+
+    .mdi-16px {
+        font-size: 16px;
+    }
+
+    .mdi-18px {
+        font-size: 18px;
+    }
+
+    .mdi-19px {
+        font-size: 19px;
+    }
+
+    .mdi-20px {
+        font-size: 20px;
+    }
+
+    .mdi-24px {
+        font-size: 24px;
+    }
+
+    .mdi-26px {
+        font-size: 30px;
+    }
+
+    .mdi-28px {
+        font-size: 30px;
+    }
+
+    .mdi-30px {
+        font-size: 30px;
+    }
+
+    .mdi-36px {
+        font-size: 36px;
+    }
+
+    .mdi-48px {
+        font-size: 48px;
+    }
+
+    .mdi-dark {
+        color: rgba(0, 0, 0, 0.54);
+    }
+
+    .mdi-dark.mdi-inactive {
+        color: rgba(0, 0, 0, 0.26);
+    }
+
+    .mdi-light {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .mdi-light.mdi-inactive {
+        color: rgba(255, 255, 255, 0.3);
+    }
 </style>
