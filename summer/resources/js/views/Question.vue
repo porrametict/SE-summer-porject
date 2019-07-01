@@ -9,32 +9,24 @@
             <div class="row justify-content-center">
 
 
-                <div id="SexComponent" class="col">
+                <div id="SexComponent" class="col-12 col-md-6 mb-2">
                     <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"></select-sex>
                 </div>
 
-                <br/>
 
-                <div id="testComponent2" class="col">
+                <div id="testComponent2" class="col-12 col-md-6 mb-2">
                     <select-age @change="form.age = $event" :ageID="form.age"></select-age>
                 </div>
-            </div>
-
-            <br/>
 
 
-            <div class="row">
-
-                <div id="ProvinceComponent" class="col-6">
+                <div id="ProvinceComponent" class="col-12 col-md-6 mb-2">
                     <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"></selectProvinces>
                 </div>
-                <br/>
 
 
-                <div id="CareersComponent" class="col-6">
+                <div id="CareersComponent" class="col-12 col-md-6 mb-2">
                     <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"></selectcareers>
                 </div>
-                <br/>
 
             </div>
 

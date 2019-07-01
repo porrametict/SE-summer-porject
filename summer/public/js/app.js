@@ -2806,6 +2806,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SurveyStatusSelect",
   props: {
@@ -2837,9 +2839,9 @@ __webpack_require__.r(__webpack_exports__);
         status: status
       }).then(function (response) {
         console.log(response.data);
-      }["catch"](function (err) {
+      })["catch"](function (err) {
         console.log('err');
-      }));
+      });
     }
   }
 });
@@ -3562,14 +3564,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3790,8 +3784,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -8651,7 +8643,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* The switch - the box around the slider */\n.switch[data-v-5cb41db3] {\n    position: relative;\n    display: inline-block;\n    width: 55px;\n    height: 30px;\n}\n\n/* Hide default HTML checkbox */\n.switch input[data-v-5cb41db3] {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n\n/* The slider */\n.slider[data-v-5cb41db3] {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    transition: .4s;\n}\n.slider[data-v-5cb41db3]:before {\n    position: absolute;\n    content: \"\";\n    height: 20px;\n    width: 20px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    transition: .4s;\n}\ninput:checked + .slider[data-v-5cb41db3] {\n    background-color: #2196F3;\n}\ninput:focus + .slider[data-v-5cb41db3] {\n    box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider[data-v-5cb41db3]:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round[data-v-5cb41db3] {\n    border-radius: 34px;\n}\n.slider.round[data-v-5cb41db3]:before {\n    border-radius: 50%;\n}\n\n", ""]);
+exports.push([module.i, "\nhtml[data-v-5cb41db3], body[data-v-5cb41db3] {\n    display: flex;\n    min-height: 100%;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    font-family: sans-serif;\n}\nul[data-v-5cb41db3], li[data-v-5cb41db3] {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.tg-list[data-v-5cb41db3] {\n    text-align: center;\n    display: flex;\n    align-items: center;\n}\n.tg-list-item[data-v-5cb41db3] {\n    margin: 0 2em;\n}\nh2[data-v-5cb41db3] {\n    color: #777;\n}\nh4[data-v-5cb41db3] {\n    color: #999;\n}\n.tgl[data-v-5cb41db3] {\n    display: none;\n}\n.tgl[data-v-5cb41db3], .tgl[data-v-5cb41db3]:after, .tgl[data-v-5cb41db3]:before, .tgl *[data-v-5cb41db3], .tgl *[data-v-5cb41db3]:after, .tgl *[data-v-5cb41db3]:before, .tgl + .tgl-btn[data-v-5cb41db3] {\n    box-sizing: border-box;\n}\n.tgl[data-v-5cb41db3]::-moz-selection, .tgl[data-v-5cb41db3]:after::-moz-selection, .tgl[data-v-5cb41db3]:before::-moz-selection, .tgl *[data-v-5cb41db3]::-moz-selection, .tgl *[data-v-5cb41db3]:after::-moz-selection, .tgl *[data-v-5cb41db3]:before::-moz-selection, .tgl + .tgl-btn[data-v-5cb41db3]::-moz-selection {\n    background: none;\n}\n.tgl[data-v-5cb41db3]::selection, .tgl[data-v-5cb41db3]:after::selection, .tgl[data-v-5cb41db3]:before::selection, .tgl *[data-v-5cb41db3]::selection, .tgl *[data-v-5cb41db3]:after::selection, .tgl *[data-v-5cb41db3]:before::selection, .tgl + .tgl-btn[data-v-5cb41db3]::selection {\n    background: none;\n}\n.tgl + .tgl-btn[data-v-5cb41db3] {\n    outline: 0;\n    display: block;\n    width: 4em;\n    height: 2em;\n    position: relative;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.tgl + .tgl-btn[data-v-5cb41db3]:after, .tgl + .tgl-btn[data-v-5cb41db3]:before {\n    position: relative;\n    display: block;\n    content: \"\";\n    width: 50%;\n    height: 100%;\n}\n.tgl + .tgl-btn[data-v-5cb41db3]:after {\n    left: 0;\n}\n.tgl + .tgl-btn[data-v-5cb41db3]:before {\n    display: none;\n}\n.tgl:checked + .tgl-btn[data-v-5cb41db3]:after {\n    left: 50%;\n}\n.tgl-light + .tgl-btn[data-v-5cb41db3] {\n    background: #f0f0f0;\n    border-radius: 2em;\n    padding: 2px;\n    transition: all 0.4s ease;\n}\n.tgl-light + .tgl-btn[data-v-5cb41db3]:after {\n    border-radius: 50%;\n    background: #fff;\n    transition: all 0.2s ease;\n}\n.tgl-light:checked + .tgl-btn[data-v-5cb41db3] {\n    background: #9fd6ae;\n}\n.tgl-ios + .tgl-btn[data-v-5cb41db3] {\n    background: #fbfbfb;\n    border-radius: 2em;\n    padding: 2px;\n    transition: all 0.4s ease;\n    border: 1px solid #e8eae9;\n}\n.tgl-ios + .tgl-btn[data-v-5cb41db3]:after {\n    border-radius: 2em;\n    background: #fbfbfb;\n    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;\n    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 4px 0 rgba(0, 0, 0, .08);\n}\n.tgl-ios + .tgl-btn[data-v-5cb41db3]:hover:after {\n    will-change: padding;\n}\n.tgl-ios + .tgl-btn[data-v-5cb41db3]:active {\n    box-shadow: inset 0 0 0 2em #e8eae9;\n}\n.tgl-ios + .tgl-btn[data-v-5cb41db3]:active:after {\n    padding-right: 0.8em;\n}\n.tgl-ios:checked + .tgl-btn[data-v-5cb41db3] {\n    background: #86d993;\n}\n.tgl-ios:checked + .tgl-btn[data-v-5cb41db3]:active {\n    box-shadow: none;\n}\n.tgl-ios:checked + .tgl-btn[data-v-5cb41db3]:active:after {\n    margin-left: -0.8em;\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3] {\n    overflow: hidden;\n    -webkit-transform: skew(-10deg);\n            transform: skew(-10deg);\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    transition: all 0.2s ease;\n    font-family: sans-serif;\n    background: #888;\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3]:after, .tgl-skewed + .tgl-btn[data-v-5cb41db3]:before {\n    -webkit-transform: skew(10deg);\n            transform: skew(10deg);\n    display: inline-block;\n    transition: all 0.2s ease;\n    width: 100%;\n    text-align: center;\n    position: absolute;\n    line-height: 2em;\n    font-weight: bold;\n    color: #fff;\n    text-shadow: 0 1px 0 rgba(0, 0, 0, .4);\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3]:after {\n    left: 100%;\n    content: attr(data-tg-on);\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3]:before {\n    left: 0;\n    content: attr(data-tg-off);\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3]:active {\n    background: #888;\n}\n.tgl-skewed + .tgl-btn[data-v-5cb41db3]:active:before {\n    left: -10%;\n}\n.tgl-skewed:checked + .tgl-btn[data-v-5cb41db3] {\n    background: #86d993;\n}\n.tgl-skewed:checked + .tgl-btn[data-v-5cb41db3]:before {\n    left: -100%;\n}\n.tgl-skewed:checked + .tgl-btn[data-v-5cb41db3]:after {\n    left: 0;\n}\n.tgl-skewed:checked + .tgl-btn[data-v-5cb41db3]:active:after {\n    left: 10%;\n}\n.tgl-flat + .tgl-btn[data-v-5cb41db3] {\n    padding: 2px;\n    transition: all 0.2s ease;\n    background: #fff;\n    border: 4px solid #f2f2f2;\n    border-radius: 2em;\n}\n.tgl-flat + .tgl-btn[data-v-5cb41db3]:after {\n    transition: all 0.2s ease;\n    background: #f2f2f2;\n    content: \"\";\n    border-radius: 1em;\n}\n.tgl-flat:checked + .tgl-btn[data-v-5cb41db3] {\n    border: 4px solid #7fc6a6;\n}\n.tgl-flat:checked + .tgl-btn[data-v-5cb41db3]:after {\n    left: 50%;\n    background: #7fc6a6;\n}\n.tgl-flip + .tgl-btn[data-v-5cb41db3] {\n    padding: 2px;\n    transition: all 0.2s ease;\n    font-family: sans-serif;\n    -webkit-perspective: 100px;\n            perspective: 100px;\n}\n.tgl-flip + .tgl-btn[data-v-5cb41db3]:after, .tgl-flip + .tgl-btn[data-v-5cb41db3]:before {\n    display: inline-block;\n    transition: all 0.4s ease;\n    width: 100%;\n    text-align: center;\n    position: absolute;\n    line-height: 2em;\n    font-weight: bold;\n    color: #fff;\n    position: absolute;\n    top: 0;\n    left: 0;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    border-radius: 4px;\n}\n.tgl-flip + .tgl-btn[data-v-5cb41db3]:after {\n    content: attr(data-tg-on);\n    background: #02c66f;\n    -webkit-transform: rotateY(-180deg);\n            transform: rotateY(-180deg);\n}\n.tgl-flip + .tgl-btn[data-v-5cb41db3]:before {\n    background: #ff3a19;\n    content: attr(data-tg-off);\n}\n.tgl-flip + .tgl-btn[data-v-5cb41db3]:active:before {\n    -webkit-transform: rotateY(-20deg);\n            transform: rotateY(-20deg);\n}\n.tgl-flip:checked + .tgl-btn[data-v-5cb41db3]:before {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n}\n.tgl-flip:checked + .tgl-btn[data-v-5cb41db3]:after {\n    -webkit-transform: rotateY(0);\n            transform: rotateY(0);\n    left: 0;\n    background: #7fc6a6;\n}\n.tgl-flip:checked + .tgl-btn[data-v-5cb41db3]:active:after {\n    -webkit-transform: rotateY(20deg);\n            transform: rotateY(20deg);\n}\n\n", ""]);
 
 // exports
 
@@ -59589,52 +59581,58 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("label", { staticClass: "switch" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.s_status,
-            expression: "s_status"
-          }
-        ],
-        attrs: { type: "checkbox" },
-        domProps: {
-          checked: Array.isArray(_vm.s_status)
-            ? _vm._i(_vm.s_status, null) > -1
-            : _vm.s_status
-        },
-        on: {
-          change: [
-            function($event) {
-              var $$a = _vm.s_status,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 && (_vm.s_status = $$a.concat([$$v]))
-                } else {
-                  $$i > -1 &&
-                    (_vm.s_status = $$a
-                      .slice(0, $$i)
-                      .concat($$a.slice($$i + 1)))
-                }
-              } else {
-                _vm.s_status = $$c
-              }
-            },
-            _vm.change_status
-          ]
-        }
-      }),
+    _c("div", { staticClass: "d-flex" }, [
+      _c("h4", [_vm._v("สถานะ")]),
       _vm._v(" "),
-      _c("span", { staticClass: "slider round" })
-    ]),
-    _vm._v(" "),
-    _c("label", { staticClass: "h5" }, [_vm._v("ปิดรับการตอบ")])
+      _c("li", { staticClass: "tg-list-item" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.s_status,
+              expression: "s_status"
+            }
+          ],
+          staticClass: "tgl tgl-skewed",
+          attrs: { id: "cb3", type: "checkbox" },
+          domProps: {
+            checked: Array.isArray(_vm.s_status)
+              ? _vm._i(_vm.s_status, null) > -1
+              : _vm.s_status
+          },
+          on: {
+            change: [
+              function($event) {
+                var $$a = _vm.s_status,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.s_status = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.s_status = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.s_status = $$c
+                }
+              },
+              _vm.change_status
+            ]
+          }
+        }),
+        _vm._v(" "),
+        _c("label", {
+          staticClass: "tgl-btn",
+          attrs: { "data-tg-off": "OFF", "data-tg-on": "ON", for: "cb3" }
+        })
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -60221,7 +60219,10 @@ var render = function() {
               _c("div", { staticClass: "row justify-content-center" }, [
                 _c(
                   "div",
-                  { staticClass: "col", attrs: { id: "SexComponent" } },
+                  {
+                    staticClass: "col-12 col-md-6 mb-2",
+                    attrs: { id: "SexComponent" }
+                  },
                   [
                     _c("select-sex", {
                       attrs: { "sex-i-d": _vm.form.sex },
@@ -60235,11 +60236,12 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col", attrs: { id: "testComponent2" } },
+                  {
+                    staticClass: "col-12 col-md-6 mb-2",
+                    attrs: { id: "testComponent2" }
+                  },
                   [
                     _c("select-age", {
                       attrs: { ageID: _vm.form.age },
@@ -60251,15 +60253,14 @@ var render = function() {
                     })
                   ],
                   1
-                )
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-6", attrs: { id: "ProvinceComponent" } },
+                  {
+                    staticClass: "col-12 col-md-6 mb-2",
+                    attrs: { id: "ProvinceComponent" }
+                  },
                   [
                     _c("selectProvinces", {
                       attrs: { "province-i-d": _vm.form.province },
@@ -60273,11 +60274,12 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-6", attrs: { id: "CareersComponent" } },
+                  {
+                    staticClass: "col-12 col-md-6 mb-2",
+                    attrs: { id: "CareersComponent" }
+                  },
                   [
                     _c("selectcareers", {
                       attrs: { "careers-i-d": _vm.form.career },
@@ -60289,9 +60291,7 @@ var render = function() {
                     })
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c("br")
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "mt-5" }, [
@@ -60385,28 +60385,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.head
     ? _c("div", [
-        _c("div", { staticClass: "justify-content-between d-flex" }, [
-          _c("div", { staticClass: "text-left justify-content-between" }, [
+        _c("div", { staticClass: "justify-content-between d-flex row" }, [
+          _c("div", { staticClass: "text-left col-12 col-md-6" }, [
             _c("h5", { staticClass: "texthead" }, [
               _vm._v(_vm._s(_vm.head.survey.name))
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row mb-0" }, [
-            _c(
-              "div",
-              { staticClass: "col-12 text-right" },
-              [
-                _c("survey-status-select", {
-                  attrs: {
-                    s_id: _vm.$route.params.s_id,
-                    status: _vm.head.survey.status
-                  }
-                })
-              ],
-              1
-            )
-          ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "form-group row mb-0 col-12 col-md-6 justify-content-end"
+            },
+            [
+              _c("survey-status-select", {
+                attrs: {
+                  s_id: _vm.$route.params.s_id,
+                  status: _vm.head.survey.status
+                }
+              })
+            ],
+            1
+          )
         ]),
         _vm._v(" "),
         _c("hr"),
@@ -60414,7 +60415,10 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-center" }, [
           _c(
             "div",
-            { staticClass: "col-3 mt-5 ", attrs: { id: "SexComponent" } },
+            {
+              staticClass: "col-12 col-md-3 mt-5 ",
+              attrs: { id: "SexComponent" }
+            },
             [
               _c("select-sex", {
                 on: {
@@ -60429,7 +60433,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-3 mt-5 ", attrs: { id: "testComponent2" } },
+            {
+              staticClass: "col-12 col-md-3 mt-5 ",
+              attrs: { id: "testComponent2" }
+            },
             [
               _c("select-age", {
                 on: {
@@ -60444,7 +60451,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-3 mt-5 ", attrs: { id: "ProvinceComponent" } },
+            {
+              staticClass: "col-12 col-md-3 mt-5 ",
+              attrs: { id: "ProvinceComponent" }
+            },
             [
               _c("selectProvinces", {
                 on: {
@@ -60459,7 +60469,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-3 mt-5 ", attrs: { id: "CareersComponent" } },
+            {
+              staticClass: "col-12 col-md-3 mt-5 ",
+              attrs: { id: "CareersComponent" }
+            },
             [
               _c("select-careers", {
                 on: {
@@ -60513,6 +60526,7 @@ var render = function() {
                                     qr[0].q_id == i.id
                                       ? _c(
                                           "div",
+                                          { staticClass: "overflow-auto" },
                                           [
                                             _c("BarCharts", {
                                               attrs: {

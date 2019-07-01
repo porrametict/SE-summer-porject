@@ -1,32 +1,31 @@
 <template>
     <div v-if="head">
-        <div class="justify-content-between d-flex">
-            <div class="text-left justify-content-between" >
-            <h5 class="texthead">{{head.survey.name}}</h5>
-        </div>
-        <div class="form-group row mb-0">
-            <div class="col-12 text-right">
-                <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+        <div class="justify-content-between d-flex row">
+            <div class="text-left col-12 col-md-6" >
+                <h5 class="texthead">{{head.survey.name}}</h5>
             </div>
-        </div>
 
-    </div>
+            <div class="form-group row mb-0 col-12 col-md-6 justify-content-end">
+                    <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+            </div>
+
+        </div>
         <hr>
 
         <div class="row justify-content-center">
-            <div id="SexComponent" class="col-3 mt-5 " >
+            <div id="SexComponent" class="col-12 col-md-3 mt-5 " >
             <select-sex @change="sex_emit($event)"></select-sex>
              </div>
 
-            <div id="testComponent2" class="col-3 mt-5 ">
+            <div id="testComponent2" class="col-12 col-md-3 mt-5 ">
             <select-age @change="age_emit($event)"></select-age>
             </div>
 
-            <div id="ProvinceComponent" class="col-3 mt-5 " >
+            <div id="ProvinceComponent" class="col-12 col-md-3 mt-5 " >
                 <selectProvinces @change="pronvince_emit($event)"></selectProvinces>
             </div>
 
-            <div id="CareersComponent" class="col-3 mt-5 ">
+            <div id="CareersComponent" class="col-12 col-md-3 mt-5 ">
                 <select-careers @change="careers_emit($event)"></select-careers>
             </div>
 
@@ -43,7 +42,7 @@
                         <li class="list-group-item">
                             {{i.text}}
                             <div v-for="qr in QwithRate" :key="qr[0].chart_id">
-                                <div v-if="qr[0].q_id == i.id">
+                                <div v-if="qr[0].q_id == i.id" class="overflow-auto">
                                     <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
                                 </div>
                             </div>
@@ -69,7 +68,6 @@
                     <ul >
                         <li v-for="i in head.comments.data">{{i.text}}</li>
                     </ul>
-
 
                     <div class="row-12 mt-3" v-if="(head.comments.data.length > 0 && head.comments.last_page > 1 )">
                         <div class="card text-center">
