@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="col-2 text-center card-text">
-                                "แสดงวันที่สร้างโง่ๆ"
+                                "เอาวันที่สร้างมาแสดง"
 <!--                                {{i.dateDiff}} days ago-->
                             </div>
 

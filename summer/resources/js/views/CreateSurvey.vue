@@ -36,7 +36,7 @@
         </div>
 
         <div class="col-12 mt-4 ">
-            <button class="btn btn-outline-pink float-right" @click="addtext">เพิ่มรายการ</button>
+            <button class="btn btn-outline-pink float-right" @click="addtext">เพิ่มคำถาม</button>
         </div>
         <br/><br>
 
@@ -45,7 +45,7 @@
 
         <div class="col-12 mt-5">
             <div align="right">
-                <button class="btn btn-pink btn-lg" @click="save">Create</button>
+                <button class="btn btn-pink btn-lg" @click="save">สร้าง</button>
             </div>
         </div>
 

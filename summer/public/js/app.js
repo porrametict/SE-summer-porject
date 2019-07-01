@@ -59866,7 +59866,7 @@ var render = function() {
             staticClass: "btn btn-outline-pink float-right",
             on: { click: _vm.addtext }
           },
-          [_vm._v("เพิ่มรายการ")]
+          [_vm._v("เพิ่มคำถาม")]
         )
       ]),
       _vm._v(" "),
@@ -59880,7 +59880,7 @@ var render = function() {
           _c(
             "button",
             { staticClass: "btn btn-pink btn-lg", on: { click: _vm.save } },
-            [_vm._v("Create")]
+            [_vm._v("สร้าง")]
           )
         ])
       ])
@@ -59989,7 +59989,7 @@ var render = function() {
                             { staticClass: "col-2 text-center card-text" },
                             [
                               _vm._v(
-                                '\n                                "แสดงวันที่สร้างโง่ๆ"\n'
+                                '\n                                "เอาวันที่สร้างมาแสดง"\n'
                               )
                             ]
                           ),
