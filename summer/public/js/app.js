@@ -3089,6 +3089,10 @@ __webpack_require__.r(__webpack_exports__);
           tf = true;
           this.showInvalid("validationQ_" + i);
           return true;
+        } else if (qs[i].text.trim().length >= 255) {
+          tf = true;
+          this.showInvalid("validationQ_" + i);
+          return true;
         }
       }
 
@@ -3110,6 +3114,9 @@ __webpack_require__.r(__webpack_exports__);
         this.showInvalid("validationName");
         console.log("name");
         return false;
+      } else if (this.form.hSurvey.trim().length >= 255) {
+        this.showInvalid("validationName");
+        console.log("name");
       } else if (this.checkQuestion()) {
         console.log("question");
         return false;
@@ -3120,7 +3127,7 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       if (!this.checkData()) {
         console.log('error');
-        swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+        swal('Fail', 'กรุณากรอกข้อมูลให้ถูกต้อง', 'error');
         return;
       }
 
@@ -3372,6 +3379,9 @@ moment.locale('th');
     };
   },
   methods: {
+    formatDate: function formatDate(date) {
+      return moment(date).format('DD/MM/YYYY');
+    },
     copylink: function copylink(link_id) {
       var copyText = "http://127.0.0.1:8000/ans#/ans/" + link_id;
       var el = document.createElement('textarea'); // Set value (string to be copied)
@@ -59801,7 +59811,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "invalid-feedback" }, [
             _vm._v(
-              "\n                        กรุณากรอกหัวข้อแบบสำรวจ.\n                    "
+              "\n                        จำเป็นต้องกรอกหัวข้อแบบสำรวจ เเละจะต้องมีความยาวไม่เกิน 255 อักษร\n                    "
             )
           ])
         ])
@@ -59989,7 +59999,9 @@ var render = function() {
                             { staticClass: "col-2 text-center card-text" },
                             [
                               _vm._v(
-                                '\n                                "เอาวันที่สร้างมาแสดง"\n'
+                                "\n                                " +
+                                  _vm._s(_vm.formatDate(i.created_at)) +
+                                  "\n"
                               )
                             ]
                           ),

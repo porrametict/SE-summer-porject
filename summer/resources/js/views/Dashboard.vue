@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="col-2 text-center card-text">
-                                "เอาวันที่สร้างมาแสดง"
+                                {{formatDate(i.created_at)}}
 <!--                                {{i.dateDiff}} days ago-->
                             </div>
 
@@ -160,6 +160,9 @@
             },
         }),
         methods: {
+            formatDate (date) {
+                return moment(date).format('DD/MM/YYYY')
+            },
             copylink(link_id) {
                 let copyText = "http://127.0.0.1:8000/ans#/ans/" + link_id
                 var el = document.createElement('textarea');

@@ -9,7 +9,7 @@
                     <h6 for="validationName"><b>หัวข้อแบบสำรวจความพึงพอใจ</b></h6>
                     <input type="text" class="form-control " id="validationName" v-model="form.hSurvey" placeholder="กรุณากรอกหัวข้อแบบสำรวจของท่าน" required>
                     <div class="invalid-feedback">
-                        กรุณากรอกหัวข้อแบบสำรวจ.
+                        จำเป็นต้องกรอกหัวข้อแบบสำรวจ เเละจะต้องมีความยาวไม่เกิน 255 อักษร
                     </div>
             </div>
         </div>
@@ -95,6 +95,10 @@
                         tf = true;
                         this.showInvalid("validationQ_"+i);
                         return true;
+                    }else if (qs[i].text.trim().length >= 255 ) {
+                        tf = true;
+                        this.showInvalid("validationQ_"+i);
+                        return true;
                     }
                 }
                 console.log("tf",tf)
@@ -117,6 +121,11 @@
                         console.log("name")
 
                         return false;
+                    }else if (this.form.hSurvey.trim().length >= 255)
+                    {
+                        this.showInvalid("validationName");
+                        console.log("name")
+
                     }else if (this.checkQuestion()) {
                         console.log("question")
                         return false;
@@ -128,7 +137,7 @@
             save() {
                 if (!this.checkData()){
                     console.log('error')
-                        swal('Fail','กรุณากรอกข้อมูลให้ครบ','error' )
+                        swal('Fail','กรุณากรอกข้อมูลให้ถูกต้อง','error' )
                         return ;
                 }
 
