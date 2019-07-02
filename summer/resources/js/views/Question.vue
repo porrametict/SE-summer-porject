@@ -36,7 +36,7 @@
             <div class="mt-5">
                 <h5>รายการแบบสำรวจความพึงพอใจ</h5>
                 <div class="mt-4">
-                    <answer :sid="s_id" @change="answer_emit($event)"></answer>
+                    <answer :sid="s_id" @change="answer_emit($event)" :error="ansError"></answer>
                 </div>
 
             </div>
@@ -102,6 +102,7 @@
             user : null,
             s_id: null,
             head: null,
+            ansError  :false,
             sexError : false,
             provinceError : false,
             ageError : false,
@@ -146,13 +147,13 @@
                 this.ageError = false
                 this.careerError = false
                 this.provinceError = false
+                this.ansError = false
 
 
                 if (this.form.sex == null) {
                     this.sexError = true
                     return true;
                 } else if (this.form.age == null) {
-                    console.log("age Error",this.form.age)
                     this.ageError = true
                     return true;
                 } else if (this.form.province == null) {
@@ -163,10 +164,12 @@
                     return true;
                 }
                 if (this.form.ans.length == 0){
+                    this.ansError = true
                     return true
                 }
                 for (let i = 0;i < this.form.ans.length;i++) {
                     if (this.form.ans[i].rate == 0) {
+                        this.ansError = true
                         return true;
                     }
 

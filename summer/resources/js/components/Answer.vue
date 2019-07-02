@@ -1,7 +1,7 @@
 <template>
     <div v-if="head ">
-        <div  class="overflow-auto">
-            <table class="table table-striped  table-bordered ">
+        <div  class="overflow-auto" id="ansDiv">
+            <table class="table table-striped table-bordered ">
                 <thead>
                 <tr>
                     <th scope="col" class="text-center">คำถาม</th>
@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="(i,index) in head.data">
-                    <th scope="row">{{head.data[index].text}}</th>
+                    <th scope="row" :id="'th_'+index">{{head.data[index].text}}</th>
                     <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 5"><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" @change="export_select"></td>
                     <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 4"><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
                     <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 3"><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
@@ -90,12 +90,34 @@
 <script>
     export default {
         name : "gdgdgd",
-        props : {
-            sid : Number
+        props: {
+            sid: {
+                type: [String,Number],
+                required: false
+            },
+            error: {
+                type: Boolean,
+                required: false,
+                default : false
+            },
+
         },
+        watch: {
+            error: function(newVal, oldVal) { // watch it
+                console.log(' ans Prop changed: ', newVal, ' | was: ', oldVal)
+                if (this.checkClassInvalid("ansDiv")) {
+                    this.clearInvalid("ansDiv");
+                }
+                if (this.error == true) {
+                    this.showInvalid("ansDiv")
+                }
+            }
+        },
+
         created(){
             this.hh_name()
         },
+
         data: () => ({
             allPage : null,
             head : null,
@@ -181,6 +203,21 @@
             export_select() {
                 this.$emit('change', this.form.repeats)
             },
+            showInvalid(id) {
+                let element = document.getElementById(id);
+                element.classList.add("border");
+                element.classList.add("border-danger");
+            },
+            clearInvalid(id) {
+                let element = document.getElementById(id);
+                element.classList.remove("border");
+                element.classList.remove("border-danger");
+            },
+            checkClassInvalid(id) {
+                let element = document.getElementById(id);
+                 element.classList.contains("border");
+                 element.classList.contains("border-danger");
+            }
         },
     }
 </script>

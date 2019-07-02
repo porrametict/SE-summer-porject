@@ -2091,7 +2091,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "gdgdgd",
   props: {
-    sid: Number
+    sid: {
+      type: [String, Number],
+      required: false
+    },
+    error: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
+  },
+  watch: {
+    error: function error(newVal, oldVal) {
+      // watch it
+      console.log(' ans Prop changed: ', newVal, ' | was: ', oldVal);
+
+      if (this.checkClassInvalid("ansDiv")) {
+        this.clearInvalid("ansDiv");
+      }
+
+      if (this.error == true) {
+        this.showInvalid("ansDiv");
+      }
+    }
   },
   created: function created() {
     this.hh_name();
@@ -2243,6 +2265,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     export_select: function export_select() {
       this.$emit('change', this.form.repeats);
+    },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("border");
+      element.classList.add("border-danger");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("border");
+      element.classList.remove("border-danger");
+    },
+    checkClassInvalid: function checkClassInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.contains("border");
+      element.classList.contains("border-danger");
     }
   }
 });
@@ -3827,6 +3864,7 @@ moment.locale('th');
       user: null,
       s_id: null,
       head: null,
+      ansError: false,
       sexError: false,
       provinceError: false,
       ageError: false,
@@ -3890,12 +3928,12 @@ moment.locale('th');
       this.ageError = false;
       this.careerError = false;
       this.provinceError = false;
+      this.ansError = false;
 
       if (this.form.sex == null) {
         this.sexError = true;
         return true;
       } else if (this.form.age == null) {
-        console.log("age Error", this.form.age);
         this.ageError = true;
         return true;
       } else if (this.form.province == null) {
@@ -3907,11 +3945,13 @@ moment.locale('th');
       }
 
       if (this.form.ans.length == 0) {
+        this.ansError = true;
         return true;
       }
 
       for (var i = 0; i < this.form.ans.length; i++) {
         if (this.form.ans[i].rate == 0) {
+          this.ansError = true;
           return true;
         }
       }
@@ -58825,15 +58865,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.head
     ? _c("div", [
-        _c("div", { staticClass: "overflow-auto" }, [
-          _c("table", { staticClass: "table table-striped  table-bordered " }, [
+        _c("div", { staticClass: "overflow-auto", attrs: { id: "ansDiv" } }, [
+          _c("table", { staticClass: "table table-striped table-bordered " }, [
             _vm._m(0),
             _vm._v(" "),
             _c(
               "tbody",
               _vm._l(_vm.head.data, function(i, index) {
                 return _c("tr", [
-                  _c("th", { attrs: { scope: "row" } }, [
+                  _c("th", { attrs: { scope: "row", id: "th_" + index } }, [
                     _vm._v(_vm._s(_vm.head.data[index].text))
                   ]),
                   _vm._v(" "),
@@ -60610,7 +60650,7 @@ var render = function() {
                   { staticClass: "mt-4" },
                   [
                     _c("answer", {
-                      attrs: { sid: _vm.s_id },
+                      attrs: { sid: _vm.s_id, error: _vm.ansError },
                       on: {
                         change: function($event) {
                           return _vm.answer_emit($event)
