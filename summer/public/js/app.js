@@ -1906,9 +1906,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    ageID: Number
+    ageID: {
+      type: [String, Number],
+      required: false
+    },
+    error: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
   },
   created: function created() {
     if (this.ageID) {
@@ -1916,6 +1925,29 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     this.createage();
+  },
+  watch: {
+    error: function error(newVal, oldVal) {
+      // watch it
+      console.log(' age Prop changed: ', newVal, ' | was: ', oldVal);
+
+      if (this.checkClassInvalid("selectAge")) {
+        this.clearInvalid("selectAge");
+      }
+
+      if (this.error == true) {
+        this.showInvalid("selectAge");
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.checkClassInvalid("selectAge")) {
+      this.clearInvalid("selectAge");
+    }
+
+    if (this.error == true) {
+      this.showInvalid("selectAge");
+    }
   },
   data: function data() {
     return {
@@ -1932,6 +1964,18 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 1; i < 101; i++) {
         this.data.push(i);
       }
+    },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
+    checkClassInvalid: function checkClassInvalid(id) {
+      var element = document.getElementById(id);
+      return element.classList.contains("is-invalid");
     }
   }
 });
@@ -2676,10 +2720,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Provinces",
   props: {
-    ProvinceID: Number
+    ProvinceID: {
+      type: [String, Number],
+      required: false
+    },
+    error: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
   },
   created: function created() {
     if (this.ProvinceID) {
@@ -2687,6 +2742,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
 
     this.f_name();
+  },
+  watch: {
+    error: function error(newVal, oldVal) {
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+
+      if (this.checkClassInvalid("pSelect")) {
+        this.clearInvalid("pSelect");
+      }
+
+      if (this.error == true) {
+        this.showInvalid("pSelect");
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.checkClassInvalid("pSelect")) {
+      this.clearInvalid("pSelect");
+    }
+
+    if (this.error == true) {
+      this.showInvalid("pSelect");
+    }
   },
   data: function data() {
     return {
@@ -2731,6 +2809,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     sendData: function sendData() {
       this.$emit('change', this.something);
+    },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
+    checkClassInvalid: function checkClassInvalid(id) {
+      var element = document.getElementById(id);
+      return element.classList.contains("is-invalid");
     }
   }
 });
@@ -2755,13 +2845,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    sexID: Number
+    sexID: {
+      type: [String, Number],
+      required: false
+    },
+    error: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
   },
   created: function created() {
     if (this.sexID) {
       this.selector = this.sexID;
+    }
+  },
+  watch: {
+    error: function error(newVal, oldVal) {
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+
+      if (this.checkClassInvalid("sexSelect")) {
+        this.clearInvalid("sexSelect");
+      }
+
+      if (this.error == true) {
+        this.showInvalid("sexSelect");
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.checkClassInvalid("sexSelect")) {
+      this.clearInvalid("sexSelect");
+    }
+
+    if (this.error == true) {
+      this.showInvalid("sexSelect");
     }
   },
   data: function data() {
@@ -2779,6 +2903,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendData: function sendData() {
       this.$emit("change", this.selector);
+    },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
+    checkClassInvalid: function checkClassInvalid(id) {
+      var element = document.getElementById(id);
+      return element.classList.contains("is-invalid");
     }
   }
 });
@@ -2867,13 +3003,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    CareersID: String
+    CareersID: {
+      type: [String, Number],
+      required: false
+    },
+    error: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
   },
   created: function created() {
     if (this.CareersID) {
       this.selector = this.CareersID;
+    }
+  },
+  watch: {
+    error: function error(newVal, oldVal) {
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+
+      if (this.checkClassInvalid("careerSelect")) {
+        this.clearInvalid("careerSelect");
+      }
+
+      if (this.error == true) {
+        this.showInvalid("careerSelect");
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.checkClassInvalid("careerSelect")) {
+      this.clearInvalid("careerSelect");
+    }
+
+    if (this.error == true) {
+      this.showInvalid("careerSelect");
     }
   },
   data: function data() {
@@ -2975,6 +3145,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendData: function sendData() {
       this.$emit("change", this.selector);
+    },
+    showInvalid: function showInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.add("is-invalid");
+    },
+    clearInvalid: function clearInvalid(id) {
+      var element = document.getElementById(id);
+      element.classList.remove("is-invalid");
+    },
+    checkClassInvalid: function checkClassInvalid(id) {
+      var element = document.getElementById(id);
+      return element.classList.contains("is-invalid");
     }
   }
 });
@@ -3608,6 +3790,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3638,9 +3823,14 @@ moment.locale('th');
   },
   data: function data() {
     return {
+      renderSex: true,
       user: null,
       s_id: null,
       head: null,
+      sexError: false,
+      provinceError: false,
+      ageError: false,
+      careerError: false,
       form: {
         s_id: null,
         age: null,
@@ -3695,28 +3885,24 @@ moment.locale('th');
       this.form.province = this.user.province_id;
       this.form.career = this.user.career;
     },
-    showInvalid: function showInvalid(id) {
-      var element = document.getElementById(id);
-      element.classList.add("is-invalid");
-    },
-    clearInvalid: function clearInvalid(id) {
-      var element = document.getElementById(id);
-      element.classList.remove("is-invalid");
-    },
     checkData: function checkData() {
-      this.clearInvalid("SexComponent");
-      this.clearInvalid("SexComponent");
-      this.clearInvalid("SexComponent");
-      this.clearInvalid("SexComponent");
+      this.sexError = false;
+      this.ageError = false;
+      this.careerError = false;
+      this.provinceError = false;
 
       if (this.form.sex == null) {
-        this.showInvalid("SexComponent");
+        this.sexError = true;
         return true;
       } else if (this.form.age == null) {
+        console.log("age Error", this.form.age);
+        this.ageError = true;
         return true;
       } else if (this.form.province == null) {
+        this.provinceError = true;
         return true;
       } else if (this.form.career == null) {
+        this.careerError = true;
         return true;
       }
 
@@ -3745,6 +3931,10 @@ moment.locale('th');
     sex_emit: function sex_emit(sexdata) {
       console.log('sex value', sexdata);
       this.form.sex = sexdata;
+    },
+    age_emit: function age_emit(agedata) {
+      console.log('age value', agedata);
+      this.form.age = agedata;
     },
     submit: function submit() {
       if (this.checkData()) {
@@ -58558,53 +58748,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "justify-content-center" }, [
-      _c("h5", [_vm._v("อายุ")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.selector,
-              expression: "selector"
-            }
-          ],
-          staticClass: "form-control",
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.selector = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
-              function($event) {
-                return _vm.sendData()
-              }
-            ]
+    _c("h5", [_vm._v("อายุ")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selector,
+            expression: "selector"
           }
-        },
-        [
-          _c("option", { attrs: { value: "0", disabled: "" } }, [
-            _vm._v("โปรดเลือกอายุ")
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.data, function(d) {
-            return _c("option", { domProps: { value: d } }, [_vm._v(_vm._s(d))])
-          })
         ],
-        2
-      )
+        staticClass: "form-control",
+        attrs: { id: "selectAge" },
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selector = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            function($event) {
+              return _vm.sendData()
+            }
+          ]
+        }
+      },
+      [
+        _c("option", { attrs: { value: "0", disabled: "" } }, [
+          _vm._v("โปรดเลือกอายุ")
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.data, function(d) {
+          return _c("option", { domProps: { value: d } }, [_vm._v(_vm._s(d))])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "invalid-feedback" }, [
+      _vm._v("\n            จำเป็น\n        ")
     ])
   ])
 }
@@ -59478,56 +59671,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h5", [_vm._v("จังหวัด")]),
-    _vm._v(" "),
-    _vm.provinces
-      ? _c(
-          "select",
-          {
-            directives: [
+  return _vm.provinces
+    ? _c("div", [
+        _c("h5", [_vm._v("จังหวัด")]),
+        _vm._v(" "),
+        _vm.provinces
+          ? _c(
+              "select",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.something,
-                expression: "something"
-              }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.something = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sendData
-              ]
-            }
-          },
-          [
-            _c("option", { attrs: { value: "0", disabled: "" } }, [
-              _vm._v("โปรดเลือกจังหวัด")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.provinces, function(i) {
-              return _c("option", { domProps: { value: i.id } }, [
-                _vm._v(_vm._s(i.name_th))
-              ])
-            })
-          ],
-          2
-        )
-      : _vm._e()
-  ])
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.something,
+                    expression: "something"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "pSelect" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.something = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.sendData
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "0", disabled: "" } }, [
+                  _vm._v("โปรดเลือกจังหวัด")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.provinces, function(i) {
+                  return _c("option", { domProps: { value: i.id } }, [
+                    _vm._v(_vm._s(i.name_th))
+                  ])
+                })
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "invalid-feedback" }, [
+          _vm._v("\n        จำเป็น\n    ")
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59565,7 +59765,8 @@ var render = function() {
             expression: "selector"
           }
         ],
-        staticClass: "form-control",
+        staticClass: "custom-select",
+        attrs: { id: "sexSelect" },
         on: {
           change: [
             function($event) {
@@ -59599,7 +59800,11 @@ var render = function() {
         })
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "invalid-feedback" }, [
+      _vm._v("\n            จำเป็น\n        ")
+    ])
   ])
 }
 var staticRenderFns = []
@@ -59716,6 +59921,7 @@ var render = function() {
           }
         ],
         staticClass: "form-control",
+        attrs: { id: "careerSelect" },
         on: {
           change: [
             function($event) {
@@ -59749,7 +59955,11 @@ var render = function() {
         })
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "invalid-feedback" }, [
+      _vm._v("\n        จำเป็น\n    ")
+    ])
   ])
 }
 var staticRenderFns = []
@@ -60304,24 +60514,29 @@ var render = function() {
               _c("hr"),
               _vm._v(" "),
               _c("div", { staticClass: "row justify-content-center" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-12 col-md-6 mb-2",
-                    attrs: { id: "SexComponent" }
-                  },
-                  [
-                    _c("select-sex", {
-                      attrs: { "sex-i-d": _vm.form.sex },
-                      on: {
-                        change: function($event) {
-                          return _vm.sex_emit($event)
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
+                _vm.renderSex
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-12 col-md-6 mb-2",
+                        attrs: { id: "" }
+                      },
+                      [
+                        _c("select-sex", {
+                          attrs: {
+                            "sex-i-d": _vm.form.sex,
+                            error: _vm.sexError
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.sex_emit($event)
+                            }
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -60331,10 +60546,10 @@ var render = function() {
                   },
                   [
                     _c("select-age", {
-                      attrs: { ageID: _vm.form.age },
+                      attrs: { ageID: _vm.form.age, error: _vm.ageError },
                       on: {
                         change: function($event) {
-                          _vm.form.age = $event
+                          return _vm.age_emit($event)
                         }
                       }
                     })
@@ -60350,7 +60565,10 @@ var render = function() {
                   },
                   [
                     _c("selectProvinces", {
-                      attrs: { "province-i-d": _vm.form.province },
+                      attrs: {
+                        "province-i-d": _vm.form.province,
+                        error: _vm.provinceError
+                      },
                       on: {
                         change: function($event) {
                           return _vm.pronvince_emit($event)
@@ -60369,7 +60587,10 @@ var render = function() {
                   },
                   [
                     _c("selectcareers", {
-                      attrs: { "careers-i-d": _vm.form.career },
+                      attrs: {
+                        "careers-i-d": _vm.form.career,
+                        error: _vm.careerError
+                      },
                       on: {
                         change: function($event) {
                           return _vm.careers_emit($event)

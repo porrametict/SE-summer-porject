@@ -9,23 +9,26 @@
             <div class="row justify-content-center">
 
 
-                <div id="SexComponent" class="col-12 col-md-6 mb-2">
-                    <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"></select-sex>
+                <div id="" class="col-12 col-md-6 mb-2" v-if="renderSex">
+                    <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"
+                                 :error="sexError">
+
+                    </select-sex>
                 </div>
 
 
                 <div id="testComponent2" class="col-12 col-md-6 mb-2">
-                    <select-age @change="form.age = $event" :ageID="form.age"></select-age>
+                    <select-age @change="age_emit($event)" :ageID="form.age" :error="ageError"></select-age>
                 </div>
 
 
                 <div id="ProvinceComponent" class="col-12 col-md-6 mb-2">
-                    <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"></selectProvinces>
+                    <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province" :error="provinceError"></selectProvinces>
                 </div>
 
 
                 <div id="CareersComponent" class="col-12 col-md-6 mb-2">
-                    <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"></selectcareers>
+                    <selectcareers @change="careers_emit($event)" :careers-i-d="form.career" :error="careerError"></selectcareers>
                 </div>
 
             </div>
@@ -95,10 +98,14 @@
         },
 
         data: () => ({
-
+            renderSex : true,
             user : null,
             s_id: null,
             head: null,
+            sexError : false,
+            provinceError : false,
+            ageError : false,
+            careerError : false,
             form: {
                 s_id: null,
                 age: null,
@@ -110,6 +117,7 @@
                 ]
             }
         }),
+
         methods: {
             async getUser () {
                 this.user = await axios.get('api/user/' + this.$userId)
@@ -131,28 +139,27 @@
                 this.form.province =  this.user.province_id
                 this.form.career =  this.user.career
             },
-            showInvalid (id) {
-                let element = document.getElementById(id);
-                element.classList.add("is-invalid");
-            },
-            clearInvalid (id) {
-                let element = document.getElementById(id);
-                element.classList.remove("is-invalid");
-            },
+
             checkData() {
-                this.clearInvalid("SexComponent")
-                this.clearInvalid("SexComponent")
-                this.clearInvalid("SexComponent")
-                this.clearInvalid("SexComponent")
+
+                this.sexError = false
+                this.ageError = false
+                this.careerError = false
+                this.provinceError = false
+
 
                 if (this.form.sex == null) {
-                    this.showInvalid("SexComponent")
+                    this.sexError = true
                     return true;
                 } else if (this.form.age == null) {
+                    console.log("age Error",this.form.age)
+                    this.ageError = true
                     return true;
                 } else if (this.form.province == null) {
+                    this.provinceError = true
                     return true;
                 } else if (this.form.career == null) {
+                    this.careerError = true
                     return true;
                 }
                 if (this.form.ans.length == 0){
@@ -181,9 +188,12 @@
                 console.log('sex value', sexdata)
                 this.form.sex = sexdata
             },
+            age_emit(agedata) {
+                console.log('age value', agedata)
+                this.form.age = agedata
+            },
             submit() {
                 if (this.checkData()) {
-
                     swal('Fail', 'กรุณากรอกข้อมูลให้ครบ', 'error')
                     return;
                 }

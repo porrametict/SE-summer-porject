@@ -1,21 +1,52 @@
 <template>
     <div>
         <h5>อาชีพ</h5>
-        <select v-model="selector" class="form-control" @change="sendData()">
+        <select v-model="selector" class="form-control" @change="sendData()" id="careerSelect">
 
             <option value="0" disabled>โปรดเลือกอาชีพ</option>
             <option v-for="d in data" v-bind:value="d.value">{{d.text}}</option>
         </select>
+        <div class="invalid-feedback">
+            จำเป็น
+        </div>
     </div>
 </template>
 <script>
     export default {
-        props :
-            {CareersID : String}
-        ,
+        props: {
+
+            CareersID: {
+                type: [String,Number],
+                required: false
+            },
+            error: {
+                type: Boolean,
+                required: false,
+                default : false
+            },
+        },
         created () {
             if(this.CareersID){
                 this.selector = this.CareersID
+            }
+        },
+        watch: {
+            error: function(newVal, oldVal) { // watch it
+                console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+                if (this.checkClassInvalid("careerSelect")) {
+                    this.clearInvalid("careerSelect");
+                }
+                if (this.error == true) {
+                    this.showInvalid("careerSelect")
+                }
+            }
+        },
+        mounted() {
+            if (this.checkClassInvalid("careerSelect")) {
+                this.clearInvalid("careerSelect");
+            }
+            if (this.error == true) {
+                this.showInvalid("careerSelect")
             }
         },
         data: () => ({
@@ -56,6 +87,18 @@
         methods: {
             sendData() {
                 this.$emit("change",this.selector)
+            },
+            showInvalid(id) {
+                let element = document.getElementById(id);
+                element.classList.add("is-invalid");
+            },
+            clearInvalid(id) {
+                let element = document.getElementById(id);
+                element.classList.remove("is-invalid");
+            },
+            checkClassInvalid(id) {
+                let element = document.getElementById(id);
+                return element.classList.contains("is-invalid");
             }
         }
     }
