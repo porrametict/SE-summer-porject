@@ -21,28 +21,29 @@
         <hr>
 
 
-        <div class="row mt-1">
-            <div class="col-10">
-                <div class="row flex-nowrap">
-                    <div class="col-8">
-                        <b>รายงานแบบสำรวจความพึงพอใจ</b>
-                    </div>
-                    <div class="col-2 text-center">
-                        <b>สร้างเมื่อ</b>
-                    </div>
-                    <div class="col-2 text-center">
-                        <b>สถานะ</b>
-                    </div>
-                </div>
 
-            </div>
-
-            <div class="col-2 text-center">
-                    <b>คัดลอกลิงก์.</b>
-            </div>
-        </div>
         <div v-if="head">
             <div v-if="head.data.length > 0 " class="overflow-auto">
+                <div class="row mt-1">
+                    <div class="col-10">
+                        <div class="row flex-nowrap">
+                            <div class="col-8">
+                                <b>รายงานแบบสำรวจความพึงพอใจ</b>
+                            </div>
+                            <div class="col-2 text-center">
+                                <b>สร้างเมื่อ</b>
+                            </div>
+                            <div class="col-2 text-center">
+                                <b>สถานะ</b>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2 text-center">
+                        <b>คัดลอกลิงก์.</b>
+                    </div>
+                </div>
                 <div class="card mt-2 card-text card-hover" v-for="i in head.data" >
                     <div class="card-body mx-0 card-text">
                        <div class="row flex-nowrap m-0">
