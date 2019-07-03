@@ -5,8 +5,8 @@
                 <h5 class="texthead">{{head.survey.name}}</h5>
             </div>
 
-            <div class="form-group row mb-0 col-12 col-md-6 justify-content-end">
-                    <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status"></survey-status-select>
+            <div class="form-group row mb-0 col-12 col-md-6 justify-content-md-end justify-content-center ">
+                    <survey-status-select :s_id="$route.params.s_id" :status="head.survey.status" class="pl-5 pl-md-0"></survey-status-select>
             </div>
 
         </div>
@@ -40,10 +40,10 @@
                 <div v-if="QwithRate.length > 0">
                     <ul class="list-group list-group-flush"  :key="i.chart_id" v-for="i in head.question" >
                         <li class="list-group-item">
-                            {{i.text}}
+                            <b class="h5"><i class="fa fa-question-circle mx-2"></i>{{i.text}}</b>
                             <div v-for="qr in QwithRate" :key="qr[0].chart_id">
                                 <div v-if="qr[0].q_id == i.id" class="overflow-auto">
-                                    <BarCharts :id="i.id.toString()" :data="qr" ></BarCharts>
+                                    <PieChart :id="i.id.toString()" :data="qr" ></PieChart>
                                 </div>
                             </div>
 
@@ -129,6 +129,7 @@
     import selectProvinces from '../components/NonDisProvince'
     import selectCareers from '../components/NonDisCareer'
     import BarCharts from '../components/Barchart'
+    import PieChart from '../components/Piechart'
     import SurveyStatusSelect from '../components/SurveyStatusSelect'
 
     export default {
@@ -138,6 +139,7 @@
             selectProvinces,
             selectCareers,
             BarCharts,
+            PieChart,
             SurveyStatusSelect
 
         },

@@ -6,8 +6,14 @@
             </div>
             <div class="col-3 text-center card-text">
                 <button type="button" class="btn btn-pink btn-lg" @click="gotoCreateSurvey">
-                    <i class="mdi mdi-plus mdi-18px mx-0"></i>
-                    สร้างแบบสำรวจ
+                    <div class="d-flex">
+                        <i class="mdi mdi-plus mdi-18px mx-0"></i>
+                        <span class="d-none d-md-block">
+                        สร้างแบบสำรวจ
+                    </span>
+                    </div>
+
+
                 </button>
             </div>
         </div>

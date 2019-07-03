@@ -2730,6 +2730,126 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Piechart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Piechart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Piechart",
+  props: {
+    id: [String, Number],
+    data: Array
+  },
+  data: function data() {
+    return {
+      content_id: null,
+      chart_data: [{
+        values: [],
+        labels: [],
+        type: 'pie'
+      }],
+      chart_layout: {
+        title: {
+          text: '',
+          font: {
+            family: 'Courier New, monospace',
+            size: 24
+          },
+          xref: 'paper',
+          x: 0.05
+        },
+        xaxis: {
+          title: {
+            text: "ระดับความพึงพอใจ",
+            font: {
+              family: 'Courier New, monospace',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'จำนวน(คน)',
+            font: {
+              family: 'Courier New, monospace',
+              size: 18,
+              color: '#7f7f7f'
+            }
+          }
+        }
+      }
+    };
+  },
+  mounted: function () {
+    var _mounted = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              //console.log("barChart mounted",this.data)
+              this.generateChartData();
+              Plotly.newPlot(this.id, this.chart_data);
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function mounted() {
+      return _mounted.apply(this, arguments);
+    }
+
+    return mounted;
+  }(),
+  methods: {
+    generateChartData: function generateChartData() {
+      for (var i = 0; i < this.data.length; i++) {
+        if (this.data[i].rate == 1) {
+          this.data[i].rate = "ปรับปรุง";
+        } else if (this.data[i].rate == 2) {
+          this.data[i].rate = "พอใช้";
+        } else if (this.data[i].rate == 3) {
+          this.data[i].rate = "ปานกลาง";
+        } else if (this.data[i].rate == 4) {
+          this.data[i].rate = "ดี";
+        } else if (this.data[i].rate == 5) {
+          this.data[i].rate = "ดีมาก";
+        }
+
+        this.chart_data[0].labels.push(this.data[i].rate);
+        this.chart_data[0].values.push(this.data[i].count_n);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Provinces.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Provinces.vue?vue&type=script&lang=js& ***!
@@ -2984,8 +3104,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SurveyStatusSelect",
   props: {
-    s_id: String,
-    status: Number
+    s_id: {
+      type: [String, Number],
+      required: false
+    },
+    status: {
+      type: [String, Number],
+      required: false
+    }
   },
   mounted: function mounted() {
     if (this.status == 0) {
@@ -3435,6 +3561,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4061,7 +4193,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NonDisProvince__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/NonDisProvince */ "./resources/js/components/NonDisProvince.vue");
 /* harmony import */ var _components_NonDisCareer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/NonDisCareer */ "./resources/js/components/NonDisCareer.vue");
 /* harmony import */ var _components_Barchart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Barchart */ "./resources/js/components/Barchart.vue");
-/* harmony import */ var _components_SurveyStatusSelect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/SurveyStatusSelect */ "./resources/js/components/SurveyStatusSelect.vue");
+/* harmony import */ var _components_Piechart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Piechart */ "./resources/js/components/Piechart.vue");
+/* harmony import */ var _components_SurveyStatusSelect__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/SurveyStatusSelect */ "./resources/js/components/SurveyStatusSelect.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4199,6 +4332,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     selectSex: _components_NonDisSex__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -4206,7 +4340,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     selectProvinces: _components_NonDisProvince__WEBPACK_IMPORTED_MODULE_3__["default"],
     selectCareers: _components_NonDisCareer__WEBPACK_IMPORTED_MODULE_4__["default"],
     BarCharts: _components_Barchart__WEBPACK_IMPORTED_MODULE_5__["default"],
-    SurveyStatusSelect: _components_SurveyStatusSelect__WEBPACK_IMPORTED_MODULE_6__["default"]
+    PieChart: _components_Piechart__WEBPACK_IMPORTED_MODULE_6__["default"],
+    SurveyStatusSelect: _components_SurveyStatusSelect__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   created: function () {
     var _created = _asyncToGenerator(
@@ -59755,6 +59890,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: _vm.id } })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Provinces.vue?vue&type=template&id=9042e830&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Provinces.vue?vue&type=template&id=9042e830&scoped=true& ***!
@@ -60258,10 +60417,7 @@ var render = function() {
             attrs: { type: "button" },
             on: { click: _vm.gotoCreateSurvey }
           },
-          [
-            _c("i", { staticClass: "mdi mdi-plus mdi-18px mx-0" }),
-            _vm._v("\n                สร้างแบบสำรวจ\n            ")
-          ]
+          [_vm._m(1)]
         )
       ])
     ]),
@@ -60270,7 +60426,7 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _vm.head
       ? _c("div", [
@@ -60364,7 +60520,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._m(2, true)]
+                            [_vm._m(3, true)]
                           )
                         ])
                       ])
@@ -60378,7 +60534,7 @@ var render = function() {
                 {
                   staticClass: "row justify-content-center text-secondary mt-5"
                 },
-                [_vm._m(3)]
+                [_vm._m(4)]
               )
         ])
       : _vm._e(),
@@ -60546,6 +60702,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-9 mt-2 card-text" }, [
       _c("h5", [_vm._v("สร้างแบบสำรวจความพึงพอใจง่ายๆด้วยตัวคุณเอง")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex" }, [
+      _c("i", { staticClass: "mdi mdi-plus mdi-18px mx-0" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "d-none d-md-block" }, [
+        _vm._v("\n                    สร้างแบบสำรวจ\n                ")
+      ])
     ])
   },
   function() {
@@ -60851,10 +61019,11 @@ var render = function() {
             "div",
             {
               staticClass:
-                "form-group row mb-0 col-12 col-md-6 justify-content-end"
+                "form-group row mb-0 col-12 col-md-6 justify-content-md-end justify-content-center "
             },
             [
               _c("survey-status-select", {
+                staticClass: "pl-5 pl-md-0",
                 attrs: {
                   s_id: _vm.$route.params.s_id,
                   status: _vm.head.survey.status
@@ -60971,11 +61140,13 @@ var render = function() {
                               "li",
                               { staticClass: "list-group-item" },
                               [
-                                _vm._v(
-                                  "\n                            " +
-                                    _vm._s(i.text) +
-                                    "\n                            "
-                                ),
+                                _c("b", { staticClass: "h5" }, [
+                                  _c("i", {
+                                    staticClass: "fa fa-question-circle mx-2"
+                                  }),
+                                  _vm._v(_vm._s(i.text))
+                                ]),
+                                _vm._v(" "),
                                 _vm._l(_vm.QwithRate, function(qr) {
                                   return _c("div", { key: qr[0].chart_id }, [
                                     qr[0].q_id == i.id
@@ -60983,7 +61154,7 @@ var render = function() {
                                           "div",
                                           { staticClass: "overflow-auto" },
                                           [
-                                            _c("BarCharts", {
+                                            _c("PieChart", {
                                               attrs: {
                                                 id: i.id.toString(),
                                                 data: qr
@@ -76787,6 +76958,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NonDisSex_vue_vue_type_template_id_31cf65ca___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NonDisSex_vue_vue_type_template_id_31cf65ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Piechart.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Piechart.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true& */ "./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true&");
+/* harmony import */ var _Piechart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Piechart.vue?vue&type=script&lang=js& */ "./resources/js/components/Piechart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Piechart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "48ef1a3d",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Piechart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Piechart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/Piechart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Piechart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Piechart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Piechart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Piechart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Piechart.vue?vue&type=template&id=48ef1a3d&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Piechart_vue_vue_type_template_id_48ef1a3d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

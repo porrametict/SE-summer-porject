@@ -16,10 +16,18 @@
 
     export default {
         name: "SurveyStatusSelect",
-        props :
-            {s_id : String,
-            status : Number}
-        ,
+        props: {
+
+            s_id: {
+                type: [String,Number],
+                required: false
+            },
+            status: {
+                type: [String,Number],
+                required: false,
+            },
+        },
+
         mounted () {
             if(this.status == 0)
           {

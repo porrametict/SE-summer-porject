@@ -57,7 +57,11 @@ class RepeatsController extends Controller
       {
           Comment::create([
               's_id' => $request -> get('s_id'),
-              'text' => $request -> get('comment')
+              'text' => $request -> get('comment'),
+              'age' => $request -> get('age'),
+              'sex' => $request -> get('sex'),
+              'career' => $request -> get('career'),
+              'province' => $request -> get('province'),
           ]);
       }
 
