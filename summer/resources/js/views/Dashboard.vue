@@ -13,7 +13,6 @@
                     </span>
                     </div>
 
-
                 </button>
             </div>
         </div>
@@ -26,14 +25,14 @@
             <div v-if="head.data.length > 0">
                 <div class="row mt-1">
                     <div class="col-10 ">
-                        <div class="row flex-nowrap">
-                            <div class="col-8">
+                        <div class="row ">
+                            <div class="col-12 col-md-8 text-center">
                                 <b>รายงานแบบสำรวจความพึงพอใจ</b>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col col-md-2 text-center">
                                 <b>สร้างเมื่อ</b>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col col-md-2 text-center">
                                 <b>สถานะ</b>
                             </div>
                         </div>
@@ -49,17 +48,18 @@
                        <div class="row flex-nowrap m-0">
                            <div class="col-10" @click="gotoReport(i.id)">
                                <div class="row">
-                                   <div class="col-8">
+                                   <div class="col-12 col-md-8">
                                        <p class="card-text">
                                            <i class="mdi mdi-file-document mdi-16px mx-2"></i>
                                            {{i.name}}
                                        </p>
                                    </div>
-                                   <div class="col-2 text-center card-text">
+
+                                   <div class="col col-md-2 text-center card-text">
                                        {{formatDate(i.created_at)}}
                                    </div>
 
-                                   <div class="col-2 text-center card-text">
+                                   <div class="col col-md-2 text-center card-text">
                                        <span v-if="i.status == 1" class="text-success text-center">เปิด</span>
                                        <span v-else class="text-danger text-center">ปิด</span>
                                    </div>

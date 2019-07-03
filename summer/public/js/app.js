@@ -60283,6 +60283,10 @@ var render = function() {
       _vm._l(_vm.questions, function(q, index) {
         return _c("div", [
           _c("div", { staticClass: "d-flex mt-2 col-12" }, [
+            _c("div", { staticClass: "h4 m-1 mx-2" }, [
+              _vm._v(_vm._s(index + 1) + ".")
+            ]),
+            _vm._v(" "),
             _c("input", {
               directives: [
                 {
@@ -60444,24 +60448,29 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col-8" }, [
-                                    _c("p", { staticClass: "card-text" }, [
-                                      _c("i", {
-                                        staticClass:
-                                          "mdi mdi-file-document mdi-16px mx-2"
-                                      }),
-                                      _vm._v(
-                                        "\n                                       " +
-                                          _vm._s(i.name) +
-                                          "\n                                   "
-                                      )
-                                    ])
-                                  ]),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-12 col-md-8" },
+                                    [
+                                      _c("p", { staticClass: "card-text" }, [
+                                        _c("i", {
+                                          staticClass:
+                                            "mdi mdi-file-document mdi-16px mx-2"
+                                        }),
+                                        _vm._v(
+                                          "\n                                       " +
+                                            _vm._s(i.name) +
+                                            "\n                                   "
+                                        )
+                                      ])
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c(
                                     "div",
                                     {
-                                      staticClass: "col-2 text-center card-text"
+                                      staticClass:
+                                        "col col-md-2 text-center card-text"
                                     },
                                     [
                                       _vm._v(
@@ -60475,7 +60484,8 @@ var render = function() {
                                   _c(
                                     "div",
                                     {
-                                      staticClass: "col-2 text-center card-text"
+                                      staticClass:
+                                        "col col-md-2 text-center card-text"
                                     },
                                     [
                                       i.status == 1
@@ -60714,16 +60724,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-1" }, [
       _c("div", { staticClass: "col-10 " }, [
-        _c("div", { staticClass: "row flex-nowrap" }, [
-          _c("div", { staticClass: "col-8" }, [
+        _c("div", { staticClass: "row " }, [
+          _c("div", { staticClass: "col-12 col-md-8 text-center" }, [
             _c("b", [_vm._v("รายงานแบบสำรวจความพึงพอใจ")])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-2 text-center" }, [
+          _c("div", { staticClass: "col col-md-2 text-center" }, [
             _c("b", [_vm._v("สร้างเมื่อ")])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-2 text-center" }, [
+          _c("div", { staticClass: "col col-md-2 text-center" }, [
             _c("b", [_vm._v("สถานะ")])
           ])
         ])
