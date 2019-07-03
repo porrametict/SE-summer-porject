@@ -16,69 +16,59 @@
 
 
         <div class="row mt-1">
-            <div class="col-6 text-center card-text">
-                <b>รายงานแบบสำรวจความพึงพอใจ</b>
+            <div class="col-10">
+                <div class="row flex-nowrap">
+                    <div class="col-8">
+                        <b>รายงานแบบสำรวจความพึงพอใจ</b>
+                    </div>
+                    <div class="col-2 text-center">
+                        <b>สร้างเมื่อ</b>
+                    </div>
+                    <div class="col-2 text-center">
+                        <b>สถานะ</b>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="col-2 text-center card-text">
-                    <b>สร้างเมื่อ</b>
-            </div>
             <div class="col-2 text-center">
-                <p class="card-text">
-                    <b>สถานะรับการตอบกลับ</b>
-                </p>
+                    <b>คัดลอกลิงก์.</b>
             </div>
-
-            <div class="col-2 text-center card-text">
-                    <b>Link for copy.</b>
-            </div>
-
         </div>
         <div v-if="head">
-            <div v-if="head.data.length > 0 ">
-                <div class="card mt-2 card-text" v-for="i in head.data">
-                    <div class="card-body card-text">
-                        <div class="row card-text" @click="gotoReport(i.id)">
+            <div v-if="head.data.length > 0 " class="overflow-auto">
+                <div class="card mt-2 card-text card-hover" v-for="i in head.data" >
+                    <div class="card-body mx-0 card-text">
+                       <div class="row flex-nowrap m-0">
+                           <div class="col-10" @click="gotoReport(i.id)">
+                               <div class="row">
+                                   <div class="col-8">
+                                       <p class="card-text">
+                                           <i class="mdi mdi-file-document mdi-16px mx-2"></i>
+                                           {{i.name}}
+                                       </p>
+                                   </div>
+                                   <div class="col-2 text-center card-text">
+                                       {{formatDate(i.created_at)}}
+                                   </div>
 
+                                   <div class="col-2 text-center card-text">
+                                       <span v-if="i.status == 1" class="text-success text-center">เปิด</span>
+                                       <span v-else class="text-danger text-center">ปิด</span>
+                                   </div>
+                               </div>
 
-                            <div class="col-2 text-center card-text">
-                                <i class="mdi mdi-file-document mdi-16px"></i>
-                            </div>
-
-                            <div class="col-4 card-text">
-                                <label class="card-title-active">
-                                    {{i.name}}
-                                </label>
-                            </div>
-
-                            <div class="col-2 text-center card-text">
-                                {{formatDate(i.created_at)}}
-<!--                                {{i.dateDiff}} days ago-->
-                            </div>
-
-                            <div class="col-2 text-center card-text">
-                                <span v-if="i.status == 1" class="text-success">เปิด</span>
-                                <span v-else class="text-danger">ปิด</span>
-                            </div>
-
-
-
-                            <div class="col-2 text-center" @click="copylink(i.id)">
-                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Copy link">
-                                    <i class="mdi mdi-content-copy mdi-16px"></i>
+                           </div>
+                           <div class="col-2 text-right " @click="copylink(i.id)">
+                               <span class="" tabindex="0" data-toggle="tooltip" title="Copy link">
+                                    <i class="mdi mdi-content-copy mdi-16px pr-md-4"></i>
                                 </span>
+                           </div>
 
-                                <!--                            <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
-                            </div>
-                        </div>
-                        <!--                        <i class="mdi mdi-file-powerpoint mdi-36px"></i>-->
-                        <!--                        <h5 class="card-title"> {{i.name}}</h5>-->
-                        <!--                        <button class="btn btn-pink" @click="gotoReport(i.id)">ดูรายงาน</button>-->
-                        <!--                        <button class="btn btn-outline-pink" @click="copylink(i.id)">copy link</button>-->
+                       </div>
                     </div>
                 </div>
             </div>
-
 
             <div v-else class="row justify-content-center text-secondary mt-5">
                 <div class="card text-center card-body card-title bg-light">
@@ -137,6 +127,8 @@
 </template>
 
 <script>
+
+
     var moment = require('moment');
     moment.locale('th');
 
@@ -252,6 +244,11 @@
 
 
 <style scoped>
+    .card-hover:hover{
+        -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    }
     html, body {
         background-color: #fff;
         color: #636b6f;

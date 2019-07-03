@@ -11,7 +11,7 @@
 
                 <div id="" class="col-12 col-md-6 mb-2" v-if="renderSex">
                     <select-sex @change="sex_emit($event)" :sex-i-d="form.sex"
-                                 :error="sexError">
+                                :error="sexError">
 
                     </select-sex>
                 </div>
@@ -23,12 +23,14 @@
 
 
                 <div id="ProvinceComponent" class="col-12 col-md-6 mb-2">
-                    <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province" :error="provinceError"></selectProvinces>
+                    <selectProvinces @change="pronvince_emit($event)" :province-i-d="form.province"
+                                     :error="provinceError"></selectProvinces>
                 </div>
 
 
                 <div id="CareersComponent" class="col-12 col-md-6 mb-2">
-                    <selectcareers @change="careers_emit($event)" :careers-i-d="form.career" :error="careerError"></selectcareers>
+                    <selectcareers @change="careers_emit($event)" :careers-i-d="form.career"
+                                   :error="careerError"></selectcareers>
                 </div>
 
             </div>
@@ -49,12 +51,30 @@
             </div>
 
 
-            <button class="btn btn-pink mt-5 col-md-2 offset-md-10" @click="submit">
+            <button class="btn btn-pink mt-lg-5 col-md-2 offset-md-10" @click="submit">
                 Submit
             </button>
         </div>
+
         <div v-else>
-            <h1>แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว</h1>
+            <div class="center-down text-center mt-lg-5">
+                <div class="col-12 mt-lg-5">
+                    <i class="mdi mdi-block-helper mdi-65px mdi-red"></i>
+                </div>
+                <div class="col-12 mt-lg-2">
+                    <h5>ขออภัยค่ะ!</h5>
+                </div>
+                <div class="row mt-lg-2">
+                    <div class="col-2 text-right"><i class="mdi mdi-close-outline mdi-24px mdi-red"></i></div>
+                    <div class="col-8"><hr></div>
+                    <div class="col-2 text-left"><i class="mdi mdi-close-outline mdi-24px mdi-red"></i></div>
+                </div>
+
+
+                <div class="col-12 mt-lg-2">
+                    <h4>แบบสำรวจนี้ปิดรับการตอบกลับเเล้ว</h4>
+                </div>
+            </div>
         </div>
 
 
@@ -76,7 +96,6 @@
     moment.locale('th');
 
 
-
     export default {
         components: {
             selectcareers,
@@ -87,8 +106,8 @@
 
         },
         created() {
-            if(this.$userId) {
-                console.log("user",this.$userId)
+            if (this.$userId) {
+                console.log("user", this.$userId)
                 this.getUser();
             }
             this.s_id = parseInt(this.$route.params.s_id);
@@ -98,15 +117,15 @@
         },
 
         data: () => ({
-            renderSex : true,
-            user : null,
+            renderSex: true,
+            user: null,
             s_id: null,
             head: null,
-            ansError  :false,
-            sexError : false,
-            provinceError : false,
-            ageError : false,
-            careerError : false,
+            ansError: false,
+            sexError: false,
+            provinceError: false,
+            ageError: false,
+            careerError: false,
             form: {
                 s_id: null,
                 age: null,
@@ -114,13 +133,12 @@
                 province: null,
                 career: null,
                 comment: null,
-                ans: [
-                ]
+                ans: []
             }
         }),
 
         methods: {
-            async getUser () {
+            async getUser() {
                 this.user = await axios.get('api/user/' + this.$userId)
                     .then(function (response) {
                         console.log("success", response.data);
@@ -132,13 +150,12 @@
                     });
                 this.fillable()
             },
-             fillable ()
-            {
-                console.log( this.user.province_id, "gg")
-                this.form.age =  moment().diff(this.user.b_date, 'year')
-                this.form.sex =  this.user.sex_id
-                this.form.province =  this.user.province_id
-                this.form.career =  this.user.career
+            fillable() {
+                console.log(this.user.province_id, "gg")
+                this.form.age = moment().diff(this.user.b_date, 'year')
+                this.form.sex = this.user.sex_id
+                this.form.province = this.user.province_id
+                this.form.career = this.user.career
             },
 
             checkData() {
@@ -163,11 +180,11 @@
                     this.careerError = true
                     return true;
                 }
-                if (this.form.ans.length == 0){
+                if (this.form.ans.length == 0) {
                     this.ansError = true
                     return true
                 }
-                for (let i = 0;i < this.form.ans.length;i++) {
+                for (let i = 0; i < this.form.ans.length; i++) {
                     if (this.form.ans[i].rate == 0) {
                         this.ansError = true
                         return true;
@@ -237,3 +254,104 @@
     }
 
 </script>
+
+<style scoped>
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .center-down {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .full-height {
+        height: 100vh;
+    }
+
+    .position-ref {
+        position: relative;
+    }
+
+    .m-b-md {
+        margin-bottom: 30px;
+    }
+
+    .mdi-16px {
+        font-size: 16px;
+    }
+
+    .mdi-18px {
+        font-size: 18px;
+    }
+
+    .mdi-19px {
+        font-size: 19px;
+    }
+
+    .mdi-20px {
+        font-size: 20px;
+    }
+
+    .mdi-24px {
+        font-size: 24px;
+    }
+
+    .mdi-26px {
+        font-size: 30px;
+    }
+
+    .mdi-28px {
+        font-size: 30px;
+    }
+
+    .mdi-30px {
+        font-size: 30px;
+    }
+
+    .mdi-36px {
+        font-size: 36px;
+    }
+
+    .mdi-48px {
+        font-size: 48px;
+    }
+    .mdi-55px {
+        font-size: 55px;
+    }
+    .mdi-58px {
+        font-size: 58px;
+    }
+    .mdi-65px {
+        font-size: 65px;
+    }
+    .mdi-70px {
+        font-size: 70px;
+    }
+
+    .mdi-dark {
+        color: rgba(0, 0, 0, 0.54);
+    }
+
+    .mdi-dark.mdi-inactive {
+        color: rgba(0, 0, 0, 0.26);
+    }
+
+    .mdi-light {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .mdi-light.mdi-inactive {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    .mdi-red {
+        color: rgba(255, 0, 0, 0.8);
+    }
+
+
+</style>
