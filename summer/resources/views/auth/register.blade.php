@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header font-weight-bolder text-white bg-pink">{{ __('Register') }}</div>
+                    <div class="card-header font-weight-bolder text-white bg-pink">{{ __('สมัครสมาชิก') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อ') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -29,7 +29,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('อีเมล์') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -46,7 +46,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -63,7 +63,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -73,7 +73,7 @@
 
                             <div class="form-group row">
                                 <label for="b_date"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('วันเกิด') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="b_date" type="date"
@@ -89,7 +89,7 @@
                             </div>
 
                             <div class=" row form-group{{ $errors->has('career') ? ' has-error' : '' }}">
-                                <label class="col-md-4 col-form-label text-md-right" for="career">Career</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="career">อาชีพ</label>
                                 <div class="col-md-6">
                                     <select class="form-control career" name="career" id="career">
                                         <option value="" disabled selected>เลือกอาชีพ</option>
@@ -146,7 +146,7 @@
 
 
                             <div class=" row form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
-                                <label class="col-md-4 col-form-label text-md-right" for="sex">Sex</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="sex">เพศ</label>
                                 <div class="col-md-6">
                                     <select class="form-control sex" name="sex" id="sex">
                                         <option value="" disabled selected>เลือกเพศ</option>
@@ -175,7 +175,7 @@
 
 
                             <div class=" row form-group{{ $errors->has('province') ? ' has-error' : '' }}">
-                                <label class="col-md-4 col-form-label text-md-right" for="province">Province</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="province">จังหวัด</label>
                                 <div class="col-md-6">
                                     <select class="form-control province" name="province" id="province">
                                         <option value="" disabled>เลือกจังหวัด</option>

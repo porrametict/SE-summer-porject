@@ -184,7 +184,7 @@
 
                                 <div class="form-group row">
                                     <label for="old_password"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่านเก่า') }}</label>
+                                           class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่านเดิม') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="old_password" type="password"

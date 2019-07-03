@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Sex;
 use DB;
 use Hash;
 use mysql_xdevapi\Session;
@@ -37,13 +36,10 @@ class HomeController extends Controller
     public function edit()
     {
         $user=auth()->user();
-        $user->sex;
         $user->province;
-        $sexes=Sex::all();
         $province=DB::table('provinces')->get();
         return view('auth.edituser')
             ->with('user',$user)
-            ->with('sexes',$sexes)
             ->with('provinces',$province);
     }
 

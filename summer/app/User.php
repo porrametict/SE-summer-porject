@@ -38,9 +38,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public  function sex () {
-        return $this->belongsTo(Sex::class);
-    }
 
     public  function  province ()
     {
