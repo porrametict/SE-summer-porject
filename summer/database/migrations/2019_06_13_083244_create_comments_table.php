@@ -20,7 +20,6 @@ class CreateCommentsTable extends Migration
             $table -> integer('age');
             $table -> integer('sex');
             $table -> string('career', 255);
-            $table -> integer('s_id');
             $table -> integer('province');
             $table -> timestamps();
         });
