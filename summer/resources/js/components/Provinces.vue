@@ -44,11 +44,13 @@
             }
         },
         mounted() {
-            if (this.checkClassInvalid("pSelect")) {
-                this.clearInvalid("pSelect");
-            }
-            if (this.error == true) {
-                this.showInvalid("pSelect")
+            if(this.provinces){
+                if (this.checkClassInvalid("pSelect")) {
+                    this.clearInvalid("pSelect");
+                }
+                if (this.error == true) {
+                    this.showInvalid("pSelect")
+                }
             }
         },
         data: () => ({

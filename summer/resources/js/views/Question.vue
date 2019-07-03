@@ -52,7 +52,7 @@
 
 
             <button class="btn btn-pink mt-lg-5 col-md-2 offset-md-10" @click="submit">
-                Submit
+                ส่งคำตอบ
             </button>
         </div>
 
@@ -182,11 +182,13 @@
                 }
                 if (this.form.ans.length == 0) {
                     this.ansError = true
+                    console.log("ans Error",this.form.ans)
                     return true
                 }
                 for (let i = 0; i < this.form.ans.length; i++) {
                     if (this.form.ans[i].rate == 0) {
                         this.ansError = true
+                        console.log("ans index Error",this.form.ans[i])
                         return true;
                     }
 

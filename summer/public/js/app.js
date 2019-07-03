@@ -2263,7 +2263,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return getPage;
     }(),
-    export_select: function export_select() {
+    export_select: function export_select(index, head_from, rate) {
+      this.form.repeats[index + (head_from - 1)].rate = rate;
       this.$emit('change', this.form.repeats);
     },
     showInvalid: function showInvalid(id) {
@@ -2915,12 +2916,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
-    if (this.checkClassInvalid("pSelect")) {
-      this.clearInvalid("pSelect");
-    }
+    if (this.provinces) {
+      if (this.checkClassInvalid("pSelect")) {
+        this.clearInvalid("pSelect");
+      }
 
-    if (this.error == true) {
-      this.showInvalid("pSelect");
+      if (this.error == true) {
+        this.showInvalid("pSelect");
+      }
     }
   },
   data: function data() {
@@ -4089,12 +4092,14 @@ moment.locale('th');
 
       if (this.form.ans.length == 0) {
         this.ansError = true;
+        console.log("ans Error", this.form.ans);
         return true;
       }
 
       for (var i = 0; i < this.form.ans.length; i++) {
         if (this.form.ans[i].rate == 0) {
           this.ansError = true;
+          console.log("ans index Error", this.form.ans[i]);
           return true;
         }
       }
@@ -59078,7 +59083,7 @@ var render = function() {
                       staticClass: "text-center",
                       on: {
                         click: function($event) {
-                          _vm.form.repeats[index + (_vm.head.from - 1)].rate = 5
+                          return _vm.export_select(index, _vm.head.from, 5)
                         }
                       }
                     },
@@ -59103,16 +59108,13 @@ var render = function() {
                           )
                         },
                         on: {
-                          change: [
-                            function($event) {
-                              _vm.$set(
-                                _vm.form.repeats[index + (_vm.head.from - 1)],
-                                "rate",
-                                "5"
-                              )
-                            },
-                            _vm.export_select
-                          ]
+                          change: function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "5"
+                            )
+                          }
                         }
                       })
                     ]
@@ -59124,7 +59126,7 @@ var render = function() {
                       staticClass: "text-center",
                       on: {
                         click: function($event) {
-                          _vm.form.repeats[index + (_vm.head.from - 1)].rate = 4
+                          return _vm.export_select(index, _vm.head.from, 4)
                         }
                       }
                     },
@@ -59149,16 +59151,13 @@ var render = function() {
                           )
                         },
                         on: {
-                          change: [
-                            function($event) {
-                              _vm.$set(
-                                _vm.form.repeats[index + (_vm.head.from - 1)],
-                                "rate",
-                                "4"
-                              )
-                            },
-                            _vm.export_select
-                          ]
+                          change: function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "4"
+                            )
+                          }
                         }
                       })
                     ]
@@ -59170,7 +59169,7 @@ var render = function() {
                       staticClass: "text-center",
                       on: {
                         click: function($event) {
-                          _vm.form.repeats[index + (_vm.head.from - 1)].rate = 3
+                          return _vm.export_select(index, _vm.head.from, 3)
                         }
                       }
                     },
@@ -59195,16 +59194,13 @@ var render = function() {
                           )
                         },
                         on: {
-                          change: [
-                            function($event) {
-                              _vm.$set(
-                                _vm.form.repeats[index + (_vm.head.from - 1)],
-                                "rate",
-                                "3"
-                              )
-                            },
-                            _vm.export_select
-                          ]
+                          change: function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "3"
+                            )
+                          }
                         }
                       })
                     ]
@@ -59216,7 +59212,7 @@ var render = function() {
                       staticClass: "text-center",
                       on: {
                         click: function($event) {
-                          _vm.form.repeats[index + (_vm.head.from - 1)].rate = 2
+                          return _vm.export_select(index, _vm.head.from, 2)
                         }
                       }
                     },
@@ -59241,16 +59237,13 @@ var render = function() {
                           )
                         },
                         on: {
-                          change: [
-                            function($event) {
-                              _vm.$set(
-                                _vm.form.repeats[index + (_vm.head.from - 1)],
-                                "rate",
-                                "2"
-                              )
-                            },
-                            _vm.export_select
-                          ]
+                          change: function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "2"
+                            )
+                          }
                         }
                       })
                     ]
@@ -59262,7 +59255,7 @@ var render = function() {
                       staticClass: "text-center",
                       on: {
                         click: function($event) {
-                          _vm.form.repeats[index + (_vm.head.from - 1)].rate = 1
+                          return _vm.export_select(index, _vm.head.from, 1)
                         }
                       }
                     },
@@ -59287,16 +59280,13 @@ var render = function() {
                           )
                         },
                         on: {
-                          change: [
-                            function($event) {
-                              _vm.$set(
-                                _vm.form.repeats[index + (_vm.head.from - 1)],
-                                "rate",
-                                "1"
-                              )
-                            },
-                            _vm.export_select
-                          ]
+                          change: function($event) {
+                            _vm.$set(
+                              _vm.form.repeats[index + (_vm.head.from - 1)],
+                              "rate",
+                              "1"
+                            )
+                          }
                         }
                       })
                     ]
@@ -60432,7 +60422,6 @@ var render = function() {
           _vm.head.data.length > 0
             ? _c(
                 "div",
-                { staticClass: "overflow-auto" },
                 [
                   _vm._m(2),
                   _vm._v(" "),
@@ -60724,7 +60713,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-1" }, [
-      _c("div", { staticClass: "col-10" }, [
+      _c("div", { staticClass: "col-10 " }, [
         _c("div", { staticClass: "row flex-nowrap" }, [
           _c("div", { staticClass: "col-8" }, [
             _c("b", [_vm._v("รายงานแบบสำรวจความพึงพอใจ")])
@@ -60740,7 +60729,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-2 text-center" }, [
+      _c("div", { staticClass: "col-2 p-0 text-center" }, [
         _c("b", [_vm._v("คัดลอกลิงก์.")])
       ])
     ])
@@ -60941,7 +60930,7 @@ var render = function() {
                   staticClass: "btn btn-pink mt-lg-5 col-md-2 offset-md-10",
                   on: { click: _vm.submit }
                 },
-                [_vm._v("\n            Submit\n        ")]
+                [_vm._v("\n            ส่งคำตอบ\n        ")]
               )
             ])
           : _c("div", [_vm._m(1)])

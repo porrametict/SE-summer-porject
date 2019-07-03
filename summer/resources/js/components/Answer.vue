@@ -15,11 +15,11 @@
                 <tbody>
                 <tr v-for="(i,index) in head.data">
                     <th scope="row" :id="'th_'+index">{{head.data[index].text}}</th>
-                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 5"><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" @change="export_select"></td>
-                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 4"><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 3"><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 2"><input type="radio" value="2" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
-                    <td class="text-center" @click="form.repeats[index + (head.from - 1)].rate = 1"><input type="radio" value="1" v-model="form.repeats[index + (head.from - 1) ].rate" @change="export_select"></td>
+                    <td class="text-center" @click="export_select(index,head.from,5)" ><input type="radio" value="5" v-model="form.repeats[index + (head.from - 1)].rate" ></td>
+                    <td class="text-center" @click="export_select(index,head.from,4)" ><input type="radio" value="4" v-model="form.repeats[index + (head.from - 1) ].rate" ></td>
+                    <td class="text-center" @click="export_select(index,head.from,3)" ><input type="radio" value="3" v-model="form.repeats[index + (head.from - 1) ].rate" ></td>
+                    <td class="text-center" @click="export_select(index,head.from,2)"><input type="radio" value="2" v-model="form.repeats[index + (head.from - 1) ].rate" ></td>
+                    <td class="text-center" @click="export_select(index,head.from,1)" ><input type="radio" value="1" v-model="form.repeats[index + (head.from - 1) ].rate" ></td>
                 </tr>
                 </tbody>
 
@@ -200,7 +200,8 @@
                     });
                 this.create_repeated(this.head.data)
             },
-            export_select() {
+            export_select(index,head_from,rate) {
+                this.form.repeats[index + (head_from - 1)].rate = rate
                 this.$emit('change', this.form.repeats)
             },
             showInvalid(id) {

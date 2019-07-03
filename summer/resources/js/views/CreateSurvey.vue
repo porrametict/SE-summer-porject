@@ -22,7 +22,7 @@
         <div v-for="(q,index) in questions">
 <!--            <div class="col-12">-->
                 <div class="d-flex mt-2 col-12">
-<!--                    <div class="col-1">{{index}}</div>-->
+<!--                    <div class="h4 m-1 mx-2">{{index +1 }}.</div>-->
 
                     <input type="text" class="form-control" :id="'validationQ_'+index" v-model="questions[index].text" placeholder="กรุณากรอกคำถาม" required>
 

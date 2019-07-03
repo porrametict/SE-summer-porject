@@ -23,9 +23,9 @@
 
 
         <div v-if="head">
-            <div v-if="head.data.length > 0 " class="overflow-auto">
+            <div v-if="head.data.length > 0">
                 <div class="row mt-1">
-                    <div class="col-10">
+                    <div class="col-10 ">
                         <div class="row flex-nowrap">
                             <div class="col-8">
                                 <b>รายงานแบบสำรวจความพึงพอใจ</b>
@@ -40,7 +40,7 @@
 
                     </div>
 
-                    <div class="col-2 text-center">
+                    <div class="col-2 p-0 text-center">
                         <b>คัดลอกลิงก์.</b>
                     </div>
                 </div>
