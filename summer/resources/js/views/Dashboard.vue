@@ -239,7 +239,7 @@
             generatePageLink(last_page, u_id) {
                 let arr = []
                 for (let i = 1; i <= last_page; i++) {
-                    let s = "http://127.0.0.1:8000/api/user_survey/" + u_id + "?page=" + i;
+                    let s = axios.default.baseURL +"/api/user_survey/" + u_id + "?page=" + i;
                     arr.push(s)
                 }
                 this.allPage = arr;

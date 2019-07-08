@@ -83,11 +83,6 @@ class HomeController extends Controller
 
         }
 
-
-
-
-
-
         $user->update([
             'name'=>$request->name,
             'email'=>$request->email,

@@ -3486,7 +3486,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/survey', this.form).then(function (response) {
         console.log(response.data.id); //swal("Finished", , "success");
 
-        vm.ShowSuccess("http://127.0.0.1:8000/ans#/ans/" + response.data.id);
+        vm.ShowSuccess(axios.defaults.baseURL + "/ans#/ans/" + response.data.id);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -3858,7 +3858,7 @@ moment.locale('th');
       var arr = [];
 
       for (var i = 1; i <= last_page; i++) {
-        var s = "http://127.0.0.1:8000/api/user_survey/" + u_id + "?page=" + i;
+        var s = axios["default"].baseURL + "/api/user_survey/" + u_id + "?page=" + i;
         arr.push(s);
       }
 
@@ -76452,6 +76452,9 @@ try {
 
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios = axios.create({
+  baseURL: "http://127.0.0.1:8000"
+});
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
